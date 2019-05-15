@@ -1,2 +1,2 @@
-# aylien-apis
+# APIs
 Public interface definitions of Aylien APIs.

@@ -1,0 +1,4238 @@
+swagger: '2.0'
+info:
+  title: AYLIEN News API
+  description: The AYLIEN News API is the most powerful way of sourcing, searching
+    and syndicating analyzed and enriched news content. It is accessed by sending
+    HTTP requests to our server, which returns information to your client.
+  termsOfService: https://newsapi.aylien.com/tos
+  contact:
+    name: API support
+    url: https://aylien.com
+    email: support@aylien.com
+  version: '1.0'
+host: https://api.newsapi.aylien.com
+basePath: "/api/v1"
+schemes:
+- https
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- text/xml
+securityDefinitions:
+  app_id:
+    type: apiKey
+    name: X-AYLIEN-NewsAPI-Application-ID
+    description: X-AYLIEN-NewsAPI-Application-ID is the identifier of your server,
+      script, or program with a specific application. This parameter is required if
+      you are accessing APIs without authenticating.
+    in: header
+  app_key:
+    type: apiKey
+    name: X-AYLIEN-NewsAPI-Application-Key
+    description: X-AYLIEN-NewsAPI-Application-Key is the secret key of your server,
+      script, or program with a specific application. This parameter is required if
+      you are accessing APIs without authenticating.
+    in: header
+paths:
+  /stories:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List Stories
+      operationId: listStories
+      description: The stories endpoint is used to return stories based on parameters
+        you set in your query. The News API crawler gathers articles in near real-time
+        and stores information about them, or metadata. Below you can see all of the
+        query parameters, which you can use to narrow down your query.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/story_id"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_published_at_start"
+      - "$ref": "#/parameters/story_published_at_end"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/story_cluster"
+      - "$ref": "#/parameters/story_cluster_algorithm"
+      - "$ref": "#/parameters/story_return"
+      - "$ref": "#/parameters/story_sort_by"
+      - "$ref": "#/parameters/sort_direction"
+      - "$ref": "#/parameters/cursor"
+      - "$ref": "#/parameters/per_page"
+      responses:
+        '200':
+          "$ref": "#/responses/stories"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /related_stories:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List related stories
+      operationId: listRelatedStories
+      description: This endpoint is used for finding semantically similar stories
+        based on the parameters you provide as inputs. For example, if you want to
+        find stories similar to a Tweet or any text extract you input, the related
+        stories endpoint will analyze the entities present and the meaning of the
+        text, and find stories with a similar meaning. The maximum number of related
+        stories returned is 100.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/story_id"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_published_at_start"
+      - "$ref": "#/parameters/story_published_at_end"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/story_cluster"
+      - "$ref": "#/parameters/story_cluster_algorithm"
+      - "$ref": "#/parameters/story_return"
+      - "$ref": "#/parameters/input_story_id"
+      - "$ref": "#/parameters/input_url"
+      - "$ref": "#/parameters/input_title"
+      - "$ref": "#/parameters/input_body"
+      - "$ref": "#/parameters/related_stories_boost_by"
+      - "$ref": "#/parameters/input_language"
+      - "$ref": "#/parameters/per_page_default_3"
+      responses:
+        '200':
+          "$ref": "#/responses/related_stories"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+    post:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List related stories
+      operationId: listRelatedStoriesAsPost
+      description: This endpoint is used for finding semantically similar stories
+        based on the parameters you provide as inputs. For example, if you want to
+        find stories similar to a Tweet or any text extract you input, the related
+        stories endpoint will analyze the entities present and the meaning of the
+        text, and find stories with a similar meaning. The maximum number of related
+        stories returned is 100.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/form_story_id"
+      - "$ref": "#/parameters/form_story_!id"
+      - "$ref": "#/parameters/form_story_title"
+      - "$ref": "#/parameters/form_story_body"
+      - "$ref": "#/parameters/form_story_text"
+      - "$ref": "#/parameters/form_story_language"
+      - "$ref": "#/parameters/form_story_!language"
+      - "$ref": "#/parameters/form_story_published_at_start"
+      - "$ref": "#/parameters/form_story_published_at_end"
+      - "$ref": "#/parameters/form_story_categories_taxonomy"
+      - "$ref": "#/parameters/form_story_categories_confident"
+      - "$ref": "#/parameters/form_story_categories_id"
+      - "$ref": "#/parameters/form_story_!categories_id"
+      - "$ref": "#/parameters/form_story_categories_level"
+      - "$ref": "#/parameters/form_story_!categories_level"
+      - "$ref": "#/parameters/form_story_entities_title_text"
+      - "$ref": "#/parameters/form_story_!entities_title_text"
+      - "$ref": "#/parameters/form_story_entities_title_type"
+      - "$ref": "#/parameters/form_story_!entities_title_type"
+      - "$ref": "#/parameters/form_story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/form_story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/form_story_entities_body_text"
+      - "$ref": "#/parameters/form_story_!entities_body_text"
+      - "$ref": "#/parameters/form_story_entities_body_type"
+      - "$ref": "#/parameters/form_story_!entities_body_type"
+      - "$ref": "#/parameters/form_story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/form_story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/form_story_sentiment_title_polarity"
+      - "$ref": "#/parameters/form_story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/form_story_sentiment_body_polarity"
+      - "$ref": "#/parameters/form_story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/form_story_media_images_count_min"
+      - "$ref": "#/parameters/form_story_media_images_count_max"
+      - "$ref": "#/parameters/form_story_media_images_width_min"
+      - "$ref": "#/parameters/form_story_media_images_width_max"
+      - "$ref": "#/parameters/form_story_media_images_height_min"
+      - "$ref": "#/parameters/form_story_media_images_height_max"
+      - "$ref": "#/parameters/form_story_media_images_content_length_min"
+      - "$ref": "#/parameters/form_story_media_images_content_length_max"
+      - "$ref": "#/parameters/form_story_media_images_format"
+      - "$ref": "#/parameters/form_story_!media_images_format"
+      - "$ref": "#/parameters/form_story_media_videos_count_min"
+      - "$ref": "#/parameters/form_story_media_videos_count_max"
+      - "$ref": "#/parameters/form_story_author_id"
+      - "$ref": "#/parameters/form_story_!author_id"
+      - "$ref": "#/parameters/form_story_author_name"
+      - "$ref": "#/parameters/form_story_!author_name"
+      - "$ref": "#/parameters/form_story_source_id"
+      - "$ref": "#/parameters/form_story_!source_id"
+      - "$ref": "#/parameters/form_story_source_name"
+      - "$ref": "#/parameters/form_story_!source_name"
+      - "$ref": "#/parameters/form_story_source_domain"
+      - "$ref": "#/parameters/form_story_!source_domain"
+      - "$ref": "#/parameters/form_story_source_locations_country"
+      - "$ref": "#/parameters/form_story_!source_locations_country"
+      - "$ref": "#/parameters/form_story_source_locations_state"
+      - "$ref": "#/parameters/form_story_!source_locations_state"
+      - "$ref": "#/parameters/form_story_source_locations_city"
+      - "$ref": "#/parameters/form_story_!source_locations_city"
+      - "$ref": "#/parameters/form_story_source_scopes_country"
+      - "$ref": "#/parameters/form_story_!source_scopes_country"
+      - "$ref": "#/parameters/form_story_source_scopes_state"
+      - "$ref": "#/parameters/form_story_!source_scopes_state"
+      - "$ref": "#/parameters/form_story_source_scopes_city"
+      - "$ref": "#/parameters/form_story_!source_scopes_city"
+      - "$ref": "#/parameters/form_story_source_scopes_level"
+      - "$ref": "#/parameters/form_story_!source_scopes_level"
+      - "$ref": "#/parameters/form_story_source_links_in_count_min"
+      - "$ref": "#/parameters/form_story_source_links_in_count_max"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/form_story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/form_story_cluster"
+      - "$ref": "#/parameters/form_story_cluster_algorithm"
+      - "$ref": "#/parameters/form_story_return"
+      - "$ref": "#/parameters/form_input_story_id"
+      - "$ref": "#/parameters/form_input_url"
+      - "$ref": "#/parameters/form_input_title"
+      - "$ref": "#/parameters/form_input_body"
+      - "$ref": "#/parameters/form_related_stories_boost_by"
+      - "$ref": "#/parameters/form_input_language"
+      - "$ref": "#/parameters/form_per_page_default_3"
+      responses:
+        '200':
+          "$ref": "#/responses/related_stories"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /coverages:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List coverages
+      operationId: listCoverages
+      description: The coverages endpoint allows you to understand the reach a document
+        has had. For example, you can track the coverage of a press release or a Tweet
+        based on how many times it has been mentioned in stories.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/story_id"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_published_at_start"
+      - "$ref": "#/parameters/story_published_at_end"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/story_cluster"
+      - "$ref": "#/parameters/story_cluster_algorithm"
+      - "$ref": "#/parameters/story_return"
+      - "$ref": "#/parameters/input_story_id"
+      - "$ref": "#/parameters/input_url"
+      - "$ref": "#/parameters/input_title"
+      - "$ref": "#/parameters/input_body"
+      - "$ref": "#/parameters/coverages_published_at"
+      - "$ref": "#/parameters/input_language"
+      - "$ref": "#/parameters/per_page_default_3"
+      responses:
+        '200':
+          "$ref": "#/responses/coverages"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+    post:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List coverages
+      operationId: listCoveragesAsPost
+      description: The coverages endpoint allows you to understand the reach a document
+        has had. For example, you can track the coverage of a press release or a Tweet
+        based on how many times it has been mentioned in stories.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/form_story_id"
+      - "$ref": "#/parameters/form_story_!id"
+      - "$ref": "#/parameters/form_story_title"
+      - "$ref": "#/parameters/form_story_body"
+      - "$ref": "#/parameters/form_story_text"
+      - "$ref": "#/parameters/form_story_language"
+      - "$ref": "#/parameters/form_story_!language"
+      - "$ref": "#/parameters/form_story_published_at_start"
+      - "$ref": "#/parameters/form_story_published_at_end"
+      - "$ref": "#/parameters/form_story_categories_taxonomy"
+      - "$ref": "#/parameters/form_story_categories_confident"
+      - "$ref": "#/parameters/form_story_categories_id"
+      - "$ref": "#/parameters/form_story_!categories_id"
+      - "$ref": "#/parameters/form_story_categories_level"
+      - "$ref": "#/parameters/form_story_!categories_level"
+      - "$ref": "#/parameters/form_story_entities_title_text"
+      - "$ref": "#/parameters/form_story_!entities_title_text"
+      - "$ref": "#/parameters/form_story_entities_title_type"
+      - "$ref": "#/parameters/form_story_!entities_title_type"
+      - "$ref": "#/parameters/form_story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/form_story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/form_story_entities_body_text"
+      - "$ref": "#/parameters/form_story_!entities_body_text"
+      - "$ref": "#/parameters/form_story_entities_body_type"
+      - "$ref": "#/parameters/form_story_!entities_body_type"
+      - "$ref": "#/parameters/form_story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/form_story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/form_story_sentiment_title_polarity"
+      - "$ref": "#/parameters/form_story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/form_story_sentiment_body_polarity"
+      - "$ref": "#/parameters/form_story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/form_story_media_images_count_min"
+      - "$ref": "#/parameters/form_story_media_images_count_max"
+      - "$ref": "#/parameters/form_story_media_images_width_min"
+      - "$ref": "#/parameters/form_story_media_images_width_max"
+      - "$ref": "#/parameters/form_story_media_images_height_min"
+      - "$ref": "#/parameters/form_story_media_images_height_max"
+      - "$ref": "#/parameters/form_story_media_images_content_length_min"
+      - "$ref": "#/parameters/form_story_media_images_content_length_max"
+      - "$ref": "#/parameters/form_story_media_images_format"
+      - "$ref": "#/parameters/form_story_!media_images_format"
+      - "$ref": "#/parameters/form_story_media_videos_count_min"
+      - "$ref": "#/parameters/form_story_media_videos_count_max"
+      - "$ref": "#/parameters/form_story_author_id"
+      - "$ref": "#/parameters/form_story_!author_id"
+      - "$ref": "#/parameters/form_story_author_name"
+      - "$ref": "#/parameters/form_story_!author_name"
+      - "$ref": "#/parameters/form_story_source_id"
+      - "$ref": "#/parameters/form_story_!source_id"
+      - "$ref": "#/parameters/form_story_source_name"
+      - "$ref": "#/parameters/form_story_!source_name"
+      - "$ref": "#/parameters/form_story_source_domain"
+      - "$ref": "#/parameters/form_story_!source_domain"
+      - "$ref": "#/parameters/form_story_source_locations_country"
+      - "$ref": "#/parameters/form_story_!source_locations_country"
+      - "$ref": "#/parameters/form_story_source_locations_state"
+      - "$ref": "#/parameters/form_story_!source_locations_state"
+      - "$ref": "#/parameters/form_story_source_locations_city"
+      - "$ref": "#/parameters/form_story_!source_locations_city"
+      - "$ref": "#/parameters/form_story_source_scopes_country"
+      - "$ref": "#/parameters/form_story_!source_scopes_country"
+      - "$ref": "#/parameters/form_story_source_scopes_state"
+      - "$ref": "#/parameters/form_story_!source_scopes_state"
+      - "$ref": "#/parameters/form_story_source_scopes_city"
+      - "$ref": "#/parameters/form_story_!source_scopes_city"
+      - "$ref": "#/parameters/form_story_source_scopes_level"
+      - "$ref": "#/parameters/form_story_!source_scopes_level"
+      - "$ref": "#/parameters/form_story_source_links_in_count_min"
+      - "$ref": "#/parameters/form_story_source_links_in_count_max"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/form_story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/form_story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/form_story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/form_story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/form_story_cluster"
+      - "$ref": "#/parameters/form_story_cluster_algorithm"
+      - "$ref": "#/parameters/form_story_return"
+      - "$ref": "#/parameters/form_input_story_id"
+      - "$ref": "#/parameters/form_input_url"
+      - "$ref": "#/parameters/form_input_title"
+      - "$ref": "#/parameters/form_input_body"
+      - "$ref": "#/parameters/form_coverages_published_at"
+      - "$ref": "#/parameters/form_input_language"
+      - "$ref": "#/parameters/form_per_page_default_3"
+      responses:
+        '200':
+          "$ref": "#/responses/coverages"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /autocompletes:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List autocompletes
+      operationId: listAutocompletes
+      description: The autocompletes endpoint a string of characters provided to it,
+        and then returns suggested terms that are the most likely full words or strings.
+        The terms returned by the News API are based on parameters the type parameters
+        you can see below. For example, if you provide the autocompletes endpoint
+        with the term `New York C` and select the type `dbpedia_resources`, the API
+        will return links to the DBpedia resources `New_York_City`, `New_York_City_Subway`,
+        `New_York_City_Police_Department`, and so on.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/autocompletes_type"
+      - "$ref": "#/parameters/autocompletes_term"
+      - "$ref": "#/parameters/autocompletes_language"
+      - "$ref": "#/parameters/per_page_default_3"
+      responses:
+        '200':
+          "$ref": "#/responses/autocompletes"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /time_series:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List time series
+      operationId: listTimeSeries
+      description: The time series endpoint allows you to track information contained
+        in stories over time. This information can be anything from mentions of a
+        topic or entities, sentiment about a topic, or the volume of stories published
+        by a source, to name but a few. The full list of parameters is given below.
+        Using the [Date Math Syntax](http://docs.aylien.com/newsapi/common-workflows#working-with-dates),
+        you can easily set your query to return information from any time period,
+        from the current point in time to when the News API started collecting stories.
+        The returned information can be rounded to a time also specified by you, for
+        example by setting the results into hourly, daily, or weekly data points.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/story_id"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/time_series_published_at_start"
+      - "$ref": "#/parameters/time_series_published_at_end"
+      - "$ref": "#/parameters/time_series_period"
+      responses:
+        '200':
+          "$ref": "#/responses/time_series"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /trends:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List trends
+      operationId: listTrends
+      description: The trends endpoint allows you to identify the most-mentioned entities,
+        concepts and keywords relevant to your query. For example, this endpoint allows
+        you to set parameters like a time period, a subject category, or an entity,
+        and your request will return the most mentioned entities or keywords that
+        are mentioned in relation to your query.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/global_clustering"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_published_at_start"
+      - "$ref": "#/parameters/story_published_at_end"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/trends_field"
+      responses:
+        '200':
+          "$ref": "#/responses/trends"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+  /histograms:
+    get:
+      security:
+      - app_id: []
+      - app_key: []
+      summary: List histograms
+      operationId: listHistograms
+      description: For the numerical metadata that the News API gathers (such as word
+        counts or social shares for example), you can use the histograms endpoint
+        to access and display this information. As this endpoint does not return actual
+        stories, the results you are given will not count towards your story allowance
+        provided by your subscription, so you can effectively query this endpoint
+        free of charge.
+      parameters:
+      - "$ref": "#/parameters/three_scale_app_id"
+      - "$ref": "#/parameters/three_scale_app_key"
+      - "$ref": "#/parameters/story_id"
+      - "$ref": "#/parameters/story_!id"
+      - "$ref": "#/parameters/story_title"
+      - "$ref": "#/parameters/story_body"
+      - "$ref": "#/parameters/story_text"
+      - "$ref": "#/parameters/story_language"
+      - "$ref": "#/parameters/story_!language"
+      - "$ref": "#/parameters/story_published_at_start"
+      - "$ref": "#/parameters/story_published_at_end"
+      - "$ref": "#/parameters/story_categories_taxonomy"
+      - "$ref": "#/parameters/story_categories_confident"
+      - "$ref": "#/parameters/story_categories_id"
+      - "$ref": "#/parameters/story_!categories_id"
+      - "$ref": "#/parameters/story_categories_level"
+      - "$ref": "#/parameters/story_!categories_level"
+      - "$ref": "#/parameters/story_entities_title_text"
+      - "$ref": "#/parameters/story_!entities_title_text"
+      - "$ref": "#/parameters/story_entities_title_type"
+      - "$ref": "#/parameters/story_!entities_title_type"
+      - "$ref": "#/parameters/story_entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_title_links_dbpedia"
+      - "$ref": "#/parameters/story_entities_body_text"
+      - "$ref": "#/parameters/story_!entities_body_text"
+      - "$ref": "#/parameters/story_entities_body_type"
+      - "$ref": "#/parameters/story_!entities_body_type"
+      - "$ref": "#/parameters/story_entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_!entities_body_links_dbpedia"
+      - "$ref": "#/parameters/story_sentiment_title_polarity"
+      - "$ref": "#/parameters/story_!sentiment_title_polarity"
+      - "$ref": "#/parameters/story_sentiment_body_polarity"
+      - "$ref": "#/parameters/story_!sentiment_body_polarity"
+      - "$ref": "#/parameters/story_media_images_count_min"
+      - "$ref": "#/parameters/story_media_images_count_max"
+      - "$ref": "#/parameters/story_media_images_width_min"
+      - "$ref": "#/parameters/story_media_images_width_max"
+      - "$ref": "#/parameters/story_media_images_height_min"
+      - "$ref": "#/parameters/story_media_images_height_max"
+      - "$ref": "#/parameters/story_media_images_content_length_min"
+      - "$ref": "#/parameters/story_media_images_content_length_max"
+      - "$ref": "#/parameters/story_media_images_format"
+      - "$ref": "#/parameters/story_!media_images_format"
+      - "$ref": "#/parameters/story_media_videos_count_min"
+      - "$ref": "#/parameters/story_media_videos_count_max"
+      - "$ref": "#/parameters/story_author_id"
+      - "$ref": "#/parameters/story_!author_id"
+      - "$ref": "#/parameters/story_author_name"
+      - "$ref": "#/parameters/story_!author_name"
+      - "$ref": "#/parameters/story_source_id"
+      - "$ref": "#/parameters/story_!source_id"
+      - "$ref": "#/parameters/story_source_name"
+      - "$ref": "#/parameters/story_!source_name"
+      - "$ref": "#/parameters/story_source_domain"
+      - "$ref": "#/parameters/story_!source_domain"
+      - "$ref": "#/parameters/story_source_locations_country"
+      - "$ref": "#/parameters/story_!source_locations_country"
+      - "$ref": "#/parameters/story_source_locations_state"
+      - "$ref": "#/parameters/story_!source_locations_state"
+      - "$ref": "#/parameters/story_source_locations_city"
+      - "$ref": "#/parameters/story_!source_locations_city"
+      - "$ref": "#/parameters/story_source_scopes_country"
+      - "$ref": "#/parameters/story_!source_scopes_country"
+      - "$ref": "#/parameters/story_source_scopes_state"
+      - "$ref": "#/parameters/story_!source_scopes_state"
+      - "$ref": "#/parameters/story_source_scopes_city"
+      - "$ref": "#/parameters/story_!source_scopes_city"
+      - "$ref": "#/parameters/story_source_scopes_level"
+      - "$ref": "#/parameters/story_!source_scopes_level"
+      - "$ref": "#/parameters/story_source_links_in_count_min"
+      - "$ref": "#/parameters/story_source_links_in_count_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_min"
+      - "$ref": "#/parameters/story_source_rankings_alexa_rank_max"
+      - "$ref": "#/parameters/story_source_rankings_alexa_country"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_min"
+      - "$ref": "#/parameters/story_social_shares_count_facebook_max"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_min"
+      - "$ref": "#/parameters/story_social_shares_count_google_plus_max"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_min"
+      - "$ref": "#/parameters/story_social_shares_count_linkedin_max"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_min"
+      - "$ref": "#/parameters/story_social_shares_count_reddit_max"
+      - "$ref": "#/parameters/histograms_interval_start"
+      - "$ref": "#/parameters/histograms_interval_end"
+      - "$ref": "#/parameters/histograms_interval_width"
+      - "$ref": "#/parameters/histograms_interval_field"
+      responses:
+        '200':
+          "$ref": "#/responses/histograms"
+        '401':
+          "$ref": "#/responses/error401_Unauthorized"
+        '404':
+          "$ref": "#/responses/error404_NotFound"
+        '422':
+          "$ref": "#/responses/error422_UnprocessableEntity"
+        '429':
+          "$ref": "#/responses/error429_TooManyRequests"
+        '500':
+          "$ref": "#/responses/error500_InternalServerError"
+parameters:
+  three_scale_app_id:
+    name: X-AYLIEN-NewsAPI-Application-ID
+    description: Your access API ID
+    type: string
+    in: header
+    x-data-threescale-name: app_ids
+    required: true
+  three_scale_app_key:
+    name: X-AYLIEN-NewsAPI-Application-Key
+    description: Your access API Key
+    type: string
+    in: header
+    x-data-threescale-name: app_keys
+    required: true
+  form_story_id:
+    name: id[]
+    in: formData
+    description: This parameter is used for finding stories by story id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  story_id:
+    name: id[]
+    in: query
+    description: This parameter is used for searching for stories by story id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  story_!id:
+    name: "!id[]"
+    in: query
+    description: This parameter is used for excluding stories by story id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  form_story_!id:
+    name: "!id[]"
+    in: formData
+    description: This parameter is used for excluding stories by story id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  story_title:
+    name: title
+    in: query
+    description: This parameter is used for finding stories whose title contains a
+      specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  form_story_title:
+    name: title
+    in: formData
+    description: This parameter is used for finding stories whose title contains a
+      specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  story_body:
+    name: body
+    in: query
+    description: This parameter is used for finding stories whose body contains a
+      specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  form_story_body:
+    name: body
+    in: formData
+    description: This parameter is used for finding stories whose body contains a
+      specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  story_text:
+    name: text
+    in: query
+    description: This parameter is used for finding stories whose title or body contains
+      a specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  form_story_text:
+    name: text
+    in: formData
+    description: This parameter is used for finding stories whose title or body contains
+      a specific keyword. It supports [boolean operators](http://docs.aylien.com/newsapi/common-workflows#boolean-operators).
+    type: string
+  story_language:
+    name: language[]
+    in: query
+    description: This parameter is used for finding stories whose language is the
+      specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+    type: array
+    items:
+      type: string
+      enum:
+      - en
+      - de
+      - fr
+      - it
+      - es
+      - pt
+    collectionFormat: multi
+  form_story_language:
+    name: language[]
+    in: formData
+    description: This parameter is used for finding stories whose language is the
+      specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+    type: array
+    items:
+      type: string
+      enum:
+      - en
+      - de
+      - fr
+      - it
+      - es
+      - pt
+    collectionFormat: multi
+  story_!language:
+    name: "!language[]"
+    in: query
+    description: This parameter is used for excluding stories whose language is the
+      specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+    type: array
+    items:
+      type: string
+      enum:
+      - en
+      - de
+      - fr
+      - it
+      - es
+      - pt
+    collectionFormat: multi
+  form_story_!language:
+    name: "!language[]"
+    in: formData
+    description: This parameter is used for excluding stories whose language is the
+      specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+    type: array
+    items:
+      type: string
+      enum:
+      - en
+      - de
+      - fr
+      - it
+      - es
+      - pt
+    collectionFormat: multi
+  story_published_at_start:
+    name: published_at.start
+    in: query
+    description: This parameter is used for finding stories whose published at time
+      is greater than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    type: string
+  form_story_published_at_start:
+    name: published_at.start
+    in: formData
+    description: This parameter is used for finding stories whose published at time
+      is greater than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    type: string
+  story_published_at_end:
+    name: published_at.end
+    in: query
+    description: This parameter is used for finding stories whose published at time
+      is less than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    type: string
+  form_story_published_at_end:
+    name: published_at.end
+    in: formData
+    description: This parameter is used for finding stories whose published at time
+      is less than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    type: string
+  story_categories_taxonomy:
+    name: categories.taxonomy
+    in: query
+    description: This parameter is used for defining the type of the taxonomy for
+      the rest of the categories queries. You can read more about working with categories
+      [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: string
+    enum:
+    - iab-qag
+    - iptc-subjectcode
+  form_story_categories_taxonomy:
+    name: categories.taxonomy
+    in: formData
+    description: This parameter is used for defining the type of the taxonomy for
+      the rest of the categories queries. You can read more about working with categories
+      [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: string
+    enum:
+    - iab-qag
+    - iptc-subjectcode
+  story_categories_confident:
+    name: categories.confident
+    in: query
+    description: This parameter is used for finding stories whose categories are confident.
+      You can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: boolean
+    default: true
+  form_story_categories_confident:
+    name: categories.confident
+    in: formData
+    description: This parameter is used for finding stories whose categories are confident.
+      You can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: boolean
+    default: true
+  story_categories_id:
+    name: categories.id[]
+    in: query
+    description: This parameter is used for finding stories by categories id. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_categories_id:
+    name: categories.id[]
+    in: formData
+    description: This parameter is used for finding stories by categories id. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!categories_id:
+    name: "!categories.id[]"
+    in: query
+    description: This parameter is used for excluding stories by categories id. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!categories_id:
+    name: "!categories.id[]"
+    in: formData
+    description: This parameter is used for excluding stories by categories id. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_categories_level:
+    name: categories.level[]
+    in: query
+    description: This parameter is used for finding stories by categories level. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: integer
+    collectionFormat: multi
+  form_story_categories_level:
+    name: categories.level[]
+    in: formData
+    description: This parameter is used for finding stories by categories level. You
+      can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: integer
+    collectionFormat: multi
+  story_!categories_level:
+    name: "!categories.level[]"
+    in: query
+    description: This parameter is used for excluding stories by categories level.
+      You can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: integer
+    collectionFormat: multi
+  form_story_!categories_level:
+    name: "!categories.level[]"
+    in: formData
+    description: This parameter is used for excluding stories by categories level.
+      You can read more about working with categories [here](http://docs.aylien.com/newsapi/common-workflows#taxonomies).
+    type: array
+    items:
+      type: integer
+    collectionFormat: multi
+  story_entities_title_text:
+    name: entities.title.text[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      `text` in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_title_text:
+    name: entities.title.text[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      `text` in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_title_text:
+    name: "!entities.title.text[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities `text` in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_title_text:
+    name: "!entities.title.text[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities `text` in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_entities_title_type:
+    name: entities.title.type[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      `type` in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_title_type:
+    name: entities.title.type[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      `type` in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_title_type:
+    name: "!entities.title.type[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities `type` in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_title_type:
+    name: "!entities.title.type[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities `type` in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_entities_title_links_dbpedia:
+    name: entities.title.links.dbpedia[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      dbpedia URL in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_title_links_dbpedia:
+    name: entities.title.links.dbpedia[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      dbpedia URL in story titles. You can read more about working with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_title_links_dbpedia:
+    name: "!entities.title.links.dbpedia[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities dbpedia URL in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_title_links_dbpedia:
+    name: "!entities.title.links.dbpedia[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities dbpedia URL in story titles. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_entities_body_text:
+    name: entities.body.text[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      `text` in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_body_text:
+    name: entities.body.text[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      `text` in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_body_text:
+    name: "!entities.body.text[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities `text` in the body of stories. You can read more about working with
+      entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_body_text:
+    name: "!entities.body.text[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities `text` in the body of stories. You can read more about working with
+      entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_entities_body_type:
+    name: entities.body.type[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      `type` in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_body_type:
+    name: entities.body.type[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      `type` in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_body_type:
+    name: "!entities.body.type[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities `type` in the body of stories. You can read more about working with
+      entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_body_type:
+    name: "!entities.body.type[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities `type` in the body of stories. You can read more about working with
+      entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_entities_body_links_dbpedia:
+    name: entities.body.links.dbpedia[]
+    in: query
+    description: This parameter is used to find stories based on the specified entities
+      dbpedia URL in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_entities_body_links_dbpedia:
+    name: entities.body.links.dbpedia[]
+    in: formData
+    description: This parameter is used to find stories based on the specified entities
+      dbpedia URL in the body of stories. You can read more about working with entities
+      [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!entities_body_links_dbpedia:
+    name: "!entities.body.links.dbpedia[]"
+    in: query
+    description: This parameter is used to exclude stories based on the specified
+      entities dbpedia URL in the body of stories. You can read more about working
+      with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!entities_body_links_dbpedia:
+    name: "!entities.body.links.dbpedia[]"
+    in: formData
+    description: This parameter is used to exclude stories based on the specified
+      entities dbpedia URL in the body of stories. You can read more about working
+      with entities [here](http://docs.aylien.com/newsapi/common-workflows#working-with-entities).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_sentiment_title_polarity:
+    name: sentiment.title.polarity
+    in: query
+    description: This parameter is used for finding stories whose title sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  form_story_sentiment_title_polarity:
+    name: sentiment.title.polarity
+    in: formData
+    description: This parameter is used for finding stories whose title sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  story_!sentiment_title_polarity:
+    name: "!sentiment.title.polarity"
+    in: query
+    description: This parameter is used for excluding stories whose title sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  form_story_!sentiment_title_polarity:
+    name: "!sentiment.title.polarity"
+    in: formData
+    description: This parameter is used for excluding stories whose title sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  story_sentiment_body_polarity:
+    name: sentiment.body.polarity
+    in: query
+    description: This parameter is used for finding stories whose body sentiment is
+      the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  form_story_sentiment_body_polarity:
+    name: sentiment.body.polarity
+    in: formData
+    description: This parameter is used for finding stories whose body sentiment is
+      the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  story_!sentiment_body_polarity:
+    name: "!sentiment.body.polarity"
+    in: query
+    description: This parameter is used for excluding stories whose body sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  form_story_!sentiment_body_polarity:
+    name: "!sentiment.body.polarity"
+    in: formData
+    description: This parameter is used for excluding stories whose body sentiment
+      is the specified value.
+    type: string
+    enum:
+    - positive
+    - neutral
+    - negative
+  story_media_images_count_min:
+    name: media.images.count.min
+    in: query
+    description: This parameter is used for finding stories whose number of images
+      is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_count_min:
+    name: media.images.count.min
+    in: formData
+    description: This parameter is used for finding stories whose number of images
+      is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_count_max:
+    name: media.images.count.max
+    in: query
+    description: This parameter is used for finding stories whose number of images
+      is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_count_max:
+    name: media.images.count.max
+    in: formData
+    description: This parameter is used for finding stories whose number of images
+      is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_width_min:
+    name: media.images.width.min
+    in: query
+    description: This parameter is used for finding stories whose width of images
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_width_min:
+    name: media.images.width.min
+    in: formData
+    description: This parameter is used for finding stories whose width of images
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_width_max:
+    name: media.images.width.max
+    in: query
+    description: This parameter is used for finding stories whose width of images
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_width_max:
+    name: media.images.width.max
+    in: formData
+    description: This parameter is used for finding stories whose width of images
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_height_min:
+    name: media.images.height.min
+    in: query
+    description: This parameter is used for finding stories whose height of images
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_height_min:
+    name: media.images.height.min
+    in: formData
+    description: This parameter is used for finding stories whose height of images
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_height_max:
+    name: media.images.height.max
+    in: query
+    description: This parameter is used for finding stories whose height of images
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_height_max:
+    name: media.images.height.max
+    in: formData
+    description: This parameter is used for finding stories whose height of images
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_content_length_min:
+    name: media.images.content_length.min
+    in: query
+    description: This parameter is used for finding stories whose images content length
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_content_length_min:
+    name: media.images.content_length.min
+    in: formData
+    description: This parameter is used for finding stories whose images content length
+      are greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_content_length_max:
+    name: media.images.content_length.max
+    in: query
+    description: This parameter is used for finding stories whose images content length
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_images_content_length_max:
+    name: media.images.content_length.max
+    in: formData
+    description: This parameter is used for finding stories whose images content length
+      are less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_images_format:
+    name: media.images.format[]
+    in: query
+    description: This parameter is used for finding stories whose images format are
+      the specified value.
+    type: array
+    items:
+      type: string
+      enum:
+      - BMP
+      - GIF
+      - JPEG
+      - PNG
+      - TIFF
+      - PSD
+      - ICO
+      - CUR
+      - WEBP
+      - SVG
+    collectionFormat: multi
+  form_story_media_images_format:
+    name: media.images.format[]
+    in: formData
+    description: This parameter is used for finding stories whose images format are
+      the specified value.
+    type: array
+    items:
+      type: string
+      enum:
+      - BMP
+      - GIF
+      - JPEG
+      - PNG
+      - TIFF
+      - PSD
+      - ICO
+      - CUR
+      - WEBP
+      - SVG
+    collectionFormat: multi
+  story_!media_images_format:
+    name: "!media.images.format[]"
+    in: query
+    description: This parameter is used for excluding stories whose images format
+      are the specified value.
+    type: array
+    items:
+      type: string
+      enum:
+      - BMP
+      - GIF
+      - JPEG
+      - PNG
+      - TIFF
+      - PSD
+      - ICO
+      - CUR
+      - WEBP
+      - SVG
+    collectionFormat: multi
+  form_story_!media_images_format:
+    name: "!media.images.format[]"
+    in: formData
+    description: This parameter is used for excluding stories whose images format
+      are the specified value.
+    type: array
+    items:
+      type: string
+      enum:
+      - BMP
+      - GIF
+      - JPEG
+      - PNG
+      - TIFF
+      - PSD
+      - ICO
+      - CUR
+      - WEBP
+      - SVG
+    collectionFormat: multi
+  story_media_videos_count_min:
+    name: media.videos.count.min
+    in: query
+    description: This parameter is used for finding stories whose number of videos
+      is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_videos_count_min:
+    name: media.videos.count.min
+    in: formData
+    description: This parameter is used for finding stories whose number of videos
+      is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_media_videos_count_max:
+    name: media.videos.count.max
+    in: query
+    description: This parameter is used for finding stories whose number of videos
+      is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_media_videos_count_max:
+    name: media.videos.count.max
+    in: formData
+    description: This parameter is used for finding stories whose number of videos
+      is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_author_id:
+    name: author.id[]
+    in: query
+    description: This parameter is used for finding stories whose author id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  form_story_author_id:
+    name: author.id[]
+    in: formData
+    description: This parameter is used for finding stories whose author id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  story_!author_id:
+    name: "!author.id[]"
+    in: query
+    description: This parameter is used for excluding stories whose author id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  form_story_!author_id:
+    name: "!author.id[]"
+    in: formData
+    description: This parameter is used for excluding stories whose author id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  story_author_name:
+    name: author.name
+    in: query
+    description: This parameter is used for finding stories whose author full name
+      contains the specified value.
+    type: string
+  form_story_author_name:
+    name: author.name
+    in: formData
+    description: This parameter is used for finding stories whose author full name
+      contains the specified value.
+    type: string
+  story_!author_name:
+    name: "!author.name"
+    in: query
+    description: This parameter is used for excluding stories whose author full name
+      contains the specified value.
+    type: string
+  form_story_!author_name:
+    name: "!author.name"
+    in: formData
+    description: This parameter is used for excluding stories whose author full name
+      contains the specified value.
+    type: string
+  story_source_id:
+    name: source.id[]
+    in: query
+    description: This parameter is used for finding stories whose source id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  form_story_source_id:
+    name: source.id[]
+    in: formData
+    description: This parameter is used for finding stories whose source id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  story_!source_id:
+    name: "!source.id[]"
+    in: query
+    description: This parameter is used for excluding stories whose source id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  form_story_!source_id:
+    name: "!source.id[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source id is the
+      specified value.
+    type: array
+    items:
+      type: integer
+      format: int32
+    collectionFormat: multi
+  story_source_name:
+    name: source.name[]
+    in: query
+    description: This parameter is used for finding stories whose source name contains
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_name:
+    name: source.name[]
+    in: formData
+    description: This parameter is used for finding stories whose source name contains
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_name:
+    name: "!source.name[]"
+    in: query
+    description: This parameter is used for excluding stories whose source name contains
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_name:
+    name: "!source.name[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source name contains
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_domain:
+    name: source.domain[]
+    in: query
+    description: This parameter is used for finding stories whose source domain is
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_domain:
+    name: source.domain[]
+    in: formData
+    description: This parameter is used for finding stories whose source domain is
+      the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_domain:
+    name: "!source.domain[]"
+    in: query
+    description: This parameter is used for excluding stories whose source domain
+      is the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_domain:
+    name: "!source.domain[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source domain
+      is the specified value.
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_locations_country:
+    name: source.locations.country[]
+    in: query
+    description: This parameter is used for finding stories whose source country is
+      the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_locations_country:
+    name: source.locations.country[]
+    in: formData
+    description: This parameter is used for finding stories whose source country is
+      the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_locations_country:
+    name: "!source.locations.country[]"
+    in: query
+    description: This parameter is used for excluding stories whose source country
+      is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_locations_country:
+    name: "!source.locations.country[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source country
+      is the specified value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_locations_state:
+    name: source.locations.state[]
+    in: query
+    description: This parameter is used for finding stories whose source state/province
+      is the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_locations_state:
+    name: source.locations.state[]
+    in: formData
+    description: This parameter is used for finding stories whose source state/province
+      is the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_locations_state:
+    name: "!source.locations.state[]"
+    in: query
+    description: This parameter is used for excluding stories whose source state/province
+      is the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_locations_state:
+    name: "!source.locations.state[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source state/province
+      is the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_locations_city:
+    name: source.locations.city[]
+    in: query
+    description: This parameter is used for finding stories whose source city is the
+      specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_locations_city:
+    name: source.locations.city[]
+    in: formData
+    description: This parameter is used for finding stories whose source city is the
+      specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_locations_city:
+    name: "!source.locations.city[]"
+    in: query
+    description: This parameter is used for excluding stories whose source city is
+      the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_locations_city:
+    name: "!source.locations.city[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source city is
+      the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_scopes_country:
+    name: source.scopes.country[]
+    in: query
+    description: This parameter is used for finding stories whose source scopes is
+      the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_scopes_country:
+    name: source.scopes.country[]
+    in: formData
+    description: This parameter is used for finding stories whose source scopes  is
+      the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_scopes_country:
+    name: "!source.scopes.country[]"
+    in: query
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_scopes_country:
+    name: "!source.scopes.country[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source scopes  is
+      the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_scopes_state:
+    name: source.scopes.state[]
+    in: query
+    description: This parameter is used for finding stories whose source scopes is
+      the specified state/province value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_scopes_state:
+    name: source.scopes.state[]
+    in: formData
+    description: This parameter is used for finding stories whose source scopes is
+      the specified state/province value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_scopes_state:
+    name: "!source.scopes.state[]"
+    in: query
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified state/province value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_scopes_state:
+    name: "!source.scopes.state[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified state/province value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_scopes_city:
+    name: source.scopes.city[]
+    in: query
+    description: This parameter is used for finding stories whose source scopes is
+      the specified city value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_scopes_city:
+    name: source.scopes.city[]
+    in: formData
+    description: This parameter is used for finding stories whose source scopes is
+      the specified city value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_!source_scopes_city:
+    name: "!source.scopes.city[]"
+    in: query
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified city value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_!source_scopes_city:
+    name: "!source.scopes.city[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified city value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_source_scopes_level:
+    name: source.scopes.level[]
+    in: query
+    description: This parameter is used for finding stories whose source scopes is
+      the specified level value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+      enum:
+      - international
+      - national
+      - local
+    collectionFormat: multi
+  form_story_source_scopes_level:
+    name: source.scopes.level[]
+    in: formData
+    description: This parameter is used for finding stories whose source scopes  is
+      the specified level value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+      enum:
+      - international
+      - national
+      - local
+    collectionFormat: multi
+  story_!source_scopes_level:
+    name: "!source.scopes.level[]"
+    in: query
+    description: This parameter is used for excluding stories whose source scopes
+      is the specified level value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+      enum:
+      - international
+      - national
+      - local
+    collectionFormat: multi
+  form_story_!source_scopes_level:
+    name: "!source.scopes.level[]"
+    in: formData
+    description: This parameter is used for excluding stories whose source scopes  is
+      the specified level value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-locations)
+      you can find more information about how [to work with locations](http://docs.aylien.com/newsapi/common-workflows#working-with-locations).
+    type: array
+    items:
+      type: string
+      enum:
+      - international
+      - national
+      - local
+    collectionFormat: multi
+  story_source_links_in_count_min:
+    name: source.links_in_count.min
+    in: query
+    description: This parameter is used for finding stories from sources whose Links
+      in count is greater than or equal to the specified value. You can read more
+      about working with Links in count [here](https://http://docs.aylien.com.newsapi/common-workflows/#working-with-links-in-count).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_source_links_in_count_min:
+    name: source.links_in_count.min
+    in: formData
+    description: This parameter is used for finding stories from sources whose Links
+      in count is greater than or equal to the specified value. You can read more
+      about working with Links in count [here](https://http://docs.aylien.com.newsapi/common-workflows/#working-with-links-in-count).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_source_links_in_count_max:
+    name: source.links_in_count.max
+    in: query
+    description: This parameter is used for finding stories from sources whose Links
+      in count is less than or equal to the specified value. You can read more about
+      working with Links in count [here](https://http://docs.aylien.com.newsapi/common-workflows/#working-with-links-in-count).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_source_links_in_count_max:
+    name: source.links_in_count.max
+    in: formData
+    description: This parameter is used for finding stories from sources whose Links
+      in count is less than or equal to the specified value. You can read more about
+      working with Links in count [here](https://http://docs.aylien.com.newsapi/common-workflows/#working-with-links-in-count).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_source_rankings_alexa_rank_min:
+    name: source.rankings.alexa.rank.min
+    in: query
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is greater than or equal to the specified value. You can read more about
+      working with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_source_rankings_alexa_rank_min:
+    name: source.rankings.alexa.rank.min
+    in: formData
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is greater than or equal to the specified value. You can read more about
+      working with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_source_rankings_alexa_rank_max:
+    name: source.rankings.alexa.rank.max
+    in: query
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is less than or equal to the specified value. You can read more about working
+      with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_source_rankings_alexa_rank_max:
+    name: source.rankings.alexa.rank.max
+    in: formData
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is less than or equal to the specified value. You can read more about working
+      with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_source_rankings_alexa_country:
+    name: source.rankings.alexa.country[]
+    in: query
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. You can read more about working with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  form_story_source_rankings_alexa_country:
+    name: source.rankings.alexa.country[]
+    in: formData
+    description: This parameter is used for finding stories from sources whose Alexa
+      rank is in the specified country value. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. You can read more about working with Alexa ranks [here](http://docs.aylien.com/newsapi/common-workflows#alexa-rankings).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  story_social_shares_count_facebook_min:
+    name: social_shares_count.facebook.min
+    in: query
+    description: This parameter is used for finding stories whose Facebook social
+      shares count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_facebook_min:
+    name: social_shares_count.facebook.min
+    in: formData
+    description: This parameter is used for finding stories whose Facebook social
+      shares count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_facebook_max:
+    name: social_shares_count.facebook.max
+    in: query
+    description: This parameter is used for finding stories whose Facebook social
+      shares count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_facebook_max:
+    name: social_shares_count.facebook.max
+    in: formData
+    description: This parameter is used for finding stories whose Facebook social
+      shares count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_google_plus_min:
+    name: social_shares_count.google_plus.min
+    in: query
+    description: This parameter is used for finding stories whose Google+ social shares
+      count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_google_plus_min:
+    name: social_shares_count.google_plus.min
+    in: formData
+    description: This parameter is used for finding stories whose Google+ social shares
+      count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_google_plus_max:
+    name: social_shares_count.google_plus.max
+    in: query
+    description: This parameter is used for finding stories whose Google+ social shares
+      count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_google_plus_max:
+    name: social_shares_count.google_plus.max
+    in: formData
+    description: This parameter is used for finding stories whose Google+ social shares
+      count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_linkedin_min:
+    name: social_shares_count.linkedin.min
+    in: query
+    description: This parameter is used for finding stories whose LinkedIn social
+      shares count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_linkedin_min:
+    name: social_shares_count.linkedin.min
+    in: formData
+    description: This parameter is used for finding stories whose LinkedIn social
+      shares count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_linkedin_max:
+    name: social_shares_count.linkedin.max
+    in: query
+    description: This parameter is used for finding stories whose LinkedIn social
+      shares count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_linkedin_max:
+    name: social_shares_count.linkedin.max
+    in: formData
+    description: This parameter is used for finding stories whose LinkedIn social
+      shares count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_reddit_min:
+    name: social_shares_count.reddit.min
+    in: query
+    description: This parameter is used for finding stories whose Reddit social shares
+      count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_reddit_min:
+    name: social_shares_count.reddit.min
+    in: formData
+    description: This parameter is used for finding stories whose Reddit social shares
+      count is greater than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_social_shares_count_reddit_max:
+    name: social_shares_count.reddit.max
+    in: query
+    description: This parameter is used for finding stories whose Reddit social shares
+      count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  form_story_social_shares_count_reddit_max:
+    name: social_shares_count.reddit.max
+    in: formData
+    description: This parameter is used for finding stories whose Reddit social shares
+      count is less than or equal to the specified value.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  story_cluster:
+    name: cluster
+    in: query
+    type: boolean
+    default: false
+    description: This parameter enables clustering for the returned stories. You can
+      read more about working with clustering [here](http://docs.aylien.com/newsapi/common-workflows#clustering-news-articles).
+  form_story_cluster:
+    name: cluster
+    in: formData
+    type: boolean
+    default: false
+    description: This parameter enables clustering for the returned stories. You can
+      read more about working with clustering [here](http://docs.aylien.com/newsapi/common-workflows#clustering-news-articles).
+  story_cluster_algorithm:
+    name: cluster.algorithm
+    in: query
+    type: string
+    default: lingo
+    description: This parameter is used for specifying the clustering algorithm you
+      wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering)
+      algorithms. You can read more about working with clustering [here](http://docs.aylien.com/newsapi/common-workflows#clustering-news-articles).
+    enum:
+    - stc
+    - lingo
+    - kmeans
+  form_story_cluster_algorithm:
+    name: cluster.algorithm
+    in: formData
+    type: string
+    default: lingo
+    description: This parameter is used for specifying the clustering algorithm you
+      wish to use. It supprts STC, Lingo and [k-means](https://en.wikipedia.org/wiki/K-means_clustering)
+      algorithms. You can read more about working with clustering [here](http://docs.aylien.com/newsapi/common-workflows#clustering-news-articles).
+    enum:
+    - stc
+    - lingo
+    - kmeans
+  story_return:
+    name: return[]
+    in: query
+    description: This parameter is used for specifying return fields.
+    type: array
+    items:
+      type: string
+      enum:
+      - id
+      - title
+      - body
+      - summary
+      - source
+      - author
+      - entities
+      - keywords
+      - hashtags
+      - characters_count
+      - words_count
+      - sentences_count
+      - paragraphs_count
+      - categories
+      - social_shares_count
+      - media
+      - sentiment
+      - language
+      - published_at
+      - links
+    collectionFormat: multi
+  form_story_return:
+    name: return[]
+    in: formData
+    description: This parameter is used for specifying return fields.
+    type: array
+    items:
+      type: string
+      enum:
+      - id
+      - title
+      - body
+      - summary
+      - source
+      - author
+      - entities
+      - keywords
+      - hashtags
+      - characters_count
+      - words_count
+      - sentences_count
+      - paragraphs_count
+      - categories
+      - social_shares_count
+      - media
+      - sentiment
+      - language
+      - published_at
+      - links
+    collectionFormat: multi
+  story_sort_by:
+    name: sort_by
+    in: query
+    type: string
+    description: This parameter is used for changing the order column of the results.
+      You can read about sorting results [here](http://docs.aylien.com/newsapi/common-workflows#sorting-results).
+    default: published_at
+    enum:
+    - relevance
+    - recency
+    - hotness
+    - published_at
+    - social_shares_count
+    - social_shares_count.facebook
+    - social_shares_count.linkedin
+    - social_shares_count.google_plus
+    - social_shares_count.reddit
+    - media.images.count
+    - media.videos.count
+    - source.links_in_count
+    - source.rankings.alexa.rank
+    - source.rankings.alexa.rank.AF
+    - source.rankings.alexa.rank.AX
+    - source.rankings.alexa.rank.AL
+    - source.rankings.alexa.rank.DZ
+    - source.rankings.alexa.rank.AS
+    - source.rankings.alexa.rank.AD
+    - source.rankings.alexa.rank.AO
+    - source.rankings.alexa.rank.AI
+    - source.rankings.alexa.rank.AQ
+    - source.rankings.alexa.rank.AG
+    - source.rankings.alexa.rank.AR
+    - source.rankings.alexa.rank.AM
+    - source.rankings.alexa.rank.AW
+    - source.rankings.alexa.rank.AU
+    - source.rankings.alexa.rank.AT
+    - source.rankings.alexa.rank.AZ
+    - source.rankings.alexa.rank.BS
+    - source.rankings.alexa.rank.BH
+    - source.rankings.alexa.rank.BD
+    - source.rankings.alexa.rank.BB
+    - source.rankings.alexa.rank.BY
+    - source.rankings.alexa.rank.BE
+    - source.rankings.alexa.rank.BZ
+    - source.rankings.alexa.rank.BJ
+    - source.rankings.alexa.rank.BM
+    - source.rankings.alexa.rank.BT
+    - source.rankings.alexa.rank.BO
+    - source.rankings.alexa.rank.BQ
+    - source.rankings.alexa.rank.BA
+    - source.rankings.alexa.rank.BW
+    - source.rankings.alexa.rank.BV
+    - source.rankings.alexa.rank.BR
+    - source.rankings.alexa.rank.IO
+    - source.rankings.alexa.rank.BN
+    - source.rankings.alexa.rank.BG
+    - source.rankings.alexa.rank.BF
+    - source.rankings.alexa.rank.BI
+    - source.rankings.alexa.rank.KH
+    - source.rankings.alexa.rank.CM
+    - source.rankings.alexa.rank.CA
+    - source.rankings.alexa.rank.CV
+    - source.rankings.alexa.rank.KY
+    - source.rankings.alexa.rank.CF
+    - source.rankings.alexa.rank.TD
+    - source.rankings.alexa.rank.CL
+    - source.rankings.alexa.rank.CN
+    - source.rankings.alexa.rank.CX
+    - source.rankings.alexa.rank.CC
+    - source.rankings.alexa.rank.CO
+    - source.rankings.alexa.rank.KM
+    - source.rankings.alexa.rank.CG
+    - source.rankings.alexa.rank.CD
+    - source.rankings.alexa.rank.CK
+    - source.rankings.alexa.rank.CR
+    - source.rankings.alexa.rank.CI
+    - source.rankings.alexa.rank.HR
+    - source.rankings.alexa.rank.CU
+    - source.rankings.alexa.rank.CW
+    - source.rankings.alexa.rank.CY
+    - source.rankings.alexa.rank.CZ
+    - source.rankings.alexa.rank.DK
+    - source.rankings.alexa.rank.DJ
+    - source.rankings.alexa.rank.DM
+    - source.rankings.alexa.rank.DO
+    - source.rankings.alexa.rank.EC
+    - source.rankings.alexa.rank.EG
+    - source.rankings.alexa.rank.SV
+    - source.rankings.alexa.rank.GQ
+    - source.rankings.alexa.rank.ER
+    - source.rankings.alexa.rank.EE
+    - source.rankings.alexa.rank.ET
+    - source.rankings.alexa.rank.FK
+    - source.rankings.alexa.rank.FO
+    - source.rankings.alexa.rank.FJ
+    - source.rankings.alexa.rank.FI
+    - source.rankings.alexa.rank.FR
+    - source.rankings.alexa.rank.GF
+    - source.rankings.alexa.rank.PF
+    - source.rankings.alexa.rank.TF
+    - source.rankings.alexa.rank.GA
+    - source.rankings.alexa.rank.GM
+    - source.rankings.alexa.rank.GE
+    - source.rankings.alexa.rank.DE
+    - source.rankings.alexa.rank.GH
+    - source.rankings.alexa.rank.GI
+    - source.rankings.alexa.rank.GR
+    - source.rankings.alexa.rank.GL
+    - source.rankings.alexa.rank.GD
+    - source.rankings.alexa.rank.GP
+    - source.rankings.alexa.rank.GU
+    - source.rankings.alexa.rank.GT
+    - source.rankings.alexa.rank.GG
+    - source.rankings.alexa.rank.GN
+    - source.rankings.alexa.rank.GW
+    - source.rankings.alexa.rank.GY
+    - source.rankings.alexa.rank.HT
+    - source.rankings.alexa.rank.HM
+    - source.rankings.alexa.rank.VA
+    - source.rankings.alexa.rank.HN
+    - source.rankings.alexa.rank.HK
+    - source.rankings.alexa.rank.HU
+    - source.rankings.alexa.rank.IS
+    - source.rankings.alexa.rank.IN
+    - source.rankings.alexa.rank.ID
+    - source.rankings.alexa.rank.IR
+    - source.rankings.alexa.rank.IQ
+    - source.rankings.alexa.rank.IE
+    - source.rankings.alexa.rank.IM
+    - source.rankings.alexa.rank.IL
+    - source.rankings.alexa.rank.IT
+    - source.rankings.alexa.rank.JM
+    - source.rankings.alexa.rank.JP
+    - source.rankings.alexa.rank.JE
+    - source.rankings.alexa.rank.JO
+    - source.rankings.alexa.rank.KZ
+    - source.rankings.alexa.rank.KE
+    - source.rankings.alexa.rank.KI
+    - source.rankings.alexa.rank.KP
+    - source.rankings.alexa.rank.KR
+    - source.rankings.alexa.rank.KW
+    - source.rankings.alexa.rank.KG
+    - source.rankings.alexa.rank.LA
+    - source.rankings.alexa.rank.LV
+    - source.rankings.alexa.rank.LB
+    - source.rankings.alexa.rank.LS
+    - source.rankings.alexa.rank.LR
+    - source.rankings.alexa.rank.LY
+    - source.rankings.alexa.rank.LI
+    - source.rankings.alexa.rank.LT
+    - source.rankings.alexa.rank.LU
+    - source.rankings.alexa.rank.MO
+    - source.rankings.alexa.rank.MK
+    - source.rankings.alexa.rank.MG
+    - source.rankings.alexa.rank.MW
+    - source.rankings.alexa.rank.MY
+    - source.rankings.alexa.rank.MV
+    - source.rankings.alexa.rank.ML
+    - source.rankings.alexa.rank.MT
+    - source.rankings.alexa.rank.MH
+    - source.rankings.alexa.rank.MQ
+    - source.rankings.alexa.rank.MR
+    - source.rankings.alexa.rank.MU
+    - source.rankings.alexa.rank.YT
+    - source.rankings.alexa.rank.MX
+    - source.rankings.alexa.rank.FM
+    - source.rankings.alexa.rank.MD
+    - source.rankings.alexa.rank.MC
+    - source.rankings.alexa.rank.MN
+    - source.rankings.alexa.rank.ME
+    - source.rankings.alexa.rank.MS
+    - source.rankings.alexa.rank.MA
+    - source.rankings.alexa.rank.MZ
+    - source.rankings.alexa.rank.MM
+    - source.rankings.alexa.rank.NA
+    - source.rankings.alexa.rank.NR
+    - source.rankings.alexa.rank.NP
+    - source.rankings.alexa.rank.NL
+    - source.rankings.alexa.rank.NC
+    - source.rankings.alexa.rank.NZ
+    - source.rankings.alexa.rank.NI
+    - source.rankings.alexa.rank.NE
+    - source.rankings.alexa.rank.NG
+    - source.rankings.alexa.rank.NU
+    - source.rankings.alexa.rank.NF
+    - source.rankings.alexa.rank.MP
+    - source.rankings.alexa.rank.NO
+    - source.rankings.alexa.rank.OM
+    - source.rankings.alexa.rank.PK
+    - source.rankings.alexa.rank.PW
+    - source.rankings.alexa.rank.PS
+    - source.rankings.alexa.rank.PA
+    - source.rankings.alexa.rank.PG
+    - source.rankings.alexa.rank.PY
+    - source.rankings.alexa.rank.PE
+    - source.rankings.alexa.rank.PH
+    - source.rankings.alexa.rank.PN
+    - source.rankings.alexa.rank.PL
+    - source.rankings.alexa.rank.PT
+    - source.rankings.alexa.rank.PR
+    - source.rankings.alexa.rank.QA
+    - source.rankings.alexa.rank.RE
+    - source.rankings.alexa.rank.RO
+    - source.rankings.alexa.rank.RU
+    - source.rankings.alexa.rank.RW
+    - source.rankings.alexa.rank.BL
+    - source.rankings.alexa.rank.SH
+    - source.rankings.alexa.rank.KN
+    - source.rankings.alexa.rank.LC
+    - source.rankings.alexa.rank.MF
+    - source.rankings.alexa.rank.PM
+    - source.rankings.alexa.rank.VC
+    - source.rankings.alexa.rank.WS
+    - source.rankings.alexa.rank.SM
+    - source.rankings.alexa.rank.ST
+    - source.rankings.alexa.rank.SA
+    - source.rankings.alexa.rank.SN
+    - source.rankings.alexa.rank.RS
+    - source.rankings.alexa.rank.SC
+    - source.rankings.alexa.rank.SL
+    - source.rankings.alexa.rank.SG
+    - source.rankings.alexa.rank.SX
+    - source.rankings.alexa.rank.SK
+    - source.rankings.alexa.rank.SI
+    - source.rankings.alexa.rank.SB
+    - source.rankings.alexa.rank.SO
+    - source.rankings.alexa.rank.ZA
+    - source.rankings.alexa.rank.GS
+    - source.rankings.alexa.rank.SS
+    - source.rankings.alexa.rank.ES
+    - source.rankings.alexa.rank.LK
+    - source.rankings.alexa.rank.SD
+    - source.rankings.alexa.rank.SR
+    - source.rankings.alexa.rank.SJ
+    - source.rankings.alexa.rank.SZ
+    - source.rankings.alexa.rank.SE
+    - source.rankings.alexa.rank.CH
+    - source.rankings.alexa.rank.SY
+    - source.rankings.alexa.rank.TW
+    - source.rankings.alexa.rank.TJ
+    - source.rankings.alexa.rank.TZ
+    - source.rankings.alexa.rank.TH
+    - source.rankings.alexa.rank.TL
+    - source.rankings.alexa.rank.TG
+    - source.rankings.alexa.rank.TK
+    - source.rankings.alexa.rank.TO
+    - source.rankings.alexa.rank.TT
+    - source.rankings.alexa.rank.TN
+    - source.rankings.alexa.rank.TR
+    - source.rankings.alexa.rank.TM
+    - source.rankings.alexa.rank.TC
+    - source.rankings.alexa.rank.TV
+    - source.rankings.alexa.rank.UG
+    - source.rankings.alexa.rank.UA
+    - source.rankings.alexa.rank.AE
+    - source.rankings.alexa.rank.GB
+    - source.rankings.alexa.rank.US
+    - source.rankings.alexa.rank.UM
+    - source.rankings.alexa.rank.UY
+    - source.rankings.alexa.rank.UZ
+    - source.rankings.alexa.rank.VU
+    - source.rankings.alexa.rank.VE
+    - source.rankings.alexa.rank.VN
+    - source.rankings.alexa.rank.VG
+    - source.rankings.alexa.rank.VI
+    - source.rankings.alexa.rank.WF
+    - source.rankings.alexa.rank.EH
+    - source.rankings.alexa.rank.YE
+    - source.rankings.alexa.rank.ZM
+    - source.rankings.alexa.rank.ZW
+  time_series_published_at_start:
+    name: published_at.start
+    in: query
+    type: string
+    description: This parameter is used for finding stories whose published at time
+      is less than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    default: NOW-7DAYS/DAY
+  time_series_published_at_end:
+    name: published_at.end
+    in: query
+    type: string
+    description: This parameter is used for finding stories whose published at time
+      is greater than the specified value. [Here](http://docs.aylien.com/newsapi/common-workflows#working-with-dates)
+      you can find more information about how [to work with dates](http://docs.aylien.com/newsapi/common-workflows#working-with-dates).
+    default: NOW/DAY
+  time_series_period:
+    name: period
+    in: query
+    type: string
+    description: The size of each date range is expressed as an interval to be added
+      to the lower bound. It supports Date Math Syntax. Valid options are `+` following
+      an integer number greater than 0 and one of the Date Math keywords. e.g. `+1DAY`,
+      `+2MINUTES` and `+1MONTH`. Here are [Supported keywords](http://docs.aylien.com/newsapi/common-workflows#working-with-dates#date-math).
+    default: "+1DAY"
+  trends_field:
+    name: field
+    required: true
+    in: query
+    description: This parameter is used to specify the trend field.
+    enum:
+    - author.name
+    - source.name
+    - source.domain
+    - keywords
+    - entities.title.text
+    - entities.title.type
+    - entities.title.links.dbpedia
+    - entities.body.text
+    - entities.body.type
+    - entities.body.links.dbpedia
+    - hashtags
+    - categories.id
+    - sentiment.title.polarity
+    - sentiment.body.polarity
+    type: string
+  autocompletes_type:
+    name: type
+    required: true
+    in: query
+    type: string
+    description: This parameter is used for defining the type of autocompletes.
+    enum:
+    - source_names
+    - source_domains
+    - entity_types
+    - dbpedia_resources
+  autocompletes_term:
+    name: term
+    required: true
+    in: query
+    type: string
+    minLength: 1
+    description: This parameter is used for finding autocomplete objects that contain
+      the specified value.
+  autocompletes_language:
+    name: language
+    in: query
+    default: en
+    type: string
+    description: This parameter is used for autocompletes whose language is the specified
+      value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+    enum:
+    - en
+    - de
+    - fr
+    - it
+    - es
+    - pt
+  input_story_id:
+    name: story_id
+    in: query
+    description: A story id
+    type: integer
+    format: int64
+  form_input_story_id:
+    name: story_id
+    in: formData
+    description: A story id
+    type: integer
+    format: int64
+  input_url:
+    name: story_url
+    in: query
+    description: An article or webpage
+    type: string
+  form_input_url:
+    name: story_url
+    in: formData
+    description: An article or webpage
+    type: string
+  input_title:
+    name: story_title
+    in: query
+    description: Title of the article
+    type: string
+  form_input_title:
+    name: story_title
+    in: formData
+    description: Title of the article
+    type: string
+  input_body:
+    name: story_body
+    in: query
+    description: Body of the article
+    type: string
+  form_input_body:
+    name: story_body
+    in: formData
+    description: Body of the article
+    type: string
+  input_language:
+    name: story_language
+    in: query
+    default: auto
+    enum:
+    - auto
+    - en
+    - de
+    - fr
+    - it
+    - es
+    - pt
+    type: string
+    description: This parameter is used for setting the language of the story. It
+      supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+  form_input_language:
+    name: story_language
+    in: formData
+    default: auto
+    enum:
+    - auto
+    - en
+    - de
+    - fr
+    - it
+    - es
+    - pt
+    type: string
+    description: This parameter is used for setting the language of the story. It
+      supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+      language codes.
+  related_stories_boost_by:
+    name: boost_by
+    in: query
+    description: This parameter is used for boosting the result by the specified value.
+    enum:
+    - recency
+    - popularity
+    type: string
+  form_related_stories_boost_by:
+    name: boost_by
+    in: formData
+    description: This parameter is used for boosting the result by the specified value.
+    enum:
+    - recency
+    - popularity
+    type: string
+  coverages_published_at:
+    name: story_published_at
+    type: string
+    format: date-time
+    in: query
+    description: Publish date of the article. If you use a url or title and body of
+      an article for getting coverages, this parameter is required. The format used
+      is a restricted form of the canonical representation of dateTime in the [XML
+      Schema specification (ISO 8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
+  form_coverages_published_at:
+    name: story_published_at
+    type: string
+    format: date-time
+    in: formData
+    description: Publish date of the article. If you use a url or title and body of
+      an article for getting coverages, this parameter is required. The format used
+      is a restricted form of the canonical representation of dateTime in the [XML
+      Schema specification (ISO 8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
+  histograms_interval_start:
+    name: interval.start
+    type: integer
+    format: int32
+    in: query
+    description: This parameter is used for setting the start data point of histogram
+      intervals.
+  histograms_interval_end:
+    name: interval.end
+    type: integer
+    format: int32
+    in: query
+    description: This parameter is used for setting the end data point of histogram
+      intervals.
+  histograms_interval_width:
+    name: interval.width
+    type: integer
+    format: int32
+    in: query
+    description: This parameter is used for setting the width of histogram intervals.
+  histograms_interval_field:
+    name: field
+    type: string
+    enum:
+    - social_shares_count
+    - social_shares_count.facebook
+    - social_shares_count.linkedin
+    - social_shares_count.reddit
+    - social_shares_count.google_plus
+    - characters_count
+    - words_count
+    - sentences_count
+    - paragraphs_count
+    - media.images.count
+    - media.videos.count
+    - source.links_in_count
+    - source.rankings.alexa.rank
+    - source.rankings.alexa.rank.AF
+    - source.rankings.alexa.rank.AX
+    - source.rankings.alexa.rank.AL
+    - source.rankings.alexa.rank.DZ
+    - source.rankings.alexa.rank.AS
+    - source.rankings.alexa.rank.AD
+    - source.rankings.alexa.rank.AO
+    - source.rankings.alexa.rank.AI
+    - source.rankings.alexa.rank.AQ
+    - source.rankings.alexa.rank.AG
+    - source.rankings.alexa.rank.AR
+    - source.rankings.alexa.rank.AM
+    - source.rankings.alexa.rank.AW
+    - source.rankings.alexa.rank.AU
+    - source.rankings.alexa.rank.AT
+    - source.rankings.alexa.rank.AZ
+    - source.rankings.alexa.rank.BS
+    - source.rankings.alexa.rank.BH
+    - source.rankings.alexa.rank.BD
+    - source.rankings.alexa.rank.BB
+    - source.rankings.alexa.rank.BY
+    - source.rankings.alexa.rank.BE
+    - source.rankings.alexa.rank.BZ
+    - source.rankings.alexa.rank.BJ
+    - source.rankings.alexa.rank.BM
+    - source.rankings.alexa.rank.BT
+    - source.rankings.alexa.rank.BO
+    - source.rankings.alexa.rank.BQ
+    - source.rankings.alexa.rank.BA
+    - source.rankings.alexa.rank.BW
+    - source.rankings.alexa.rank.BV
+    - source.rankings.alexa.rank.BR
+    - source.rankings.alexa.rank.IO
+    - source.rankings.alexa.rank.BN
+    - source.rankings.alexa.rank.BG
+    - source.rankings.alexa.rank.BF
+    - source.rankings.alexa.rank.BI
+    - source.rankings.alexa.rank.KH
+    - source.rankings.alexa.rank.CM
+    - source.rankings.alexa.rank.CA
+    - source.rankings.alexa.rank.CV
+    - source.rankings.alexa.rank.KY
+    - source.rankings.alexa.rank.CF
+    - source.rankings.alexa.rank.TD
+    - source.rankings.alexa.rank.CL
+    - source.rankings.alexa.rank.CN
+    - source.rankings.alexa.rank.CX
+    - source.rankings.alexa.rank.CC
+    - source.rankings.alexa.rank.CO
+    - source.rankings.alexa.rank.KM
+    - source.rankings.alexa.rank.CG
+    - source.rankings.alexa.rank.CD
+    - source.rankings.alexa.rank.CK
+    - source.rankings.alexa.rank.CR
+    - source.rankings.alexa.rank.CI
+    - source.rankings.alexa.rank.HR
+    - source.rankings.alexa.rank.CU
+    - source.rankings.alexa.rank.CW
+    - source.rankings.alexa.rank.CY
+    - source.rankings.alexa.rank.CZ
+    - source.rankings.alexa.rank.DK
+    - source.rankings.alexa.rank.DJ
+    - source.rankings.alexa.rank.DM
+    - source.rankings.alexa.rank.DO
+    - source.rankings.alexa.rank.EC
+    - source.rankings.alexa.rank.EG
+    - source.rankings.alexa.rank.SV
+    - source.rankings.alexa.rank.GQ
+    - source.rankings.alexa.rank.ER
+    - source.rankings.alexa.rank.EE
+    - source.rankings.alexa.rank.ET
+    - source.rankings.alexa.rank.FK
+    - source.rankings.alexa.rank.FO
+    - source.rankings.alexa.rank.FJ
+    - source.rankings.alexa.rank.FI
+    - source.rankings.alexa.rank.FR
+    - source.rankings.alexa.rank.GF
+    - source.rankings.alexa.rank.PF
+    - source.rankings.alexa.rank.TF
+    - source.rankings.alexa.rank.GA
+    - source.rankings.alexa.rank.GM
+    - source.rankings.alexa.rank.GE
+    - source.rankings.alexa.rank.DE
+    - source.rankings.alexa.rank.GH
+    - source.rankings.alexa.rank.GI
+    - source.rankings.alexa.rank.GR
+    - source.rankings.alexa.rank.GL
+    - source.rankings.alexa.rank.GD
+    - source.rankings.alexa.rank.GP
+    - source.rankings.alexa.rank.GU
+    - source.rankings.alexa.rank.GT
+    - source.rankings.alexa.rank.GG
+    - source.rankings.alexa.rank.GN
+    - source.rankings.alexa.rank.GW
+    - source.rankings.alexa.rank.GY
+    - source.rankings.alexa.rank.HT
+    - source.rankings.alexa.rank.HM
+    - source.rankings.alexa.rank.VA
+    - source.rankings.alexa.rank.HN
+    - source.rankings.alexa.rank.HK
+    - source.rankings.alexa.rank.HU
+    - source.rankings.alexa.rank.IS
+    - source.rankings.alexa.rank.IN
+    - source.rankings.alexa.rank.ID
+    - source.rankings.alexa.rank.IR
+    - source.rankings.alexa.rank.IQ
+    - source.rankings.alexa.rank.IE
+    - source.rankings.alexa.rank.IM
+    - source.rankings.alexa.rank.IL
+    - source.rankings.alexa.rank.IT
+    - source.rankings.alexa.rank.JM
+    - source.rankings.alexa.rank.JP
+    - source.rankings.alexa.rank.JE
+    - source.rankings.alexa.rank.JO
+    - source.rankings.alexa.rank.KZ
+    - source.rankings.alexa.rank.KE
+    - source.rankings.alexa.rank.KI
+    - source.rankings.alexa.rank.KP
+    - source.rankings.alexa.rank.KR
+    - source.rankings.alexa.rank.KW
+    - source.rankings.alexa.rank.KG
+    - source.rankings.alexa.rank.LA
+    - source.rankings.alexa.rank.LV
+    - source.rankings.alexa.rank.LB
+    - source.rankings.alexa.rank.LS
+    - source.rankings.alexa.rank.LR
+    - source.rankings.alexa.rank.LY
+    - source.rankings.alexa.rank.LI
+    - source.rankings.alexa.rank.LT
+    - source.rankings.alexa.rank.LU
+    - source.rankings.alexa.rank.MO
+    - source.rankings.alexa.rank.MK
+    - source.rankings.alexa.rank.MG
+    - source.rankings.alexa.rank.MW
+    - source.rankings.alexa.rank.MY
+    - source.rankings.alexa.rank.MV
+    - source.rankings.alexa.rank.ML
+    - source.rankings.alexa.rank.MT
+    - source.rankings.alexa.rank.MH
+    - source.rankings.alexa.rank.MQ
+    - source.rankings.alexa.rank.MR
+    - source.rankings.alexa.rank.MU
+    - source.rankings.alexa.rank.YT
+    - source.rankings.alexa.rank.MX
+    - source.rankings.alexa.rank.FM
+    - source.rankings.alexa.rank.MD
+    - source.rankings.alexa.rank.MC
+    - source.rankings.alexa.rank.MN
+    - source.rankings.alexa.rank.ME
+    - source.rankings.alexa.rank.MS
+    - source.rankings.alexa.rank.MA
+    - source.rankings.alexa.rank.MZ
+    - source.rankings.alexa.rank.MM
+    - source.rankings.alexa.rank.NA
+    - source.rankings.alexa.rank.NR
+    - source.rankings.alexa.rank.NP
+    - source.rankings.alexa.rank.NL
+    - source.rankings.alexa.rank.NC
+    - source.rankings.alexa.rank.NZ
+    - source.rankings.alexa.rank.NI
+    - source.rankings.alexa.rank.NE
+    - source.rankings.alexa.rank.NG
+    - source.rankings.alexa.rank.NU
+    - source.rankings.alexa.rank.NF
+    - source.rankings.alexa.rank.MP
+    - source.rankings.alexa.rank.NO
+    - source.rankings.alexa.rank.OM
+    - source.rankings.alexa.rank.PK
+    - source.rankings.alexa.rank.PW
+    - source.rankings.alexa.rank.PS
+    - source.rankings.alexa.rank.PA
+    - source.rankings.alexa.rank.PG
+    - source.rankings.alexa.rank.PY
+    - source.rankings.alexa.rank.PE
+    - source.rankings.alexa.rank.PH
+    - source.rankings.alexa.rank.PN
+    - source.rankings.alexa.rank.PL
+    - source.rankings.alexa.rank.PT
+    - source.rankings.alexa.rank.PR
+    - source.rankings.alexa.rank.QA
+    - source.rankings.alexa.rank.RE
+    - source.rankings.alexa.rank.RO
+    - source.rankings.alexa.rank.RU
+    - source.rankings.alexa.rank.RW
+    - source.rankings.alexa.rank.BL
+    - source.rankings.alexa.rank.SH
+    - source.rankings.alexa.rank.KN
+    - source.rankings.alexa.rank.LC
+    - source.rankings.alexa.rank.MF
+    - source.rankings.alexa.rank.PM
+    - source.rankings.alexa.rank.VC
+    - source.rankings.alexa.rank.WS
+    - source.rankings.alexa.rank.SM
+    - source.rankings.alexa.rank.ST
+    - source.rankings.alexa.rank.SA
+    - source.rankings.alexa.rank.SN
+    - source.rankings.alexa.rank.RS
+    - source.rankings.alexa.rank.SC
+    - source.rankings.alexa.rank.SL
+    - source.rankings.alexa.rank.SG
+    - source.rankings.alexa.rank.SX
+    - source.rankings.alexa.rank.SK
+    - source.rankings.alexa.rank.SI
+    - source.rankings.alexa.rank.SB
+    - source.rankings.alexa.rank.SO
+    - source.rankings.alexa.rank.ZA
+    - source.rankings.alexa.rank.GS
+    - source.rankings.alexa.rank.SS
+    - source.rankings.alexa.rank.ES
+    - source.rankings.alexa.rank.LK
+    - source.rankings.alexa.rank.SD
+    - source.rankings.alexa.rank.SR
+    - source.rankings.alexa.rank.SJ
+    - source.rankings.alexa.rank.SZ
+    - source.rankings.alexa.rank.SE
+    - source.rankings.alexa.rank.CH
+    - source.rankings.alexa.rank.SY
+    - source.rankings.alexa.rank.TW
+    - source.rankings.alexa.rank.TJ
+    - source.rankings.alexa.rank.TZ
+    - source.rankings.alexa.rank.TH
+    - source.rankings.alexa.rank.TL
+    - source.rankings.alexa.rank.TG
+    - source.rankings.alexa.rank.TK
+    - source.rankings.alexa.rank.TO
+    - source.rankings.alexa.rank.TT
+    - source.rankings.alexa.rank.TN
+    - source.rankings.alexa.rank.TR
+    - source.rankings.alexa.rank.TM
+    - source.rankings.alexa.rank.TC
+    - source.rankings.alexa.rank.TV
+    - source.rankings.alexa.rank.UG
+    - source.rankings.alexa.rank.UA
+    - source.rankings.alexa.rank.AE
+    - source.rankings.alexa.rank.GB
+    - source.rankings.alexa.rank.US
+    - source.rankings.alexa.rank.UM
+    - source.rankings.alexa.rank.UY
+    - source.rankings.alexa.rank.UZ
+    - source.rankings.alexa.rank.VU
+    - source.rankings.alexa.rank.VE
+    - source.rankings.alexa.rank.VN
+    - source.rankings.alexa.rank.VG
+    - source.rankings.alexa.rank.VI
+    - source.rankings.alexa.rank.WF
+    - source.rankings.alexa.rank.EH
+    - source.rankings.alexa.rank.YE
+    - source.rankings.alexa.rank.ZM
+    - source.rankings.alexa.rank.ZW
+    default: social_shares_count
+    in: query
+    description: This parameter is used for specifying the y-axis variable for the
+      histogram.
+  sort_direction:
+    name: sort_direction
+    in: query
+    type: string
+    description: This parameter is used for changing the order direction of the result.
+      You can read about sorting results [here](http://docs.aylien.com/newsapi/common-workflows#sorting-results).
+    enum:
+    - asc
+    - desc
+    default: desc
+  cursor:
+    name: cursor
+    in: query
+    description: This parameter is used for finding a specific page. You can read
+      more about pagination of results [here](http://docs.aylien.com/newsapi/common-workflows#pagination-of-results).
+    default: "*"
+    type: string
+  per_page_default_3:
+    name: per_page
+    in: query
+    description: This parameter is used for specifying number of items in each page.
+    minimum: 1
+    maximum: 100
+    default: 3
+    type: integer
+    format: int32
+  form_per_page_default_3:
+    name: per_page
+    in: formData
+    description: This parameter is used for specifying number of items in each page.
+    minimum: 1
+    maximum: 100
+    default: 3
+    type: integer
+    format: int32
+  per_page:
+    name: per_page
+    in: query
+    description: This parameter is used for specifying number of items in each page
+      You can read more about pagination of results [here](http://docs.aylien.com/newsapi/common-workflows#pagination-of-results)
+    minimum: 1
+    maximum: 100
+    default: 10
+    type: integer
+    format: int32
+responses:
+  stories:
+    description: An object including an array of stories
+    schema:
+      "$ref": "#/definitions/Stories"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  related_stories:
+    description: An object including an array of related stories
+    schema:
+      "$ref": "#/definitions/RelatedStories"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  coverages:
+    description: An object including an array of coverages
+    schema:
+      "$ref": "#/definitions/Coverages"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  autocompletes:
+    description: An object including an array of autocompletes
+    schema:
+      "$ref": "#/definitions/Autocompletes"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  time_series:
+    description: An object including an array of time series
+    schema:
+      "$ref": "#/definitions/TimeSeriesList"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  trends:
+    description: An object including an array of trends
+    schema:
+      "$ref": "#/definitions/Trends"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  histograms:
+    description: An object including an array of the histogram intervals
+    schema:
+      "$ref": "#/definitions/Histograms"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  error401_Unauthorized:
+    description: Unauthorized
+    schema:
+      "$ref": "#/definitions/Errors"
+  error404_NotFound:
+    description: Not Found
+    schema:
+      "$ref": "#/definitions/Errors"
+  error422_UnprocessableEntity:
+    description: Unprocessable Entity
+    schema:
+      "$ref": "#/definitions/Errors"
+  error429_TooManyRequests:
+    description: Too Many Requests
+    schema:
+      "$ref": "#/definitions/Errors"
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: The remaining window before the rate limit resets in UTC [epoch
+          seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  error500_InternalServerError:
+    description: Internal Server Error
+    schema:
+      "$ref": "#/definitions/Errors"
+definitions:
+  Story:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ID of the story which is a unique identification
+      title:
+        type: string
+        description: Title of the story
+      body:
+        type: string
+        description: Body of the story
+      summary:
+        "$ref": "#/definitions/Summary"
+        description: The suggested story summary
+      source:
+        "$ref": "#/definitions/Source"
+        description: The story source
+      author:
+        "$ref": "#/definitions/Author"
+        description: The story author
+      entities:
+        "$ref": "#/definitions/Entities"
+        description: Extracted entities from the story title or body
+      keywords:
+        type: array
+        items:
+          type: string
+        description: Extracted keywords mentioned in the story title or body
+      hashtags:
+        type: array
+        items:
+          type: string
+        description: An array of suggested Story hashtags
+      characters_count:
+        type: integer
+        format: int32
+        description: Character count of the story body
+      words_count:
+        type: integer
+        format: int32
+        description: Word count of the story body
+      sentences_count:
+        type: integer
+        format: int32
+        description: Sentence count of the story body
+      paragraphs_count:
+        type: integer
+        format: int32
+        description: Paragraph count of the story body
+      categories:
+        type: array
+        items:
+          "$ref": "#/definitions/Category"
+        description: Suggested categories for the story
+      social_shares_count:
+        "$ref": "#/definitions/ShareCounts"
+        description: Social shares count for the story
+      media:
+        type: array
+        items:
+          "$ref": "#/definitions/Media"
+        description: An array of extracted media such as images and videos
+      sentiment:
+        "$ref": "#/definitions/Sentiments"
+        description: Suggested sentiments for the story title or body
+      language:
+        type: string
+        description: Language of the story
+      published_at:
+        type: string
+        format: date-time
+        description: Published date of the story
+      links:
+        "$ref": "#/definitions/StoryLinks"
+        description: Links which is related to the story
+  StoryCluster:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: A unique identification for the cluster
+      phrases:
+        type: array
+        items:
+          type: string
+        description: Suggested labels for the cluster
+      size:
+        type: integer
+        format: int32
+        description: Size of the cluster
+      stories:
+        type: array
+        items:
+          type: integer
+          format: int64
+        description: Story ids which are in the cluster
+      score:
+        type: number
+        format: double
+        description: The cluster score
+  Sentiment:
+    type: object
+    properties:
+      polarity:
+        type: string
+        description: Polarity of the sentiment
+        enum:
+        - positive
+        - neutral
+        - negative
+      score:
+        type: number
+        format: double
+        description: Polarity score of the sentiment
+        minimum: 0
+        maximum: 1
+  Media:
+    type: object
+    properties:
+      type:
+        type: string
+        description: The type of media
+        enum:
+        - image
+        - video
+      url:
+        type: string
+        description: A URL which points to the media file
+      format:
+        type: string
+        description: The format of media
+        enum:
+        - BMP
+        - GIF
+        - JPEG
+        - PNG
+        - TIFF
+        - PSD
+        - ICO
+        - CUR
+        - WEBP
+        - SVG
+      content_length:
+        type: integer
+        format: int32
+        description: The content length of media
+      width:
+        type: integer
+        format: int32
+        description: The width of media
+      height:
+        type: integer
+        format: int32
+        description: The height of media
+  Source:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: The source id which is a unique value
+      name:
+        type: string
+        description: The source name
+      title:
+        type: string
+        description: The title of the home page URL
+      description:
+        type: string
+        description: A general explanation about the source
+      links_in_count:
+        type: integer
+        format: int32
+        description: The number of websites that link to the source
+      home_page_url:
+        type: string
+        description: The home page URL of the source
+      domain:
+        type: string
+        description: The domain name of the source which is extracted from the source
+          URL
+      logo_url:
+        type: string
+        description: A URL which points to the source logo
+      locations:
+        type: array
+        items:
+          "$ref": "#/definitions/Location"
+        description: The source locations which are tend to be the physical locations
+          of the source, e.g. BBC headquarter is located in London.
+      scopes:
+        type: array
+        items:
+          "$ref": "#/definitions/Scope"
+        description: The source scopes which is tend to be scope locations of the
+          source, e.g. BBC scopes is international.
+      rankings:
+        "$ref": "#/definitions/Rankings"
+        description: The web rankings of the source
+  Rankings:
+    type: object
+    properties:
+      alexa:
+        type: array
+        items:
+          "$ref": "#/definitions/Rank"
+  Rank:
+    type: object
+    properties:
+      rank:
+        type: integer
+        format: int32
+        description: The rank
+      country:
+        type: string
+        description: The country code which the rank is in it
+      fetched_at:
+        type: string
+        format: date-time
+        description: The fetched date of the rank
+  Author:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: A unique identification for the author
+      name:
+        type: string
+        description: The extracted author full name
+      avatar_url:
+        type: string
+        description: A URL which points to the author avatar
+  Summary:
+    type: object
+    properties:
+      sentences:
+        type: array
+        items:
+          type: string
+          description: A summary sentence
+        description: An array of the suggested summary sentences
+  Entity:
+    type: object
+    properties:
+      text:
+        type: string
+        description: The entity text
+      score:
+        type: number
+        format: double
+        description: The entity score
+        maximum: 1
+        minimum: 0
+      types:
+        type: array
+        items:
+          type: string
+          description: A dbpedia type
+        description: An array of the dbpedia types
+      links:
+        "$ref": "#/definitions/EntityLinks"
+        description: Related links to the entity
+      indices:
+        type: array
+        items:
+          type: array
+          items:
+            type: integer
+            format: int32
+        description: The indices of the entity text
+  ShareCount:
+    type: object
+    properties:
+      count:
+        type: integer
+        format: int32
+        description: The number of shares
+      fetched_at:
+        type: string
+        format: date-time
+        description: The fetched date of the shares
+  Category:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The ID of the category
+      taxonomy:
+        type: string
+        description: The taxonomy of the category
+        enum:
+        - iab-qag
+        - iptc-subjectcode
+      level:
+        type: integer
+        format: int32
+        description: The level of the category
+      score:
+        type: number
+        format: double
+        description: The score of the category
+      confident:
+        type: boolean
+        description: It defines whether the extracted category is confident or not
+      links:
+        "$ref": "#/definitions/CategoryLinks"
+        description: Related links for the category
+  Location:
+    type: object
+    properties:
+      country:
+        type: string
+        description: The country code of the location. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+          country codes.
+      state:
+        type: string
+        description: The state of the location
+      city:
+        type: string
+        description: The city of the location
+  Scope:
+    type: object
+    properties:
+      country:
+        type: string
+        description: The source scope by country code. It supports [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+          country codes.
+      state:
+        type: string
+        description: The scope by state
+      city:
+        type: string
+        description: The scope by city
+      level:
+        type: string
+        description: The scope by level
+        enum:
+        - international
+        - national
+        - local
+  Autocomplete:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID of the autocomplete
+      text:
+        type: string
+        description: Text of the autocomplete
+  TimeSeries:
+    type: object
+    properties:
+      published_at:
+        type: string
+        format: date-time
+        description: The published date of the time series bin
+      count:
+        type: integer
+        format: int32
+        description: The count of time series bin
+  Trend:
+    type: object
+    properties:
+      value:
+        type: string
+        description: The value of the trend
+      count:
+        type: integer
+        format: int32
+        description: The count of the trend
+  Errors:
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          "$ref": "#/definitions/Error"
+  Error:
+    type: object
+    properties:
+      id:
+        type: string
+      links:
+        "$ref": "#/definitions/ErrorLinks"
+      status:
+        type: string
+      code:
+        type: string
+      title:
+        type: string
+      detail:
+        type: string
+  ErrorLinks:
+    type: object
+    properties:
+      about:
+        type: string
+  Stories:
+    type: object
+    properties:
+      stories:
+        type: array
+        items:
+          "$ref": "#/definitions/Story"
+        description: An array of stories
+      clusters:
+        type: array
+        items:
+          "$ref": "#/definitions/StoryCluster"
+        description: An array of clusters
+      next_page_cursor:
+        type: string
+        description: The next page cursor
+  Entities:
+    type: object
+    properties:
+      title:
+        type: array
+        items:
+          "$ref": "#/definitions/Entity"
+        description: An array of extracted entities from the story title
+      body:
+        type: array
+        items:
+          "$ref": "#/definitions/Entity"
+        description: An array of extracted entities from the story body
+  EntityLinks:
+    type: object
+    properties:
+      dbpedia:
+        type: string
+        description: A dbpedia resource URL
+  CategoryLinks:
+    type: object
+    properties:
+      self:
+        type: string
+        description: A URL pointing to the category
+      parent:
+        type: string
+        description: A URL pointing to the parent category
+  ShareCounts:
+    type: object
+    properties:
+      facebook:
+        type: array
+        items:
+          "$ref": "#/definitions/ShareCount"
+        description: Facebook shares count
+      google_plus:
+        type: array
+        items:
+          "$ref": "#/definitions/ShareCount"
+        description: Google Plus shares count
+      linkedin:
+        type: array
+        items:
+          "$ref": "#/definitions/ShareCount"
+        description: LinkedIn shares count
+      reddit:
+        type: array
+        items:
+          "$ref": "#/definitions/ShareCount"
+        description: Reddit shares count
+  Sentiments:
+    type: object
+    properties:
+      title:
+        "$ref": "#/definitions/Sentiment"
+        description: The sentiment for the story title
+      body:
+        "$ref": "#/definitions/Sentiment"
+        description: The sentiment for the story body
+  StoryLinks:
+    type: object
+    properties:
+      permalink:
+        type: string
+        description: The story permalink URL
+      related_stories:
+        type: string
+        description: The related stories URL
+      coverages:
+        type: string
+        description: The coverages URL
+      canonical:
+        type: string
+        description: The story canonical URL
+  RelatedStories:
+    type: object
+    properties:
+      story_title:
+        type: string
+        description: The input story title
+      story_body:
+        type: string
+        description: The input story body
+      story_language:
+        type: string
+        description: The input story language
+      related_stories:
+        type: array
+        items:
+          "$ref": "#/definitions/Story"
+        description: An array of related stories for the input story
+      clusters:
+        type: array
+        items:
+          "$ref": "#/definitions/StoryCluster"
+        description: An array of clusters
+  Coverages:
+    type: object
+    properties:
+      story_title:
+        type: string
+        description: The input story title
+      story_body:
+        type: string
+        description: The input story body
+      story_published_at:
+        type: string
+        format: date-time
+        description: The input story published date
+      story_language:
+        type: string
+        description: The input story language
+      coverages:
+        type: array
+        items:
+          "$ref": "#/definitions/Story"
+        description: An array of coverages for the input story
+      clusters:
+        type: array
+        items:
+          "$ref": "#/definitions/StoryCluster"
+        description: An array of clusters
+  Autocompletes:
+    type: object
+    properties:
+      autocompletes:
+        type: array
+        items:
+          "$ref": "#/definitions/Autocomplete"
+        description: An array of autocompletes
+  TimeSeriesList:
+    type: object
+    properties:
+      time_series:
+        type: array
+        items:
+          "$ref": "#/definitions/TimeSeries"
+        description: An array of time series
+      period:
+        type: string
+        description: The size of each date range expressed as an interval to be added
+          to the lower bound.
+      published_at.start:
+        type: string
+        format: date-time
+        description: The start published date of the time series
+      published_at.end:
+        type: string
+        format: date-time
+        description: The end published date of the time series
+  Trends:
+    type: object
+    properties:
+      trends:
+        type: array
+        items:
+          "$ref": "#/definitions/Trend"
+        description: An array of trends
+      field:
+        type: string
+        description: The field of trends
+  Histograms:
+    type: object
+    properties:
+      intervals:
+        type: array
+        items:
+          "$ref": "#/definitions/HistogramInterval"
+        description: The intervals of the histograms
+      interval.start:
+        type: integer
+        format: int32
+        description: The start interval of the histogram
+      interval.end:
+        type: integer
+        format: int32
+        description: The end interval of the histogram
+      interval.width:
+        type: integer
+        format: int32
+        description: The width of the histogram
+      field:
+        type: string
+  HistogramInterval:
+    type: object
+    properties:
+      bin:
+        type: integer
+        format: int32
+        description: Histogram bin
+      count:
+        type: integer
+        format: int32
+        description: Histogram bin size

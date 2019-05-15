@@ -1,0 +1,39 @@
+swagger: '2.0'
+info:
+  title: AYLIEN Text Analysis API
+  description: The AYLIEN Text Analysis API is a package of Natural Language Processing
+    and Machine Learning-powered APIs for analyzing and extracting various kinds of information from textual content.
+  termsOfService: https://newsapi.aylien.com/tos
+  contact:
+    name: API support
+    url: https://aylien.com
+    email: support@aylien.com
+  version: '1.0'
+host: https://api.textapi.aylien.com
+basePath: "/api/v1"
+schemes:
+- https
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+- text/xml
+securityDefinitions:
+  app_id:
+    type: apiKey
+    name: X-AYLIEN-TextAPI-Application-ID
+    description: X-AYLIEN-TextAPI-Application-ID is the identifier of your server,
+      script, or program with a specific application. This parameter is required if
+      you are accessing APIs without authenticating.
+    in: header
+  app_key:
+    type: apiKey
+    name: X-AYLIEN-TextAPI-Application-Key
+    description: X-AYLIEN-TextAPI-Application-Key is the secret key of your server,
+      script, or program with a specific application. This parameter is required if
+      you are accessing APIs without authenticating.
+    in: header
+paths:
+parameters:
+responses:
+definitions:
