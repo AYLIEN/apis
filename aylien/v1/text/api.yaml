@@ -1,49 +1,1003 @@
 swagger: '2.0'
 info:
-  title: AYLIEN Text Analysis API
-  description: The AYLIEN Text Analysis API is a package of Natural Language Processing
-    and Machine Learning-powered APIs for analyzing and extracting various kinds of information from textual content.
-  termsOfService: https://newsapi.aylien.com/tos
+  title: AYLIEN News API
+  description: > 
+    The AYLIEN Text Analysis API is a package of Natural Language Processing and
+    Machine Learning-powered APIs for analyzing and extracting various kinds of
+    information from textual content.
+  termsOfService: "https://newsapi.aylien.com/tos"
   contact:
     name: API support
-    url: https://aylien.com
+    url: https://aylien.com/text-api/
     email: support@aylien.com
   version: '1.0'
-host: https://api.textapi.aylien.com
-basePath: "/api/v1"
+host: api.aylien.com
+basePath: /api/v1
 schemes:
-- https
+  - https
 consumes:
-- application/x-www-form-urlencoded
+  - application/x-www-form-urlencoded
 produces:
-- application/json
-- text/xml
+  - application/json
+  - text/xml
 securityDefinitions:
   app_id:
     type: apiKey
     name: X-AYLIEN-TextAPI-Application-ID
-    description: X-AYLIEN-TextAPI-Application-ID is the identifier of your server,
-      script, or program with a specific application. This parameter is required if
-      you are accessing APIs without authenticating.
+    description: >
+      X-AYLIEN-TextAPI-Application-ID is the identifier of your server,
+      script, or program with a specific application.
+      This parameter is required if you are accessing APIs
+      without authenticating.
     in: header
   app_key:
     type: apiKey
     name: X-AYLIEN-TextAPI-Application-Key
-    description: X-AYLIEN-TextAPI-Application-Key is the secret key of your server,
-      script, or program with a specific application. This parameter is required if
-      you are accessing APIs without authenticating.
+    description: >
+      X-AYLIEN-TextAPI-Application-Key is the secret key of your server,
+      script, or program with a specific application.
+      This parameter is required if you are accessing APIs
+      without authenticating.
     in: header
 paths:
-  /root:
+  /language:
     get:
-      summary: Root
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Detect language
+      operationId: language
+      description: >
+        Detects what language a document or piece of text is written in and returns it in ISO 639-1 format.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
       responses:
         '200':
-          "$ref": "#/responses/root"
+          $ref: '#/responses/language'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /sentiment:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Detect sentiment
+      operationId: documentSentiment
+      description: >
+        Detects the sentiment of a document (positive, negative or neutral) and provides a subjective or objective label to text.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+        - name: mode
+          in: query
+          description: >
+            Analysis mode
+          # TODO: enum [text, tweet]
+          type: string
+      responses:
+        '200':
+          $ref: '#/responses/sentiment'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /concepts:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Concept extraction
+      operationId: concepts
+      description: >
+        Extracts named entities, themes, and topics mentioned in a document, 
+        disambiguates and cross-links them to DBpedia and Linked Data entities. 
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/concepts'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /entities:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Entity extraction
+      operationId: entities
+      description: >
+        Extracts named entities (people, organizations, products and locations)
+        and values (URLs, emails, telephone numbers, currency amounts and
+        percentages) mentioned in a body of text.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/entities'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /extract:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Article Extraction
+      operationId: extractArticle
+      description: >
+        Extracts what matters from a URL, the main body of text from an article,
+        author name, published date, embedded RSS feeds and media such as
+        images & videos.
+      parameters:
+        - name: html
+          in: query
+          description: HTML to analyze
+          type: string
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/extract'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /summarize:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Summarization
+      operationId: summarize
+      description: Automatically summarizes an article into a few key sentences.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+        - name: sentences_number
+          in: query
+          description: >
+            Summary length (number of sentences)
+          type: number
+          format: int
+      responses:
+        '200':
+          $ref: '#/responses/summarize'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /classify/iptc-subjectcode:
+    get: 
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Classification by IPTC NewsCodes
+      operationId: classifyIPTC
+      description: >
+        Classifies a piece of text or a URL according to a predefined taxonomy,
+        using IPTC NewsCodes - International standard for categorizing news
+        content
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/classify-iptc'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /classify/iab-qag:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Classification by IAB QAG
+      operationId: classifyIAB
+      description: >
+        Classifies a piece of text or a URL according to a predefined taxonomy,
+        using IAB QAG - The Interactive Advertising Bureau’s quality guidelines
+        for classifying ads
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/classify-iab-qag'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /hashtags:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Hashtag suggestion
+      operationId: hashtags
+      description: >
+        Automatically suggests tags that represent the theme and topics present in a document.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/hashtags'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /absa:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Aspect-based sentiment
+      operationId: aspectSentiment
+      description: >
+        Identifies aspects mentioned in text and then analyzes the sentiment
+        towards each of the aspects mentioned. Great for analyzing reviews!
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+        - name: domain
+          in: query
+          description: Article domain
+          type: string
+          # TODO: enum airlines, cars, hotels, restaurants
+      responses:
+        '200':
+          $ref: '#/responses/absa'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
+  /elsa:
+    get: 
+      security:
+        - app_id: []
+        - app_key: []
+      summary: Entity-level sentiment
+      operationId: entitySentiment
+      description: >
+        Extracts mentions of named entities (Person, Organization, Location),
+        and detects the sentiment towards each of the entities recognised. This
+        endpoint utilizes some of the functionality of the Entity extraction
+        and Concept extraction endpoints.
+      parameters:
+        - $ref: '#/parameters/text'
+        - $ref: '#/parameters/url'
+        - $ref: '#/parameters/language'
+      responses:
+        '200':
+          $ref: '#/responses/elsa'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
 parameters:
+  text:
+    name: text
+    in: query
+    description: >
+      Text to analyze
+    type: string
+  url:
+    name: url
+    in: query
+    description: >
+      URL to analyze
+    type: string
+  language:
+    name: language
+    in: query
+    description: >
+      Text to analyze
+    # TODO: enum
+    type: string
 responses:
-  root:
-    description: An object including an array of stories
+  language:
+    description: An object describing document language
     schema:
       type: object
+      properties:
+        root:
+          $ref: '#/definitions/Language'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  sentiment:
+    description: An object describing document sentiment
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Sentiment'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  concepts:
+    description: An object describing extracted concepts
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Concepts'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  entities:
+    description: An object describing extracted entities
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Entities'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  extract:
+    description: An object describing extracted article
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Article'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  summarize:
+    description: An object describing document summary
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Summary'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  classify-iptc:
+    description: An object describing document classification
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Classification'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  classify-iab-qag:
+    description: An object describing document classification
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Classification'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  hashtags:
+    description: An object describing suggested hashtags
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/Hashtags'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  absa:
+    description: An object describing aspect-based sentiment
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/AspectSentiment'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  elsa:
+    description: An object describing entity-based sentiment
+    schema:
+      type: object
+      properties:
+        root:
+          $ref: '#/definitions/EntitySentiment'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  error401_Unauthorized:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Errors'
+  error404_NotFound:
+    description: Not Found
+    schema:
+      $ref: '#/definitions/Errors'
+  error422_UnprocessableEntity:
+    description: Unprocessable Entity
+    schema:
+      $ref: '#/definitions/Errors'
+  error429_TooManyRequests:
+    description: Too Many Requests
+    schema:
+      $ref: '#/definitions/Errors'
+    headers:
+      X-RateLimit-Limit:
+        description: The number of allowed requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Remaining:
+        description: The number of remaining requests in the current period.
+        type: integer
+        format: int32
+      X-RateLimit-Reset:
+        description: >
+          The remaining window before the rate limit resets
+          in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+        type: integer
+        format: int64
+  error500_InternalServerError:
+    description: Internal Server Error
+    schema:
+      $ref: '#/definitions/Errors'          
 definitions:
+  Language:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      lang:
+        type: string
+        description: Detected language
+        enum: ['en', 'de', 'es', 'fr', 'it']
+      confidence:
+        type: number
+        format: float
+        description: detector confidence (0..1)
+        minimum: 0
+        maximum: 1
+  Sentiment:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      polarity:
+        type: string
+        description: Detected polarity
+        enum: ['positive', 'negative', 'neutral']
+      polarity_confidence:
+        type: number
+        format: float
+        description: polarity confidence (0..1)
+        minimum: 0
+        maximum: 1
+      subjectivity:
+        type: string
+        description: Detected subjectivity
+        enum: ['subjective', 'unknown']
+      subjectivity_confidence:
+        type: number
+        format: float
+        description: subjectivity confidence (0..1)
+        minimum: 0
+        maximum: 1
+  Concepts:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      lang:
+        type: string
+        description: Detected language
+        # TODO: enum
+      concepts:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/Concept'
+  Concept:
+    type: object
+    properties:
+      surfaceForms:
+        type: array
+        items:
+          type: object
+          properties:
+            string: 
+              type: string
+              description: ''
+            score: 
+              type: string
+              description: ''
+              format: float
+            offset: 
+              type: number
+              description: ''
+              format: int
+      support:
+        type: number
+        description: ''
+        format: int
+      types:
+        type: array
+        items:
+          type: string
+          description: ''
+  Entities:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      language:
+        type: string
+        description: Detected language
+        enum: ['en', 'de', 'es', 'fr', 'it']
+      entities:
+        type: object
+        properties:
+          keyword:
+            type: array
+            items: 
+              description: Detected entity
+              type: string
+  Summary:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      sentences:
+        type: array
+        items:
+          type: string
+          description: Summary sentence
+  Article:
+    type: object
+    properties:
+      author:
+        type: string
+      image:
+        type: string
+      article:
+        type: string
+      title:
+        type: string
+      publishDate:
+        type: string
+        format: date-time
+      tags:
+        type: array
+        items:
+          type: string
+      videos:
+        type: array
+        items:
+          type: string
+      feeds:
+        type: array
+        items:
+          type: string
+  Classification:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      language:
+        type: string
+        description: Provided language
+        enum: ['en', 'de', 'es', 'fr', 'it']
+      taxonomy:
+        type: string
+        description: Taxonomy used
+      categories: 
+        type: array
+        items:
+          type: object
+          properties:
+            confident:
+              type: boolean
+              description: Are we confident?
+            score:
+              type: number
+              format: float
+              description: detector confidence (0..1)
+              minimum: 0
+              maximum: 1
+            label:
+              type: string
+              description: Detected label
+            id:
+              type: number
+              format: int
+            links:
+              type: array
+              items:
+                type: object
+                properties:
+                  rel:
+                    type: string
+                    description: Relation https://html.spec.whatwg.org/multipage/semantics.html#attr-link-rel
+                  link:
+                    type: string
+                    description: Link URL
+  Hashtags:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      language:
+        type: string
+        description: Provided language
+        enum: ['en', 'de', 'es', 'fr', 'it']
+      hashtags:
+        type: array
+        description: Detected hashtags
+        items:
+          type: string
+  AspectSentiment:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      domain:
+        type: string
+        description: Provided domain
+      aspects:
+        type: array
+        items:
+          type: object
+          properties:
+            aspect: 
+              type: string
+            aspect_confidence: 
+              type: number
+            polarity: 
+              type: string
+            polarity_confidence: 
+              type: number
+            mentions: 
+              type: number
+            sample: 
+              type: array
+              items:
+                type: string
+      sentences:
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            polarity: 
+              type: string
+            polarity_confidence: 
+              type: number
+            aspects:
+              type: array
+              items:
+                type: object
+                properties:
+                  aspect: 
+                    type: string
+                  aspect_confidence: 
+                    type: number
+                  polarity: 
+                    type: string
+                  polarity_confidence: 
+                    type: number
+  EntitySentiment:
+    type: object
+    properties:
+      text:
+        type: string
+        description: Input text
+      entites:
+        type: array
+        items: 
+          type: object
+          properties:
+            type:
+              type: string
+            mentions:
+              type: array
+              items:
+                type: object
+                properties:
+                  offset:
+                    type: number
+                    format: int
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 1
+                  text:
+                    type: string
+                  sentiment:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        polarity:
+                          type: string
+                        confidence:
+                          type: number
+                          format: float
+                          minimum: 0
+                          maximum: 1
+            overall_sentiment:
+              type: object
+              properties:
+                polarity:
+                  type: string
+                confidence:
+                  type: number
+                  format: float
+                  minimum: 0
+                  maximum: 1
+            links:
+              type: array
+              items:
+                type: object
+                properties:
+                  uri:
+                    type: string
+                  provider:
+                    type: string
+                  types:
+                    type: array
+                    items:
+                      type: string
+                  confidence:
+                    type: number
+                    format: float
+                    minimum: 0
+                    maximum: 1
+  Errors:
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Error'
+  Error:
+    type: object
+    properties:
+      id:
+        type: string
+      links:
+        $ref: '#/definitions/ErrorLinks'
+      status:
+        type: string
+      code:
+        type: string
+      title:
+        type: string
+      detail:
+        type: string
+  ErrorLinks:
+    type: object
+    properties:
+      about:
+        type: string
