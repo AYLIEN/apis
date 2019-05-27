@@ -779,7 +779,6 @@ paths:
       parameters:
       - "$ref": "#/parameters/three_scale_app_id"
       - "$ref": "#/parameters/three_scale_app_key"
-      - "$ref": "#/parameters/global_clustering"
       - "$ref": "#/parameters/story_!id"
       - "$ref": "#/parameters/story_title"
       - "$ref": "#/parameters/story_body"

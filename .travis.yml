@@ -1,0 +1,14 @@
+dist: xenial
+language: java
+branches:
+  only:
+  - master
+jdk:
+- oraclejdk11
+cache:
+  directories:
+  - "$HOME/.m2"
+install:
+- "cd travis && /bin/bash ./install-swagger-codegen.sh && cd .."
+script:
+- "cd travis && /bin/bash ./generate-sdks.sh && cd .."
