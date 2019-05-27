@@ -34,6 +34,16 @@ securityDefinitions:
       you are accessing APIs without authenticating.
     in: header
 paths:
+  /root:
+    get:
+      summary: Root
+      responses:
+        '200':
+          "$ref": "#/responses/root"
 parameters:
 responses:
+  root:
+    description: An object including an array of stories
+    schema:
+      type: object
 definitions:

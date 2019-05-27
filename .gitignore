@@ -1,0 +1,6 @@
+# Dev
+.idea
+
+# Project specific
+swagger-codegen*
+swagger-out/*
