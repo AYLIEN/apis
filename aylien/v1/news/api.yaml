@@ -135,12 +135,8 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        
         - $ref: '#/parameters/story_cluster'
-        - $ref: '#/parameters/story_cluster_algorithm'
-        
         - $ref: '#/parameters/story_return'
-        
         - $ref: '#/parameters/story_sort_by'
         - $ref: '#/parameters/sort_direction'
         - $ref: '#/parameters/cursor'
@@ -253,12 +249,8 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        
         - $ref: '#/parameters/story_cluster'
-        - $ref: '#/parameters/story_cluster_algorithm'
-        
         - $ref: '#/parameters/story_return'
-        
         - $ref: '#/parameters/input_story_id'
         - $ref: '#/parameters/input_url'
         - $ref: '#/parameters/input_title'
@@ -372,12 +364,8 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        
         - $ref: '#/parameters/story_cluster'
-        - $ref: '#/parameters/story_cluster_algorithm'
-        
         - $ref: '#/parameters/story_return'
-        
         - $ref: '#/parameters/input_story_id'
         - $ref: '#/parameters/input_url'
         - $ref: '#/parameters/input_title'
@@ -1642,18 +1630,6 @@ parameters:
       This parameter enables clustering for the returned stories.
       You can read more about working with clustering
       [here](https://newsapi.aylien.com/docs/working-with-clustering).
-  story_cluster_algorithm:
-    name: cluster.algorithm
-    in: query
-    type: string
-    default: lingo
-    description: >
-      This parameter is used for specifying the clustering algorithm you wish to use.
-      It supprts STC, Lingo and
-      [k-means](https://en.wikipedia.org/wiki/K-means_clustering) algorithms.
-      You can read more about working with clustering
-      [here](https://newsapi.aylien.com/docs/working-with-clustering).
-    enum: [stc, lingo, kmeans]
   story_return:
     name: return[]
     in: query

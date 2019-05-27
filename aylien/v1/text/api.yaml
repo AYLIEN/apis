@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: AYLIEN News API
+  title: AYLIEN Text API
   description: > 
     The AYLIEN Text Analysis API is a package of Natural Language Processing and
     Machine Learning-powered APIs for analyzing and extracting various kinds of
