@@ -666,7 +666,7 @@ definitions:
   GenericConfidence:
     type: number
     format: float
-    description: Detector confidence (0..1)
+    description: Model confidence (0..1)
     minimum: 0
     maximum: 1
   GenericPolarity:
