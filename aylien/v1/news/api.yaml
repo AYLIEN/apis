@@ -778,6 +778,42 @@ paths:
           $ref: '#/responses/error429_TooManyRequests'
         '500':
           $ref: '#/responses/error500_InternalServerError'
+  /clusters:
+    get:
+      security:
+        - app_id: []
+        - app_key: []
+      summary: List Clusters
+      operationId: listClusters
+      description: >
+        The clusters endpoint is used to return clusters based on parameters
+        you set in your query. 
+      parameters:
+        - $ref: "#parameters/cluster_id"
+        - $ref: "#parameters/cluster_!id"
+        - $ref: "#parameters/cluster_story_count_min"
+        - $ref: "#parameters/cluster_story_count_max"
+        - $ref: "#parameters/cluster_time_start"
+        - $ref: "#parameters/cluster_time_end"
+        - $ref: "#parameters/cluster_earliest_story_start"
+        - $ref: "#parameters/cluster_earliest_story_end"
+        - $ref: "#parameters/cluster_latest_story_start"
+        - $ref: "#parameters/cluster_latest_story_end"
+        - $ref: "#parameters/cluster_location_country"
+        - $ref: "#parameters/cluster_!location_country"
+      responses:
+        '200':
+          $ref: '#/responses/clusters'
+        '401':
+          $ref: '#/responses/error401_Unauthorized'
+        '404':
+          $ref: '#/responses/error404_NotFound'
+        '422':
+          $ref: '#/responses/error422_UnprocessableEntity'
+        '429':
+          $ref: '#/responses/error429_TooManyRequests'
+        '500':
+          $ref: '#/responses/error500_InternalServerError'
 parameters:
   story_id:
     name: id[]
@@ -1844,6 +1880,134 @@ parameters:
     in: query
     description: >
       This parameter is used for specifying the y-axis variable for the histogram.
+  cluster_id:
+    name: id[]
+    in: query
+    description: >
+      This parameter is used for finding clusters by cluster id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  cluster_!id:
+    name: "!id[]"
+    in: query
+    description: >
+      This parameter is used for excluding clusters by cluster id.
+    type: array
+    items:
+      type: integer
+      format: int64
+    collectionFormat: multi
+  cluster_story_count_min:
+    name: story_count.min
+    in: query
+    description: >
+      This parameter is used for finding clusters with more than or equal to
+      a specific amount of stories associated with them.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  cluster_story_count_max:
+    name: story_count.max
+    in: query
+    description: >
+      This parameter is used for finding clusters with less than or equal to
+      a specific amount of stories associated with them.
+    type: integer
+    format: int32
+    minimum: 0
+    exclusiveMinimum: true
+  cluster_time_start:
+    name: time.start
+    in: query
+    description: >
+      This parameter is used for finding clusters whose creation time is greater
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_time_end:
+    name: time.end
+    in: query
+    description: >
+      This parameter is used for finding clusters whose creation time is less
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_earliest_story_start:
+    name: earliest_story.start
+    in: query
+    description: >
+      This parameter is used for finding clusters whose publication date of its earliest story is greater
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_earliest_story_end:
+    name: earliest_story.end
+    in: query
+    description: >
+      This parameter is used for finding clusters whose publication date of its earliest story is less
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_latest_story_start:
+    name: latest_story.start
+    in: query
+    description: >
+      This parameter is used for finding clusters whose publication date of its latest story is greater
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_latest_story_end:
+    name: latest_story.end
+    in: query
+    description: >
+      This parameter is used for finding clusters whose publication date of its latest story is less
+      than the specified value.
+      [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+      more information about how
+      [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).
+    type: string
+  cluster_location_country:
+    name: location.country
+    in: query
+    description: >
+      This parameter is used for finding clusters belonging to a specific country.
+      It supports
+      [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+      you can find more information about how
+      [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
+  cluster_!location_country:
+    name: "!location.country"
+    in: query
+    description: >
+      This parameter is used for excluding clusters belonging to a specific country.
+      It supports
+      [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+      country codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+      you can find more information about how
+      [to work with locations](https://newsapi.aylien.com/docs/working-with-locations).
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
   sort_direction:
     name: sort_direction
     in: query
