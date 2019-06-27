@@ -138,7 +138,7 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        - $ref: '#/parameters/story_cluster'
+        - $ref: '#/parameters/story_clusters'
         - $ref: '#/parameters/story_return'
         - $ref: '#/parameters/story_sort_by'
         - $ref: '#/parameters/sort_direction'
@@ -255,7 +255,7 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        - $ref: '#/parameters/story_cluster'
+        - $ref: '#/parameters/story_clusters'
         - $ref: '#/parameters/story_return'
         - $ref: '#/parameters/input_story_id'
         - $ref: '#/parameters/input_url'
@@ -373,7 +373,7 @@ paths:
         - $ref: '#/parameters/story_social_shares_count_linkedin_max'
         - $ref: '#/parameters/story_social_shares_count_reddit_min'
         - $ref: '#/parameters/story_social_shares_count_reddit_max'
-        - $ref: '#/parameters/story_cluster'
+        - $ref: '#/parameters/story_clusters'
         - $ref: '#/parameters/story_return'
         - $ref: '#/parameters/input_story_id'
         - $ref: '#/parameters/input_url'
@@ -1639,13 +1639,15 @@ parameters:
     format: int32
     minimum: 0
     exclusiveMinimum: true
-  story_cluster:
-    name: cluster
+  story_clusters:
+    name: clusters[]
     in: query
-    type: boolean
-    default: false
+    type: array
+    items:
+      type: string
+    collectionFormat: multi
     description: >
-      This parameter enables clustering for the returned stories.
+      This parameter is used for finding stories with belonging to one of clusters in a specific set of clusters
       You can read more about working with clustering
       [here](https://newsapi.aylien.com/docs/working-with-clustering).
   story_translations_en_title:
