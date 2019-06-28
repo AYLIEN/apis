@@ -4,7 +4,7 @@ branches:
   only:
   - master
 jdk:
-- oraclejdk11
+- openjdk11
 cache:
   directories:
   - "$HOME/.m2"
