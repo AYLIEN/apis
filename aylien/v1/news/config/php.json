@@ -1,0 +1,8 @@
+{
+  "packageName": "aylien/newsapi",
+  "artifactVersion": "2.0.0",
+  "invokerPackage": "Aylien\\NewsApi",
+  "modelPackage": "Models",
+  "apiPackage": "Api",
+  "variableNamingConvention": "camelCase"
+}

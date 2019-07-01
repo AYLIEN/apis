@@ -10,7 +10,7 @@ info:
     name: API support
     url: https://newsapi.aylien.com/
     email: support@aylien.com
-  version: "1.0"
+  version: "2.0"
 servers:
   - url: https://api.aylien.com/news
 paths:
@@ -8253,6 +8253,28 @@ components:
           format: date-time
         links:
           $ref: "#/components/schemas/StoryLinks"
+        clusters:
+          type: array
+          description: An array of clusters the story is associated with
+          items:
+            type: integer
+            format: int64
+        translations:
+          type: object
+          description: Translations of the story. Each language has it's own key and object
+          properties:
+            en:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: Translation of title
+                body:
+                  type: string
+                  description: Translation of body
+                text:
+                  type: string
+                  description: Translation of a concatenation of title and body
     Cluster:
       type: object
       properties:
