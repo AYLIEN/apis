@@ -2,5 +2,5 @@
 .idea
 
 # Project specific
-swagger-codegen*
-swagger-out/*
+openapi-generator*
+openapi-out/*

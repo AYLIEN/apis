@@ -2,31 +2,31 @@
 
 set -eu
 
-if [ -n "${SWAGGER_CMD+1}" ]
+if [ -n "${OPENAPI_CMD+1}" ]
 then
-  echo "Using Swagger command \`${SWAGGER_CMD}\`."
+  echo "Using OpenAPI Generator command \`${OPENAPI_CMD}\`."
 else
-  SWAGGER_CMD="java -jar $(pwd)/swagger-codegen-cli.jar"
-  if [ -n "$(ls swagger-codegen-cli.jar)" ]
+  OPENAPI_CMD="java -jar $(pwd)/openapi-generator-cli.jar"
+  if [ -n "$(ls openapi-generator-cli.jar)" ]
   then
-    echo "Using Swagger command \`${SWAGGER_CMD}\`."
+    echo "Using OpenAPI Generator command \`${OPENAPI_CMD}\`."
   else
-    ./install-swagger-codegen.sh
+    ./install-openapi-generator.sh
   
-    echo "Using Swagger command \`${SWAGGER_CMD}\`."
+    echo "Using OpenAPI command \`${OPENAPI_CMD}\`."
   fi
 fi
 
-for lang in "csharp" "ruby" "php" "java" "nodejs-server" "go" "python"
+for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
 do
     echo "Building ${lang} ..."
-    $SWAGGER_CMD generate \
+    $OPENAPI_CMD generate \
         --input-spec "../aylien/v1/text/api.yaml" \
-        --lang "${lang}" \
-        --output "../swagger-out/text-api/${lang}"
-    $SWAGGER_CMD generate \
+        --generator-name "${lang}" \
+        --output "../openapi-out/text-api/${lang}"
+    $OPENAPI_CMD generate \
         --input-spec "../aylien/v1/news/api.yaml" \
-        --lang "${lang}" \
-        --output "../swagger-out/news-api/${lang}"
+        --generator-name "${lang}" \
+        --output "../openapi-out/news-api/${lang}"
 done
 echo "All done!"

@@ -9,6 +9,6 @@ cache:
   directories:
   - "$HOME/.m2"
 install:
-- "cd travis && /bin/bash ./install-swagger-codegen.sh && cd .."
+- "cd travis && /bin/bash ./install-openapi-generator.sh && cd .."
 script:
 - "cd travis && /bin/bash ./generate-sdks.sh && cd .."
