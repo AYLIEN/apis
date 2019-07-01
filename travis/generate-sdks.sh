@@ -17,16 +17,20 @@ else
   fi
 fi
 
-for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
+#for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
+for lang in "php"
 do
     echo "Building ${lang} ..."
     $OPENAPI_CMD generate \
+        --skip-validate-spec \
         --input-spec "../aylien/v1/text/api.yaml" \
         --generator-name "${lang}" \
         --output "../openapi-out/text-api/${lang}"
     $OPENAPI_CMD generate \
+        --skip-validate-spec \
         --input-spec "../aylien/v1/news/api.yaml" \
         --generator-name "${lang}" \
+        --config "../aylien/v1/news/config/${lang}.json" \
         --output "../openapi-out/news-api/${lang}"
 done
 echo "All done!"
