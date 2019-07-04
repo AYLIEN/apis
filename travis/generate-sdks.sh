@@ -17,8 +17,7 @@ else
   fi
 fi
 
-#for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
-for lang in "php"
+for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
 do
     echo "Building ${lang} ..."
     $OPENAPI_CMD generate \
