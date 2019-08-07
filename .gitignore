@@ -3,6 +3,6 @@
 
 # Project specific
 openapi-generator*
-openapi-out/*/*/*
-!openapi-out/news-api/*/README.md
-!openapi-out/news-api/*/.openapi-generator-ignore
+sdks/*/*/*
+!sdks/news-api/*/README.md
+!sdks/news-api/*/.openapi-generator-ignore

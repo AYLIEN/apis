@@ -24,12 +24,12 @@ do
         --skip-validate-spec \
         --input-spec "../aylien/v1/text/api.yaml" \
         --generator-name "${lang}" \
-        --output "../openapi-out/text-api/${lang}"
+        --output "../sdks/text-api/${lang}"
     $OPENAPI_CMD generate \
         --skip-validate-spec \
         --input-spec "../aylien/v1/news/api.yaml" \
         --generator-name "${lang}" \
         --config "../aylien/v1/news/config/${lang}.json" \
-        --output "../openapi-out/news-api/${lang}"
+        --output "../sdks/news-api/${lang}"
 done
 echo "All done!"
