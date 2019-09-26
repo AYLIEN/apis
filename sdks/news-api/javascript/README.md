@@ -53,28 +53,28 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var AylienNewsApi = require('aylien-news-api');
+var AylienNewsApi = require("aylien_news_api");
 
 var defaultClient = AylienNewsApi.ApiClient.instance;
 
-var app_id = defaultClient.authentications['app_id'];
-app_id.apiKey = "YOUR_APP_ID"
+var app_id = defaultClient.authentications["app_id"];
+app_id.apiKey = "YOUR_APP_ID";
 
-var app_key = defaultClient.authentications['app_key'];
-app_key.apiKey = "YOUR_APP_KEY"
+var app_key = defaultClient.authentications["app_key"];
+app_key.apiKey = "YOUR_APP_KEY";
 
-var api = new AylienNewsApi.DefaultApi()
+var api = new AylienNewsApi.DefaultApi();
 
 var opts = {
-  'title': 'trump',
-  'sortBy': 'social_shares_count.facebook',
-  'language': ['en'],
-  'notLanguage': ['es', 'it'],
-  'publishedAtStart': 'NOW-7DAYS',
-  'publishedAtEnd': 'NOW', 
-  'entitiesBodyLinksDbpedia': [
-    'http://dbpedia.org/resource/Donald_Trump',
-    'http://dbpedia.org/resource/Hillary_Rodham_Clinton'
+  title: "trump",
+  sortBy: "social_shares_count.facebook",
+  language: ["en"],
+  notLanguage: ["es", "it"],
+  publishedAtStart: "NOW-7DAYS",
+  publishedAtEnd: "NOW",
+  entitiesBodyLinksDbpedia: [
+    "http://dbpedia.org/resource/Donald_Trump",
+    "http://dbpedia.org/resource/Hillary_Rodham_Clinton"
   ]
 };
 
@@ -82,14 +82,15 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ');
-    console.log('========================================');
-    for (var i = 0; i < data.stories.length; i++){
+    console.log("API called successfully. Returned data: ");
+    console.log("========================================");
+    for (var i = 0; i < data.stories.length; i++) {
       console.log(data.stories[i].title + " / " + data.stories[i].source.name);
     }
   }
 };
-apiInstance.listStories(opts, callback);
+
+api.listStories(opts, callback);
 ```
 
 ## Documentation for API Endpoints
