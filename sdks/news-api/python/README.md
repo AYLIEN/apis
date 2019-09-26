@@ -53,30 +53,23 @@ from aylien_news_api.rest import ApiException
 from pprint import pprint
 
 configuration = aylien_news_api.Configuration()
-# Configure API key authorization: app_id
 configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-ID'] = 'Bearer'
-configuration = aylien_news_api.Configuration()
-# Configure API key authorization: app_key
 configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-AYLIEN-NewsAPI-Application-Key'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = aylien_news_api.DefaultApi(aylien_news_api.ApiClient(configuration))
-type = 'source_names' # str | This parameter is used for defining the type of autocompletes. 
-term = 'News' # str | This parameter is used for finding autocomplete objects that contain the specified value. 
-language = 'en' # str | This parameter is used for autocompletes whose language is the specified value. It supports [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes.  (optional) (default to 'en')
-per_page = 3 # int | This parameter is used for specifying number of items in each page.  (optional) (default to 3)
+client = aylien_news_api.ApiClient(configuration)
+api_instance = aylien_news_api.DefaultApi(client)
 
 try:
     # List autocompletes
-    api_response = api_instance.list_autocompletes(type, term, language=language, per_page=per_page)
+    api_response = api_instance.list_stories(
+        title='startup',
+        published_at_start='NOW-7DAYS',
+        published_at_end='NOW',
+        language=['en']
+    )
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->list_autocompletes: %s\n" % e)
-
 ```
 
 ## Documentation for API Endpoints
