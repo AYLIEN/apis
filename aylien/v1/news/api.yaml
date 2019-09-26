@@ -13,6 +13,7 @@ info:
 openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
+x-group-parameters: true
 paths:
   /autocompletes:
     get:
@@ -167,7 +168,7 @@ paths:
     get:
       description: >
         The clusters endpoint is used to return clusters based on parameters you
-        set in your query. 
+        set in your query.
       operationId: listClusters
       parameters:
         - description: |
