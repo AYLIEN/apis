@@ -67,130 +67,54 @@ Then manually install the following JARs:
 Please follow the [installation](#installation) instruction and execute the following Java code:
 
 ```java
-import com.aylien.newsapi.*;
+import com.aylien.newsapi.ApiClient;
+import com.aylien.newsapi.ApiException;
+import com.aylien.newsapi.Configuration;
+import com.aylien.newsapi.api.DefaultApi;
 import com.aylien.newsapi.auth.*;
 import com.aylien.newsapi.models.*;
-import com.aylien.newsapi.parameters.*;
-import com.aylien.newsapi.api.DefaultApi;
-
 import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.aylien.com/news");
 
-        // Configure API key authorization: app_id
-        ApiKeyAuth app_id = (ApiKeyAuth) defaultClient.getAuthentication("app_id");
-        app_id.setApiKey("YOUR_APP_ID");
+    // Configure API key authorization: app_id
+    ApiKeyAuth app_id = (ApiKeyAuth)defaultClient.getAuthentication("app_id");
+    app_id.setApiKey("YOUR_APP_ID");
 
-        // Configure API key authorization: app_key
-        ApiKeyAuth app_key = (ApiKeyAuth) defaultClient.getAuthentication("app_key");
-        app_key.setApiKey("YOUR_APP_KEY");
+    // Configure API key authorization: app_key
+    ApiKeyAuth app_key = (ApiKeyAuth)defaultClient.getAuthentication("app_key");
+    app_key.setApiKey("YOUR_APP_KEY");
 
-        DefaultApi apiInstance = new DefaultApi();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
 
-        List<Long> id = Arrays.asList(985744L);
-        List<Long> exclamationId = Arrays.asList(5241L, 4412L);
-        String title = "startup AND (raise OR raised OR raising OR raises)";
-        String body = "startup";
-        String text = "startup company";
-        String translationsEnTitle = "startup AND (raise OR raised OR raising OR raises)";
-        String translationsEnBody = "startup";
-        String translationsEnText = "startup company";
-        List<String> language = Arrays.asList("en", "es", "es");
-        List<String> exclamationLanguage = Arrays.asList("fr", "pt", "it");
-        String publishedAtStart = "NOW-3MONTHS/DAY";
-        String publishedAtEnd = "NOW-10DAYS";
-        String categoriesTaxonomy = "iab-qag";
-        Boolean categoriesConfident = true;
-        List<String> categoriesId = Arrays.asList("IAB15", "IAB13-1");
-        List<String> exclamationCategoriesId = Arrays.asList("IAB3-2");
-        List<Integer> categoriesLevel = Arrays.asList(2);
-        List<Integer> exclamationCategoriesLevel = Arrays.asList(1, 3);
-        List<String> entitiesTitleText = Arrays.asList("GNU/Linux", "Microsoft Windows");
-        List<String> exclamationEntitiesTitleText = Arrays.asList("Ireland", "Dublin");
-        List<String> entitiesTitleType = Arrays.asList("Software", "Organization");
-        List<String> exclamationEntitiesTitleType = Arrays.asList("Agent", "Person");
-        List<String> entitiesTitleLinksDbpedia = Arrays.asList("http://dbpedia.org/resource/Linux");
-        List<String> exclamationEntitiesTitleLinksDbpedia = Arrays.asList("http://dbpedia.org/resource/Windows");
-        List<String> entitiesBodyText = Arrays.asList("GNU/Linux", "Microsoft Windows");
-        List<String> exclamationEntitiesBodyText = Arrays.asList("Trump");
-        List<String> entitiesBodyType = Arrays.asList("Agent", "Person");
-        List<String> exclamationEntitiesBodyType = Arrays.asList("Software", "Organization");
-        List<String> entitiesBodyLinksDbpedia = Arrays.asList("entitiesBodyLinksDbpedia_example");
-        List<String> exclamationEntitiesBodyLinksDbpedia = Arrays.asList("http://dbpedia.org/resource/Linux");
-        String sentimentTitlePolarity = "negative";
-        String exclamationSentimentTitlePolarity = "positive";
-        String sentimentBodyPolarity = "neutral";
-        String exclamationSentimentBodyPolarity = "negative";
-        Integer mediaImagesCountMin = 2;
-        Integer mediaImagesCountMax = 4;
-        Integer mediaImagesWidthMin = 640;
-        Integer mediaImagesWidthMax = 1024;
-        Integer mediaImagesHeightMin = 480;
-        Integer mediaImagesHeightMax = 800;
-        Integer mediaImagesContentLengthMin = 25411;
-        Integer mediaImagesContentLengthMax = 369541;
-        List<String> mediaImagesFormat = Arrays.asList("JPEG", "BMP", "GIF");
-        List<String> exclamationMediaImagesFormat = Arrays.asList("PNG", "TIFF");
-        Integer mediaVideosCountMin = 1;
-        Integer mediaVideosCountMax = 2;
-        List<Integer> authorId = Arrays.asList(36521);
-        List<Integer> exclamationAuthorId = Arrays.asList(2541);
-        String authorName = "John Doe";
-        String exclamationAuthorName = "Mike Wally";
-        List<Integer> sourceId = Arrays.asList(1411);
-        List<Integer> exclamationSourceId = Arrays.asList(251);
-        List<String> sourceName = Arrays.asList("BBC");
-        List<String> exclamationSourceName = Arrays.asList("Fox News");
-        List<String> sourceDomain = Arrays.asList("bbc.co.uk");
-        List<String> exclamationSourceDomain = Arrays.asList("foxnews.com");
-        List<String> sourceLocationsCountry = Arrays.asList("US", "IE");
-        List<String> exclamationSourceLocationsCountry = Arrays.asList("IR");
-        List<String> sourceLocationsState = Arrays.asList("California");
-        List<String> exclamationSourceLocationsState = Arrays.asList("Arizona");
-        List<String> sourceLocationsCity = Arrays.asList("Los Angeles");
-        List<String> exclamationSourceLocationsCity = Arrays.asList("Dublin City");
-        List<String> sourceScopesCountry = Arrays.asList("IE", "NG");
-        List<String> exclamationSourceScopesCountry = Arrays.asList("US", "GB");
-        List<String> sourceScopesState = Arrays.asList("Co Dublin");
-        List<String> exclamationSourceScopesState = Arrays.asList("Co Wicklow");
-        List<String> sourceScopesCity = Arrays.asList("Dublin City");
-        List<String> exclamationSourceScopesCity = Arrays.asList("Cork");
-        List<String> sourceScopesLevel = Arrays.asList("national");
-        List<String> exclamationSourceScopesLevel = Arrays.asList("local");
-        Integer sourceLinksInCountMin = 354211;
-        Integer sourceLinksInCountMax = 587412;
-        Integer sourceRankingsAlexaRankMin = 10;
-        Integer sourceRankingsAlexaRankMax = 2500;
-        List<String> sourceRankingsAlexaCountry = Arrays.asList("IE");
-        Integer socialSharesCountFacebookMin = 3521;
-        Integer socialSharesCountFacebookMax = 5841;
-        Integer socialSharesCountGooglePlusMin = 2514;
-        Integer socialSharesCountGooglePlusMax = 36521;
-        Integer socialSharesCountLinkedinMin = 6521;
-        Integer socialSharesCountLinkedinMax = 36521;
-        Integer socialSharesCountRedditMin = 14125;
-        Integer socialSharesCountRedditMax = 95412;
-        List<String> clusters = Arrays.asList("433413");
-        List<String> _return = Arrays.asList("id", "title");
-        String sortBy = "published_at";
-        String sortDirection = "desc";
-        String cursor = "*";
-        Integer perPage = 10;
+    String title = "startup AND (raise OR raised OR raising OR raises)";
+    List<String> language = Arrays.asList("en", "es", "es");
+    String publishedAtStart = "NOW-3MONTHS/DAY";
+    String publishedAtEnd = "NOW-10DAYS";
+    Integer perPage = 10;
 
-        try {
-          Stories result = apiInstance.listStories(id, exclamationId, title, body, text, translationsEnTitle, translationsEnBody, translationsEnText, language, exclamationLanguage, publishedAtStart, publishedAtEnd, categoriesTaxonomy, categoriesConfident, categoriesId, exclamationCategoriesId, categoriesLevel, exclamationCategoriesLevel, entitiesTitleText, exclamationEntitiesTitleText, entitiesTitleType, exclamationEntitiesTitleType, entitiesTitleLinksDbpedia, exclamationEntitiesTitleLinksDbpedia, entitiesBodyText, exclamationEntitiesBodyText, entitiesBodyType, exclamationEntitiesBodyType, entitiesBodyLinksDbpedia, exclamationEntitiesBodyLinksDbpedia, sentimentTitlePolarity, exclamationSentimentTitlePolarity, sentimentBodyPolarity, exclamationSentimentBodyPolarity, mediaImagesCountMin, mediaImagesCountMax, mediaImagesWidthMin, mediaImagesWidthMax, mediaImagesHeightMin, mediaImagesHeightMax, mediaImagesContentLengthMin, mediaImagesContentLengthMax, mediaImagesFormat, exclamationMediaImagesFormat, mediaVideosCountMin, mediaVideosCountMax, authorId, exclamationAuthorId, authorName, exclamationAuthorName, sourceId, exclamationSourceId, sourceName, exclamationSourceName, sourceDomain, exclamationSourceDomain, sourceLocationsCountry, exclamationSourceLocationsCountry, sourceLocationsState, exclamationSourceLocationsState, sourceLocationsCity, exclamationSourceLocationsCity, sourceScopesCountry, exclamationSourceScopesCountry, sourceScopesState, exclamationSourceScopesState, sourceScopesCity, exclamationSourceScopesCity, sourceScopesLevel, exclamationSourceScopesLevel, sourceLinksInCountMin, sourceLinksInCountMax, sourceRankingsAlexaRankMin, sourceRankingsAlexaRankMax, sourceRankingsAlexaCountry, socialSharesCountFacebookMin, socialSharesCountFacebookMax, socialSharesCountGooglePlusMin, socialSharesCountGooglePlusMax, socialSharesCountLinkedinMin, socialSharesCountLinkedinMax, socialSharesCountRedditMin, socialSharesCountRedditMax, clusters, _return, sortBy, sortDirection, cursor, perPage);
-            for (Iterator i = result.getStories().iterator(); i.hasNext();){
-                Story story = (Story)i.next();
-                System.out.println(story.getTitle() + " / " + story.getSource().getName());
-            }
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DefaultApi#listStories");
-            e.printStackTrace();
-        }
+    try {
+      Stories result = apiInstance.listStories()
+                           .title(title)
+                           .language(language)
+                           .publishedAtStart(publishedAtStart)
+                           .publishedAtEnd(publishedAtEnd)
+                           .perPage(perPage)
+                           .execute();
+      for (Iterator i = result.getStories().iterator(); i.hasNext();) {
+        Story story = (Story)i.next();
+        System.out.println(story.getTitle() + " / " +
+                           story.getSource().getName());
+      }
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#listStories");
+      e.printStackTrace();
     }
+  }
 }
 ```
 
