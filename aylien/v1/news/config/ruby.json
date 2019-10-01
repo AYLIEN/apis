@@ -7,5 +7,6 @@
   "gemSummary": "AYLIEN&#39;s officially supported Ruby client library for accessing News API",
   "gemDescription": "AYLIEN&#39;s officially supported Ruby client library for accessing News API",
   "gemAuthor": "AYLIEN",
-  "gemAuthorEmail": "info@aylien.com"
+  "gemAuthorEmail": "info@aylien.com",
+  "library": "faraday"
 }
