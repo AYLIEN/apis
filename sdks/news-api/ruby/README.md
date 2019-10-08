@@ -35,8 +35,8 @@ require 'aylien_news_api'
 
 # Setup authorization
 AylienNewsApi.configure do |config|
-  config.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_APP_ID'
-  config.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_APP_KEY'
+  config.api_key['X-AYLIEN-NewsAPI-Application-ID'] = ENV['NEWSAPI_APP_ID']
+  config.api_key['X-AYLIEN-NewsAPI-Application-Key'] = ENV['NEWSAPI_APP_KEY']
 end
 
 api_instance = AylienNewsApi::DefaultApi.new
@@ -48,7 +48,7 @@ opts = {
   entities_body_links_dbpedia: [
     'http://dbpedia.org/resource/Donald_Trump',
   ],
-  language: ['en', 'it'],
+  not_language: ['en'],
   sort_by: 'social_shares_count.facebook'
 }
 

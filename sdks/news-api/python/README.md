@@ -53,8 +53,8 @@ from aylien_news_api.rest import ApiException
 from pprint import pprint
 
 configuration = aylien_news_api.Configuration()
-configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = 'YOUR_API_KEY'
-configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = 'YOUR_API_KEY'
+configuration.api_key['X-AYLIEN-NewsAPI-Application-ID'] = os.environ.get('NEWSAPI_APP_ID')
+configuration.api_key['X-AYLIEN-NewsAPI-Application-Key'] = os.environ.get('NEWSAPI_APP_KEY')
 
 client = aylien_news_api.ApiClient(configuration)
 api_instance = aylien_news_api.DefaultApi(client)
@@ -65,7 +65,7 @@ try:
         title='startup',
         published_at_start='NOW-7DAYS',
         published_at_end='NOW',
-        language=['en']
+        not_language=['en']
     )
     pprint(api_response)
 except ApiException as e:

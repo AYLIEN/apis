@@ -83,24 +83,24 @@ public class Main {
 
     // Configure API key authorization: app_id
     ApiKeyAuth app_id = (ApiKeyAuth)defaultClient.getAuthentication("app_id");
-    app_id.setApiKey("YOUR_APP_ID");
+    app_id.setApiKey(System.getenv("NEWSAPI_APP_ID"));
 
     // Configure API key authorization: app_key
     ApiKeyAuth app_key = (ApiKeyAuth)defaultClient.getAuthentication("app_key");
-    app_key.setApiKey("YOUR_APP_KEY");
+    app_key.setApiKey(System.getenv("NEWSAPI_APP_KEY"));
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
 
-    String title = "startup AND (raise OR raised OR raising OR raises)";
-    List<String> language = Arrays.asList("en", "es", "es");
-    String publishedAtStart = "NOW-3MONTHS/DAY";
-    String publishedAtEnd = "NOW-10DAYS";
+    String title = "startup";
+    List<String> notLanguage = Arrays.asList("en");
+    String publishedAtStart = "NOW-3MONTHS";
+    String publishedAtEnd = "NOW";
     Integer perPage = 10;
 
     try {
       Stories result = apiInstance.listStories()
                            .title(title)
-                           .language(language)
+                           .notLanguage(notLanguage)
                            .publishedAtStart(publishedAtStart)
                            .publishedAtEnd(publishedAtEnd)
                            .perPage(perPage)
