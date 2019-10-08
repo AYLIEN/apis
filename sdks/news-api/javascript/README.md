@@ -58,18 +58,17 @@ var AylienNewsApi = require("aylien_news_api");
 var defaultClient = AylienNewsApi.ApiClient.instance;
 
 var app_id = defaultClient.authentications["app_id"];
-app_id.apiKey = "YOUR_APP_ID";
+app_id.apiKey = process.env["NEWSAPI_APP_ID"];
 
 var app_key = defaultClient.authentications["app_key"];
-app_key.apiKey = "YOUR_APP_KEY";
+app_key.apiKey = process.env["NEWSAPI_APP_KEY"];
 
 var api = new AylienNewsApi.DefaultApi();
 
 var opts = {
   title: "trump",
   sortBy: "social_shares_count.facebook",
-  language: ["en"],
-  notLanguage: ["es", "it"],
+  notLanguage: ["en"],
   publishedAtStart: "NOW-7DAYS",
   publishedAtEnd: "NOW",
   entitiesBodyLinksDbpedia: [

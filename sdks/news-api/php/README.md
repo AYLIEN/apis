@@ -49,15 +49,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```php
 <?php
-<?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
 // Configure API key authorization: app_id
-$config = Aylien\NewsApi\Configuration::getDefaultConfiguration()->setApiKey('X-AYLIEN-NewsAPI-Application-ID', 'YOUR_APP_ID');
+$config = Aylien\NewsApi\Configuration::getDefaultConfiguration()->setApiKey('X-AYLIEN-NewsAPI-Application-ID', $_SERVER['NEWSAPI_APP_ID']);
 
 // Configure API key authorization: app_key
-$config = Aylien\NewsApi\Configuration::getDefaultConfiguration()->setApiKey('X-AYLIEN-NewsAPI-Application-Key', 'YOUR_APP_KEY');
+$config = Aylien\NewsApi\Configuration::getDefaultConfiguration()->setApiKey('X-AYLIEN-NewsAPI-Application-Key', $_SERVER['NEWSAPI_APP_KEY']);
 
 $apiInstance = new Aylien\NewsApi\Api\DefaultApi(
     new GuzzleHttp\Client(),
@@ -72,8 +70,7 @@ $opts = array(
     'http://dbpedia.org/resource/Donald_Trump',
     'http://dbpedia.org/resource/Hillary_Rodham_Clinton'
   ],
-  'language' => ['en'],
-  'notLanguage' => ['es', 'it'],
+  'notLanguage' => ['en'],
   'sortBy' => 'social_shares_count.facebook'
 );
 
