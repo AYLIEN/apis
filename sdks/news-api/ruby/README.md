@@ -42,14 +42,14 @@ end
 api_instance = AylienNewsApi::DefaultApi.new
 
 opts = {
-  'title' => 'trump',
-  'published_at_start' => "NOW-7DAYS",
-  'published_at_end' => "NOW",
-  'entities_body_links_dbpedia' => [
+  title: 'trump',
+  published_at_start: "NOW-7DAYS",
+  published_at_end: "NOW",
+  entities_body_links_dbpedia: [
     'http://dbpedia.org/resource/Donald_Trump',
   ],
-  'language' => ['en', 'it'],
-  'sort_by' => 'social_shares_count.facebook'
+  language: ['en', 'it'],
+  sort_by: 'social_shares_count.facebook'
 }
 
 
@@ -63,8 +63,6 @@ rescue AylienNewsApi::ApiError => e
   puts e.response_body
 end
 ```
-
-Make sure you use strings as keys of your options hash.
 
 ## Documentation for API Endpoints
 
