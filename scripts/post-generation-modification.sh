@@ -37,6 +37,7 @@ sed -i 's/@api_client.build_collection_param(\([^,]*\), :multi.*/\1 if !\1.nil?/
 sed -i 's/\(\w\+\)\[\]/\1/g' lib/aylien_news_api/api/default_api.rb
 sed -i 's/\(\w\+\)2/not_\1/g' lib/aylien_news_api/api/default_api.rb
 sed -i 's/\(\w\+\)2/not_\1/g' docs/DefaultApi.md
+cd ..
 
 cd csharp
 sed -i 's/\(\w\+\)2/not\u\1/g' src/Aylien.NewsApi/Api/DefaultApi.cs
