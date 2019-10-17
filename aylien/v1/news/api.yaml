@@ -2419,6 +2419,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_content_length_min:
       description: >
         This parameter is used for finding stories whose images content length
@@ -2430,6 +2431,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_count_max:
       description: >
         This parameter is used for finding stories whose number of images is
@@ -2441,6 +2443,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_count_min:
       description: >
         This parameter is used for finding stories whose number of images is
@@ -2452,6 +2455,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_format:
       description: >
         This parameter is used for finding stories whose images format are the
@@ -2474,6 +2478,7 @@ components:
             - SVG
           type: string
         type: array
+        nullable: true
       style: form
     media_images_height_max:
       description: >
@@ -2486,6 +2491,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_height_min:
       description: >
         This parameter is used for finding stories whose height of images are
@@ -2496,6 +2502,7 @@ components:
         exclusiveMinimum: true
         format: int32
         minimum: 0
+        nullable: true
         type: integer
     media_images_width_max:
       description: >
@@ -2508,6 +2515,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_images_width_min:
       description: >
         This parameter is used for finding stories whose width of images are
@@ -2517,6 +2525,7 @@ components:
       schema:
         exclusiveMinimum: true
         format: int32
+        nullable: true
         minimum: 0
         type: integer
     media_videos_count_max:
@@ -2530,6 +2539,7 @@ components:
         format: int32
         minimum: 0
         type: integer
+        nullable: true
     media_videos_count_min:
       description: >
         This parameter is used for finding stories whose number of videos is
@@ -2539,6 +2549,7 @@ components:
       schema:
         exclusiveMinimum: true
         format: int32
+        nullable: true
         minimum: 0
         type: integer
     notauthor_id:
@@ -2553,6 +2564,7 @@ components:
           format: int32
           type: integer
         type: array
+        nullable: true
       style: form
     notauthor_name:
       description: >
@@ -2562,6 +2574,7 @@ components:
       name: "!author.name"
       schema:
         type: string
+        nullable: true
     notcategories_id:
       description: >
         This parameter is used for excluding stories by categories id. You can
@@ -2574,6 +2587,7 @@ components:
         items:
           type: string
         type: array
+        nullable: true
       style: form
     notcategories_level:
       description: >
@@ -2586,6 +2600,7 @@ components:
       schema:
         items:
           type: integer
+        nullable: true
         type: array
       style: form
     notentities_body_links_dbpedia:
@@ -2601,6 +2616,7 @@ components:
         items:
           type: string
         type: array
+        nullable: true
       style: form
     notentities_body_text:
       description: >
@@ -2612,6 +2628,7 @@ components:
       in: query
       name: "!entities.body.text[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2626,6 +2643,7 @@ components:
       in: query
       name: "!entities.body.type[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2653,6 +2671,7 @@ components:
       in: query
       name: "!entities.title.text[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2666,6 +2685,7 @@ components:
       in: query
       name: "!entities.title.type[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2677,6 +2697,7 @@ components:
       in: query
       name: "!id[]"
       schema:
+        nullable: true
         items:
           format: int64
           type: integer
@@ -2692,6 +2713,7 @@ components:
       in: query
       name: "!language[]"
       schema:
+        nullable: true
         items:
           enum:
             - en
@@ -2711,6 +2733,7 @@ components:
       in: query
       name: "!media.images.format[]"
       schema:
+        nullable: true
         items:
           enum:
             - BMP
@@ -2733,6 +2756,7 @@ components:
       in: query
       name: "!sentiment.body.polarity"
       schema:
+        nullable: true
         enum:
           - positive
           - neutral
@@ -2745,6 +2769,7 @@ components:
       in: query
       name: "!sentiment.title.polarity"
       schema:
+        nullable: true
         enum:
           - positive
           - neutral
@@ -2758,6 +2783,7 @@ components:
       in: query
       name: "!source.domain[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2770,6 +2796,7 @@ components:
       in: query
       name: "!source.id[]"
       schema:
+        nullable: true
         items:
           format: int32
           type: integer
@@ -2786,6 +2813,7 @@ components:
       in: query
       name: "!source.locations.city[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2802,6 +2830,7 @@ components:
       in: query
       name: "!source.locations.country[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2817,6 +2846,7 @@ components:
       in: query
       name: "!source.locations.state[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2829,6 +2859,7 @@ components:
       in: query
       name: "!source.name[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2844,6 +2875,7 @@ components:
       in: query
       name: "!source.scopes.city[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2860,6 +2892,7 @@ components:
       in: query
       name: "!source.scopes.country[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2875,6 +2908,7 @@ components:
       in: query
       name: "!source.scopes.level[]"
       schema:
+        nullable: true
         items:
           enum:
             - international
@@ -2894,6 +2928,7 @@ components:
       in: query
       name: "!source.scopes.state[]"
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -2904,6 +2939,7 @@ components:
       in: query
       name: per_page
       schema:
+        nullable: true
         default: 3
         format: int32
         maximum: 100
@@ -2919,6 +2955,7 @@ components:
       in: query
       name: published_at.end
       schema:
+        nullable: true
         type: string
     published_at_start:
       description: >
@@ -2930,6 +2967,7 @@ components:
       in: query
       name: published_at.start
       schema:
+        nullable: true
         type: string
     return:
       description: This parameter is used for specifying return fields.
@@ -2961,6 +2999,7 @@ components:
             - links
           type: string
         type: array
+        nullable: true
       style: form
     sentiment_body_polarity:
       description: >
@@ -2969,6 +3008,7 @@ components:
       in: query
       name: sentiment.body.polarity
       schema:
+        nullable: true
         enum:
           - positive
           - neutral
@@ -2981,6 +3021,7 @@ components:
       in: query
       name: sentiment.title.polarity
       schema:
+        nullable: true
         enum:
           - positive
           - neutral
@@ -2994,6 +3035,7 @@ components:
       name: social_shares_count.facebook.max
       schema:
         exclusiveMinimum: true
+        nullable: true
         format: int32
         minimum: 0
         type: integer
@@ -3004,6 +3046,7 @@ components:
       in: query
       name: social_shares_count.facebook.min
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3015,6 +3058,7 @@ components:
       in: query
       name: social_shares_count.google_plus.max
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3026,6 +3070,7 @@ components:
       in: query
       name: social_shares_count.google_plus.min
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3037,6 +3082,7 @@ components:
       in: query
       name: social_shares_count.linkedin.max
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3048,6 +3094,7 @@ components:
       in: query
       name: social_shares_count.linkedin.min
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3059,6 +3106,7 @@ components:
       in: query
       name: social_shares_count.reddit.max
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3070,6 +3118,7 @@ components:
       in: query
       name: social_shares_count.reddit.min
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3082,6 +3131,7 @@ components:
       in: query
       name: source.domain[]
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -3094,6 +3144,7 @@ components:
       in: query
       name: source.id[]
       schema:
+        nullable: true
         items:
           format: int32
           type: integer
@@ -3108,6 +3159,7 @@ components:
       in: query
       name: source.links_in_count.max
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3121,6 +3173,7 @@ components:
       in: query
       name: source.links_in_count.min
       schema:
+        nullable: true
         exclusiveMinimum: true
         format: int32
         minimum: 0
@@ -3136,6 +3189,7 @@ components:
       in: query
       name: source.locations.city[]
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -3152,6 +3206,7 @@ components:
       in: query
       name: source.locations.country[]
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -3179,6 +3234,7 @@ components:
       in: query
       name: source.name[]
       schema:
+        nullable: true
         items:
           type: string
         type: array
@@ -3194,6 +3250,7 @@ components:
       in: query
       name: source.rankings.alexa.country[]
       schema:
+        nullable: true
         items:
           type: string
         type: array
