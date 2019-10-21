@@ -11,6 +11,9 @@ For more documentation see [https://newsapi.aylien.com/docs/](https://newsapi.ay
 - Windows Phone 7.1 (Mango)
 
 ## Dependencies
+- [FubarCoder](https://www.nuget.org/packages/FubarCoder.RestSharp.Portable.HttpClient) - 4.0.8 or later
+- [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) - 12.0.2 or later
+
 - [RestSharp](https://www.nuget.org/packages/RestSharp) - 105.1.0 or later
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/) - 7.0.0 or later
 - [JsonSubTypes](https://www.nuget.org/packages/JsonSubTypes/) - 1.2.0 or later
@@ -66,9 +69,9 @@ namespace GettingStartedExample
                     title: "trump",
                     publishedAtStart: "NOW-7DAYS",
                     publishedAtEnd: "NOW",
-                    language: new List { "en" },
-                    notLanguage: new List { "it", "es" },
-                    entitiesBodyLinksDbpedia: new List {
+                    language: new List<string> { "en" },
+                    notLanguage: new List<string> { "it", "es" },
+                    entitiesBodyLinksDbpedia: new List<string> {
                         "http://dbpedia.org/resource/Donald_Trump",
                         "http://dbpedia.org/resource/Hillary_Rodham_Clinton"
                     },
