@@ -102,3 +102,14 @@ And then run the samples by providing your APP_ID and APP_KEY through environmen
 cd samples/go
 NEWSAPI_APP_ID=YOUR_APP_ID_HERE NEWSAPI_APP_KEY=YOUR_APP_EY_HERE go run index.go
 ```
+
+### C#
+
+Build the SDK through Visual Studio and copy the sdk's dll to `csharp/Aylien.NewsApi.dll`. Run the program with:
+
+```
+set X-AYLIEN-NewsAPI-Application-ID=YOUR_APP_ID_HERE
+set X-AYLIEN-NewsAPI-Application-Key=YOUR_APP_EY_HERE
+cd samples/csharp
+index.exe
+```
