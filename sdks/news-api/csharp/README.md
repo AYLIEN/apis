@@ -50,10 +50,12 @@ namespace GettingStartedExample
         static void Main(string[] args)
         {
             // Configure API key authorization: app_id
-            Configuration.Default.ApiKey.Add("X-AYLIEN-NewsAPI-Application-ID", "YOUR_APP_ID");
+            var apiId = System.Environment.GetEnvironmentVariable("X-AYLIEN-NewsAPI-Application-ID");
+            Configuration.Default.ApiKey.Add("X-AYLIEN-NewsAPI-Application-ID", apiId);
 
             // Configure API key authorization: app_key
-            Configuration.Default.ApiKey.Add("X-AYLIEN-NewsAPI-Application-Key", "YOUR_APP_KEY");
+            var apiKey = System.Environment.GetEnvironmentVariable("X-AYLIEN-NewsAPI-Application-Key");
+            Configuration.Default.ApiKey.Add("X-AYLIEN-NewsAPI-Application-Key", apiKey);
 
             var apiInstance = new DefaultApi();
 
