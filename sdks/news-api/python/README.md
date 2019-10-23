@@ -60,7 +60,6 @@ client = aylien_news_api.ApiClient(configuration)
 api_instance = aylien_news_api.DefaultApi(client)
 
 try:
-    # List autocompletes
     api_response = api_instance.list_stories(
         title='startup',
         published_at_start='NOW-7DAYS',
@@ -69,7 +68,7 @@ try:
     )
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->list_autocompletes: %s\n" % e)
+    print("Exception when calling DefaultApi->list_stories: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
