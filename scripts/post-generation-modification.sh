@@ -22,6 +22,8 @@ cd ..
 
 cd php
 sed -i 's/\(\w\+\)2/not\u\1/g' lib/Api/DefaultApi.php
+sed -i 's/not42/422/g' lib/Api/DefaultApi.php
+sed -i 's/not49/492/g' lib/Api/DefaultApi.php
 sed -i 's/\(\w\+\)2/not\u\1/g' docs/Api/DefaultApi.md
 cd ..
 
