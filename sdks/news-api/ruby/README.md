@@ -10,7 +10,7 @@ For more documentation see [https://newsapi.aylien.com/docs/](https://newsapi.ay
 
 Add this to the Gemfile:
 
-    gem 'aylien_news_api', '~> 2.0.0'
+    gem 'aylien_news_api', '~> 3.0.0'
 
 ### Install from Git
 
