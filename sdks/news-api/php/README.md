@@ -19,7 +19,7 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
 ```json
 {
   "require": {
-    "aylien/newsapi": "~2.0.0"
+    "aylien/newsapi": "~3.0.0"
   }
 }
 ```
