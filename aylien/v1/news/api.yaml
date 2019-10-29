@@ -9,7 +9,7 @@ info:
     HTTP requests to our server, which returns information to your client.
   termsOfService: https://newsapi.aylien.com/tos
   title: AYLIEN News API
-  version: "2.0"
+  version: "3.0"
 openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
