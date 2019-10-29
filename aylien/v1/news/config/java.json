@@ -3,7 +3,7 @@
   "apiPackage": "com.aylien.newsapi.api",
   "invokerPackage": "com.aylien.newsapi",
   "groupId": "com.aylien.newsapi",
-  "artifactVersion": "2.0.0",
+  "artifactVersion": "3.0.0",
   "artifactId": "client",
   "artifactUrl": "https://newsapi.aylien.com/",
   "artifactDescription": "AYLIEN&#39;s officially supported Java client library for accessing News API",
