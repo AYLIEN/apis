@@ -404,6 +404,8 @@ paths:
         - $ref: "#/components/parameters/translations_en_title"
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
+        - $ref: "#/components/parameters/links_permalink"
+        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
@@ -613,6 +615,8 @@ paths:
         - $ref: "#/components/parameters/translations_en_title"
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
+        - $ref: "#/components/parameters/links_permalink"
+        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
@@ -1100,6 +1104,8 @@ paths:
         - $ref: "#/components/parameters/translations_en_title"
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
+        - $ref: "#/components/parameters/links_permalink"
+        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
@@ -1309,6 +1315,8 @@ paths:
         - $ref: "#/components/parameters/translations_en_text"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
+        - $ref: "#/components/parameters/links_permalink"
+        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/categories_taxonomy"
@@ -2035,6 +2043,8 @@ paths:
         - $ref: "#/components/parameters/translations_en_title"
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
+        - $ref: "#/components/parameters/links_permalink"
+        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
@@ -2326,6 +2336,30 @@ components:
       explode: true
       in: query
       name: clusters[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    links_permalink:
+      description: >
+        This parameter is used to find stories based on their url.
+      explode: true
+      in: query
+      name: links.permalink[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notlinks_permalink:
+      description: >
+        This parameter is used to exclude stories based on their url.
+      explode: true
+      in: query
+      name: "!links.permalink[]"
       schema:
         items:
           type: string
