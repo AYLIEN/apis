@@ -3860,12 +3860,14 @@ components:
           format: double
           type: number
         taxonomy:
-          description: The taxonomy of the category
-          enum:
-            - iab-qag
-            - iptc-subjectcode
-          type: string
+          $ref: "#/components/schemas/CategoryTaxonomy"
       type: object
+    CategoryTaxonomy:
+      type: string
+      description: The taxonomy of the category
+      enum:
+        - iab-qag
+        - iptc-subjectcode
     CategoryLinks:
       properties:
         parent:
@@ -4060,6 +4062,26 @@ components:
           description: The state of the location
           type: string
       type: object
+    MediaFormat:
+      description: The format of media
+      enum:
+        - BMP
+        - GIF
+        - JPEG
+        - PNG
+        - TIFF
+        - PSD
+        - ICO
+        - CUR
+        - WEBP
+        - SVG
+      type: string
+    MediaType:
+      description: The type of media
+      enum:
+        - image
+        - video
+      type: string
     Media:
       properties:
         content_length:
@@ -4067,29 +4089,13 @@ components:
           format: int32
           type: integer
         format:
-          description: The format of media
-          enum:
-            - BMP
-            - GIF
-            - JPEG
-            - PNG
-            - TIFF
-            - PSD
-            - ICO
-            - CUR
-            - WEBP
-            - SVG
-          type: string
+          $ref: "#/components/schemas/MediaFormat"
         height:
           description: The height of media
           format: int32
           type: integer
         type:
-          description: The type of media
-          enum:
-            - image
-            - video
-          type: string
+          $ref: "#/components/schemas/MediaType"
         url:
           description: A URL which points to the media file
           type: string
@@ -4153,6 +4159,13 @@ components:
           description: Title of the story
           type: string
       type: object
+    ScopeLevel:
+      description: The scope by level
+      enum:
+        - international
+        - national
+        - local
+      type: string
     Scope:
       properties:
         city:
@@ -4165,25 +4178,22 @@ components:
             codes.
           type: string
         level:
-          description: The scope by level
-          enum:
-            - international
-            - national
-            - local
-          type: string
+          $ref: "#/components/schemas/ScopeLevel"
         state:
           description: The scope by state
           type: string
       type: object
+    SentimentPolarity:
+      description: Polarity of the sentiment
+      enum:
+        - positive
+        - neutral
+        - negative
+      type: string
     Sentiment:
       properties:
         polarity:
-          description: Polarity of the sentiment
-          enum:
-            - positive
-            - neutral
-            - negative
-          type: string
+          $ref: "#/components/schemas/SentimentPolarity"
         score:
           description: Polarity score of the sentiment
           format: double
