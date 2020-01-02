@@ -4,5 +4,5 @@
   "invokerPackage": "Aylien\\NewsApi",
   "modelPackage": "Models",
   "apiPackage": "Api",
-  "variableNamingConvention": "camelCase"
+  "variableNamingConvention": "snake_case"
 }
