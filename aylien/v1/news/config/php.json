@@ -1,6 +1,6 @@
 {
   "packageName": "aylien/newsapi",
-  "artifactVersion": "3.0.0",
+  "artifactVersion": "3.0.1",
   "invokerPackage": "Aylien\\NewsApi",
   "modelPackage": "Models",
   "apiPackage": "Api",
