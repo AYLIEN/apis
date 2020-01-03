@@ -15,7 +15,7 @@ For more documentation see [https://newsapi.aylien.com/docs/](https://newsapi.ay
 Install it via:
 
 ```shell
-npm install aylien_news_api --save
+npm install aylien-news-api --save
 ```
 ### For browser
 
@@ -53,7 +53,7 @@ module: {
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-var AylienNewsApi = require("aylien_news_api");
+var AylienNewsApi = require("aylien-news-api");
 
 var defaultClient = AylienNewsApi.ApiClient.instance;
 

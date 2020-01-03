@@ -89,7 +89,7 @@ The Golang sample requires you to have the SDK linked inside your GOPATH. The su
 
 ```
 mkdir -p $GOPATH/src/github.com/AYLIEN/
-ln -s /absolute/path/to/sdks/news-api/go $GOPATH/src $GOPATH/src/github.com/AYLIEN/aylien_newsapi_go
+ln -s /absolute/path/to/sdks/news-api/go $GOPATH/src/github.com/AYLIEN/aylien_newsapi_go
 
 go get github.com/stretchr/testify/assert
 go get golang.org/x/oauth2

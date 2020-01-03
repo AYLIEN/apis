@@ -4,6 +4,8 @@ for folder in javascript java php csharp go python ruby
 do
   cd $folder
   rm -r $(ls | grep -v README)
+  rm -rf .git
+  cd ..
 done
 
 exit 0

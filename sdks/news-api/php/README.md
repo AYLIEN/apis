@@ -64,14 +64,14 @@ $apiInstance = new Aylien\NewsApi\Api\DefaultApi(
 
 $opts = array(
   'title' => 'trump',
-  'published_at_start' => 'NOW-7DAYS',
-  'published_at_end' => 'NOW',
-  'entities_body_links_dbpedia' => [
+  'publishedAtStart' => 'NOW-7DAYS',
+  'publishedAtEnd' => 'NOW',
+  'entitiesBodyLinksDbpedia' => [
     'http://dbpedia.org/resource/Donald_Trump',
     'http://dbpedia.org/resource/Hillary_Rodham_Clinton'
   ],
-  'not_language' => ['en'],
-  'sort_by' => 'social_shares_count.facebook'
+  'notLanguage' => ['en'],
+  'sortBy' => 'social_shares_count.facebook'
 );
 
 try {

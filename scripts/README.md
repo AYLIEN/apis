@@ -30,7 +30,9 @@ sh ./post-generation-modification.sh
 
 ## Publishing
 
-TBD
+```
+sh ./publish.sh 'Release Note here'
+```
 
 ## Testing
 
