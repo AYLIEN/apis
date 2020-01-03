@@ -25,6 +25,8 @@ sed -i 's/\(\w\+\)2/not_\1/g' lib/Api/DefaultApi.php
 sed -i 's/not_42/422/g' lib/Api/DefaultApi.php
 sed -i 's/not_49/492/g' lib/Api/DefaultApi.php
 sed -i 's/\(\w\+\)2/not_\1/g' docs/Api/DefaultApi.md
+sed -i 's/GIT_USER_ID/aylien/' composer.json
+sed -i 's/GIT_REPO_ID/newsapi/' composer.json
 cd ..
 
 cd python
