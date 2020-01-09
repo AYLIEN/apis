@@ -1,3 +1,4 @@
+scripts=$PWD
 cd ../sdks/news-api
 
 cd javascript
@@ -18,6 +19,9 @@ cd java
 sed -i 's/exclamation\(\w\+\)/not\u\1/g' src/main/java/com/aylien/newsapi/api/DefaultApi.java
 sed -i 's/exclamation\(\w\+\)/not\u\1/g' docs/DefaultApi.md
 rm -rf src/test
+python $scripts/xmlcombine.py pom.xml $scripts/java/distribution.xml >new-pom.xml
+rm pom.xml
+mv new-pom.xml pom.xml
 cd ..
 
 cd php

@@ -75,9 +75,16 @@ lang=go
 git_push
 cd ..
 
-echo "java: TBD"
+echo "java: publishing to nexus"
+echo "- using ~/.m2/settings.xml for credentials"
+echo "- you need a gpg key to sign the packages. It's recommended you generate a pair for use at AYLIEN with your @aylien email."
+echo "- see https://central.sonatype.org/pages/apache-maven.html and https://central.sonatype.org/pages/working-with-pgp-signatures.html on how to generate a key"
+echo "- after this process you have to manually release the deployment to Maven Central: https://central.sonatype.org/pages/releasing-the-deployment.html"
 cd java
 lang=java
+
+mvn clean deploy -P sign-artifacts
+
 git_push
 cd ..
 
