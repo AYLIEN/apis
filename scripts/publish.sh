@@ -32,6 +32,7 @@ cd ..
 
 echo "php: publishing to packagist"
 echo "- please note that packagist expects a new github release, and only updates the package in that case"
+echo "- you can also sign in at packagist.org and click 'update' manually for the package"
 echo "- using PACKAGIST_API_TOKEN from env"
 cd php
 lang=php
