@@ -2,14 +2,14 @@ cd ../sdks/news-api
 
 release_note=${1:-"minor update"}
 
-function git_push {
+function git_push() {
   rm -rf .git
   git init
   git add .
   git commit -m "$release_note"
   git remote add origin git@github.com:aylien/aylien_newsapi_$lang
 
-  git pull origin master -s recursive -X ours
+  git pull origin master -s recursive -X theirs
   git cherry-pick --skip
   git rebase --continue
   git push origin master
@@ -18,7 +18,7 @@ function git_push {
 echo "javascript: publishing to npm"
 if [ ! -f "$HOME/.npmrc" ]; then
   echo "- $HOME/.npmrc not found, using NPM_AUTH_TOKEN from env to create it."
-  echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" > $HOME/.npmrc
+  echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" >$HOME/.npmrc
 fi
 
 cd javascript
@@ -51,14 +51,14 @@ git_push
 pip install twine
 python setup.py sdist bdist_wheel
 twine check dist/*
-twine upload --non-interactive  -u $PYPI_USERNAME -p $PYPI_PASSWORD dist/*
+twine upload --non-interactive -u $PYPI_USERNAME -p $PYPI_PASSWORD dist/*
 cd ..
 
 echo "ruby: publishing to gems"
 if [ ! -f "$HOME/.gem/credentials" ]; then
   echo "- $HOME/.gem/credentials not found, using GEM_API_KEY from env to create it."
   mkdir -p $HOME/.gem
-  echo ":rubygems_api_key: $GEM_API_KEY" > $HOME/.gem/credentials
+  echo ":rubygems_api_key: $GEM_API_KEY" >$HOME/.gem/credentials
 fi
 cd ruby
 lang=ruby
