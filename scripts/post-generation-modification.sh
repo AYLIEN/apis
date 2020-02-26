@@ -13,6 +13,8 @@ sed -i 's/\(\w\+\)2\b/Not\u\1/g' api_default.go
 sed -i 's/\(\w\+\)2\b/Not\u\1/g' docs/DefaultApi.md
 sed -i 's/NotInt3/Int32/g' api_default.go
 sed -i 's/Not42/422/g' api_default.go
+sed -i 's/GIT_USER_ID/aylien/' go.mod
+sed -i 's/GIT_REPO_ID/aylien_newsapi_go/' go.mod
 cd ..
 
 cd java
