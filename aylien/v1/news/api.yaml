@@ -14,9 +14,18 @@ openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
 x-group-parameters: true
+tags:
+  - name: autocomplete
+  - name: cluster
+  - name: histogram
+  - name: story
+  - name: time_series
+  - name: trends
 paths:
   /autocompletes:
     get:
+      tags:
+        - autocomplete
       description: >
         The autocompletes endpoint a string of characters provided to it, and
         then returns suggested terms that are the most likely full words or
@@ -167,6 +176,8 @@ paths:
       summary: List autocompletes
   /clusters:
     get:
+      tags:
+        - cluster
       description: >
         The clusters endpoint is used to return clusters based on parameters you
         set in your query.
@@ -390,6 +401,8 @@ paths:
       summary: List Clusters
   /histograms:
     get:
+      tags:
+        - histogram
       description: >
         For the numerical metadata that the News API gathers (such as word
         counts or social shares for example), you can use the histograms
@@ -879,6 +892,8 @@ paths:
       summary: List histograms
   /stories:
     get:
+      tags:
+        - story
       description: >
         The stories endpoint is used to return stories based on parameters you
         set in your query. The News API crawler gathers articles in near
@@ -1380,6 +1395,8 @@ paths:
       summary: List Stories
   /time_series:
     get:
+      tags:
+        - time_series
       description: >
         The time series endpoint allows you to track information contained in
         stories over time. This information can be anything from mentions of a
@@ -1609,6 +1626,8 @@ paths:
       summary: List time series
   /trends:
     get:
+      tags:
+        - trends
       description: >
         The trends endpoint allows you to identify the most-mentioned entities,
         concepts and keywords relevant to your query. For example, this endpoint
@@ -3860,21 +3879,7 @@ components:
           description: Title of the story
           type: string
         translations:
-          description: Translations of the story. Each language has it's own key and object
-          properties:
-            en:
-              properties:
-                body:
-                  description: Translation of body
-                  type: string
-                text:
-                  description: Translation of a concatenation of title and body
-                  type: string
-                title:
-                  description: Translation of title
-                  type: string
-              type: object
-          type: object
+          $ref: "#/components/schemas/StoryTranslations"
         words_count:
           description: Word count of the story body
           format: int32
@@ -3913,6 +3918,24 @@ components:
           type: string
         permalink:
           description: The story permalink URL
+          type: string
+        clusters:
+          description: The clusters endpoint URL for this story
+          type: string
+      type: object
+    StoryTranslations:
+      description: Translations of the story. Each language has it's own key and object
+      properties:
+        en:
+          $ref: "#/components/schemas/StoryTranslation"
+      type: object
+    StoryTranslation:
+      properties:
+        body:
+          description: Translation of body
+          type: string
+        title:
+          description: Translation of title
           type: string
       type: object
     Summary:
