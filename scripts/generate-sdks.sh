@@ -17,6 +17,9 @@ else
   fi
 fi
 
+# remove tags as they cause breaking change in module names
+cat ../aylien/v1/news/api.yaml | tr '\n' '\r' | sed -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
+
 for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
 do
     echo "Building ${lang} ..."
@@ -27,7 +30,7 @@ do
         --output "../sdks/text-api/${lang}"
     $OPENAPI_CMD generate \
         --skip-validate-spec \
-        --input-spec "../aylien/v1/news/api.yaml" \
+        --input-spec "temp.api.yaml" \
         --generator-name "${lang}" \
         --config "../aylien/v1/news/config/${lang}.json" \
         --output "../sdks/news-api/${lang}"
