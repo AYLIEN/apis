@@ -1,4 +1,4 @@
-# don't forget to update api-docs.yaml as well
+# don't forget to update api.yaml as well
 info:
   contact:
     email: support@aylien.com
@@ -40,6 +40,8 @@ paths:
         `New_York_City_Police_Department`, and so on.
       operationId: listAutocompletes
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - description: |
             This parameter is used for defining the type of autocompletes.
           example: source_names
@@ -186,6 +188,8 @@ paths:
         set in your query.
       operationId: listClusters
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - description: |
             This parameter is used for finding clusters by cluster id.
           explode: true
@@ -625,6 +629,8 @@ paths:
         effectively query this endpoint free of charge.
       operationId: listHistograms
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -1327,6 +1333,8 @@ paths:
         query.
       operationId: listStories
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -1836,6 +1844,8 @@ paths:
         or weekly data points.
       operationId: listTimeSeries
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -2061,6 +2071,8 @@ paths:
         keywords that are mentioned in relation to your query.
       operationId: listTrends
       parameters:
+        - $ref: "#/components/parameters/app_id"
+        - $ref: "#/components/parameters/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -2267,6 +2279,22 @@ paths:
       summary: List trends
 components:
   parameters:
+    app_id:
+      description: >
+        X-AYLIEN-NewsAPI-Application-ID is the identifier of your server,
+        script, or program with a specific application. This parameter is
+        required if you are accessing APIs without authenticating.
+      in: header
+      name: X-AYLIEN-NewsAPI-Application-ID
+      type: apiKey
+    app_key:
+      description: >
+        X-AYLIEN-NewsAPI-Application-Key is the secret key of your server,
+        script, or program with a specific application. This parameter is
+        required if you are accessing APIs without authenticating.
+      in: header
+      name: X-AYLIEN-NewsAPI-Application-Key
+      type: apiKey
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
@@ -4459,6 +4487,7 @@ components:
           type: string
         title:
           description: Translation of title
+          type: string
       type: object
     Summary:
       properties:
@@ -4522,20 +4551,3 @@ components:
             $ref: "#/components/schemas/Trend"
           type: array
       type: object
-  securitySchemes:
-    app_id:
-      description: >
-        X-AYLIEN-NewsAPI-Application-ID is the identifier of your server,
-        script, or program with a specific application. This parameter is
-        required if you are accessing APIs without authenticating.
-      in: header
-      name: X-AYLIEN-NewsAPI-Application-ID
-      type: apiKey
-    app_key:
-      description: >
-        X-AYLIEN-NewsAPI-Application-Key is the secret key of your server,
-        script, or program with a specific application. This parameter is
-        required if you are accessing APIs without authenticating.
-      in: header
-      name: X-AYLIEN-NewsAPI-Application-Key
-      type: apiKey
