@@ -4459,6 +4459,7 @@ components:
           type: string
         title:
           description: Translation of title
+          type: string
       type: object
     Summary:
       properties:
