@@ -407,9 +407,9 @@ paths:
         - app_key: []
       summary: List Clusters
   /coverages:
-    tags:
-      - coverages
     get:
+      tags:
+        - coverages
       description: >
         The coverages endpoint allows you to understand the reach a document has
         had. For example, you can track the coverage of a press release or a
@@ -1110,9 +1110,9 @@ paths:
         - app_key: []
       summary: List histograms
   /related_stories:
-    tags:
-      - related_stories
     get:
+      tags:
+        - related_stories
       description: >
         This endpoint is used for finding semantically similar stories based on
         the parameters you provide as inputs. For example, if you want to find
