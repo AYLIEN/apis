@@ -517,7 +517,7 @@ paths:
     post:
       tags:
         - coverages
-      operationId: listCoveragesPut
+      operationId: listCoveragesPost
       responses:
         "200":
           content:
@@ -1318,7 +1318,7 @@ paths:
     post:
       tags:
         - related_stories
-      operationId: listRelatedStoriesPut
+      operationId: listRelatedStoriesPost
       responses:
         "200":
           content:
