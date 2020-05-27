@@ -403,120 +403,121 @@ paths:
         - app_key: []
       summary: List Clusters
   /coverages:
-    get:
+    description: >
+      The coverages endpoint allows you to understand the reach a document has
+      had. For example, you can track the coverage of a press release or a
+      Tweet based on how many times it has been mentioned in stories.
+    summary: List coverages
+    parameters:
+      - $ref: "#/components/parameters/id"
+      - $ref: "#/components/parameters/notid"
+      - $ref: "#/components/parameters/title"
+      - $ref: "#/components/parameters/body"
+      - $ref: "#/components/parameters/text"
+      - $ref: "#/components/parameters/translations_en_title"
+      - $ref: "#/components/parameters/translations_en_body"
+      - $ref: "#/components/parameters/translations_en_text"
+      - $ref: "#/components/parameters/links_permalink"
+      - $ref: "#/components/parameters/notlinks_permalink"
+      - $ref: "#/components/parameters/language"
+      - $ref: "#/components/parameters/notlanguage"
+      - $ref: "#/components/parameters/published_at_start"
+      - $ref: "#/components/parameters/published_at_end"
+      - $ref: "#/components/parameters/categories_taxonomy"
+      - $ref: "#/components/parameters/categories_confident"
+      - $ref: "#/components/parameters/categories_id"
+      - $ref: "#/components/parameters/notcategories_id"
+      - $ref: "#/components/parameters/categories_level"
+      - $ref: "#/components/parameters/notcategories_level"
+      - $ref: "#/components/parameters/entities_title_text"
+      - $ref: "#/components/parameters/notentities_title_text"
+      - $ref: "#/components/parameters/entities_title_type"
+      - $ref: "#/components/parameters/notentities_title_type"
+      - $ref: "#/components/parameters/entities_title_links_dbpedia"
+      - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+      - $ref: "#/components/parameters/entities_body_text"
+      - $ref: "#/components/parameters/notentities_body_text"
+      - $ref: "#/components/parameters/entities_body_type"
+      - $ref: "#/components/parameters/notentities_body_type"
+      - $ref: "#/components/parameters/entities_body_links_dbpedia"
+      - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+      - $ref: "#/components/parameters/sentiment_title_polarity"
+      - $ref: "#/components/parameters/notsentiment_title_polarity"
+      - $ref: "#/components/parameters/sentiment_body_polarity"
+      - $ref: "#/components/parameters/notsentiment_body_polarity"
+      - $ref: "#/components/parameters/media_images_count_min"
+      - $ref: "#/components/parameters/media_images_count_max"
+      - $ref: "#/components/parameters/media_images_width_min"
+      - $ref: "#/components/parameters/media_images_width_max"
+      - $ref: "#/components/parameters/media_images_height_min"
+      - $ref: "#/components/parameters/media_images_height_max"
+      - $ref: "#/components/parameters/media_images_content_length_min"
+      - $ref: "#/components/parameters/media_images_content_length_max"
+      - $ref: "#/components/parameters/media_images_format"
+      - $ref: "#/components/parameters/notmedia_images_format"
+      - $ref: "#/components/parameters/media_videos_count_min"
+      - $ref: "#/components/parameters/media_videos_count_max"
+      - $ref: "#/components/parameters/author_id"
+      - $ref: "#/components/parameters/notauthor_id"
+      - $ref: "#/components/parameters/author_name"
+      - $ref: "#/components/parameters/notauthor_name"
+      - $ref: "#/components/parameters/source_id"
+      - $ref: "#/components/parameters/notsource_id"
+      - $ref: "#/components/parameters/source_name"
+      - $ref: "#/components/parameters/notsource_name"
+      - $ref: "#/components/parameters/source_domain"
+      - $ref: "#/components/parameters/notsource_domain"
+      - $ref: "#/components/parameters/source_locations_country"
+      - $ref: "#/components/parameters/notsource_locations_country"
+      - $ref: "#/components/parameters/source_locations_state"
+      - $ref: "#/components/parameters/notsource_locations_state"
+      - $ref: "#/components/parameters/source_locations_city"
+      - $ref: "#/components/parameters/notsource_locations_city"
+      - $ref: "#/components/parameters/source_scopes_country"
+      - $ref: "#/components/parameters/notsource_scopes_country"
+      - $ref: "#/components/parameters/source_scopes_state"
+      - $ref: "#/components/parameters/notsource_scopes_state"
+      - $ref: "#/components/parameters/source_scopes_city"
+      - $ref: "#/components/parameters/notsource_scopes_city"
+      - $ref: "#/components/parameters/source_scopes_level"
+      - $ref: "#/components/parameters/notsource_scopes_level"
+      - $ref: "#/components/parameters/source_links_in_count_min"
+      - $ref: "#/components/parameters/source_links_in_count_max"
+      - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
+      - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+      - $ref: "#/components/parameters/source_rankings_alexa_country"
+      - $ref: "#/components/parameters/social_shares_count_facebook_min"
+      - $ref: "#/components/parameters/social_shares_count_facebook_max"
+      - $ref: "#/components/parameters/social_shares_count_google_plus_min"
+      - $ref: "#/components/parameters/social_shares_count_google_plus_max"
+      - $ref: "#/components/parameters/social_shares_count_linkedin_min"
+      - $ref: "#/components/parameters/social_shares_count_linkedin_max"
+      - $ref: "#/components/parameters/social_shares_count_reddit_min"
+      - $ref: "#/components/parameters/social_shares_count_reddit_max"
+      - $ref: "#/components/parameters/clusters"
+      - $ref: "#/components/parameters/return"
+      - $ref: "#/components/parameters/story_id"
+      - $ref: "#/components/parameters/story_url"
+      - $ref: "#/components/parameters/story_title"
+      - $ref: "#/components/parameters/story_body"
+      - description: >
+          Publish date of the article. If you use a url or title and body of
+          an article for getting coverages, this parameter is required. The
+          format used is a restricted form of the canonical representation of
+          dateTime in the [XML Schema specification (ISO
+          8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
+        in: query
+        name: story_published_at
+        schema:
+          format: date-time
+          nullable: true
+          type: string
+      - $ref: "#/components/parameters/story_language"
+      - $ref: "#/components/parameters/per_page"
+    put:
       tags:
         - coverages
-      description: >
-        The coverages endpoint allows you to understand the reach a document has
-        had. For example, you can track the coverage of a press release or a
-        Tweet based on how many times it has been mentioned in stories.
-      operationId: listCoverages
-      parameters:
-        - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
-        - $ref: "#/components/parameters/title"
-        - $ref: "#/components/parameters/body"
-        - $ref: "#/components/parameters/text"
-        - $ref: "#/components/parameters/translations_en_title"
-        - $ref: "#/components/parameters/translations_en_body"
-        - $ref: "#/components/parameters/translations_en_text"
-        - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
-        - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
-        - $ref: "#/components/parameters/published_at_start"
-        - $ref: "#/components/parameters/published_at_end"
-        - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_confident"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_level"
-        - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
-        - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
-        - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
-        - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
-        - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
-        - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
-        - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
-        - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
-        - $ref: "#/components/parameters/media_images_count_min"
-        - $ref: "#/components/parameters/media_images_count_max"
-        - $ref: "#/components/parameters/media_images_width_min"
-        - $ref: "#/components/parameters/media_images_width_max"
-        - $ref: "#/components/parameters/media_images_height_min"
-        - $ref: "#/components/parameters/media_images_height_max"
-        - $ref: "#/components/parameters/media_images_content_length_min"
-        - $ref: "#/components/parameters/media_images_content_length_max"
-        - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
-        - $ref: "#/components/parameters/media_videos_count_min"
-        - $ref: "#/components/parameters/media_videos_count_max"
-        - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
-        - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
-        - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
-        - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
-        - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
-        - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
-        - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
-        - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
-        - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
-        - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
-        - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
-        - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
-        - $ref: "#/components/parameters/source_links_in_count_min"
-        - $ref: "#/components/parameters/source_links_in_count_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
-        - $ref: "#/components/parameters/clusters"
-        - $ref: "#/components/parameters/return"
-        - $ref: "#/components/parameters/story_id"
-        - $ref: "#/components/parameters/story_url"
-        - $ref: "#/components/parameters/story_title"
-        - $ref: "#/components/parameters/story_body"
-        - description: >
-            Publish date of the article. If you use a url or title and body of
-            an article for getting coverages, this parameter is required. The
-            format used is a restricted form of the canonical representation of
-            dateTime in the [XML Schema specification (ISO
-            8601)](https://www.w3.org/TR/xmlschema-2/#dateTime).
-          in: query
-          name: story_published_at
-          schema:
-            format: date-time
-            nullable: true
-            type: string
-        - $ref: "#/components/parameters/story_language"
-        - $ref: "#/components/parameters/per_page"
+      operationId: listCoveragesPut
       responses:
         "200":
           content:
@@ -611,7 +612,104 @@ paths:
       security:
         - app_id: []
         - app_key: []
-      summary: List coverages
+    get:
+      tags:
+        - coverages
+      operationId: listCoveragesGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Coverages"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Coverages"
+          description: An object including an array of coverages
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Reset:
+              description: >
+                The remaining window before the rate limit resets in UTC [epoch
+                seconds](https://en.wikipedia.org/wiki/Unix_time).
+              schema:
+                format: int64
+                type: integer
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Not Found
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unprocessable Entity
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Too Many Requests
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Reset:
+              description: >
+                The remaining window before the rate limit resets in UTC [epoch
+                seconds](https://en.wikipedia.org/wiki/Unix_time).
+              schema:
+                format: int64
+                type: integer
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Internal Server Error
+      security:
+        - app_id: []
+        - app_key: []
   /histograms:
     get:
       tags:
@@ -1104,122 +1202,123 @@ paths:
         - app_key: []
       summary: List histograms
   /related_stories:
-    get:
+    description: >
+      This endpoint is used for finding semantically similar stories based on
+      the parameters you provide as inputs. For example, if you want to find
+      stories similar to a Tweet or any text extract you input, the related
+      stories endpoint will analyze the entities present and the meaning of
+      the text, and find stories with a similar meaning. The maximum number of
+      related stories returned is 100.
+    summary: List related stories
+    parameters:
+      - $ref: "#/components/parameters/id"
+      - $ref: "#/components/parameters/notid"
+      - $ref: "#/components/parameters/title"
+      - $ref: "#/components/parameters/body"
+      - $ref: "#/components/parameters/text"
+      - $ref: "#/components/parameters/translations_en_title"
+      - $ref: "#/components/parameters/translations_en_body"
+      - $ref: "#/components/parameters/translations_en_text"
+      - $ref: "#/components/parameters/links_permalink"
+      - $ref: "#/components/parameters/notlinks_permalink"
+      - $ref: "#/components/parameters/language"
+      - $ref: "#/components/parameters/notlanguage"
+      - $ref: "#/components/parameters/published_at_start"
+      - $ref: "#/components/parameters/published_at_end"
+      - $ref: "#/components/parameters/categories_taxonomy"
+      - $ref: "#/components/parameters/categories_confident"
+      - $ref: "#/components/parameters/categories_id"
+      - $ref: "#/components/parameters/notcategories_id"
+      - $ref: "#/components/parameters/categories_level"
+      - $ref: "#/components/parameters/notcategories_level"
+      - $ref: "#/components/parameters/entities_title_text"
+      - $ref: "#/components/parameters/notentities_title_text"
+      - $ref: "#/components/parameters/entities_title_type"
+      - $ref: "#/components/parameters/notentities_title_type"
+      - $ref: "#/components/parameters/entities_title_links_dbpedia"
+      - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+      - $ref: "#/components/parameters/entities_body_text"
+      - $ref: "#/components/parameters/notentities_body_text"
+      - $ref: "#/components/parameters/entities_body_type"
+      - $ref: "#/components/parameters/notentities_body_type"
+      - $ref: "#/components/parameters/entities_body_links_dbpedia"
+      - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+      - $ref: "#/components/parameters/sentiment_title_polarity"
+      - $ref: "#/components/parameters/notsentiment_title_polarity"
+      - $ref: "#/components/parameters/sentiment_body_polarity"
+      - $ref: "#/components/parameters/notsentiment_body_polarity"
+      - $ref: "#/components/parameters/media_images_count_min"
+      - $ref: "#/components/parameters/media_images_count_max"
+      - $ref: "#/components/parameters/media_images_width_min"
+      - $ref: "#/components/parameters/media_images_width_max"
+      - $ref: "#/components/parameters/media_images_height_min"
+      - $ref: "#/components/parameters/media_images_height_max"
+      - $ref: "#/components/parameters/media_images_content_length_min"
+      - $ref: "#/components/parameters/media_images_content_length_max"
+      - $ref: "#/components/parameters/media_images_format"
+      - $ref: "#/components/parameters/notmedia_images_format"
+      - $ref: "#/components/parameters/media_videos_count_min"
+      - $ref: "#/components/parameters/media_videos_count_max"
+      - $ref: "#/components/parameters/author_id"
+      - $ref: "#/components/parameters/notauthor_id"
+      - $ref: "#/components/parameters/author_name"
+      - $ref: "#/components/parameters/notauthor_name"
+      - $ref: "#/components/parameters/source_id"
+      - $ref: "#/components/parameters/notsource_id"
+      - $ref: "#/components/parameters/source_name"
+      - $ref: "#/components/parameters/notsource_name"
+      - $ref: "#/components/parameters/source_domain"
+      - $ref: "#/components/parameters/notsource_domain"
+      - $ref: "#/components/parameters/source_locations_country"
+      - $ref: "#/components/parameters/notsource_locations_country"
+      - $ref: "#/components/parameters/source_locations_state"
+      - $ref: "#/components/parameters/notsource_locations_state"
+      - $ref: "#/components/parameters/source_locations_city"
+      - $ref: "#/components/parameters/notsource_locations_city"
+      - $ref: "#/components/parameters/source_scopes_country"
+      - $ref: "#/components/parameters/notsource_scopes_country"
+      - $ref: "#/components/parameters/source_scopes_state"
+      - $ref: "#/components/parameters/notsource_scopes_state"
+      - $ref: "#/components/parameters/source_scopes_city"
+      - $ref: "#/components/parameters/notsource_scopes_city"
+      - $ref: "#/components/parameters/source_scopes_level"
+      - $ref: "#/components/parameters/notsource_scopes_level"
+      - $ref: "#/components/parameters/source_links_in_count_min"
+      - $ref: "#/components/parameters/source_links_in_count_max"
+      - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
+      - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+      - $ref: "#/components/parameters/source_rankings_alexa_country"
+      - $ref: "#/components/parameters/social_shares_count_facebook_min"
+      - $ref: "#/components/parameters/social_shares_count_facebook_max"
+      - $ref: "#/components/parameters/social_shares_count_google_plus_min"
+      - $ref: "#/components/parameters/social_shares_count_google_plus_max"
+      - $ref: "#/components/parameters/social_shares_count_linkedin_min"
+      - $ref: "#/components/parameters/social_shares_count_linkedin_max"
+      - $ref: "#/components/parameters/social_shares_count_reddit_min"
+      - $ref: "#/components/parameters/social_shares_count_reddit_max"
+      - $ref: "#/components/parameters/clusters"
+      - $ref: "#/components/parameters/return"
+      - $ref: "#/components/parameters/story_id"
+      - $ref: "#/components/parameters/story_url"
+      - $ref: "#/components/parameters/story_title"
+      - $ref: "#/components/parameters/story_body"
+      - description: >
+          This parameter is used for boosting the result by the specified
+          value.
+        in: query
+        name: boost_by
+        schema:
+          enum:
+            - recency
+            - popularity
+          nullable: true
+          type: string
+      - $ref: "#/components/parameters/story_language"
+      - $ref: "#/components/parameters/per_page"
+    put:
       tags:
         - related_stories
-      description: >
-        This endpoint is used for finding semantically similar stories based on
-        the parameters you provide as inputs. For example, if you want to find
-        stories similar to a Tweet or any text extract you input, the related
-        stories endpoint will analyze the entities present and the meaning of
-        the text, and find stories with a similar meaning. The maximum number of
-        related stories returned is 100.
-      operationId: listRelatedStories
-      parameters:
-        - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
-        - $ref: "#/components/parameters/title"
-        - $ref: "#/components/parameters/body"
-        - $ref: "#/components/parameters/text"
-        - $ref: "#/components/parameters/translations_en_title"
-        - $ref: "#/components/parameters/translations_en_body"
-        - $ref: "#/components/parameters/translations_en_text"
-        - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
-        - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
-        - $ref: "#/components/parameters/published_at_start"
-        - $ref: "#/components/parameters/published_at_end"
-        - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_confident"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_level"
-        - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
-        - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
-        - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
-        - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
-        - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
-        - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
-        - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
-        - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
-        - $ref: "#/components/parameters/media_images_count_min"
-        - $ref: "#/components/parameters/media_images_count_max"
-        - $ref: "#/components/parameters/media_images_width_min"
-        - $ref: "#/components/parameters/media_images_width_max"
-        - $ref: "#/components/parameters/media_images_height_min"
-        - $ref: "#/components/parameters/media_images_height_max"
-        - $ref: "#/components/parameters/media_images_content_length_min"
-        - $ref: "#/components/parameters/media_images_content_length_max"
-        - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
-        - $ref: "#/components/parameters/media_videos_count_min"
-        - $ref: "#/components/parameters/media_videos_count_max"
-        - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
-        - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
-        - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
-        - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
-        - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
-        - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
-        - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
-        - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
-        - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
-        - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
-        - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
-        - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
-        - $ref: "#/components/parameters/source_links_in_count_min"
-        - $ref: "#/components/parameters/source_links_in_count_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
-        - $ref: "#/components/parameters/clusters"
-        - $ref: "#/components/parameters/return"
-        - $ref: "#/components/parameters/story_id"
-        - $ref: "#/components/parameters/story_url"
-        - $ref: "#/components/parameters/story_title"
-        - $ref: "#/components/parameters/story_body"
-        - description: >
-            This parameter is used for boosting the result by the specified
-            value.
-          in: query
-          name: boost_by
-          schema:
-            enum:
-              - recency
-              - popularity
-            nullable: true
-            type: string
-        - $ref: "#/components/parameters/story_language"
-        - $ref: "#/components/parameters/per_page"
+      operationId: listRelatedStoriesPut
       responses:
         "200":
           content:
@@ -1314,7 +1413,104 @@ paths:
       security:
         - app_id: []
         - app_key: []
-      summary: List related stories
+    get:
+      tags:
+        - related_stories
+      operationId: listRelatedStoriesGet
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RelatedStories"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/RelatedStories"
+          description: An object including an array of related stories
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Reset:
+              description: >
+                The remaining window before the rate limit resets in UTC [epoch
+                seconds](https://en.wikipedia.org/wiki/Unix_time).
+              schema:
+                format: int64
+                type: integer
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Not Found
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unprocessable Entity
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Too Many Requests
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Reset:
+              description: >
+                The remaining window before the rate limit resets in UTC [epoch
+                seconds](https://en.wikipedia.org/wiki/Unix_time).
+              schema:
+                format: int64
+                type: integer
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Internal Server Error
+      security:
+        - app_id: []
+        - app_key: []
   /stories:
     get:
       tags:
