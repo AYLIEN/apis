@@ -520,7 +520,7 @@ paths:
           type: string
       - $ref: "#/components/parameters/story_language"
       - $ref: "#/components/parameters/per_page"
-    put:
+    post:
       tags:
         - coverages
       operationId: listCoveragesPut
@@ -1325,7 +1325,7 @@ paths:
           type: string
       - $ref: "#/components/parameters/story_language"
       - $ref: "#/components/parameters/per_page"
-    put:
+    post:
       tags:
         - related_stories
       operationId: listRelatedStoriesPut
