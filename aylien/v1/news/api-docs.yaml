@@ -22,8 +22,8 @@ tags:
   - name: story
   - name: time_series
   - name: trends
-  - name: related_stories
-  - name: coverages
+  - name: related_story
+  - name: coverage
 paths:
   /autocompletes:
     get:
@@ -522,7 +522,7 @@ paths:
       - $ref: "#/components/parameters/per_page"
     post:
       tags:
-        - coverages
+        - coverage
       operationId: listCoveragesPost
       responses:
         "200":
@@ -620,7 +620,7 @@ paths:
         - app_key: []
     get:
       tags:
-        - coverages
+        - coverage
       operationId: listCoveragesGet
       responses:
         "200":
@@ -1327,7 +1327,7 @@ paths:
       - $ref: "#/components/parameters/per_page"
     post:
       tags:
-        - related_stories
+        - related_story
       operationId: listRelatedStoriesPost
       responses:
         "200":
@@ -1425,7 +1425,7 @@ paths:
         - app_key: []
     get:
       tags:
-        - related_stories
+        - related_story
       operationId: listRelatedStoriesGet
       responses:
         "200":
