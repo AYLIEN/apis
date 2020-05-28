@@ -4300,6 +4300,14 @@ components:
           items:
             $ref: "#/components/schemas/HistogramInterval"
           type: array
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string
       type: object
     Location:
       properties:
@@ -4551,6 +4559,14 @@ components:
           items:
             $ref: "#/components/schemas/Story"
           type: array
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string  
       type: object
     Story:
       properties:
@@ -4750,4 +4766,12 @@ components:
           items:
             $ref: "#/components/schemas/Trend"
           type: array
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string  
       type: object
