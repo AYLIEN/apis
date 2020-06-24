@@ -4103,6 +4103,9 @@ components:
         id:
           description: The ID of the category
           type: string
+        label:
+          description: The label of the category
+          type: string  
         level:
           description: The level of the category
           format: int32
