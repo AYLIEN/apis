@@ -18,9 +18,15 @@ else
 fi
 
 # remove tags as they cause breaking change in module names
-cat ../aylien/v1/news/api.yaml | tr '\n' '\r' | sed -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
+OS=`uname`
+cmd=sed
+if [ "$OS" = 'Darwin' ]; then
+    # for MacOS
+    cmd=gsed
+fi
+cat ../aylien/v1/news/api.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
 
-for lang in "csharp" "ruby" "php" "java" "javascript" "go" "python"
+for lang in "ruby" "javascript" "go" "python"
 do
     echo "Building ${lang} ..."
     $OPENAPI_CMD generate \
@@ -35,4 +41,8 @@ do
         --config "../aylien/v1/news/config/${lang}.json" \
         --output "../sdks/news-api/${lang}"
 done
+
+rm temp.api.yaml
+
 echo "All done!"
+
