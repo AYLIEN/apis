@@ -1,11 +1,13 @@
 cd ../sdks/news-api
 
-for folder in javascript java php csharp go python ruby
+for folder in javascript go python ruby
 do
-  cd $folder
-  rm -r $(ls | grep -v README)
-  rm -rf .git
-  cd ..
+  if [ -d "$folder" ]; then
+    cd $folder
+    rm -r $(ls | grep -v README)
+    rm -rf .git
+    cd ..
+  fi
 done
 
 exit 0

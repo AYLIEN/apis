@@ -1,8 +1,0 @@
-{
-  "packageName": "aylien/newsapi",
-  "artifactVersion": "3.1.0",
-  "invokerPackage": "Aylien\\NewsApi",
-  "modelPackage": "Models",
-  "apiPackage": "Api",
-  "variableNamingConvention": "snake_case"
-}
