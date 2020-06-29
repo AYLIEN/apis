@@ -427,6 +427,8 @@ paths:
       - $ref: "#/components/parameters/categories_confident"
       - $ref: "#/components/parameters/categories_id"
       - $ref: "#/components/parameters/notcategories_id"
+      - $ref: "#/components/parameters/categories_label"
+      - $ref: "#/components/parameters/notcategories_label"
       - $ref: "#/components/parameters/categories_level"
       - $ref: "#/components/parameters/notcategories_level"
       - $ref: "#/components/parameters/entities_title_text"
@@ -741,6 +743,8 @@ paths:
         - $ref: "#/components/parameters/categories_confident"
         - $ref: "#/components/parameters/categories_id"
         - $ref: "#/components/parameters/notcategories_id"
+        - $ref: "#/components/parameters/categories_label"
+        - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
         - $ref: "#/components/parameters/entities_title_text"
@@ -1229,6 +1233,8 @@ paths:
       - $ref: "#/components/parameters/categories_confident"
       - $ref: "#/components/parameters/categories_id"
       - $ref: "#/components/parameters/notcategories_id"
+      - $ref: "#/components/parameters/categories_label"
+      - $ref: "#/components/parameters/notcategories_label"
       - $ref: "#/components/parameters/categories_level"
       - $ref: "#/components/parameters/notcategories_level"
       - $ref: "#/components/parameters/entities_title_text"
@@ -1541,6 +1547,8 @@ paths:
         - $ref: "#/components/parameters/categories_confident"
         - $ref: "#/components/parameters/categories_id"
         - $ref: "#/components/parameters/notcategories_id"
+        - $ref: "#/components/parameters/categories_label"
+        - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
         - $ref: "#/components/parameters/entities_title_text"
@@ -2046,6 +2054,8 @@ paths:
         - $ref: "#/components/parameters/categories_confident"
         - $ref: "#/components/parameters/categories_id"
         - $ref: "#/components/parameters/notcategories_id"
+        - $ref: "#/components/parameters/categories_label"
+        - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
         - $ref: "#/components/parameters/entities_title_text"
@@ -2275,6 +2285,8 @@ paths:
         - $ref: "#/components/parameters/categories_confident"
         - $ref: "#/components/parameters/categories_id"
         - $ref: "#/components/parameters/notcategories_id"
+        - $ref: "#/components/parameters/categories_label"
+        - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
         - $ref: "#/components/parameters/entities_title_text"
@@ -2521,6 +2533,20 @@ components:
         nullable: true
         type: array
       style: form
+    categories_label:
+      description: >
+        This parameter is used for finding stories by categories label. You can
+        read more about working with categories
+        [here](https://newsapi.aylien.com/docs/working-with-categories).
+      explode: true
+      in: query
+      name: categories.label[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form  
     categories_level:
       description: >
         This parameter is used for finding stories by categories level. You can
@@ -2888,6 +2914,20 @@ components:
         nullable: true
         type: array
       style: form
+    notcategories_label:
+      description: >
+        This parameter is used for excluding stories by categories label. You can
+        read more about working with categories
+        [here](https://newsapi.aylien.com/docs/working-with-categories).
+      explode: true
+      in: query
+      name: "!categories.label[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form  
     notcategories_level:
       description: >
         This parameter is used for excluding stories by categories level. You
