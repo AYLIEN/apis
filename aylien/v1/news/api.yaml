@@ -4500,6 +4500,7 @@ components:
       type: object
   securitySchemes:
     app_id:
+      x-auth-id-alias: true
       description: >
         X-AYLIEN-NewsAPI-Application-ID is the identifier of your server,
         script, or program with a specific application. This parameter is
@@ -4508,6 +4509,7 @@ components:
       name: X-AYLIEN-NewsAPI-Application-ID
       type: apiKey
     app_key:
+      x-auth-id-alias: true
       description: >
         X-AYLIEN-NewsAPI-Application-Key is the secret key of your server,
         script, or program with a specific application. This parameter is
