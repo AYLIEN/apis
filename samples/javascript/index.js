@@ -30,7 +30,6 @@ var callback = function(error, data, response) {
     console.log("========================================");
     for (var i = 0; i < data.stories.length; i++) {
       console.log(data.stories[i].title + " / " + data.stories[i].source.name);
-      console.log(data.stories[i]);
     }
   }
 };

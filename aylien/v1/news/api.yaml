@@ -331,6 +331,77 @@ paths:
             nullable: true
             type: array
           style: form
+        - description: This parameter is used for specifying return fields.
+          explode: true
+          in: query
+          name: return[]
+          schema:
+            items:
+              enum:
+                - id
+                - time
+                - summary
+                - category
+                - story_count
+                - earliest_story
+                - latest_story
+                - representative_story
+                - location_country
+              type: string
+            nullable: true
+            type: array
+          style: form
+        - description: >
+            This parameter is used for changing the order column of the results.
+            You can read about sorting results
+            [here](https://newsapi.aylien.com/docs/sorting-results).
+          in: query
+          name: sort_by
+          schema:
+            default: published_at
+            enum:
+              - time
+              - story_count
+              - earliest_story
+              - latest_story
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for changing the order direction of the
+            result. You can read about sorting results
+            [here](https://newsapi.aylien.com/docs/sorting-results).
+          in: query
+          name: sort_direction
+          schema:
+            default: desc
+            enum:
+              - asc
+              - desc
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding a specific page. You can read
+            more about pagination of results
+            [here](https://newsapi.aylien.com/docs/pagination-of-results).
+          in: query
+          name: cursor
+          schema:
+            default: "*"
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for specifying number of items in each page
+            You can read more about pagination of results
+            [here](https://newsapi.aylien.com/docs/pagination-of-results)
+          in: query
+          name: per_page
+          schema:
+            default: 10
+            format: int32
+            maximum: 100
+            minimum: 1
+            nullable: true
+            type: integer
       responses:
         "200":
           $ref: "#/components/responses/clusters"
@@ -501,6 +572,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_linkedin_max"
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
+        - $ref: "#/components/parameters/clusters"
         - description: >
             This parameter is used for setting the start data point of histogram
             intervals.
@@ -1812,6 +1884,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_linkedin_max"
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
+        - $ref: "#/components/parameters/clusters"
         - description: >
             This parameter is used for finding stories whose published at time
             is less than the specified value.
@@ -2043,6 +2116,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_linkedin_max"
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
+        - $ref: "#/components/parameters/clusters"
         - description: |
             This parameter is used to specify the trend field.
           example: keywords
@@ -4302,7 +4376,7 @@ components:
       properties:
         id:
           description: A unique identification for the cluster
-          format: int32
+          format: int64
           type: integer
         phrases:
           description: Suggested labels for the cluster
