@@ -71,18 +71,6 @@ npm publish
 
 Make sure to also push to the remote git repository and create a release.
 
-### PHP: packagist
-
-Packagist interacts directly with the Github repository, so for publishing you have to first push to [git](#git) and create a release, then trigger an update of the package either using curl or through the web interface. API Token can be found in the secure note.
-
-```
-curl -XPOST -H 'content-type:application/json' \
-  "https://packagist.org/api/update-package?username=aylien&apiToken=$PACKAGIST_API_TOKEN" \
-  -d '{"repository":{"url":"https://github.com/aylien/aylien_newsapi_php"}}'
-```
-
-Web interface: https://packagist.org/users/aylien/packages/
-
 ### Python: pypi
 
 For uploading to pypi you need to install `twine`, build and check the package and then upload it. Username and password can be found in the secure note.
@@ -115,52 +103,6 @@ Make sure to also push to the remote git repository and create a release.
 ### Go
 
 Go directly retrieves the packages from Github, no publication necessary other than pushing to [git](#git) and making a release.
-
-### Java: OSS Sonatype and Maven Central
-
-Java is the beast. In order to publish to Maven Central there are a few steps necessary. First, you need to put the correct credentials in `~/.m2/settings.xml`. This file can be found in the secure note:
-
-```
-<settings>
-  <servers>
-    <server>
-      <id>ossrh</id>
-      <username>USERNAME</username>
-      <password>PASSWORD</password>
-    </server>
-  </servers>
-</settings>
-```
-
-Next you need to create a GPG key pair to sign the package before uploading it to OSS. It's recommended to generate an `@aylien` gpg key and use that for the purpose of signing the packages. To do that:
-
-```
-gpg --gen-key
-```
-
-Take note of your key ID, it's a long sequence similar to `6E8C607AAF0ADE4850C0A38AF8185E4E960E649B`.
-
-Next you need to upload your public key to a keyserver:
-
-```
-gpg --send-keys 6E8C607AAF0ADE4850C0A38AF8185E4E960E649B
-```
-
-Once that's done, you can upload the package to OSS:
-
-```
-mvn clean deploy -P sign-artifacts
-```
-
-With that done, you should be able to find the uploaded package in "Staging Repositories" on OSS dashboard: https://oss.sonatype.org/#stagingRepositories
-
-In the Summary tab at the bottom, you can see the status of the staging repository as "Open":
-
-![OSS Staging Repository Screenshot](oss.png)
-
-You can check the uploaded files in the "Content" tab and make sure everything looks good. Once you have verified the content, you can now "Close" the repository using buttons at the top of the screen. Closing will take around a minute, refresh to see if the closing went well. If closing fails and you get red notifications, you can check them in the "Activity" tab. Once you get the repository to close successfuly, you can now "Release" the repository for the package to be released into Maven Central.
-
-> ℹ️ If you get "Failed: Signature Validation" with an error saying. "No public key: Key with id: (YOUR_KEY_ID_HERE) was not able to be located on <a href="http://pool.sks-keyservers.net:11371/">http://pool.sks-keyservers.net:11371/</a>. Upload your public key and try the operation again." that usually means you have recently uploaded your keys and you have to wait an hour or so before it is synchronized across servers.
 
 ### Automated Script
 

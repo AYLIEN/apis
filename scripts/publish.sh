@@ -30,19 +30,6 @@ npm run build
 npm publish
 cd ..
 
-echo "php: publishing to packagist"
-echo "- please note that packagist expects a new github release, and only updates the package in that case"
-echo "- you can also sign in at packagist.org and click 'update' manually for the package"
-echo "- using PACKAGIST_API_TOKEN from env"
-cd php
-lang=php
-git_push
-
-curl -XPOST -H 'content-type:application/json' \
-  "https://packagist.org/api/update-package?username=aylien&apiToken=$PACKAGIST_API_TOKEN" \
-  -d '{"repository":{"url":"https://github.com/aylien/aylien_newsapi_php"}}'
-cd ..
-
 echo "python: publishing to pypi"
 echo "- using PYPI_USERNAME and PYPI_PASSWORD env variables"
 cd python
@@ -72,24 +59,5 @@ cd ..
 echo "go: there is no publication necessary, users pull directly from github."
 cd go
 lang=go
-git_push
-cd ..
-
-echo "java: publishing to nexus"
-echo "- using ~/.m2/settings.xml for credentials"
-echo "- you need a gpg key to sign the packages. It's recommended you generate a pair for use at AYLIEN with your @aylien email."
-echo "- see https://central.sonatype.org/pages/apache-maven.html and https://central.sonatype.org/pages/working-with-pgp-signatures.html on how to generate a key"
-echo "- after this process you have to manually release the deployment to Maven Central: https://central.sonatype.org/pages/releasing-the-deployment.html"
-cd java
-lang=java
-
-mvn clean deploy -P sign-artifacts
-
-git_push
-cd ..
-
-echo "csharp: TBD"
-cd csharp
-lang=csharp
 git_push
 cd ..
