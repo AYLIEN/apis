@@ -4129,6 +4129,14 @@ components:
         story_title:
           description: The input story title
           type: string
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string  
       type: object
     RepresentativeStory:
       properties:
