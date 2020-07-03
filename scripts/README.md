@@ -56,10 +56,10 @@ Don't forget to create a release on GitHub.
 
 ### JavaScript: npm
 
-For publishing to npm, you need to set the correct credentials in `~/.npmrc`. You can find the line to put there in the secure note.
+For publishing to npm, you need to log into the AYLIEN npmjs account. This is available on LastPass.
 
 ```
-echo "//registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN" >$HOME/.npmrc
+npm login
 ```
 
 With that in place, build and publish:
