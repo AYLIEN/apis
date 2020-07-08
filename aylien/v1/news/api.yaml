@@ -4301,6 +4301,9 @@ components:
           description: The start of a period in which searched stories were published
           format: date-time
           type: string
+        warning:
+          description: Notifies about possible issues that occurred when searching for stories
+          type: string
       type: object
     Story:
       properties:
