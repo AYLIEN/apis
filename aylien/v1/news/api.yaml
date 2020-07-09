@@ -3986,6 +3986,8 @@ components:
       properties:
         about:
           type: string
+        docs:
+          type: string  
       type: object
     Errors:
       properties:
@@ -4301,9 +4303,11 @@ components:
           description: The start of a period in which searched stories were published
           format: date-time
           type: string
-        warning:
+        warnings:
           description: Notifies about possible issues that occurred when searching for stories
-          type: string
+          items:
+            $ref: "#/components/schemas/Warning"
+          type: array
       type: object
     Story:
       properties:
@@ -4508,6 +4512,18 @@ components:
           description: The start of a period in which searched stories were published
           format: date-time
           type: string
+      type: object
+    Warning:
+      properties:
+        id:
+          description: The identfier of the warning, represents its origin.
+          type: String
+        links:
+          description: Contians links to the documentation.
+          $ref: "#/components/schemas/ErrorLinks"
+        detail:
+          description: The detailed description of the warning.
+          type: String
       type: object
   securitySchemes:
     app_id:
