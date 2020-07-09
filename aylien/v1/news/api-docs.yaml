@@ -42,8 +42,8 @@ paths:
         `New_York_City_Police_Department`, and so on.
       operationId: listAutocompletes
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - description: |
             This parameter is used for defining the type of autocompletes.
           example: source_names
@@ -190,8 +190,8 @@ paths:
         set in your query.
       operationId: listClusters
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - description: |
             This parameter is used for finding clusters by cluster id.
           explode: true
@@ -492,8 +492,8 @@ paths:
         effectively query this endpoint free of charge.
       operationId: listHistograms
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -985,8 +985,8 @@ paths:
       related stories returned is 100.
     summary: List related stories
     parameters:
-      - $ref: "#/components/parameters/app_id"
-      - $ref: "#/components/parameters/app_key"
+      - $ref: "#/components/securitySchemes/app_id"
+      - $ref: "#/components/securitySchemes/app_key"
       - $ref: "#/components/parameters/id"
       - $ref: "#/components/parameters/notid"
       - $ref: "#/components/parameters/title"
@@ -1301,8 +1301,8 @@ paths:
         query.
       operationId: listStories
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -1814,8 +1814,8 @@ paths:
         or weekly data points.
       operationId: listTimeSeries
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
@@ -2044,8 +2044,8 @@ paths:
         keywords that are mentioned in relation to your query.
       operationId: listTrends
       parameters:
-        - $ref: "#/components/parameters/app_id"
-        - $ref: "#/components/parameters/app_key"
+        - $ref: "#/components/securitySchemes/app_id"
+        - $ref: "#/components/securitySchemes/app_key"
         - $ref: "#/components/parameters/id"
         - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
