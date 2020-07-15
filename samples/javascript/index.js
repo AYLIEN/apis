@@ -1,4 +1,4 @@
-var AylienNewsApi = require("aylien_news_api");
+var AylienNewsApi = require("aylien-news-api");
 
 var defaultClient = AylienNewsApi.ApiClient.instance;
 

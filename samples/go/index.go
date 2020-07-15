@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 	"fmt"
-	newsapi "github.com/AYLIEN/aylien_newsapi_go"
+	newsapi "github.com/AYLIEN/aylien_newsapi_go/v4"
 	"os"
 
 	"github.com/antihax/optional"
