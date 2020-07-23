@@ -3977,12 +3977,25 @@ components:
             description: A dbpedia type
             type: string
           type: array
+        sentiment:
+          $ref: "#/components/schemas/EntitySentiment"
       type: object
     EntityLinks:
       properties:
         dbpedia:
           description: A dbpedia resource URL
           type: string
+      type: object
+    EntitySentiment:
+      properties:
+        polarity:
+          $ref: "#/components/schemas/SentimentPolarity"
+        confidence:
+          description: Polarity confidence of the sentiment
+          format: double
+          maximum: 1
+          minimum: 0
+          type: number
       type: object
     Error:
       properties:
