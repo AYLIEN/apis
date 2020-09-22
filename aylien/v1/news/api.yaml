@@ -3954,10 +3954,13 @@ components:
         text:
           description: The entity text
           type: string
+        stock_ticker:
+          description: The stock_ticker of the entity (might be null)
+          type: string
         types:
-          description: An array of the dbpedia types
+          description: An array of the entity types
           items:
-            description: A dbpedia type
+            description: An entity type
             type: string
           type: array
         sentiment:
@@ -3966,7 +3969,10 @@ components:
     EntityLinks:
       properties:
         dbpedia:
-          description: A dbpedia resource URL
+          description: A dbpedia resource URL (deprecated)
+          type: string
+        wikipedia:
+          description: A wikipedia resource URL
           type: string
       type: object
     EntitySentiment:
