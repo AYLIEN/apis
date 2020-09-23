@@ -3962,12 +3962,6 @@ components:
           type: array
         links:
           $ref: "#/components/schemas/EntityLinks"
-        score:
-          description: The entity score
-          format: double
-          maximum: 1
-          minimum: 0
-          type: number
         text:
           description: The entity text
           type: string
