@@ -1792,96 +1792,10 @@ paths:
         real-time and stores information about them, or metadata. Below you can
         see all of the query parameters, and JSON schema for the body, which you
         can use to narrow down your query.
-      operationId: listStories
+      operationId: advancedListStories
       parameters:
-        - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
-        - $ref: "#/components/parameters/title"
-        - $ref: "#/components/parameters/body"
-        - $ref: "#/components/parameters/text"
-        - $ref: "#/components/parameters/translations_en_title"
-        - $ref: "#/components/parameters/translations_en_body"
-        - $ref: "#/components/parameters/translations_en_text"
-        - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
-        - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
-        - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_confident"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_label"
-        - $ref: "#/components/parameters/notcategories_label"
-        - $ref: "#/components/parameters/categories_level"
-        - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
-        - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
-        - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
-        - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
-        - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
-        - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
-        - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
-        - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
-        - $ref: "#/components/parameters/media_images_count_min"
-        - $ref: "#/components/parameters/media_images_count_max"
-        - $ref: "#/components/parameters/media_images_width_min"
-        - $ref: "#/components/parameters/media_images_width_max"
-        - $ref: "#/components/parameters/media_images_height_min"
-        - $ref: "#/components/parameters/media_images_height_max"
-        - $ref: "#/components/parameters/media_images_content_length_min"
-        - $ref: "#/components/parameters/media_images_content_length_max"
-        - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
-        - $ref: "#/components/parameters/media_videos_count_min"
-        - $ref: "#/components/parameters/media_videos_count_max"
-        - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
-        - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
-        - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
-        - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
-        - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
-        - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
-        - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
-        - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
-        - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
-        - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
-        - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
-        - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
-        - $ref: "#/components/parameters/source_links_in_count_min"
-        - $ref: "#/components/parameters/source_links_in_count_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
-        - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
-        - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
-        - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
         - description: >
             This parameter is used for changing the order column of the results.
@@ -2193,7 +2107,7 @@ paths:
             nullable: true
             type: integer
       requestBody:
-        $ref: '#/requestBodies/endpoints/stories'
+        $ref: '#/components/requestBodies/StoriesBody'
       responses:
         "200":
           content:
@@ -5054,6 +4968,200 @@ components:
           description: The detailed description of the warning.
           type: string
       type: object
+    Logicals: 
+      title: One of the logical operators such as $and, $or, $not
+      type: object
+      properties:
+        '$and':
+          allOf:
+            - title: Logical operator And
+            - $ref: '#/components/schemas/Logical'
+        '$or':
+          allOf:
+            - title: Logical operator Or
+            - $ref: '#/components/schemas/Logical'
+        '$not':
+          allOf:
+            - title: Logical operator Not
+            - $ref: '#/components/schemas/Logical'
+    Logical:
+      title: Logical operators
+      type: array
+      items:
+        anyOf: 
+          - $ref: '#/components/schemas/Logicals'
+          - $ref: '#/components/schemas/Params'
+    Params:
+      title: Parameter defines the search query on a field
+      type: object
+      properties:
+        author.id:
+          $ref: '#/components/schemas/Parameter'
+        author.name:
+          $ref: '#/components/schemas/Parameter'
+        body:
+          $ref: '#/components/schemas/Parameter'
+        categories.confident:
+          $ref: '#/components/schemas/Parameter'
+        categories.id:
+          $ref: '#/components/schemas/Parameter'
+        categories.level:
+          $ref: '#/components/schemas/Parameter'
+        categories.taxonomy:
+          $ref: '#/components/schemas/Parameter'
+        clusters:
+          $ref: '#/components/schemas/Parameter'
+        links.permalink:
+          $ref: '#/components/schemas/Parameter'
+        entities.body.links.dbpedia:
+          $ref: '#/components/schemas/Parameter'
+        entities.body.text:
+          $ref: '#/components/schemas/Parameter'
+        entities.body.type:
+          $ref: '#/components/schemas/Parameter'
+        entities.title.links.dbpedia:
+          $ref: '#/components/schemas/Parameter'
+        entities.title.text:
+          $ref: '#/components/schemas/Parameter'
+        entities.title.type:
+          $ref: '#/components/schemas/Parameter'
+        id:
+          $ref: '#/components/schemas/Parameter'
+        language:
+          $ref: '#/components/schemas/Parameter'
+        media.images.content.length.max:
+          $ref: '#/components/schemas/Parameter'
+        media.images.content.length.min:
+          $ref: '#/components/schemas/Parameter'
+        media.images.count.max:
+          $ref: '#/components/schemas/Parameter'
+        media.images.count.min:
+          $ref: '#/components/schemas/Parameter'
+        media.images.format:
+          $ref: '#/components/schemas/Parameter'
+        media.images.height.max:
+          $ref: '#/components/schemas/Parameter'
+        media.images.height.min:
+          $ref: '#/components/schemas/Parameter'
+        media.images.width.max:
+          $ref: '#/components/schemas/Parameter'
+        media.images.width.min:
+          $ref: '#/components/schemas/Parameter'
+        media.videos.count.max:
+          $ref: '#/components/schemas/Parameter'
+        media.videos.count.min:
+          $ref: '#/components/schemas/Parameter'
+        sentiment.body.polarity:
+          $ref: '#/components/schemas/Parameter'
+        sentiment.title.polarity:
+          $ref: '#/components/schemas/Parameter'
+        social.shares.count.facebook.max:
+          $ref: '#/components/schemas/Parameter'
+        social.shares.count.facebook.min:
+          $ref: '#/components/schemas/Parameter'
+        social.shares.count.reddit.max:
+          $ref: '#/components/schemas/Parameter'
+        social.shares.count.reddit.min:
+          $ref: '#/components/schemas/Parameter'
+        source.domain:
+          $ref: '#/components/schemas/Parameter'
+        source.id:
+          $ref: '#/components/schemas/Parameter'
+        source.links.in.count.max:
+          $ref: '#/components/schemas/Parameter'
+        source.links.in.count.min:
+          $ref: '#/components/schemas/Parameter'
+        source.locations.city:
+          $ref: '#/components/schemas/Parameter'
+        source.locations.country:
+          $ref: '#/components/schemas/Parameter'
+        source.locations.state:
+          $ref: '#/components/schemas/Parameter'
+        source.rankings.alexa.country:
+          $ref: '#/components/schemas/Parameter'
+        source.rankings.alexa.rank.max:
+          $ref: '#/components/schemas/Parameter'
+        source.rankings.alexa.rank.min:
+          $ref: '#/components/schemas/Parameter'
+        source.scopes.city:
+          $ref: '#/components/schemas/Parameter'
+        source.scopes.country:
+          $ref: '#/components/schemas/Parameter'
+        source.scopes.level:
+          $ref: '#/components/schemas/Parameter'
+        source.scopes.state:
+          $ref: '#/components/schemas/Parameter'
+        story_url:
+          $ref: '#/components/schemas/Parameter'
+        story_language:
+          $ref: '#/components/schemas/Parameter'
+        text:
+          $ref: '#/components/schemas/Parameter'
+        title:
+          $ref: '#/components/schemas/Parameter'
+        translations.en.body:
+          $ref: '#/components/schemas/Parameter'
+        translations.en.text:
+          $ref: '#/components/schemas/Parameter'
+        translations.en.title:
+          $ref: '#/components/schemas/Parameter'
+        entity:
+          oneOf:
+            - $ref: '#/components/schemas/NestedEntity'
+            - $ref: '#/components/schemas/Logicals'
+    Parameter:
+      title: Parameter defines the search query on a field
+      type: object
+      properties:
+        '$eq':
+          title: Perform an exact match search on the given value
+          anyOf: 
+            - type: string
+            - type: number
+        '$text':
+          title: Perform a text search on the given value
+          anyOf: 
+            - type: string
+            - type: number
+        '$in':
+          title: Perform a search on an array of values
+          type: array
+          items: 
+            anyOf:
+              - type: string
+              - type: number
+        '$gt':
+          title: Perform a greater than search on the given value
+          type: number
+        '$gte':
+          title: Perform a greater than equal search on the given value
+          type: number
+        '$lt':
+          title: Perform a less than search on the given value
+          type: number
+        '$lte':
+          title: Perform a less than equal search on the given value
+          type: number
+        '$boost':
+          title: Gives a weight to the field on performing the query
+          type: number        
+    NestedEntity:
+      type: object
+      title: To perform a nested search on entities use this.
+      properties:
+        name:
+          $ref: '#/components/schemas/Parameter'
+        sentiment:
+          $ref: '#/components/schemas/Parameter'
+        element:
+          $ref: '#/components/schemas/Parameter'
+        link.wikipedia:
+          $ref: '#/components/schemas/Parameter'
+        stock_ticker:
+          $ref: '#/components/schemas/Parameter'
+        type:
+          $ref: '#/components/schemas/Parameter'
+
   securitySchemes:
     app_id:
       x-auth-id-alias: true
@@ -5073,9 +5181,8 @@ components:
       in: header
       name: X-AYLIEN-NewsAPI-Application-Key
       type: apiKey
-requestBodies:
-  endpoints:
-    stories:
+  requestBodies:
+    StoriesBody:
       required: true
       description: >
         /stories body schema to perform an advanced search with logical operators
@@ -5083,203 +5190,6 @@ requestBodies:
       content:
         application/json:
           schema:
-            $ref: '#/requesteBodies/schemas/LogicalOperator'
-  schemas:
-    LogicalOperator:
-      required: true
-      description: >
-        First level of the /stories json body should be either
-        a logical operator or a Parameter/NestedParemter.
-      content:
-        application/json: 
-          schema:
             oneOf:
-              - $ref: '#/requesteBodies/schemas/Logicals'
-              - $ref: '#/requesteBodies/schemas/Params'
-    Logicals: 
-      title: One of the logical operators such as $and, $or, $not
-      type: object
-      properties: 
-        $and: 
-          $ref: '#/requesteBodies/schemas/Logical'
-        $or: 
-          $ref: '#/requesteBodies/schemas/Logical'
-        $not: 
-          $ref: '#/requesteBodies/schemas/Logical'
-    Logical:
-      title: Logical operators
-      type: array
-      items:
-        anyOf: 
-          - $ref: '#/requesteBodies/schemas/Logicals'
-          - $ref: '#/requesteBodies/schemas/Params'
-    Params:
-      title: Parameter defines the search query on a field
-      type: object
-      properties:
-        author.id:
-          $ref: '#/requestBodies/schemas/Parameter'
-        author.name:
-          $ref: '#/requestBodies/schemas/Parameter'
-        body:
-          $ref: '#/requestBodies/schemas/Parameter'
-        categories.confident:
-          $ref: '#/requestBodies/schemas/Parameter'
-        categories.id:
-          $ref: '#/requestBodies/schemas/Parameter'
-        categories.level:
-          $ref: '#/requestBodies/schemas/Parameter'
-        categories.taxonomy:
-          $ref: '#/requestBodies/schemas/Parameter'
-        clusters:
-          $ref: '#/requestBodies/schemas/Parameter'
-        links.permalink:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.body.links.dbpedia:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.body.text:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.body.type:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.title.links.dbpedia:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.title.text:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entities.title.type:
-          $ref: '#/requestBodies/schemas/Parameter'
-        id:
-          $ref: '#/requestBodies/schemas/Parameter'
-        language:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.content.length.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.content.length.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.count.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.count.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.format:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.height.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.height.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.width.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.images.width.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.videos.count.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        media.videos.count.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        sentiment.body.polarity:
-          $ref: '#/requestBodies/schemas/Parameter'
-        sentiment.title.polarity:
-          $ref: '#/requestBodies/schemas/Parameter'
-        social.shares.count.facebook.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        social.shares.count.facebook.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        social.shares.count.reddit.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        social.shares.count.reddit.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.domain:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.id:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.links.in.count.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.links.in.count.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.locations.city:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.locations.country:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.locations.state:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.rankings.alexa.country:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.rankings.alexa.rank.max:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.rankings.alexa.rank.min:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.scopes.city:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.scopes.country:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.scopes.level:
-          $ref: '#/requestBodies/schemas/Parameter'
-        source.scopes.state:
-          $ref: '#/requestBodies/schemas/Parameter'
-        story_url:
-          $ref: '#/requestBodies/schemas/Parameter'
-        story_language:
-          $ref: '#/requestBodies/schemas/Parameter'
-        text:
-          $ref: '#/requestBodies/schemas/Parameter'
-        title:
-          $ref: '#/requestBodies/schemas/Parameter'
-        translations.en.body:
-          $ref: '#/requestBodies/schemas/Parameter'
-        translations.en.text:
-          $ref: '#/requestBodies/schemas/Parameter'
-        translations.en.title:
-          $ref: '#/requestBodies/schemas/Parameter'
-        entity:
-          oneOf:
-            - $ref: '#/requestBodies/schemas/Entity'
-            - $ref: '#/requestBodies/schemas/Logicals'
-    Parameter:
-      title: Parameter defines the search query on a field
-      type: object
-      properties:
-        $eq:
-          description: Perform an exact match search on the given value
-          anyOf: 
-            - type: string
-            - type: number
-        $text:
-          description: Perform a text search on the given value
-          anyOf: 
-            - type: string
-            - type: number
-        $in:
-          description: Perform a search on an array of values
-          type: array
-          items: 
-            anyOf:
-              - type: string
-              - type: number
-        $gt:
-          description: Perform a greater than search on the given value
-          type: number
-        $gte:
-          description: Perform a greater than equal search on the given value
-          type: number
-        $lt:
-          description: Perform a less than search on the given value
-          type: number
-        $lte:
-          description: Perform a less than equal search on the given value
-          type: number
-        $boost:
-          description: Gives a weight to the field on performing the query
-          type: number        
-    Entity:
-      type: object
-      title: To perform a nested search on entities use this.
-      properties:
-        name:
-          $ref: '#/requestBodies/schemas/Parameter'
-        sentiment:
-          $ref: '#/requestBodies/schemas/Parameter'
-        element:
-          $ref: '#/requestBodies/schemas/Parameter'
-        link.wikipedia:
-          $ref: '#/requestBodies/schemas/Parameter'
-        stock_ticker:
-          $ref: '#/requestBodies/schemas/Parameter'
-        type:
-          $ref: '#/requestBodies/schemas/Parameter'
+              - $ref: '#/components/schemas/Logicals'
+              - $ref: '#/components/schemas/Params'
