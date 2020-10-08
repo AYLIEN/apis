@@ -2,6 +2,7 @@ temp.api.yaml
 no-post.api.yaml
 # Dev
 .idea
+.vscode
 
 # Project specific
 openapi-generator*

@@ -41,7 +41,7 @@ To test the Ruby SDK you need to first build and install the gem:
 ```
 cd sdks/news-api/ruby
 gem build aylien_news_api.gemspec
-gem install aylien_news_api-<VERSION>.gem
+gem install ./aylien_news_api-<VERSION>.gem
 ```
 
 (If you get an error about the gem containing itself, try removing `aylien_news_api-<VERSION>.gem` first)

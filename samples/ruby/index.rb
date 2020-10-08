@@ -30,3 +30,18 @@ rescue AylienNewsApi::ApiError => e
   puts "Exception when calling DefaultApi->list_stories: #{e}"
   puts e.response_body
 end
+
+begin
+  result = api_instance.advanced_list_stories(
+    AylienNewsApi::Parameter.new(
+      title: AylienNewsApi::Query.new(
+        text: "Trump"
+      )
+    ), {sort_by: 'social_shares_count.facebook'})
+  result.stories.each do |story|
+    puts "#{story.title} / #{story.source.name}"
+  end
+rescue AylienNewsApi::ApiError => e
+  puts "Exception when calling DefaultApi->advanced_list_stories: #{e}"
+  puts e.response_body
+end

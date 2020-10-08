@@ -35,3 +35,8 @@ var callback = function(error, data, response) {
 };
 
 api.listStories(opts, callback);
+api.advancedListStories({
+  "title": {
+    "$text": "Trump"
+  }
+}, {sortBy: "social_shares_count.facebook"}, callback)

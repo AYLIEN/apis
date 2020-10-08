@@ -19,7 +19,17 @@ parameters = list(definition['components']['parameters'].values())
 
 for value in definition['paths'].values():
     if 'post' in value and 'requestBody' in value['post']:
-        value['post'].pop('requestBody', None)
+        value['post']['requestBody'] = {
+            'required': True,
+            'description': '/stories body schema to perform an advanced search with logical operators and nested objects.\n',
+            'content': {
+                'application/json': {
+                    'schema': {
+                        'type': 'object'
+                    }
+                }
+            }
+        }
 
 for value in ['Logical', 'Logicals', 'Parameter', 'Query', 'NestedEntity']:
     definition['components']['schemas'].pop(value, None)
