@@ -1,7 +1,7 @@
 from __future__ import print_function
 import os
 import aylien_news_api
-from aylien_news_api.models import Params, Parameter
+from aylien_news_api.models import Query, Parameter
 from aylien_news_api.rest import ApiException
 from pprint import pprint
 
@@ -16,8 +16,8 @@ api_instance = aylien_news_api.DefaultApi(client)
 
 try:
     api_response = api_instance.advanced_list_stories(
-        Params(
-            title=Parameter(
+        Parameter(
+            title=Query(
                 text="Trump"
             )
         )
