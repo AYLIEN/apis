@@ -4,8 +4,9 @@ package main
 import (
 	"context"
 	"fmt"
-	newsapi "github.com/AYLIEN/aylien_newsapi_go/v4"
 	"os"
+
+	newsapi "github.com/AYLIEN/aylien_newsapi_go/v4"
 
 	"github.com/antihax/optional"
 )
@@ -37,6 +38,28 @@ func main() {
 	_ = res
 
 	for _, story := range storiesResponse.Stories {
+		fmt.Println(story.Title, " / ", story.Source.Name)
+	}
+
+	fmt.Println("AdvancedListStories")
+	params := &newsapi.AdvancedListStoriesOpts{
+		PublishedAtStart: optional.NewString("NOW-7DAYS"),
+		PublishedAtEnd:   optional.NewString("NOW"),
+	}
+
+	body := map[string]interface{}{
+		"title": map[string]interface{}{
+			"$text": "Trump",
+		},
+	}
+
+	advancedStoriesResponse, advancedRes, advancedErr := api.AdvancedListStories(context.Background(), body, params)
+	if advancedErr != nil {
+		panic(advancedErr)
+	}
+	_ = advancedRes
+
+	for _, story := range advancedStoriesResponse.Stories {
 		fmt.Println(story.Title, " / ", story.Source.Name)
 	}
 }
