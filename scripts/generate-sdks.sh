@@ -26,23 +26,31 @@ if [ "$OS" = 'Darwin' ]; then
 fi
 cat ../aylien/v1/news/api.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
 
+python remove-post-body.py temp.api.yaml no-post.api.yaml
+
 for lang in "ruby" "javascript" "go" "python"
 do
-    echo "Building ${lang} ..."
-    $OPENAPI_CMD generate \
-        --skip-validate-spec \
-        --input-spec "../aylien/v1/text/api.yaml" \
-        --generator-name "${lang}" \
-        --output "../sdks/text-api/${lang}"
-    $OPENAPI_CMD generate \
-        --skip-validate-spec \
-        --input-spec "temp.api.yaml" \
-        --generator-name "${lang}" \
-        --config "../aylien/v1/news/config/${lang}.json" \
-        --output "../sdks/news-api/${lang}"
+  f="temp.api.yaml"
+  if [[ "$lang" == "javascript" || "$lang" == "go" ]]; then
+    f="no-post.api.yaml"
+  fi
+
+  echo "Building ${lang} ..."
+  $OPENAPI_CMD generate \
+      --skip-validate-spec \
+      --input-spec "../aylien/v1/text/api.yaml" \
+      --generator-name "${lang}" \
+      --output "../sdks/text-api/${lang}"
+  $OPENAPI_CMD generate \
+      --skip-validate-spec \
+      --input-spec "$f" \
+      --generator-name "${lang}" \
+      --config "../aylien/v1/news/config/${lang}.json" \
+      --output "../sdks/news-api/${lang}"
 done
 
 rm temp.api.yaml
+rm no-post.api.yaml
 
 echo "All done!"
 
