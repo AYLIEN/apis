@@ -5304,7 +5304,7 @@ components:
           $ref: '#/components/schemas/Query'
         element:
           $ref: '#/components/schemas/Query'
-        link.wikipedia:
+        links.wikipedia:
           $ref: '#/components/schemas/Query'
         stock_ticker:
           $ref: '#/components/schemas/Query'
