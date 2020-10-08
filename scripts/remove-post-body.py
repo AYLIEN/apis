@@ -21,4 +21,9 @@ for value in definition['paths'].values():
     if 'post' in value and 'requestBody' in value['post']:
         value['post'].pop('requestBody', None)
 
+for value in ['Logical', 'Logicals', 'Parameter', 'Query', 'NestedEntity']:
+    definition['components']['schemas'].pop(value, None)
+
+definition['components'].pop('requestBodies', None)
+
 dump(definition, output)
