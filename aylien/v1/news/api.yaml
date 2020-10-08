@@ -4972,15 +4972,15 @@ components:
       title: One of the logical operators such as $and, $or, $not
       type: object
       properties:
-        '$and':
+        $and:
           allOf:
             - title: Logical operator And
             - $ref: '#/components/schemas/Logical'
-        '$or':
+        $or:
           allOf:
             - title: Logical operator Or
             - $ref: '#/components/schemas/Logical'
-        '$not':
+        $not:
           allOf:
             - title: Logical operator Not
             - $ref: '#/components/schemas/Logical'
@@ -5113,36 +5113,36 @@ components:
       title: Parameter defines the search query on a field
       type: object
       properties:
-        '$eq':
+        $eq:
           title: Perform an exact match search on the given value
           anyOf: 
             - type: string
             - type: number
-        '$text':
+        $text:
           title: Perform a text search on the given value
           anyOf: 
             - type: string
             - type: number
-        '$in':
+        $in:
           title: Perform a search on an array of values
           type: array
           items: 
             anyOf:
               - type: string
               - type: number
-        '$gt':
+        $gt:
           title: Perform a greater than search on the given value
           type: number
-        '$gte':
+        $gte:
           title: Perform a greater than equal search on the given value
           type: number
-        '$lt':
+        $lt:
           title: Perform a less than search on the given value
           type: number
-        '$lte':
+        $lte:
           title: Perform a less than equal search on the given value
           type: number
-        '$boost':
+        $boost:
           title: Gives a weight to the field on performing the query
           type: number        
     NestedEntity:
