@@ -14,6 +14,8 @@ sh ./install-openapi-generator.sh
 
 The SDKs are generated from the API definition files found in the [`/aylien/v1/`](/aylien/v1) directory. There are also JSON configuration files in these directories for each language (see [`/aylien/v1/news/config`](/aylien/v1/news/config) for example). This process is automatic using the `generate-sdks.sh` script.
 
+> Note: Make sure you have `gsed` installed.
+
 ```
 sh ./generate-sdks.sh
 ```
