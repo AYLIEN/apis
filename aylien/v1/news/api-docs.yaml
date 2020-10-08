@@ -4982,22 +4982,16 @@ components:
       type: object
       properties:
         $and:
-          allOf:
-            - title: Logical operator And
-            - $ref: '#/components/schemas/Logical'
+          $ref: '#/components/schemas/Logical'
         $or:
-          allOf:
-            - title: Logical operator Or
-            - $ref: '#/components/schemas/Logical'
+          $ref: '#/components/schemas/Logical'
         $not:
-          allOf:
-            - title: Logical operator Not
-            - $ref: '#/components/schemas/Logical'
+          $ref: '#/components/schemas/Logical'
     Logical:
       title: Logical operators
       type: array
       items:
-        anyOf: 
+        anyOf:
           - $ref: '#/components/schemas/Logicals'
           - $ref: '#/components/schemas/Params'
     Params:
@@ -5124,19 +5118,19 @@ components:
       properties:
         $eq:
           title: Perform an exact match search on the given value
-          anyOf: 
+          oneOf:
             - type: string
             - type: number
         $text:
           title: Perform a text search on the given value
-          anyOf: 
+          oneOf:
             - type: string
             - type: number
         $in:
           title: Perform a search on an array of values
           type: array
           items: 
-            anyOf:
+            oneOf:
               - type: string
               - type: number
         $gt:
