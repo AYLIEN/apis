@@ -4984,127 +4984,127 @@ components:
       items:
         anyOf:
           - $ref: '#/components/schemas/Logicals'
-          - $ref: '#/components/schemas/Params'
-    Params:
-      title: Parameter defines the search query on a field
+          - $ref: '#/components/schemas/Parameter'
+    Parameter:
+      title: Query defines the search query on a field
       type: object
       properties:
         author.id:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         author.name:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         body:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         categories.confident:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         categories.id:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         categories.level:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         categories.taxonomy:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         clusters:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         links.permalink:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.body.links.dbpedia:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.body.text:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.body.type:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.title.links.dbpedia:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.title.text:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entities.title.type:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         id:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         language:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.content.length.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.content.length.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.count.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.count.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.format:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.height.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.height.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.width.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.images.width.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.videos.count.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         media.videos.count.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         sentiment.body.polarity:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         sentiment.title.polarity:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         social.shares.count.facebook.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         social.shares.count.facebook.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         social.shares.count.reddit.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         social.shares.count.reddit.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.domain:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.id:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.links.in.count.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.links.in.count.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.locations.city:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.locations.country:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.locations.state:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.rankings.alexa.country:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.rankings.alexa.rank.max:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.rankings.alexa.rank.min:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.scopes.city:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.scopes.country:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.scopes.level:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         source.scopes.state:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         story_url:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         story_language:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         text:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         title:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         translations.en.body:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         translations.en.text:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         translations.en.title:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         entity:
           oneOf:
             - $ref: '#/components/schemas/NestedEntity'
             - $ref: '#/components/schemas/Logicals'
-    Parameter:
-      title: Parameter defines the search query on a field
+    Query:
+      title: Query defines the search query on a field
       type: object
       properties:
         $eq:
@@ -5144,17 +5144,17 @@ components:
       title: To perform a nested search on entities use this.
       properties:
         name:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         sentiment:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         element:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         link.wikipedia:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         stock_ticker:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
         type:
-          $ref: '#/components/schemas/Parameter'
+          $ref: '#/components/schemas/Query'
   securitySchemes:
     app_id:
       x-auth-id-alias: true
@@ -5185,7 +5185,7 @@ components:
           schema:
             oneOf:
               - $ref: '#/components/schemas/Logicals'
-              - $ref: '#/components/schemas/Params'
+              - $ref: '#/components/schemas/Parameter'
           example:
             $and:
               - $or:
