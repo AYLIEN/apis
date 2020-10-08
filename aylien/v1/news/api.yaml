@@ -5161,7 +5161,6 @@ components:
           $ref: '#/components/schemas/Parameter'
         type:
           $ref: '#/components/schemas/Parameter'
-
   securitySchemes:
     app_id:
       x-auth-id-alias: true
@@ -5193,3 +5192,19 @@ components:
             oneOf:
               - $ref: '#/components/schemas/Logicals'
               - $ref: '#/components/schemas/Params'
+          example:
+            $and:
+              - $or:
+                - body:
+                    $text: Tim Cook
+                - social.shares.count.reddit.max:
+                    $gte: 5000
+                    $boost: 5
+              - entity:
+                  $and:
+                    - name:
+                        $text: Apple
+                        $boost: 2
+                    - $not:
+                      - type:
+                          $eq: Fruit
