@@ -2614,6 +2614,9 @@ paths:
               - entities.body.text
               - entities.body.type
               - entities.body.links.dbpedia
+              - entities.title.sentiment
+              - entities.body.sentiment
+              - entities.sentiment
               - hashtags
               - categories.id
               - sentiment.title.polarity
