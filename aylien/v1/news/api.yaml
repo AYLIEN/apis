@@ -5022,9 +5022,6 @@ components:
         permalink:
           description: The story permalink URL
           type: string
-        coverages:
-          description: The coverages URL
-          type: string
         related_stories:
           description: The related stories URL
           type: string
