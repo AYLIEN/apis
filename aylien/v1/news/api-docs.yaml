@@ -5104,6 +5104,22 @@ components:
             $ref: "#/components/schemas/TimeSeries"
           type: array
       type: object
+    TrendSentiment:
+      description: The sentiment of the trend
+      type: object
+      properties: 
+        positive: 
+          description: Positive sentiments count
+          format: int32
+          type: integer
+        neutral:
+          description: Neutral sentiments count
+          format: int32
+          type: integer
+        negative:
+          description: Negative sentiments count
+          format: int32
+          type: integer
     Trend:
       properties:
         count:
@@ -5114,21 +5130,7 @@ components:
           description: The value of the trend
           type: string
         sentiment:
-          description: The sentiment of the trend
-          type: object
-          properties: 
-            positive: 
-              description: Positive sentiments count
-              format: int32
-              type: integer
-            neutral:
-              description: Neutral sentiments count
-              format: int32
-              type: integer
-            negative:
-              description: Negative sentiments count
-              format: int32
-              type: integer
+          $ref: '#/components/schemas/TrendSentiment'
       type: object
     Trends:
       properties:
