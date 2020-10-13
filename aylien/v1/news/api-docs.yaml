@@ -526,6 +526,8 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_title_links_wikipedia"
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -536,6 +538,8 @@ paths:
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_links_wikipedia"
         - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1027,6 +1031,8 @@ paths:
       - $ref: "#/components/parameters/notentities_title_links_dbpedia"
       - $ref: "#/components/parameters/entities_title_links_wikipedia"
       - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+      - $ref: "#/components/parameters/entities_title_links_wikidata"
+      - $ref: "#/components/parameters/notentities_title_links_wikidata"
       - $ref: "#/components/parameters/entities_body_text"
       - $ref: "#/components/parameters/notentities_body_text"
       - $ref: "#/components/parameters/entities_body_type"
@@ -1037,6 +1043,8 @@ paths:
       - $ref: "#/components/parameters/notentities_body_links_dbpedia"
       - $ref: "#/components/parameters/entities_body_links_wikipedia"
       - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+      - $ref: "#/components/parameters/entities_body_links_wikidata"
+      - $ref: "#/components/parameters/notentities_body_links_wikidata"
       - $ref: "#/components/parameters/sentiment_title_polarity"
       - $ref: "#/components/parameters/notsentiment_title_polarity"
       - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1351,6 +1359,8 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_title_links_wikipedia"
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -1361,6 +1371,8 @@ paths:
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_links_wikipedia"
         - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -2290,6 +2302,8 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_title_links_wikipedia"
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -2300,6 +2314,8 @@ paths:
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_links_wikipedia"
         - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -2532,6 +2548,8 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_title_links_wikipedia"
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -2542,6 +2560,8 @@ paths:
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_links_wikipedia"
         - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -2876,11 +2896,25 @@ components:
     entities_body_links_wikipedia:
       description: >
         This parameter is used to find stories based on the specified entities
-        wickipedia URL in the body of stories. You can read more about working with
+        wikipedia URL in the body of stories. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
       name: entities.body.links.wikipedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_links_wikidata:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        wikidata URL in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.links.wikidata[]
       schema:
         items:
           type: string
@@ -2951,6 +2985,20 @@ components:
       explode: true
       in: query
       name: entities.title.links.wikipedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_links_wikidata:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        Wikidata URL in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.links.wikidata[]
       schema:
         items:
           type: string
@@ -3273,6 +3321,21 @@ components:
         nullable: true
         type: array
       style: form
+    notentities_body_links_wikidata:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities Wikidata URL in the body of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.links.wikidata[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     notentities_body_text:
       description: >
         This parameter is used to exclude stories based on the specified
@@ -3342,6 +3405,21 @@ components:
       explode: true
       in: query
       name: "!entities.title.links.wikipedia[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_links_wikidata:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities Wikidata URL in story titles. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.links.wikidata[]"
       schema:
         items:
           type: string
@@ -4575,6 +4653,9 @@ components:
         wikipedia:
           description: A wikipedia resource URL
           type: string
+        wikidata:
+          description: A wikidata resource URL
+          type: string
       type: object
     EntitySentiment:
       properties:
@@ -5345,6 +5426,8 @@ components:
         element:
           $ref: '#/components/schemas/Query'
         links.wikipedia:
+          $ref: '#/components/schemas/Query'
+        links.wikidata:
           $ref: '#/components/schemas/Query'
         stock_ticker:
           $ref: '#/components/schemas/Query'
