@@ -5163,6 +5163,8 @@ components:
           description: The published date of the time series bin
           format: date-time
           type: string
+        sentiment:
+          $ref: '#/components/schemas/TrendSentiment'
       type: object
     TimeSeriesList:
       properties:
