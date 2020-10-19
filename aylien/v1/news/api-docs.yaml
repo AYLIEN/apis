@@ -5164,7 +5164,7 @@ components:
           format: date-time
           type: string
         sentiment:
-          $ref: '#/components/schemas/TrendSentiment'
+          $ref: '#/components/schemas/AggregatedSentiment'
       type: object
     TimeSeriesList:
       properties:
@@ -5187,8 +5187,8 @@ components:
             $ref: "#/components/schemas/TimeSeries"
           type: array
       type: object
-    TrendSentiment:
-      description: The sentiment of the trend
+    AggregatedSentiment:
+      description: The aggregation of sentiments
       type: object
       properties: 
         positive: 
@@ -5213,7 +5213,7 @@ components:
           description: The value of the trend
           type: string
         sentiment:
-          $ref: '#/components/schemas/TrendSentiment'
+          $ref: '#/components/schemas/AggregatedSentiment'
       type: object
     Trends:
       properties:
