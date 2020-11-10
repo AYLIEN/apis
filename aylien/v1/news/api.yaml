@@ -2792,7 +2792,7 @@ components:
           type: string
         nullable: true
         type: array
-      style: form  
+      style: form
     categories_level:
       description: >
         This parameter is used for finding stories by categories level. You can
@@ -2854,6 +2854,20 @@ components:
       explode: true
       in: query
       name: "!links.permalink[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_id:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `id` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.id[]
       schema:
         items:
           type: string
@@ -2938,6 +2952,20 @@ components:
       explode: true
       in: query
       name: entities.body.stock_ticker[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_id:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `id` in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.id[]
       schema:
         items:
           type: string
@@ -3257,7 +3285,7 @@ components:
           type: string
         nullable: true
         type: array
-      style: form  
+      style: form
     notcategories_level:
       description: >
         This parameter is used for excluding stories by categories level. You
@@ -4515,7 +4543,7 @@ components:
           type: string
         label:
           description: The label of the category
-          type: string  
+          type: string
         level:
           description: The level of the category
           format: int32
@@ -4601,19 +4629,11 @@ components:
       type: object
     Entity:
       properties:
-        indices:
-          description: The indices of the entity text
-          items:
-            items:
-              format: int32
-              type: integer
-            type: array
-          type: array
+        id:
+          description: The unique ID of the entity
+          type: string
         links:
           $ref: "#/components/schemas/EntityLinks"
-        text:
-          description: The entity text
-          type: string
         stock_ticker:
           description: The stock_ticker of the entity (might be null)
           type: string
@@ -4624,7 +4644,25 @@ components:
             type: string
           type: array
         sentiment:
-          $ref: "#/components/schemas/EntitySentiment"  
+          $ref: "#/components/schemas/EntitySentiment"
+        surface_forms:
+          items:
+            $ref: "#/components/schemas/EntitySurfaceForm"
+          type: array
+      type: object
+    EntitySurfaceForm:
+      properties:
+        text:
+          description: The entity text
+          type: string
+        indices:
+          description: The indices of the entity text
+          items:
+            items:
+              format: int32
+              type: integer
+            type: array
+          type: array
       type: object
     EntityLinks:
       properties:
@@ -4669,7 +4707,7 @@ components:
         about:
           type: string
         docs:
-          type: string  
+          type: string
       type: object
     Errors:
       properties:
@@ -4717,7 +4755,7 @@ components:
         published_at.start:
           description: The start of a period in which searched stories were published
           format: date-time
-          type: string  
+          type: string
       type: object
     Location:
       properties:
@@ -4820,7 +4858,7 @@ components:
         published_at.start:
           description: The start of a period in which searched stories were published
           format: date-time
-          type: string  
+          type: string
       type: object
     RepresentativeStory:
       properties:
@@ -5175,8 +5213,8 @@ components:
     AggregatedSentiment:
       description: The aggregation of sentiments
       type: object
-      properties: 
-        positive: 
+      properties:
+        positive:
           description: Positive sentiments count
           format: int32
           type: integer
@@ -5231,7 +5269,7 @@ components:
           description: The detailed description of the warning.
           type: string
       type: object
-    Logicals: 
+    Logicals:
       title: One of the logical operators such as $and, $or, $not
       type: object
       properties:
@@ -5372,18 +5410,18 @@ components:
       properties:
         $eq:
           title: Perform an exact match search on the given value
-          oneOf: 
+          oneOf:
             - type: string
             - type: number
         $text:
           title: Perform a text search on the given value
-          oneOf: 
+          oneOf:
             - type: string
             - type: number
         $in:
           title: Perform a search on an array of values
           type: array
-          items: 
+          items:
             oneOf:
               - type: string
               - type: number
@@ -5401,7 +5439,7 @@ components:
           type: number
         $boost:
           title: Gives a weight to the field on performing the query
-          type: number        
+          type: number
     NestedEntity:
       type: object
       title: To perform a nested search on entities use this.
