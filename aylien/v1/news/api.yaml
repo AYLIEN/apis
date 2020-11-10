@@ -5068,6 +5068,10 @@ components:
           description: Word count of the story body
           format: int32
           type: integer
+        license_type:
+          description: License type of the story
+          format: int32
+          type: integer
       type: object
     StoryCluster:
       properties:
