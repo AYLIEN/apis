@@ -507,6 +507,10 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
+        - $ref: "#/components/parameters/entities_title_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
@@ -519,6 +523,10 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
         - $ref: "#/components/parameters/entities_title_links_wikidata"
         - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
+        - $ref: "#/components/parameters/entities_body_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -1010,6 +1018,10 @@ paths:
       - $ref: "#/components/parameters/notcategories_label"
       - $ref: "#/components/parameters/categories_level"
       - $ref: "#/components/parameters/notcategories_level"
+      - $ref: "#/components/parameters/entities_title_id"
+      - $ref: "#/components/parameters/notentities_title_id"
+      - $ref: "#/components/parameters/entities_title_surface_forms_text"
+      - $ref: "#/components/parameters/notentities_title_surface_forms_text"
       - $ref: "#/components/parameters/entities_title_text"
       - $ref: "#/components/parameters/notentities_title_text"
       - $ref: "#/components/parameters/entities_title_type"
@@ -1022,6 +1034,10 @@ paths:
       - $ref: "#/components/parameters/notentities_title_links_wikipedia"
       - $ref: "#/components/parameters/entities_title_links_wikidata"
       - $ref: "#/components/parameters/notentities_title_links_wikidata"
+      - $ref: "#/components/parameters/entities_body_id"
+      - $ref: "#/components/parameters/notentities_body_id"
+      - $ref: "#/components/parameters/entities_body_surface_forms_text"
+      - $ref: "#/components/parameters/notentities_body_surface_forms_text"
       - $ref: "#/components/parameters/entities_body_text"
       - $ref: "#/components/parameters/notentities_body_text"
       - $ref: "#/components/parameters/entities_body_type"
@@ -1336,6 +1352,10 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
+        - $ref: "#/components/parameters/entities_title_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
@@ -1348,6 +1368,10 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
         - $ref: "#/components/parameters/entities_title_links_wikidata"
         - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
+        - $ref: "#/components/parameters/entities_body_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -2275,6 +2299,10 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
+        - $ref: "#/components/parameters/entities_title_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
@@ -2287,6 +2315,10 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
         - $ref: "#/components/parameters/entities_title_links_wikidata"
         - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
+        - $ref: "#/components/parameters/entities_body_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -2519,6 +2551,10 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
+        - $ref: "#/components/parameters/entities_title_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
@@ -2531,6 +2567,10 @@ paths:
         - $ref: "#/components/parameters/notentities_title_links_wikipedia"
         - $ref: "#/components/parameters/entities_title_links_wikidata"
         - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
+        - $ref: "#/components/parameters/entities_body_surface_forms_text"
+        - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
@@ -2916,6 +2956,20 @@ components:
         nullable: true
         type: array
       style: form
+    entities_body_surface_forms_text:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `surface_form` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.surface_forms.text[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     entities_body_text:
       description: >
         This parameter is used to find stories based on the specified entities
@@ -3008,6 +3062,20 @@ components:
       explode: true
       in: query
       name: entities.title.links.wikidata[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_surface_forms_text:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `surface_form` in story titles. You can read more about working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.surface_forms.text[]
       schema:
         items:
           type: string
@@ -3300,6 +3368,21 @@ components:
         nullable: true
         type: array
       style: form
+    notentities_body_id:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `id` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.id[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     notentities_body_links_dbpedia:
       description: >
         This parameter is used to exclude stories based on the specified
@@ -3339,6 +3422,21 @@ components:
       explode: true
       in: query
       name: "!entities.body.links.wikidata[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_surface_forms_text:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `surface_form` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.surface_forms.text[]"
       schema:
         items:
           type: string
@@ -3390,6 +3488,20 @@ components:
         nullable: true
         type: array
       style: form
+    notentities_title_id:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `id` in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.id[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     notentities_title_links_dbpedia:
       description: >
         This parameter is used to exclude stories based on the specified
@@ -3429,6 +3541,20 @@ components:
       explode: true
       in: query
       name: "!entities.title.links.wikidata[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_surface_forms_text:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `surface_form` in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.surface_forms.text[]"
       schema:
         items:
           type: string
@@ -5444,7 +5570,11 @@ components:
       type: object
       title: To perform a nested search on entities use this.
       properties:
+        id:
+          $ref: '#/components/schemas/Query'
         name:
+          $ref: '#/components/schemas/Query'
+        surface_forms.text:
           $ref: '#/components/schemas/Query'
         sentiment:
           $ref: '#/components/schemas/Query'
