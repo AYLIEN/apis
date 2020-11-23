@@ -593,6 +593,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for setting the start data point of histogram
             intervals.
@@ -1109,6 +1110,7 @@ paths:
       - $ref: "#/components/parameters/story_url"
       - $ref: "#/components/parameters/story_title"
       - $ref: "#/components/parameters/story_body"
+      - $ref: "#/components/parameters/query"
       - description: >
           This parameter is used for boosting the result by the specified
           value.
@@ -1439,6 +1441,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
+        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for changing the order column of the results.
             You can read about sorting results
@@ -2385,6 +2388,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for finding stories whose published at time
             is less than the specified value.
@@ -2637,6 +2641,7 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/query"
         - description: |
             This parameter is used to specify the trend field.
           example: keywords
