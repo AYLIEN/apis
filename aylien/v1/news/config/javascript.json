@@ -1,7 +1,7 @@
 {
   "projectName": "aylien-news-api",
   "moduleName": "AylienNewsApi",
-  "projectVersion": "4.3.0",
+  "projectVersion": "4.3.1",
   "licenseName": "Apache License, Version 2.0",
   "modelPropertyNaming": "camelCase"
 }
