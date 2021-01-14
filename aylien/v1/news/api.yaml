@@ -51,6 +51,8 @@ paths:
               - source_domains
               - entity_types
               - dbpedia_resources
+              - aylien_entities_names
+              - aylien_entities_types
             type: string
         - description: >
             This parameter is used for finding autocomplete objects that contain
