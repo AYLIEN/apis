@@ -4793,6 +4793,12 @@ components:
           items:
             $ref: "#/components/schemas/EntitySurfaceForm"
           type: array
+        prominence_score:
+          description: Describes how relevant an entity is to the article
+          type: number
+          format: float
+          maximum: 1
+          minimum: 0
       type: object
     EntitySurfaceForm:
       properties:
@@ -4807,6 +4813,11 @@ components:
               type: integer
             type: array
           type: array
+        frequency:
+          description: Amount of entity surface form mentions in the article
+          type: integer
+          format: int32
+          minimum: 0
       type: object
     EntityLinks:
       properties:
