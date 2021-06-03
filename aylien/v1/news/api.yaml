@@ -1764,10 +1764,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Stories"
+                oneOf:
+                  - $ref: "#/components/schemas/Stories"
+                  - $ref: "#/components/schemas/DeprecatedStories"
             text/xml:
               schema:
-                $ref: "#/components/schemas/Stories"
+                oneOf:
+                  - $ref: "#/components/schemas/Stories"
+                  - $ref: "#/components/schemas/DeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -2178,7 +2182,7 @@ paths:
             nullable: true
             type: integer
       requestBody:
-        $ref: '#/components/requestBodies/StoriesBody'
+        $ref: "#/components/requestBodies/StoriesBody"
       responses:
         "200":
           content:
@@ -4585,10 +4589,14 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/Stories"
+            oneOf:
+              - $ref: "#/components/schemas/Stories"
+              - $ref: "#/components/schemas/DeprecatedStories"
         text/xml:
           schema:
-            $ref: "#/components/schemas/Stories"
+            oneOf:
+              - $ref: "#/components/schemas/Stories"
+              - $ref: "#/components/schemas/DeprecatedStories"
       description: An object including an array of stories
       headers:
         X-RateLimit-Limit:
@@ -4774,20 +4782,99 @@ components:
           description: The next page cursor
           type: string
       type: object
-    Entities:
+    Entity:
+      properties:
+        id:
+          description: The unique ID of the entity
+          type: string
+        links:
+          $ref: "#/components/schemas/EntityLinks"
+        stock_ticker:
+          description: The stock tickers of the entity (might be empty)
+          items:
+            type: string
+          type: array
+        types:
+          description: An array of the entity types
+          items:
+            description: An entity type
+            type: string
+          type: array
+        sentiment:
+          $ref: "#/components/schemas/EntitySentiment"
+        prominence_score:
+          description: Describes how relevant an entity is to the article
+          type: number
+          format: float
+          maximum: 1
+          minimum: 0
+        frequency:
+          description: Amount of entity surface form mentions in the article
+          type: integer
+          format: int32
+          minimum: 0
+        body:
+          $ref: "#/components/schemas/EntityMention"
+        title:
+          $ref: "#/components/schemas/EntityMention"
+      required:
+        - id
+        - links
+        - stock_ticker
+        - types
+        - sentiment
+        - prominence_score
+        - frequency
+      type: object
+    EntitySurfaceForm:
+      properties:
+        text:
+          description: The entity text
+          type: string
+        frequency:
+          description: Amount of entity surface form mentions in the article
+          type: integer
+          format: int32
+          minimum: 0
+        mentions:
+          description: Mentions of the entity text
+          items:
+            $ref: "#/components/schemas/EntityMention"
+          type: array
+      type: object
+    EntityMention:
+      properties:
+        index:
+          $ref: "#/components/schemas/EntityMentionIndex"
+        sentiment:
+          $ref: "#/components/schemas/EntitySentiment"
+      type: object
+    EntityMentionIndex:
+      properties:
+        start:
+          description: Start index of a single entity mention in the text (counting from 0)
+          type: integer
+          format: int32
+          minimum: 0
+        end:
+          description: End index of a single entity mention in the text (counting from 0)
+          type: integer
+          format: int32
+          minimum: 1
+    DeprecatedEntities:
       properties:
         body:
           description: An array of extracted entities from the story body
           items:
-            $ref: "#/components/schemas/Entity"
+            $ref: "#/components/schemas/DeprecatedEntity"
           type: array
         title:
           description: An array of extracted entities from the story title
           items:
-            $ref: "#/components/schemas/Entity"
+            $ref: "#/components/schemas/DeprecatedEntity"
           type: array
       type: object
-    Entity:
+    DeprecatedEntity:
       properties:
         id:
           description: The unique ID of the entity
@@ -4818,7 +4905,7 @@ components:
           $ref: "#/components/schemas/EntitySentiment"
         surface_forms:
           items:
-            $ref: "#/components/schemas/EntitySurfaceForm"
+            $ref: "#/components/schemas/DeprecatedEntitySurfaceForm"
           type: array
         prominence_score:
           description: Describes how relevant an entity is to the article
@@ -4827,7 +4914,7 @@ components:
           maximum: 1
           minimum: 0
       type: object
-    EntitySurfaceForm:
+    DeprecatedEntitySurfaceForm:
       properties:
         text:
           description: The entity text
@@ -5042,6 +5129,31 @@ components:
           format: date-time
           type: string
       type: object
+    DeprecatedRelatedStories:
+      properties:
+        related_stories:
+          description: An array of related stories for the input story
+          items:
+            $ref: "#/components/schemas/DeprecatedStory"
+          type: array
+        story_body:
+          description: The input story body
+          type: string
+        story_language:
+          description: The input story language
+          type: string
+        story_title:
+          description: The input story title
+          type: string
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string
+      type: object
     RepresentativeStory:
       properties:
         id:
@@ -5211,6 +5323,30 @@ components:
             $ref: "#/components/schemas/Warning"
           type: array
       type: object
+    DeprecatedStories:
+      properties:
+        next_page_cursor:
+          description: The next page cursor
+          type: string
+        stories:
+          description: An array of stories
+          items:
+            $ref: "#/components/schemas/DeprecatedStory"
+          type: array
+        published_at.end:
+          description: The end of a period in which searched stories were published
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start of a period in which searched stories were published
+          format: date-time
+          type: string
+        warnings:
+          description: Notifies about possible issues that occurred when searching for stories
+          items:
+            $ref: "#/components/schemas/Warning"
+          type: array
+      type: object
     Story:
       properties:
         author:
@@ -5234,7 +5370,92 @@ components:
             type: integer
           type: array
         entities:
-          $ref: "#/components/schemas/Entities"
+          description: An array of entities
+          items:
+            $ref: "#/components/schemas/Entity"
+          type: array
+        hashtags:
+          description: An array of suggested Story hashtags
+          items:
+            type: string
+          type: array
+        id:
+          description: ID of the story which is a unique identification
+          format: int64
+          type: integer
+        keywords:
+          description: Extracted keywords mentioned in the story title or body
+          items:
+            type: string
+          type: array
+        language:
+          description: Language of the story
+          type: string
+        links:
+          $ref: "#/components/schemas/StoryLinks"
+        media:
+          description: An array of extracted media such as images and videos
+          items:
+            $ref: "#/components/schemas/Media"
+          type: array
+        paragraphs_count:
+          description: Paragraph count of the story body
+          format: int32
+          type: integer
+        published_at:
+          description: Published date of the story
+          format: date-time
+          type: string
+        sentences_count:
+          description: Sentence count of the story body
+          format: int32
+          type: integer
+        sentiment:
+          $ref: "#/components/schemas/Sentiments"
+        social_shares_count:
+          $ref: "#/components/schemas/ShareCounts"
+        source:
+          $ref: "#/components/schemas/Source"
+        summary:
+          $ref: "#/components/schemas/Summary"
+        title:
+          description: Title of the story
+          type: string
+        translations:
+          $ref: "#/components/schemas/StoryTranslations"
+        words_count:
+          description: Word count of the story body
+          format: int32
+          type: integer
+        license_type:
+          description: License type of the story
+          format: int32
+          type: integer
+      type: object
+    DeprecatedStory:
+      properties:
+        author:
+          $ref: "#/components/schemas/Author"
+        body:
+          description: Body of the story
+          type: string
+        categories:
+          description: Suggested categories for the story
+          items:
+            $ref: "#/components/schemas/Category"
+          type: array
+        characters_count:
+          description: Character count of the story body
+          format: int32
+          type: integer
+        clusters:
+          description: An array of clusters the story is associated with
+          items:
+            format: int64
+            type: integer
+          type: array
+        entities:
+          $ref: "#/components/schemas/DeprecatedEntities"
         hashtags:
           description: An array of suggested Story hashtags
           items:
@@ -5369,7 +5590,7 @@ components:
           format: date-time
           type: string
         sentiment:
-          $ref: '#/components/schemas/AggregatedSentiment'
+          $ref: "#/components/schemas/AggregatedSentiment"
       type: object
     TimeSeriesList:
       properties:
@@ -5418,7 +5639,7 @@ components:
           description: The value of the trend
           type: string
         sentiment:
-          $ref: '#/components/schemas/AggregatedSentiment'
+          $ref: "#/components/schemas/AggregatedSentiment"
       type: object
     Trends:
       properties:
@@ -5456,136 +5677,136 @@ components:
       type: object
       properties:
         $and:
-          $ref: '#/components/schemas/Logical'
+          $ref: "#/components/schemas/Logical"
         $or:
-          $ref: '#/components/schemas/Logical'
+          $ref: "#/components/schemas/Logical"
         $not:
-          $ref: '#/components/schemas/Logical'
+          $ref: "#/components/schemas/Logical"
     Logical:
       title: Logical operators
       type: array
       items:
         anyOf:
-          - $ref: '#/components/schemas/Logicals'
-          - $ref: '#/components/schemas/Parameter'
+          - $ref: "#/components/schemas/Logicals"
+          - $ref: "#/components/schemas/Parameter"
     Parameter:
       title: Query defines the search query on a field
       type: object
       properties:
         author.id:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         author.name:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         body:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         categories.confident:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         categories.id:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         categories.level:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         categories.taxonomy:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         clusters:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         links.permalink:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.body.links.dbpedia:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.body.text:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.body.type:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.title.links.dbpedia:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.title.text:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entities.title.type:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         id:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         language:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.content.length.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.content.length.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.count.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.count.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.format:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.height.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.height.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.width.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.images.width.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.videos.count.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         media.videos.count.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         sentiment.body.polarity:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         sentiment.title.polarity:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         social.shares.count.facebook.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         social.shares.count.facebook.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         social.shares.count.reddit.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         social.shares.count.reddit.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.domain:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.id:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.links.in.count.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.links.in.count.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.locations.city:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.locations.country:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.locations.state:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.rankings.alexa.country:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.rankings.alexa.rank.max:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.rankings.alexa.rank.min:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.scopes.city:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.scopes.country:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.scopes.level:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         source.scopes.state:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         story_url:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         story_language:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         text:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         title:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         translations.en.body:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         translations.en.text:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         translations.en.title:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         entity:
           oneOf:
-            - $ref: '#/components/schemas/NestedEntity'
-            - $ref: '#/components/schemas/Logicals'
+            - $ref: "#/components/schemas/NestedEntity"
+            - $ref: "#/components/schemas/Logicals"
     Query:
       title: Query defines the search query on a field
       type: object
@@ -5627,23 +5848,23 @@ components:
       title: To perform a nested search on entities use this.
       properties:
         id:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         name:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         surface_forms.text:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         sentiment:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         element:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         links.wikipedia:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         links.wikidata:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         stock_ticker:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
         type:
-          $ref: '#/components/schemas/Query'
+          $ref: "#/components/schemas/Query"
   securitySchemes:
     app_id:
       x-auth-id-alias: true
@@ -5673,21 +5894,21 @@ components:
         application/json:
           schema:
             oneOf:
-              - $ref: '#/components/schemas/Logicals'
-              - $ref: '#/components/schemas/Parameter'
+              - $ref: "#/components/schemas/Logicals"
+              - $ref: "#/components/schemas/Parameter"
           example:
             $and:
               - $or:
-                - body:
-                    $text: Tim Cook
-                - social.shares.count.reddit.max:
-                    $gte: 5000
-                    $boost: 5
+                  - body:
+                      $text: Tim Cook
+                  - social.shares.count.reddit.max:
+                      $gte: 5000
+                      $boost: 5
               - entity:
                   $and:
                     - name:
                         $text: Apple
                         $boost: 2
                     - $not:
-                      - type:
-                          $eq: Fruit
+                        - type:
+                            $eq: Fruit
