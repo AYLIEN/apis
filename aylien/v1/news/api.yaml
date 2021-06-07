@@ -1139,10 +1139,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RelatedStories"
+                oneOf:
+                  - $ref: "#/components/schemas/RelatedStories"
+                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
             text/xml:
               schema:
-                $ref: "#/components/schemas/RelatedStories"
+                oneOf:
+                  - $ref: "#/components/schemas/RelatedStories"
+                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -1237,10 +1241,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RelatedStories"
+                oneOf:
+                  - $ref: "#/components/schemas/RelatedStories"
+                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
             text/xml:
               schema:
-                $ref: "#/components/schemas/RelatedStories"
+                oneOf:
+                  - $ref: "#/components/schemas/RelatedStories"
+                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -2188,10 +2196,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Stories"
+                oneOf:
+                  - $ref: "#/components/schemas/Stories"
+                  - $ref: "#/components/schemas/DeprecatedStories"
             text/xml:
               schema:
-                $ref: "#/components/schemas/Stories"
+                oneOf:
+                  - $ref: "#/components/schemas/Stories"
+                  - $ref: "#/components/schemas/DeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -4814,17 +4826,16 @@ components:
           format: int32
           minimum: 0
         body:
-          $ref: "#/components/schemas/EntityMention"
+          $ref: "#/components/schemas/EntityInText"
         title:
-          $ref: "#/components/schemas/EntityMention"
-      required:
-        - id
-        - links
-        - stock_ticker
-        - types
-        - sentiment
-        - prominence_score
-        - frequency
+          $ref: "#/components/schemas/EntityInText"
+      type: object
+    EntityInText:
+      properties:
+        sentiment:
+          $ref: "#/components/schemas/EntitySentiment"
+        surface_forms:
+          $ref: "#/components/schemas/EntitySurfaceForm"
       type: object
     EntitySurfaceForm:
       properties:
@@ -5105,6 +5116,7 @@ components:
           type: array
       type: object
     RelatedStories:
+      description: Story containing new V3 entities - available for new_v3_entities feature flag
       properties:
         related_stories:
           description: An array of related stories for the input story
@@ -5130,6 +5142,7 @@ components:
           type: string
       type: object
     DeprecatedRelatedStories:
+      description: Story with deprecated entities
       properties:
         related_stories:
           description: An array of related stories for the input story
@@ -5300,6 +5313,7 @@ components:
           type: string
       type: object
     Stories:
+      description: Stories containing new V3 entities - available for new_v3_entities feature flag
       properties:
         next_page_cursor:
           description: The next page cursor
@@ -5324,6 +5338,7 @@ components:
           type: array
       type: object
     DeprecatedStories:
+      description: Stories containing deprecated entities
       properties:
         next_page_cursor:
           description: The next page cursor
