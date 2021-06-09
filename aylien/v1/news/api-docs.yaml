@@ -4827,7 +4827,9 @@ components:
         sentiment:
           $ref: "#/components/schemas/EntitySentiment"
         surface_forms:
-          $ref: "#/components/schemas/EntitySurfaceForm"
+          items:
+            $ref: "#/components/schemas/EntitySurfaceForm"
+          type: array
       type: object
     EntitySurfaceForm:
       properties:
