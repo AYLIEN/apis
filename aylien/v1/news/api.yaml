@@ -4863,6 +4863,7 @@ components:
           $ref: "#/components/schemas/EntitySentiment"
       type: object
     EntityMentionIndex:
+      type: object
       properties:
         start:
           description: Start index of a single entity mention in the text (counting from 0)
@@ -4874,6 +4875,9 @@ components:
           type: integer
           format: int32
           minimum: 1
+      required:
+        - start
+        - end
     DeprecatedEntities:
       properties:
         body:
