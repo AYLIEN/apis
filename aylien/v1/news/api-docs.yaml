@@ -4793,7 +4793,7 @@ components:
           type: string
         links:
           $ref: "#/components/schemas/EntityLinks"
-        stock_ticker:
+        stock_tickers:
           description: The stock tickers of the entity (might be empty)
           items:
             type: string
