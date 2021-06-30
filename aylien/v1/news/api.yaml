@@ -4812,15 +4812,15 @@ components:
             description: An entity type
             type: string
           type: array
-        sentiment:
+        overall_sentiment:
           $ref: "#/components/schemas/EntitySentiment"
-        prominence_score:
+        overall_prominence:
           description: Describes how relevant an entity is to the article
           type: number
           format: float
           maximum: 1
           minimum: 0
-        frequency:
+        overall_frequency:
           description: Amount of entity surface form mentions in the article
           type: integer
           format: int32
