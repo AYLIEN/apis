@@ -4809,7 +4809,7 @@ components:
         overall_prominence:
           description: Describes how relevant an entity is to the article
           type: number
-          format: float
+          format: bigdecimal
           maximum: 1
           minimum: 0
         overall_frequency:
