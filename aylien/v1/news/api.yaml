@@ -2932,43 +2932,49 @@ components:
       style: form
     entities_id:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `id`. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.id
+      name: entities.id[]
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_links_wikipedia:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         wikipedia URL. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.links.wikipedia
+      name: entities.links.wikipedia[]
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_links_wikidata:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         wikidata URL. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.links.wikidata
+      name: entities.links.wikidata[]
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_types:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `types`. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
@@ -2982,7 +2988,7 @@ components:
       style: form
     entities_stock_tickers:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `stock_tickers`. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
@@ -2996,15 +3002,17 @@ components:
       style: form
     entities_surface_forms_text:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `surface_form` in the body of stories. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.body.surface_forms.text
+      name: entities.body.surface_forms.text[]
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_body_links_dbpedia:
       description: >
@@ -3022,15 +3030,17 @@ components:
       style: form
     entities_body_surface_forms_text:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `surface_form` in the body of stories. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.body.surface_forms.text
+      name: entities.body.surface_forms.text[]
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_body_text:
       description: >
@@ -3076,12 +3086,12 @@ components:
       style: form
     entities_title_surface_forms_text:
       description: >
-        This parameter is used to find stories based on the specified entity's
+        This parameter is used to find stories based on the specified entities
         `surface_form` in story titles. You can read more about working with entities
         [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.title.surface_forms.text
+      name: entities.title.surface_forms.text[]
       schema:
         nullable: true
         type: string
@@ -3366,10 +3376,12 @@ components:
         [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.id"
+      name: "!entities.id[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_links_wikipedia:
       description: >
@@ -3379,10 +3391,12 @@ components:
         [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.links.wikipedia"
+      name: "!entities.links.wikipedia[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_links_wikidata:
       description: >
@@ -3392,10 +3406,12 @@ components:
         [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.links.wikidata"
+      name: "!entities.links.wikidata[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_types:
       description: >
@@ -3434,10 +3450,12 @@ components:
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.surface_forms.text"
+      name: "!entities.surface_forms.text[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_body_links_dbpedia:
       description: >
@@ -3462,10 +3480,12 @@ components:
         [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.body.surface_forms.text"
+      name: "!entities.body.surface_forms.text[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_body_text:
       description: >
@@ -3519,10 +3539,12 @@ components:
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: "!entities.title.surface_forms.text"
+      name: "!entities.title.surface_forms.text[]"
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     notentities_title_text:
       description: >
