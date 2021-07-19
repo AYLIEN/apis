@@ -2662,15 +2662,18 @@ paths:
               - source.name
               - source.domain
               - keywords
+              - entities.id
+              - entities.surface_forms.text
+              - entities.links.wikipedia
+              - entities.links.wikidata
+              - entities.title.surface_forms.text
               - entities.title.text
               - entities.title.type
               - entities.title.links.dbpedia
+              - entities.body.surface_forms.text
               - entities.body.text
               - entities.body.type
               - entities.body.links.dbpedia
-              - entities.title.sentiment
-              - entities.body.sentiment
-              - entities.sentiment
               - hashtags
               - categories.id
               - sentiment.title.polarity
