@@ -530,22 +530,38 @@ paths:
         - $ref: "#/components/parameters/notentities_stock_tickers"
         - $ref: "#/components/parameters/entities_surface_forms_text"
         - $ref: "#/components/parameters/notentities_surface_forms_text"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
         - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
         - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_stock_ticker"
+        - $ref: "#/components/parameters/notentities_title_stock_ticker"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_title_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
         - $ref: "#/components/parameters/entities_body_surface_forms_text"
         - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
         - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_stock_ticker"
+        - $ref: "#/components/parameters/notentities_body_stock_ticker"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1040,22 +1056,38 @@ paths:
       - $ref: "#/components/parameters/notentities_stock_tickers"
       - $ref: "#/components/parameters/entities_surface_forms_text"
       - $ref: "#/components/parameters/notentities_surface_forms_text"
+      - $ref: "#/components/parameters/entities_title_id"
+      - $ref: "#/components/parameters/notentities_title_id"
       - $ref: "#/components/parameters/entities_title_surface_forms_text"
       - $ref: "#/components/parameters/notentities_title_surface_forms_text"
       - $ref: "#/components/parameters/entities_title_text"
       - $ref: "#/components/parameters/notentities_title_text"
       - $ref: "#/components/parameters/entities_title_type"
       - $ref: "#/components/parameters/notentities_title_type"
+      - $ref: "#/components/parameters/entities_title_stock_ticker"
+      - $ref: "#/components/parameters/notentities_title_stock_ticker"
       - $ref: "#/components/parameters/entities_title_links_dbpedia"
       - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+      - $ref: "#/components/parameters/entities_title_links_wikipedia"
+      - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+      - $ref: "#/components/parameters/entities_title_links_wikidata"
+      - $ref: "#/components/parameters/notentities_title_links_wikidata"
+      - $ref: "#/components/parameters/entities_body_id"
+      - $ref: "#/components/parameters/notentities_body_id"
       - $ref: "#/components/parameters/entities_body_surface_forms_text"
       - $ref: "#/components/parameters/notentities_body_surface_forms_text"
       - $ref: "#/components/parameters/entities_body_text"
       - $ref: "#/components/parameters/notentities_body_text"
       - $ref: "#/components/parameters/entities_body_type"
       - $ref: "#/components/parameters/notentities_body_type"
+      - $ref: "#/components/parameters/entities_body_stock_ticker"
+      - $ref: "#/components/parameters/notentities_body_stock_ticker"
       - $ref: "#/components/parameters/entities_body_links_dbpedia"
       - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+      - $ref: "#/components/parameters/entities_body_links_wikipedia"
+      - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+      - $ref: "#/components/parameters/entities_body_links_wikidata"
+      - $ref: "#/components/parameters/notentities_body_links_wikidata"
       - $ref: "#/components/parameters/sentiment_title_polarity"
       - $ref: "#/components/parameters/notsentiment_title_polarity"
       - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1381,22 +1413,38 @@ paths:
         - $ref: "#/components/parameters/notentities_stock_tickers"
         - $ref: "#/components/parameters/entities_surface_forms_text"
         - $ref: "#/components/parameters/notentities_surface_forms_text"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
         - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
         - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_stock_ticker"
+        - $ref: "#/components/parameters/notentities_title_stock_ticker"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_title_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
         - $ref: "#/components/parameters/entities_body_surface_forms_text"
         - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
         - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_stock_ticker"
+        - $ref: "#/components/parameters/notentities_body_stock_ticker"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -2337,22 +2385,38 @@ paths:
         - $ref: "#/components/parameters/notentities_stock_tickers"
         - $ref: "#/components/parameters/entities_surface_forms_text"
         - $ref: "#/components/parameters/notentities_surface_forms_text"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
         - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
         - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_stock_ticker"
+        - $ref: "#/components/parameters/notentities_title_stock_ticker"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_title_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
         - $ref: "#/components/parameters/entities_body_surface_forms_text"
         - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
         - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_stock_ticker"
+        - $ref: "#/components/parameters/notentities_body_stock_ticker"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -2588,22 +2652,38 @@ paths:
         - $ref: "#/components/parameters/notentities_stock_tickers"
         - $ref: "#/components/parameters/entities_surface_forms_text"
         - $ref: "#/components/parameters/notentities_surface_forms_text"
+        - $ref: "#/components/parameters/entities_title_id"
+        - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
         - $ref: "#/components/parameters/notentities_title_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_text"
         - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
         - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_stock_ticker"
+        - $ref: "#/components/parameters/notentities_title_stock_ticker"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
         - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_title_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_title_links_wikipedia"
+        - $ref: "#/components/parameters/entities_title_links_wikidata"
+        - $ref: "#/components/parameters/notentities_title_links_wikidata"
+        - $ref: "#/components/parameters/entities_body_id"
+        - $ref: "#/components/parameters/notentities_body_id"
         - $ref: "#/components/parameters/entities_body_surface_forms_text"
         - $ref: "#/components/parameters/notentities_body_surface_forms_text"
         - $ref: "#/components/parameters/entities_body_text"
         - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
         - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_stock_ticker"
+        - $ref: "#/components/parameters/notentities_body_stock_ticker"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
         - $ref: "#/components/parameters/notentities_body_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_links_wikipedia"
+        - $ref: "#/components/parameters/notentities_body_links_wikipedia"
+        - $ref: "#/components/parameters/entities_body_links_wikidata"
+        - $ref: "#/components/parameters/notentities_body_links_wikidata"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -3009,6 +3089,76 @@ components:
         nullable: true
         type: array
       style: form
+    entities_body_id:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `id` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.id[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_links_wikipedia:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        wikipedia URL in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.links.wikipedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_links_wikidata:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        wikidata URL in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.links.wikidata[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_types:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `types` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.types[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_stock_ticker:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `stock_ticker` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.stock_ticker[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     entities_body_links_dbpedia:
       description: >
         This parameter is used to find stories based on the specified entities
@@ -3059,6 +3209,76 @@ components:
       explode: true
       in: query
       name: entities.body.type[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_id:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `id` in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.id[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_links_wikipedia:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        wikipedia URL in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.links.wikipedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_links_wikidata:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        wikidata URL in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.links.wikidata[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_types:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `types` in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.types[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_stock_ticker:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `stock_ticker` in the title of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.stock_ticker[]
       schema:
         items:
           type: string
@@ -3452,6 +3672,81 @@ components:
         nullable: true
         type: array
       style: form
+    notentities_body_id:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `id` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.id[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_links_wikipedia:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's Wikipedia URL in the body of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.links.wikipedia[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_links_wikidata:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's Wikidata URL in the body of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.links.wikidata[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_types:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `types` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.types[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_stock_ticker:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `stock_ticker` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.stock_ticker[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
     notentities_body_links_dbpedia:
       description: >
         This parameter is used to exclude stories based on the specified
@@ -3506,6 +3801,81 @@ components:
       explode: true
       in: query
       name: "!entities.body.type[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_id:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `id` in the title of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.id[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_links_wikipedia:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's Wikipedia URL in the title of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.links.wikipedia[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_links_wikidata:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's Wikidata URL in the title of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.links.wikidata[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_types:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `types` in the title of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.types[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_stock_ticker:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entity's `stock_ticker` in the title of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.stock_ticker[]"
       schema:
         items:
           type: string
