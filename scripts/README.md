@@ -48,7 +48,7 @@ git add .
 git commit -m "Write release notes here"
 git remote add origin git@github.com:aylien/aylien_newsapi_nodejs # substitute with correct repository name for each language
 
-git pull origin master --rebase -s recursive -X theirs # this will ignore any rebase conflicts and take the local version to be the ground truth
+git pull --rebase -s recursive -Xtheirs origin master # this will ignore any rebase conflicts and take the local version to be the ground truth
 git cherry-pick --skip # in case you find yourself in a cherry-picking state, sometimes happens
 git rebase --continue # in case you find yourself in a rebasing state, sometimes happens
 git push origin master
