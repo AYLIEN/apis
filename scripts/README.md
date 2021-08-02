@@ -78,6 +78,7 @@ Make sure to also push to the remote git repository and create a release.
 For uploading to pypi you need to install `twine`, build and check the package and then upload it. Username and password can be found in the secure note.
 
 ```
+pip install wheel
 pip install twine
 python setup.py sdist bdist_wheel
 twine check dist/*
