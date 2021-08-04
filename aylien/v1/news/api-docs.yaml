@@ -13,7 +13,7 @@ info:
     HTTP requests to our server, which returns information to your client.
   termsOfService: https://newsapi.aylien.com/tos
   title: AYLIEN News API
-  version: "3.0"
+  version: "4.6"
 openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
@@ -616,6 +616,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for setting the start data point of histogram
@@ -1147,6 +1149,8 @@ paths:
       - $ref: "#/components/parameters/story_url"
       - $ref: "#/components/parameters/story_title"
       - $ref: "#/components/parameters/story_body"
+      - $ref: "#/components/parameters/aql"
+      - $ref: "#/components/parameters/aql_default_field"
       - $ref: "#/components/parameters/query"
       - description: >
           This parameter is used for boosting the result by the specified
@@ -1170,14 +1174,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/OneOfRelatedStoriesDeprecatedRelatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/OneOfRelatedStoriesDeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -1272,14 +1272,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/OneOfRelatedStoriesDeprecatedRelatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/OneOfRelatedStoriesDeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -1500,6 +1496,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for changing the order column of the results.
@@ -1815,14 +1813,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -2241,14 +2235,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -2471,6 +2461,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for finding stories whose published at time
@@ -2738,6 +2730,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: |
             This parameter is used to specify the trend field.
@@ -2866,6 +2860,23 @@ paths:
       summary: List trends
 components:
   parameters:
+    aql:
+      description: >
+        This parameter is used to supply a query in AYLIEN Query Language.
+      in: query
+      name: aql
+      schema:
+        nullable: true
+        type: string
+    aql_default_field:
+      description: >
+        This parameter is used to supply an optional default field name used in the AQL query.
+      in: query
+      name: aql_default_field
+      schema:
+        nullable: true
+        type: string
+        default: text
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
@@ -4887,14 +4898,10 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "#/components/schemas/Stories"
-              - $ref: "#/components/schemas/DeprecatedStories"
+            $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
         text/xml:
           schema:
-            oneOf:
-              - $ref: "#/components/schemas/Stories"
-              - $ref: "#/components/schemas/DeprecatedStories"
+            $ref: "#/components/schemas/OneOfStoriesDeprecatedStories"
       description: An object including an array of stories
       headers:
         X-RateLimit-Limit:
@@ -5654,6 +5661,16 @@ components:
             $ref: "#/components/schemas/Warning"
           type: array
       type: object
+    OneOfRelatedStoriesDeprecatedRelatedStories:
+      description: Wrapper of RelatedStories or DeprecatedRelatedStories
+      oneOf:
+        - $ref: "#/components/schemas/RelatedStories"
+        - $ref: "#/components/schemas/DeprecatedRelatedStories"
+    OneOfStoriesDeprecatedStories:
+      description: Wrapper of Stories or DeprecatedStories
+      oneOf:
+        - $ref: "#/components/schemas/Stories"
+        - $ref: "#/components/schemas/DeprecatedStories"
     Story:
       properties:
         author:
