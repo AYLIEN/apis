@@ -5212,17 +5212,17 @@ components:
           $ref: "#/components/schemas/Query"
         links.permalink:
           $ref: "#/components/schemas/Query"
-        entities.body.links.dbpedia:
+        entities.id:
           $ref: "#/components/schemas/Query"
-        entities.body.text:
+        entities.surface_forms.text:
           $ref: "#/components/schemas/Query"
-        entities.body.type:
+        entities.links.wikipedia:
           $ref: "#/components/schemas/Query"
-        entities.title.links.dbpedia:
+        entities.links.wikidata:
           $ref: "#/components/schemas/Query"
-        entities.title.text:
+        entities.title.surface_forms.text:
           $ref: "#/components/schemas/Query"
-        entities.title.type:
+        entities.body.surface_forms.text:
           $ref: "#/components/schemas/Query"
         id:
           $ref: "#/components/schemas/Query"
