@@ -4,6 +4,12 @@ release_note=${1:-"minor update"}
 branch_name=${2:-"release"}
 release_version=$3
 
+master_branch='master'
+
+if [ ${release_version::1} == '4' ]; then
+  master_branch='4.x'
+fi
+
 function git_push() {
   rm -rf .git
   git init
@@ -11,7 +17,7 @@ function git_push() {
   git commit -m "$release_note"
   git remote add origin git@github.com:aylien/aylien_newsapi_$lang
 
-  git pull origin master -s recursive -Xtheirs
+  git pull origin $master_branch -s recursive -Xtheirs
   git checkout -b $branch_name
   git push
 
@@ -26,7 +32,7 @@ function git_push_javascript() {
   git commit -m "$release_note"
   git remote add origin git@github.com:aylien/aylien_newsapi_nodejs
 
-  git pull origin master -s recursive -Xtheirs
+  git pull origin $master_branch -s recursive -Xtheirs
   git checkout -b $branch_name
   git rm -r node_modules
   git rm -r dist
