@@ -2,6 +2,13 @@
 
 set -eu
 
+VERSION=$1
+
+if [ -z "$VERSION" ]; then
+  echo "Version to generate is required! ex. ./generate-sdks.sh v4 or ./generate-sdks.sh v5"
+  exit -1
+fi
+
 if [ -n "${OPENAPI_CMD+1}" ]
 then
   echo "Using OpenAPI Generator command \`${OPENAPI_CMD}\`."
@@ -24,7 +31,7 @@ if [ "$OS" = 'Darwin' ]; then
     # for MacOS
     cmd=gsed
 fi
-cat ../aylien/v1/news/api-v5.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
+cat ../aylien/v1/news/api-${VERSION}.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
 
 python remove-post-body.py temp.api.yaml no-post.api.yaml
 
