@@ -24,7 +24,7 @@ if [ "$OS" = 'Darwin' ]; then
     # for MacOS
     cmd=gsed
 fi
-cat ../aylien/v1/news/api.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
+cat ../aylien/v1/news/api-v5.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
 
 python remove-post-body.py temp.api.yaml no-post.api.yaml
 
