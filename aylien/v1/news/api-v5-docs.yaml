@@ -2943,11 +2943,11 @@ components:
     entities_surface_forms_text:
       description: >
         This parameter is used to find stories based on the specified entities
-        `surface_form` in the body of stories. You can read more about working with
+        `surface_form`. You can read more about working with
         entities [here](https://newsapi.aylien.com/docs/working-with-entities).
       explode: true
       in: query
-      name: entities.body.surface_forms.text[]
+      name: entities.surface_forms.text[]
       schema:
         items:
           type: string
