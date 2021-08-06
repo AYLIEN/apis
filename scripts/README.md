@@ -12,13 +12,17 @@ sh ./install-openapi-generator.sh
 
 ## Generating the SDKs
 
-The SDKs are generated from the API definition files found in the [`/aylien/v1/`](/aylien/v1) directory. There are also JSON configuration files in these directories for each language (see [`/aylien/v1/news/config`](/aylien/v1/news/config) for example). This process is automatic using the `generate-sdks.sh` script.
+> Note: Make sure you edit package version manually in `/aylien/v1/news/config/*.json` and in `/aylien/v1/news/*.yaml` into either `v4.x.x` or `v5.x.x`.
+
+The SDKs are generated from the API definition files found in the [`/aylien/v1/`](/aylien/v1) directory. There are also JSON configuration files in these directories for each language (see [`/aylien/v1/news/config`](/aylien/v1/news/config) for example). This process is automatic using the `generate-sdks.sh <version>` script.
 
 > Note: Make sure you have `gsed` installed.
 
 ```
-sh ./generate-sdks.sh
+sh ./generate-sdks.sh vX
 ```
+> Note: Where `vX` is your version to generate. `ex. ./generate-sdks.sh v4`
+
 
 Please note that this script calls `install-openapi-generator.sh` if it can't find the `openapi-generator-cli.jar` file.
 
@@ -112,7 +116,8 @@ Go directly retrieves the packages from Github, no publication necessary other t
 There is an automated script available for doing all of this, but you should only use it if you know what you are doing. Read the script before using it to understand how it works.
 
 ```
-sh ./publish.sh 'Release Note here'
+sh ./github-release.sh 'Release Notes here' 'Branch name here' 'x.x.x'
+sh ./publish.sh
 ```
 
 ## Testing

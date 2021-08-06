@@ -3,6 +3,7 @@ no-post.api.yaml
 # Dev
 .idea
 .vscode
+scripts/env
 
 # Project specific
 openapi-generator*
