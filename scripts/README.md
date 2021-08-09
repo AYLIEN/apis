@@ -12,9 +12,9 @@ sh ./install-openapi-generator.sh
 
 ## Generating the SDKs
 
-> Note: Make sure you edit package version manually in `/aylien/v1/news/config/*.json` and in `/aylien/v1/news/*.yaml` into either `v4.x.x` or `v5.x.x`.
+> Note: Make sure you edit package version manually in `/aylien/vX/news/config/*.json` and in `/aylien/vX/news/*.yaml` into either `v4.x.x` or `v5.x.x`.
 
-The SDKs are generated from the API definition files found in the [`/aylien/v1/`](/aylien/v1) directory. There are also JSON configuration files in these directories for each language (see [`/aylien/v1/news/config`](/aylien/v1/news/config) for example). This process is automatic using the `generate-sdks.sh <version>` script.
+The SDKs are generated from the API definition files found in the [`/aylien/vX/`](/aylien/vX) directory. There are also JSON configuration files in these directories for each language (see [`/aylien/vX/news/config`](/aylien/vX/news/config) for example). This process is automatic using the `generate-sdks.sh <version>` script.
 
 > Note: Make sure you have `gsed` installed.
 
@@ -117,8 +117,9 @@ There is an automated script available for doing all of this, but you should onl
 
 ```
 sh ./github-release.sh 'Release Notes here' 'Branch name here' 'x.x.x'
-sh ./publish.sh
+sh ./publish.sh vX
 ```
+> Note: Where `vX` is your version to publush. `ex. ./publish.sh v4`
 
 ## Testing
 

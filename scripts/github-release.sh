@@ -1,8 +1,18 @@
-cd ../sdks/news-api
-
 release_note=${1:-"minor update"}
 branch_name=${2:-"release"}
 release_version=$3
+
+cd ../sdks/v${release_version:0:1}/news-api
+
+if [ -z "$release_version" ]; then
+  echo "Version to release is required! ex. ./github-release.sh v4 or ./github-release.sh v5"
+  exit -1
+fi
+
+if [ ${release_version:0:1} == "v" ]; then
+  echo "Provide release version with following format `X.X.X` not with `vX.X.X`"
+  exit -1
+fi
 
 function git_push() {
   rm -rf .git
