@@ -13,7 +13,7 @@ info:
     HTTP requests to our server, which returns information to your client.
   termsOfService: https://newsapi.aylien.com/tos
   title: AYLIEN News API
-  version: "3.0"
+  version: "4.6"
 openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
@@ -518,18 +518,6 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_id"
-        - $ref: "#/components/parameters/notentities_id"
-        - $ref: "#/components/parameters/entities_links_wikipedia"
-        - $ref: "#/components/parameters/notentities_links_wikipedia"
-        - $ref: "#/components/parameters/entities_links_wikidata"
-        - $ref: "#/components/parameters/notentities_links_wikidata"
-        - $ref: "#/components/parameters/entities_types"
-        - $ref: "#/components/parameters/notentities_types"
-        - $ref: "#/components/parameters/entities_stock_tickers"
-        - $ref: "#/components/parameters/notentities_stock_tickers"
-        - $ref: "#/components/parameters/entities_surface_forms_text"
-        - $ref: "#/components/parameters/notentities_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_id"
         - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
@@ -616,6 +604,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for setting the start data point of histogram
@@ -1044,18 +1034,6 @@ paths:
       - $ref: "#/components/parameters/notcategories_label"
       - $ref: "#/components/parameters/categories_level"
       - $ref: "#/components/parameters/notcategories_level"
-      - $ref: "#/components/parameters/entities_id"
-      - $ref: "#/components/parameters/notentities_id"
-      - $ref: "#/components/parameters/entities_links_wikipedia"
-      - $ref: "#/components/parameters/notentities_links_wikipedia"
-      - $ref: "#/components/parameters/entities_links_wikidata"
-      - $ref: "#/components/parameters/notentities_links_wikidata"
-      - $ref: "#/components/parameters/entities_types"
-      - $ref: "#/components/parameters/notentities_types"
-      - $ref: "#/components/parameters/entities_stock_tickers"
-      - $ref: "#/components/parameters/notentities_stock_tickers"
-      - $ref: "#/components/parameters/entities_surface_forms_text"
-      - $ref: "#/components/parameters/notentities_surface_forms_text"
       - $ref: "#/components/parameters/entities_title_id"
       - $ref: "#/components/parameters/notentities_title_id"
       - $ref: "#/components/parameters/entities_title_surface_forms_text"
@@ -1147,6 +1125,8 @@ paths:
       - $ref: "#/components/parameters/story_url"
       - $ref: "#/components/parameters/story_title"
       - $ref: "#/components/parameters/story_body"
+      - $ref: "#/components/parameters/aql"
+      - $ref: "#/components/parameters/aql_default_field"
       - $ref: "#/components/parameters/query"
       - description: >
           This parameter is used for boosting the result by the specified
@@ -1170,14 +1150,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/DeprecatedRelatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/DeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -1272,14 +1248,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/DeprecatedRelatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/RelatedStories"
-                  - $ref: "#/components/schemas/DeprecatedRelatedStories"
+                $ref: "#/components/schemas/DeprecatedRelatedStories"
           description: An object including an array of related stories
           headers:
             X-RateLimit-Limit:
@@ -1401,18 +1373,6 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_id"
-        - $ref: "#/components/parameters/notentities_id"
-        - $ref: "#/components/parameters/entities_links_wikipedia"
-        - $ref: "#/components/parameters/notentities_links_wikipedia"
-        - $ref: "#/components/parameters/entities_links_wikidata"
-        - $ref: "#/components/parameters/notentities_links_wikidata"
-        - $ref: "#/components/parameters/entities_types"
-        - $ref: "#/components/parameters/notentities_types"
-        - $ref: "#/components/parameters/entities_stock_tickers"
-        - $ref: "#/components/parameters/notentities_stock_tickers"
-        - $ref: "#/components/parameters/entities_surface_forms_text"
-        - $ref: "#/components/parameters/notentities_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_id"
         - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
@@ -1500,6 +1460,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for changing the order column of the results.
@@ -1815,14 +1777,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/DeprecatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/DeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -2241,14 +2199,10 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/DeprecatedStories"
             text/xml:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/Stories"
-                  - $ref: "#/components/schemas/DeprecatedStories"
+                $ref: "#/components/schemas/DeprecatedStories"
           description: An object including an array of stories
           headers:
             X-RateLimit-Limit:
@@ -2373,18 +2327,6 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_id"
-        - $ref: "#/components/parameters/notentities_id"
-        - $ref: "#/components/parameters/entities_links_wikipedia"
-        - $ref: "#/components/parameters/notentities_links_wikipedia"
-        - $ref: "#/components/parameters/entities_links_wikidata"
-        - $ref: "#/components/parameters/notentities_links_wikidata"
-        - $ref: "#/components/parameters/entities_types"
-        - $ref: "#/components/parameters/notentities_types"
-        - $ref: "#/components/parameters/entities_stock_tickers"
-        - $ref: "#/components/parameters/notentities_stock_tickers"
-        - $ref: "#/components/parameters/entities_surface_forms_text"
-        - $ref: "#/components/parameters/notentities_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_id"
         - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
@@ -2471,6 +2413,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for finding stories whose published at time
@@ -2640,18 +2584,6 @@ paths:
         - $ref: "#/components/parameters/notcategories_label"
         - $ref: "#/components/parameters/categories_level"
         - $ref: "#/components/parameters/notcategories_level"
-        - $ref: "#/components/parameters/entities_id"
-        - $ref: "#/components/parameters/notentities_id"
-        - $ref: "#/components/parameters/entities_links_wikipedia"
-        - $ref: "#/components/parameters/notentities_links_wikipedia"
-        - $ref: "#/components/parameters/entities_links_wikidata"
-        - $ref: "#/components/parameters/notentities_links_wikidata"
-        - $ref: "#/components/parameters/entities_types"
-        - $ref: "#/components/parameters/notentities_types"
-        - $ref: "#/components/parameters/entities_stock_tickers"
-        - $ref: "#/components/parameters/notentities_stock_tickers"
-        - $ref: "#/components/parameters/entities_surface_forms_text"
-        - $ref: "#/components/parameters/notentities_surface_forms_text"
         - $ref: "#/components/parameters/entities_title_id"
         - $ref: "#/components/parameters/notentities_title_id"
         - $ref: "#/components/parameters/entities_title_surface_forms_text"
@@ -2738,6 +2670,8 @@ paths:
         - $ref: "#/components/parameters/social_shares_count_reddit_min"
         - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: |
             This parameter is used to specify the trend field.
@@ -2866,6 +2800,23 @@ paths:
       summary: List trends
 components:
   parameters:
+    aql:
+      description: >
+        This parameter is used to supply a query in AYLIEN Query Language.
+      in: query
+      name: aql
+      schema:
+        nullable: true
+        type: string
+    aql_default_field:
+      description: >
+        This parameter is used to supply an optional default field name used in the AQL query.
+      in: query
+      name: aql_default_field
+      schema:
+        nullable: true
+        type: string
+        default: text
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
@@ -2999,90 +2950,6 @@ components:
       explode: true
       in: query
       name: "!links.permalink[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_id:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        `id`. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.id[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_links_wikipedia:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        wikipedia URL. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.links.wikipedia[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_links_wikidata:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        wikidata URL. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.links.wikidata[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_types:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        `types`. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.types[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_stock_tickers:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        `stock_tickers`. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.stock_tickers[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    entities_surface_forms_text:
-      description: >
-        This parameter is used to find stories based on the specified entities
-        `surface_form` in the body of stories. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: entities.body.surface_forms.text[]
       schema:
         items:
           type: string
@@ -3580,95 +3447,6 @@ components:
       schema:
         items:
           type: integer
-        nullable: true
-        type: array
-      style: form
-    notentities_id:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's `id`. You can read more about working
-        with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.id[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notentities_links_wikipedia:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's Wikipedia URL. You can read more about
-        working with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.links.wikipedia[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notentities_links_wikidata:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's Wikidata URL. You can read more about
-        working with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.links.wikidata[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notentities_types:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's `types`. You can read more about working
-        with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.types[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notentities_stock_tickers:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's `stock_tickers` in the body of stories. You can read more about working
-        with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.body.stock_tickers[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notentities_surface_forms_text:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entity's `surface_form`. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
-      explode: true
-      in: query
-      name: "!entities.surface_forms.text[]"
-      schema:
-        items:
-          type: string
         nullable: true
         type: array
       style: form
@@ -4860,10 +4638,10 @@ components:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/RelatedStories"
+            $ref: "#/components/schemas/DeprecatedRelatedStories"
         text/xml:
           schema:
-            $ref: "#/components/schemas/RelatedStories"
+            $ref: "#/components/schemas/DeprecatedRelatedStories"
       description: An object including an array of related stories
       headers:
         X-RateLimit-Limit:
@@ -4887,14 +4665,10 @@ components:
       content:
         application/json:
           schema:
-            oneOf:
-              - $ref: "#/components/schemas/Stories"
-              - $ref: "#/components/schemas/DeprecatedStories"
+            $ref: "#/components/schemas/DeprecatedStories"
         text/xml:
           schema:
-            oneOf:
-              - $ref: "#/components/schemas/Stories"
-              - $ref: "#/components/schemas/DeprecatedStories"
+            $ref: "#/components/schemas/DeprecatedStories"
       description: An object including an array of stories
       headers:
         X-RateLimit-Limit:
@@ -5374,32 +5148,6 @@ components:
             $ref: "#/components/schemas/Rank"
           type: array
       type: object
-    RelatedStories:
-      description: Story containing new V3 entities - available for new_v3_entities feature flag
-      properties:
-        related_stories:
-          description: An array of related stories for the input story
-          items:
-            $ref: "#/components/schemas/Story"
-          type: array
-        story_body:
-          description: The input story body
-          type: string
-        story_language:
-          description: The input story language
-          type: string
-        story_title:
-          description: The input story title
-          type: string
-        published_at.end:
-          description: The end of a period in which searched stories were published
-          format: date-time
-          type: string
-        published_at.start:
-          description: The start of a period in which searched stories were published
-          format: date-time
-          type: string
-      type: object
     DeprecatedRelatedStories:
       description: Story with deprecated entities
       properties:
@@ -5571,31 +5319,6 @@ components:
           description: The title of the home page URL
           type: string
       type: object
-    Stories:
-      description: Stories containing new V3 entities - available for new_v3_entities feature flag
-      properties:
-        next_page_cursor:
-          description: The next page cursor
-          type: string
-        stories:
-          description: An array of stories
-          items:
-            $ref: "#/components/schemas/Story"
-          type: array
-        published_at.end:
-          description: The end of a period in which searched stories were published
-          format: date-time
-          type: string
-        published_at.start:
-          description: The start of a period in which searched stories were published
-          format: date-time
-          type: string
-        warnings:
-          description: Notifies about possible issues that occurred when searching for stories
-          items:
-            $ref: "#/components/schemas/Warning"
-          type: array
-      type: object
     DeprecatedStories:
       description: Stories containing deprecated entities
       properties:
@@ -5619,96 +5342,6 @@ components:
           description: Notifies about possible issues that occurred when searching for stories
           items:
             $ref: "#/components/schemas/Warning"
-          type: array
-      type: object
-    Story:
-      properties:
-        author:
-          $ref: "#/components/schemas/Author"
-        body:
-          description: Body of the story
-          type: string
-        categories:
-          description: Suggested categories for the story
-          items:
-            $ref: "#/components/schemas/Category"
-          type: array
-        characters_count:
-          description: Character count of the story body
-          format: int32
-          type: integer
-        clusters:
-          description: An array of clusters the story is associated with
-          items:
-            format: int64
-            type: integer
-          type: array
-        entities:
-          description: An array of entities
-          items:
-            $ref: "#/components/schemas/Entity"
-          type: array
-        hashtags:
-          description: An array of suggested Story hashtags
-          items:
-            type: string
-          type: array
-        id:
-          description: ID of the story which is a unique identification
-          format: int64
-          type: integer
-        keywords:
-          description: Extracted keywords mentioned in the story title or body
-          items:
-            type: string
-          type: array
-        language:
-          description: Language of the story
-          type: string
-        links:
-          $ref: "#/components/schemas/StoryLinks"
-        media:
-          description: An array of extracted media such as images and videos
-          items:
-            $ref: "#/components/schemas/Media"
-          type: array
-        paragraphs_count:
-          description: Paragraph count of the story body
-          format: int32
-          type: integer
-        published_at:
-          description: Published date of the story
-          format: date-time
-          type: string
-        sentences_count:
-          description: Sentence count of the story body
-          format: int32
-          type: integer
-        sentiment:
-          $ref: "#/components/schemas/Sentiments"
-        social_shares_count:
-          $ref: "#/components/schemas/ShareCounts"
-        source:
-          $ref: "#/components/schemas/Source"
-        summary:
-          $ref: "#/components/schemas/Summary"
-        title:
-          description: Title of the story
-          type: string
-        translations:
-          $ref: "#/components/schemas/StoryTranslations"
-        words_count:
-          description: Word count of the story body
-          format: int32
-          type: integer
-        license_type:
-          description: License type of the story
-          format: int32
-          type: integer
-        industries:
-          description: An array of industries categories
-          items:
-            $ref: "#/components/schemas/Category"
           type: array
       type: object
     DeprecatedStory:
@@ -5792,6 +5425,11 @@ components:
           description: License type of the story
           format: int32
           type: integer
+        industries:
+          description: An array of industries categories
+          items:
+            $ref: "#/components/schemas/Category"
+          type: array
       type: object
     StoryCluster:
       properties:
