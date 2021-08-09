@@ -1,4 +1,11 @@
-cd ../sdks/news-api
+VERSION=$1;
+
+if [ -z "${VERSION}"]; then
+  echo "Version to publish is required! ex. ./publish.sh v4"
+  exit -1
+fi  
+
+cd ../sdks/${VERSION}/news-api
 
 echo "javascript: publishing to npm"
 if [ ! -f "$HOME/.npmrc" ]; then

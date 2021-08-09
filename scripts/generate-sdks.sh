@@ -31,7 +31,7 @@ if [ "$OS" = 'Darwin' ]; then
     # for MacOS
     cmd=gsed
 fi
-cat ../aylien/v1/news/api-${VERSION}.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
+cat ../aylien/${VERSION}/news/api.yaml | tr '\n' '\r' | $cmd -e 's/\s\s\+tags:\r\s*- \w*//g' | tr '\r' '\n' > temp.api.yaml
 
 python remove-post-body.py temp.api.yaml no-post.api.yaml
 
@@ -45,15 +45,15 @@ do
   echo "Building ${lang} ..."
   $OPENAPI_CMD generate \
       --skip-validate-spec \
-      --input-spec "../aylien/v1/text/api.yaml" \
+      --input-spec "../aylien/${VERSION}/text/api.yaml" \
       --generator-name "${lang}" \
-      --output "../sdks/text-api/${lang}"
+      --output "../sdks/${VERSION}/text-api/${lang}"
   $OPENAPI_CMD generate \
       --skip-validate-spec \
       --input-spec "$f" \
       --generator-name "${lang}" \
-      --config "../aylien/v1/news/config/${lang}.json" \
-      --output "../sdks/news-api/${lang}"
+      --config "../aylien/${VERSION}/news/config/${lang}.json" \
+      --output "../sdks/${VERSION}/news-api/${lang}"
 done
 
 rm temp.api.yaml
