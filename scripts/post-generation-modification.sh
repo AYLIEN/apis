@@ -1,5 +1,12 @@
 scripts=$PWD
-cd ../sdks/news-api
+VERSION=$1
+
+if [ -z "${VERSION}" ]; then
+  echo "Version is required! ex. ./post-generation-modification.sh v4"
+  exit -1
+fi
+
+cd ../sdks/${VERSION}/news-api
 
 OS=`uname`
 cmd=sed
