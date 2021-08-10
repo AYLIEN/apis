@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aylien-news-api": "file:../../sdks/news-api/javascript"
+    "aylien-news-api": "file:../../sdks/v5/news-api/javascript"
   }
 }
