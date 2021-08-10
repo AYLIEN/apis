@@ -7,14 +7,16 @@ You need to follow the instructions above and have the SDK generated and post-pr
 The sample for JavaScript already has a link to the SDK, but you need to build the SDK before using it.
 
 ```
-cd sdks/news-api/javascript
+cd sdks/vX/news-api/javascript
 npm run build
 ```
+#### Note: Where `vX` should be `v4` or `v5`
+#### Note: Remember to edit the path in package.json so it points to the version you want to test.
 
 And then run the samples by providing your APP_ID and APP_KEY through environment variables:
 ```
 cd samples/javascript
-NEWSAPI_APP_ID=YOUR_APP_ID_HERE NEWSAPI_APP_KEY=YOUR_APP_EY_HERE node index.js
+NEWSAPI_APP_ID=YOUR_APP_ID_HERE NEWSAPI_APP_KEY=YOUR_APP_KEY_HERE node index.js
 ```
 
 ### Python
@@ -23,9 +25,10 @@ The sample for Python is set up using Python 3.7.4, so you have to install pytho
 
 ```
 pyenv shell 3.7.4
-cd sdks/news-api/python
+cd sdks/vX/news-api/python
 pip install .
 ```
+#### Note: Where `vX` should be `v4` or `v5`
 
 And then run the samples by providing your APP_ID and APP_KEY through environment variables:
 ```
@@ -39,10 +42,11 @@ NEWSAPI_APP_ID=YOUR_APP_ID_HERE NEWSAPI_APP_KEY=YOUR_APP_EY_HERE python index.py
 To test the Ruby SDK you need to first build and install the gem:
 
 ```
-cd sdks/news-api/ruby
+cd sdks/vX/news-api/ruby
 gem build aylien_news_api.gemspec
 gem install ./aylien_news_api-<VERSION>.gem
 ```
+#### Note: Where `vX` should be `v4` or `v5`
 
 (If you get an error about the gem containing itself, try removing `aylien_news_api-<VERSION>.gem` first)
 
@@ -59,13 +63,14 @@ The Golang sample requires you to have the SDK linked inside your GOPATH. The su
 
 ```
 mkdir -p $GOPATH/src/github.com/AYLIEN/
-ln -s /absolute/path/to/sdks/news-api/go $GOPATH/src/github.com/AYLIEN/aylien_newsapi_go/v4
+ln -s /absolute/path/to/sdks/vX/news-api/go $GOPATH/src/github.com/AYLIEN/aylien_newsapi_go/v4
 
 go get github.com/stretchr/testify/assert
 go get golang.org/x/oauth2
 go get golang.org/x/net/context
 go get github.com/antihax/optional
 ```
+#### Note: Where `vX` should be `v4` or `v5`
 
 And then run the samples by providing your APP_ID and APP_KEY through environment variables:
 ```
