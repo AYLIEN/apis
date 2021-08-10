@@ -31,8 +31,9 @@ Please note that this script calls `install-openapi-generator.sh` if it can't fi
 Unfortunately the generator has some limitations, and these limitations make it necessary for us to do some post-processing of the SDKs in order to make them fit for daily use of our users. There is a script for automatically applying these changes:
 
 ```
-sh ./post-generation-modification.sh
+sh ./post-generation-modification.sh vX
 ```
+> Note: Where `vX` is your version to generate. `ex. ./generate-sdks.sh v4`
 
 ## Publishing
 
