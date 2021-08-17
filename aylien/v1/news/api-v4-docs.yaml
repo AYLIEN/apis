@@ -5454,6 +5454,11 @@ components:
           description: License type of the story
           format: int32
           type: integer
+        industries:
+          description: An array of industries categories
+          items:
+            $ref: "#/components/schemas/Industry"
+          type: array
       type: object
     StoryCluster:
       properties:
@@ -5520,6 +5525,27 @@ components:
             type: string
           type: array
       type: object
+    Industry:
+      properties:
+        id:
+          description: Industry identifier
+          type: string
+        label:
+          description: Industry label
+          type: string
+        links:
+          $ref: "#/components/schemas/IndustryLinks"
+      type: object
+    IndustryLinks:
+      properties:
+        parents:
+          description: A collection of URLs pointing to the industry parents
+          items:
+            type: string
+          type: array
+        self:
+          description: A URL pointing to the industry
+          type: string
     TimeSeries:
       properties:
         count:
