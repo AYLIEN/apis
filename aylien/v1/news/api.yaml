@@ -5764,7 +5764,9 @@ components:
         categories:
           description: Suggested categories for the story
           items:
-            $ref: "#/components/schemas/DeprecatedCategory"
+            oneOf:
+              - $ref: "#/components/schemas/Category"
+              - $ref: "#/components/schemas/DeprecatedCategory"
           type: array
         characters_count:
           description: Character count of the story body
