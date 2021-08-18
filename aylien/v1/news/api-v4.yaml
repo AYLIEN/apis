@@ -4754,45 +4754,12 @@ components:
             $ref: "#/components/schemas/Autocomplete"
           type: array
       type: object
-    DeprecatedCategory:
-      properties:
-        confident:
-          description: It defines whether the extracted category is confident or not
-          type: boolean
-        id:
-          description: The ID of the category
-          type: string
-        label:
-          description: The label of the category
-          type: string
-        level:
-          description: The level of the category
-          format: int32
-          type: integer
-        links:
-          $ref: "#/components/schemas/DeprecatedCategoryLinks"
-        score:
-          description: The score of the category
-          format: double
-          type: number
-        taxonomy:
-          $ref: "#/components/schemas/DeprecatedCategoryTaxonomy"
-      type: object
-    DeprecatedCategoryTaxonomy:
+    CategoryTaxonomy:
       type: string
       description: The taxonomy of the category
       enum:
         - iab-qag
         - iptc-subjectcode
-    DeprecatedCategoryLinks:
-      properties:
-        parent:
-          description: A URL pointing to the parent category
-          type: string
-        self:
-          description: A URL pointing to the category
-          type: string
-      type: object
     Cluster:
       properties:
         earliest_story:
@@ -5368,9 +5335,7 @@ components:
         categories:
           description: Suggested categories for the story
           items:
-            oneOf:
-              - $ref: "#/components/schemas/Category"
-              - $ref: "#/components/schemas/DeprecatedCategory"
+            $ref: "#/components/schemas/Category"
           type: array
         characters_count:
           description: Character count of the story body
@@ -5514,17 +5479,33 @@ components:
       type: object
     Category:
       properties:
+        confident:
+          description: It defines whether the extracted category is confident or not
+          type: boolean
         id:
-          description: Category identifier
+          description: The ID of the category
           type: string
         label:
-          description: Category label
+          description: The label of the category
           type: string
+        level:
+          description: The level of the category
+          format: int32
+          type: integer
+        score:
+          description: The score of the category
+          format: double
+          type: number
+        taxonomy:
+          $ref: "#/components/schemas/CategoryTaxonomy"
         links:
           $ref: "#/components/schemas/CategoryLinks"
       type: object
     CategoryLinks:
       properties:
+        parent:
+          description: A URL pointing to the parent category
+          type: string
         parents:
           description: A collection of URLs pointing to the category parents
           items:
