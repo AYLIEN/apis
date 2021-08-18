@@ -4379,7 +4379,7 @@ components:
             $ref: "#/components/schemas/Autocomplete"
           type: array
       type: object
-    Category:
+    DeprecatedCategory:
       properties:
         confident:
           description: It defines whether the extracted category is confident or not
@@ -4395,21 +4395,21 @@ components:
           format: int32
           type: integer
         links:
-          $ref: "#/components/schemas/CategoryLinks"
+          $ref: "#/components/schemas/DeprecatedCategoryLinks"
         score:
           description: The score of the category
           format: double
           type: number
         taxonomy:
-          $ref: "#/components/schemas/CategoryTaxonomy"
+          $ref: "#/components/schemas/DeprecatedCategoryTaxonomy"
       type: object
-    CategoryTaxonomy:
+    DeprecatedCategoryTaxonomy:
       type: string
       description: The taxonomy of the category
       enum:
         - iab-qag
         - iptc-subjectcode
-    CategoryLinks:
+    DeprecatedCategoryLinks:
       properties:
         parent:
           description: A URL pointing to the parent category
@@ -4921,7 +4921,9 @@ components:
         categories:
           description: Suggested categories for the story
           items:
-            $ref: "#/components/schemas/Category"
+            oneOf:
+              - $ref: "#/components/schemas/Category"
+              - $ref: "#/components/schemas/DeprecatedCategory"
           type: array
         characters_count:
           description: Character count of the story body
@@ -4998,7 +5000,7 @@ components:
         industries:
           description: An array of industries categories
           items:
-            $ref: "#/components/schemas/Industry"
+            $ref: "#/components/schemas/Category"
           type: array
       type: object
     StoryCluster:
@@ -5066,26 +5068,26 @@ components:
             type: string
           type: array
       type: object
-    Industry:
+    Category:
       properties:
         id:
-          description: Industry identifier
+          description: Category identifier
           type: string
         label:
-          description: Industry label
+          description: Category label
           type: string
         links:
-          $ref: "#/components/schemas/IndustryLinks"
+          $ref: "#/components/schemas/CategoryLinks"
       type: object
-    IndustryLinks:
+    CategoryLinks:
       properties:
         parents:
-          description: A collection of URLs pointing to the industry parents
+          description: A collection of URLs pointing to the category parents
           items:
             type: string
           type: array
         self:
-          description: A URL pointing to the industry
+          description: A URL pointing to the category
           type: string
     TimeSeries:
       properties:
