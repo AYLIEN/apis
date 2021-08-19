@@ -5482,6 +5482,7 @@ components:
         confident:
           description: It defines whether the extracted category is confident or not
           type: boolean
+          nullable: true
         id:
           description: The ID of the category
           type: string
@@ -5492,10 +5493,12 @@ components:
           description: The level of the category
           format: int32
           type: integer
+          nullable: true
         score:
           description: The score of the category
           format: double
           type: number
+          nullable: true
         taxonomy:
           $ref: "#/components/schemas/CategoryTaxonomy"
         links:
@@ -5506,11 +5509,13 @@ components:
         parent:
           description: A URL pointing to the parent category
           type: string
+          nullable: true
         parents:
           description: A collection of URLs pointing to the category parents
           items:
             type: string
           type: array
+          nullable: true
         self:
           description: A URL pointing to the category
           type: string
