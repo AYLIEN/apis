@@ -2810,7 +2810,6 @@ components:
         enum:
           - iab-qag
           - iptc-subjectcode
-          - aylien
         nullable: true
         type: string
     clusters:
