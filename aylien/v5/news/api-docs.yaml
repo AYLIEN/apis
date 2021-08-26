@@ -4952,8 +4952,12 @@ components:
           description: Paragraph count of the story body
           format: int32
           type: integer
+        published_datetime:
+          description: Publication time of the story, if available, otherwise time of acquisition
+          format: date-time
+          type: string
         published_at:
-          description: Published date of the story
+          description: Acquisition time of the story
           format: date-time
           type: string
         sentences_count:
