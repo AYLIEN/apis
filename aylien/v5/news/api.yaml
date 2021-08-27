@@ -4385,6 +4385,7 @@ components:
       enum:
         - iab-qag
         - iptc-subjectcode
+        - aylien
     Cluster:
       properties:
         earliest_story:
