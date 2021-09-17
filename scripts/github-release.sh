@@ -1,11 +1,15 @@
-release_note=${1:-"minor update"}
-branch_name=${2:-"release"}
-release_version=$3
+release_note=$1
+release_version=$2
 
 cd ../sdks/v${release_version:0:1}/news-api
 
+if [ -z "$release_note" ]; then
+  echo 'Release note is required! ex. ./github-release.sh "advanced tagger support" 4.7.2 or ./github-release.sh "advanced tagger support" 5.1.0'
+  exit -1
+fi
+
 if [ -z "$release_version" ]; then
-  echo "Version to release is required! ex. ./github-release.sh v4 or ./github-release.sh v5"
+  echo 'Version to release is required! ex. ./github-release.sh "advanced tagger support" 4.7.2 or ./github-release.sh "advanced tagger support" 5.1.0'
   exit -1
 fi
 
@@ -21,9 +25,8 @@ function git_push() {
   git commit -m "$release_note"
   git remote add origin git@github.com:aylien/aylien_newsapi_$lang
 
-  git pull origin master -s recursive -Xtheirs
-  git checkout -b $branch_name
-  git push
+  git pull --rebase -s recursive -Xtheirs origin master
+  git push origin master
 
   git tag -a v$release_version -m "${release_note}"
   git push --tags
@@ -36,12 +39,11 @@ function git_push_javascript() {
   git commit -m "$release_note"
   git remote add origin git@github.com:aylien/aylien_newsapi_nodejs
 
-  git pull origin master -s recursive -Xtheirs
-  git checkout -b $branch_name
+  git pull --rebase -s recursive -Xtheirs origin master
   git rm -r node_modules
   git rm -r dist
   git commit -a --amend --no-edit
-  git push
+  git push origin master
 
   git tag -a v$release_version -m "${release_note}"
   git push --tags
