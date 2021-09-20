@@ -26,7 +26,8 @@ function git_push() {
   git remote add origin git@github.com:aylien/aylien_newsapi_$lang
 
   git pull --rebase -s recursive -Xtheirs origin master
-  git push origin master
+  git checkout -b release-v$release_version
+  git push
 
   git tag -a v$release_version -m "${release_note}"
   git push --tags
@@ -40,10 +41,11 @@ function git_push_javascript() {
   git remote add origin git@github.com:aylien/aylien_newsapi_nodejs
 
   git pull --rebase -s recursive -Xtheirs origin master
+  git checkout -b release-v$release_version
   git rm -r node_modules
   git rm -r dist
   git commit -a --amend --no-edit
-  git push origin master
+  git push
 
   git tag -a v$release_version -m "${release_note}"
   git push --tags
