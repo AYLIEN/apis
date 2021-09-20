@@ -28,7 +28,7 @@ $cmd -i 's/\(\w\+\)2\b/Not\u\1/g' docs/DefaultApi.md
 $cmd -i 's/NotInt3/Int32/g' api_default.go
 $cmd -i 's/Not42/422/g' api_default.go
 $cmd -i 's/GIT_USER_ID/aylien/' go.mod
-$cmd -i 's/GIT_REPO_ID/aylien_newsapi_go/' go.mod
+$cmd -i "s/GIT_REPO_ID/aylien_newsapi_go\/${VERSION}/" go.mod
 cd ..
 
 cd python
