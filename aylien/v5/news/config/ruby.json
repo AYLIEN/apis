@@ -1,6 +1,6 @@
 {
   "gemName": "aylien_news_api",
-  "gemVersion": "5.1.0",
+  "gemVersion": "5.1.1",
   "moduleName": "AylienNewsApi",
   "gemHomepage": "https://newsapi.aylien.com/",
   "gemLicense": "Apache-2.0",
