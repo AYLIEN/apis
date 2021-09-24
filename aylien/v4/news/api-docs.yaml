@@ -13,7 +13,7 @@ info:
     HTTP requests to our server, which returns information to your client.
   termsOfService: https://newsapi.aylien.com/tos
   title: AYLIEN News API
-  version: "4.7"
+  version: "4.7.1"
 openapi: 3.0.1
 servers:
   - url: https://api.aylien.com/news
@@ -5521,8 +5521,10 @@ components:
           nullable: true
         score:
           description: The score of the category
-          format: double
           type: number
+          format: bigdecimal
+          maximum: 1
+          minimum: 0
           nullable: true
         taxonomy:
           $ref: "#/components/schemas/CategoryTaxonomy"
