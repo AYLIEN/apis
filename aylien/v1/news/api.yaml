@@ -5898,7 +5898,6 @@ components:
           format: bigdecimal
           maximum: 1
           minimum: 0
-          nullable: true
         taxonomy:
           $ref: "#/components/schemas/CategoryTaxonomy"
         links:
