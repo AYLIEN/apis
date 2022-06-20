@@ -4466,10 +4466,10 @@ components:
         external_ids:
           description: External Id(s) of an entity along with the domain information
           items:
-            $ref: "#/components/schemas/ExternalIds"
+            $ref: "#/components/schemas/ExternalId"
           type: array
       type: object
-    ExternalIds:
+    ExternalId:
       properties:
         external_id:
           description: External Id of the entity
