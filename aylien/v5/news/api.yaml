@@ -4463,6 +4463,20 @@ components:
           $ref: "#/components/schemas/EntityInText"
         title:
           $ref: "#/components/schemas/EntityInText"
+        external_ids:
+          description: External Id(s) of an entity along with the domain information
+          items:
+            $ref: "#/components/schemas/ExternalIds"
+          type: array
+      type: object
+    ExternalIds:
+      properties:
+        external_id:
+          description: External Id of the entity
+          type: string
+        domain:
+          description: Domain of the entity
+          type: string
       type: object
     EntityInText:
       properties:
