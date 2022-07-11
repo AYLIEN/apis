@@ -4469,7 +4469,7 @@ components:
     ExternalIds:
       description: External Ids of an entity
       properties:
-        DUNS:
+        duns:
           description: DUNS number(s) of the entity
           items:
             $ref: "#/components/schemas/DunsNumber"
