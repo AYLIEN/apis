@@ -5084,18 +5084,20 @@ components:
         title:
           $ref: "#/components/schemas/EntityInText"
         external_ids:
-          description: External Id(s) of an entity along with the domain information
+          $ref: "#/components/schemas/ExternalIds"
+      type: object
+    ExternalIds:
+      description: External Ids of an entity
+      properties:
+        DUNS:
+          description: DUNS number(s) of the entity
           items:
-            $ref: "#/components/schemas/ExternalId"
+            $ref: "#/components/schemas/DunsNumber"
           type: array
       type: object
-    ExternalId:
+    DunsNumber:
       properties:
-        external_id:
-          description: External Id of the entity
-          type: string
-        domain:
-          description: Domain of the entity
+        id:
           type: string
       type: object
     EntityInText:
