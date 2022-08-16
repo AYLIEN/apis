@@ -4562,7 +4562,7 @@ components:
         links:
           $ref: "#/components/schemas/ErrorLinks"
         status:
-          type: string
+          type: number
         title:
           type: string
       type: object
