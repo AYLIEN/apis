@@ -9,6 +9,8 @@ if [ -z "$VERSION" ]; then
   exit -1
 fi
 
+rm -r ../sdks/${VERSION} || true
+
 if [ -n "${OPENAPI_CMD+1}" ]
 then
   echo "Using OpenAPI Generator command \`${OPENAPI_CMD}\`."
