@@ -45,10 +45,10 @@ function git_push_javascript() {
   git rm -r node_modules
   git rm -r dist
   git commit -a --amend --no-edit
-  git push origin release-v$release_version
+  #git push origin release-v$release_version
 
-  git tag -a v$release_version -m "${release_note}"
-  git push --tags
+  #git tag -a v$release_version -m "${release_note}"
+  #git push --tags
 }
 
 cd javascript

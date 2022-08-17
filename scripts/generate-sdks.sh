@@ -9,7 +9,7 @@ if [ -z "$VERSION" ]; then
   exit -1
 fi
 
-rm -r ../sdks/${VERSION} || true
+rm -rf ../sdks/${VERSION} || true
 
 if [ -n "${OPENAPI_CMD+1}" ]
 then
