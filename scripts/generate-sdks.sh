@@ -47,11 +47,6 @@ do
   echo "Building ${lang} ..."
   $OPENAPI_CMD generate \
       --skip-validate-spec \
-      --input-spec "../aylien/${VERSION}/text/api.yaml" \
-      --generator-name "${lang}" \
-      --output "../sdks/${VERSION}/text-api/${lang}"
-  $OPENAPI_CMD generate \
-      --skip-validate-spec \
       --input-spec "$f" \
       --generator-name "${lang}" \
       --config "../aylien/${VERSION}/news/config/${lang}.json" \
