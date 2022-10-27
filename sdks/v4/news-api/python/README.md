@@ -90,7 +90,7 @@ configuration = aylien_news_api.Configuration(
 with aylien_news_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aylien_news_api.DefaultApi(api_client)
-    unknown_base_type = {"$and":[{"$or":[{"body":{"$text":"Tim Cook"}},{"social.shares.count.reddit.max":{"$gte":5000,"$boost":5}}]},{"entity":{"$and":[{"name":{"$text":"Apple","$boost":2}},{"$not":[{"type":{"$eq":"Fruit"}}]}]}}]} # UNKNOWN_BASE_TYPE | /stories body schema to perform an advanced search with logical operators and nested objects. 
+    unknown_base_type = {"$and":[{"body":{"$text":"Tim Cook"}},{"entity":{"$and":[{"name":{"$text":"Apple","$boost":2}},{"$not":[{"type":{"$eq":"Fruit"}}]}]}}]} # UNKNOWN_BASE_TYPE | /stories body schema to perform an advanced search with logical operators and nested objects. 
 published_at_start = 'published_at_start_example' # str | This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).  (optional)
 published_at_end = 'published_at_end_example' # str | This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates).  (optional)
 _return = ['_return_example'] # list[str] | This parameter is used for specifying return fields. (optional)

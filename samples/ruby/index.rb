@@ -16,8 +16,7 @@ opts = {
   entities_body_links_dbpedia: [
     'http://dbpedia.org/resource/Donald_Trump',
   ],
-  not_language: ['en'],
-  sort_by: 'social_shares_count.facebook'
+  not_language: ['en']
 }
 
 
@@ -37,7 +36,7 @@ begin
       title: AylienNewsApi::Query.new(
         text: "Trump"
       )
-    ), {sort_by: 'social_shares_count.facebook'})
+    ))
   result.stories.each do |story|
     puts "#{story.title} / #{story.source.name}"
   end
