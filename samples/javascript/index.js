@@ -12,7 +12,6 @@ var api = new AylienNewsApi.DefaultApi();
 
 var opts = {
   title: "trump",
-  sortBy: "social_shares_count.facebook",
   notLanguage: ["en"],
   publishedAtStart: "NOW-7DAYS",
   publishedAtEnd: "NOW",
@@ -39,4 +38,4 @@ api.advancedListStories({
   "title": {
     "$text": "Trump"
   }
-}, {sortBy: "social_shares_count.facebook"}, callback)
+}, callback)

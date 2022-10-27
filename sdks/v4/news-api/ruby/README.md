@@ -72,7 +72,7 @@ AylienNewsApi.configure do |config|
 end
 
 api_instance = AylienNewsApi::DefaultApi.new
-unknown_base_type = {"$and":[{"$or":[{"body":{"$text":"Tim Cook"}},{"social.shares.count.reddit.max":{"$gte":5000,"$boost":5}}]},{"entity":{"$and":[{"name":{"$text":"Apple","$boost":2}},{"$not":[{"type":{"$eq":"Fruit"}}]}]}}]} # UNKNOWN_BASE_TYPE | /stories body schema to perform an advanced search with logical operators and nested objects. 
+unknown_base_type = {"$and":[{"body":{"$text":"Tim Cook"}},{"entity":{"$and":[{"name":{"$text":"Apple","$boost":2}},{"$not":[{"type":{"$eq":"Fruit"}}]}]}}]} # UNKNOWN_BASE_TYPE | /stories body schema to perform an advanced search with logical operators and nested objects. 
 opts = {
   published_at_start: 'published_at_start_example', # String | This parameter is used for finding stories whose published at time is greater than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 
   published_at_end: 'published_at_end_example', # String | This parameter is used for finding stories whose published at time is less than the specified value. [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find more information about how [to work with dates](https://newsapi.aylien.com/docs/working-with-dates). 

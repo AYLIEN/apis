@@ -487,7 +487,7 @@ paths:
         - histogram
       description: >
         For the numerical metadata that the News API gathers (such as word
-        counts or social shares for example), you can use the histograms
+        counts for example), you can use the histograms
         endpoint to access and display this information. As this endpoint does
         not return actual stories, the results you are given will not count
         towards your story allowance provided by your subscription, so you can
@@ -607,14 +607,6 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/query"
         - description: >
@@ -649,13 +641,7 @@ paths:
           in: query
           name: field
           schema:
-            default: social_shares_count
             enum:
-              - social_shares_count
-              - social_shares_count.facebook
-              - social_shares_count.linkedin
-              - social_shares_count.reddit
-              - social_shares_count.google_plus
               - characters_count
               - words_count
               - sentences_count
@@ -1133,14 +1119,6 @@ paths:
       - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
       - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
       - $ref: "#/components/parameters/source_rankings_alexa_country"
-      - $ref: "#/components/parameters/social_shares_count_facebook_min"
-      - $ref: "#/components/parameters/social_shares_count_facebook_max"
-      - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-      - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-      - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-      - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-      - $ref: "#/components/parameters/social_shares_count_reddit_min"
-      - $ref: "#/components/parameters/social_shares_count_reddit_max"
       - $ref: "#/components/parameters/clusters"
       - $ref: "#/components/parameters/return"
       - $ref: "#/components/parameters/story_id"
@@ -1490,14 +1468,6 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
         - $ref: "#/components/parameters/query"
@@ -1514,11 +1484,6 @@ paths:
               - recency
               - hotness
               - published_at
-              - social_shares_count
-              - social_shares_count.facebook
-              - social_shares_count.linkedin
-              - social_shares_count.google_plus
-              - social_shares_count.reddit
               - media.images.count
               - media.videos.count
               - source.links_in_count
@@ -1938,11 +1903,6 @@ paths:
               - recency
               - hotness
               - published_at
-              - social_shares_count
-              - social_shares_count.facebook
-              - social_shares_count.linkedin
-              - social_shares_count.google_plus
-              - social_shares_count.reddit
               - media.images.count
               - media.videos.count
               - source.links_in_count
@@ -2462,14 +2422,6 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/query"
         - description: >
@@ -2729,14 +2681,6 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
-        - $ref: "#/components/parameters/social_shares_count_facebook_min"
-        - $ref: "#/components/parameters/social_shares_count_facebook_max"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_min"
-        - $ref: "#/components/parameters/social_shares_count_google_plus_max"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_min"
-        - $ref: "#/components/parameters/social_shares_count_linkedin_max"
-        - $ref: "#/components/parameters/social_shares_count_reddit_min"
-        - $ref: "#/components/parameters/social_shares_count_reddit_max"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/query"
         - description: |
@@ -4240,7 +4184,6 @@ components:
             - sentences_count
             - paragraphs_count
             - categories
-            - social_shares_count
             - media
             - sentiment
             - language
@@ -4276,102 +4219,6 @@ components:
           - negative
         nullable: true
         type: string
-    social_shares_count_facebook_max:
-      description: >
-        This parameter is used for finding stories whose Facebook social shares
-        count is less than or equal to the specified value.
-      in: query
-      name: social_shares_count.facebook.max
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_facebook_min:
-      description: >
-        This parameter is used for finding stories whose Facebook social shares
-        count is greater than or equal to the specified value.
-      in: query
-      name: social_shares_count.facebook.min
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_google_plus_max:
-      description: >
-        This parameter is used for finding stories whose Google+ social shares
-        count is less than or equal to the specified value.
-      in: query
-      name: social_shares_count.google_plus.max
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_google_plus_min:
-      description: >
-        This parameter is used for finding stories whose Google+ social shares
-        count is greater than or equal to the specified value.
-      in: query
-      name: social_shares_count.google_plus.min
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_linkedin_max:
-      description: >
-        This parameter is used for finding stories whose LinkedIn social shares
-        count is less than or equal to the specified value.
-      in: query
-      name: social_shares_count.linkedin.max
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_linkedin_min:
-      description: >
-        This parameter is used for finding stories whose LinkedIn social shares
-        count is greater than or equal to the specified value.
-      in: query
-      name: social_shares_count.linkedin.min
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_reddit_max:
-      description: >
-        This parameter is used for finding stories whose Reddit social shares
-        count is less than or equal to the specified value.
-      in: query
-      name: social_shares_count.reddit.max
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
-    social_shares_count_reddit_min:
-      description: >
-        This parameter is used for finding stories whose Reddit social shares
-        count is greater than or equal to the specified value.
-      in: query
-      name: social_shares_count.reddit.min
-      schema:
-        exclusiveMinimum: true
-        format: int32
-        minimum: 0
-        nullable: true
-        type: integer
     source_domain:
       description: >
         This parameter is used for finding stories whose source domain is the
@@ -5707,8 +5554,6 @@ components:
           type: integer
         sentiment:
           $ref: "#/components/schemas/Sentiments"
-        social_shares_count:
-          $ref: "#/components/schemas/ShareCounts"
         source:
           $ref: "#/components/schemas/Source"
         summary:
@@ -5798,8 +5643,6 @@ components:
           type: integer
         sentiment:
           $ref: "#/components/schemas/Sentiments"
-        social_shares_count:
-          $ref: "#/components/schemas/ShareCounts"
         source:
           $ref: "#/components/schemas/Source"
         summary:
@@ -6100,14 +5943,6 @@ components:
           $ref: "#/components/schemas/Query"
         sentiment.title.polarity:
           $ref: "#/components/schemas/Query"
-        social.shares.count.facebook.max:
-          $ref: "#/components/schemas/Query"
-        social.shares.count.facebook.min:
-          $ref: "#/components/schemas/Query"
-        social.shares.count.reddit.max:
-          $ref: "#/components/schemas/Query"
-        social.shares.count.reddit.min:
-          $ref: "#/components/schemas/Query"
         source.domain:
           $ref: "#/components/schemas/Query"
         source.id:
@@ -6245,12 +6080,8 @@ components:
               - $ref: "#/components/schemas/Parameter"
           example:
             $and:
-              - $or:
-                  - body:
-                      $text: Tim Cook
-                  - social.shares.count.reddit.max:
-                      $gte: 5000
-                      $boost: 5
+              - body:
+                  $text: Tim Cook
               - entity:
                   $and:
                     - name:
