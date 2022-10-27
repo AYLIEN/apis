@@ -4831,7 +4831,7 @@ components:
         industries:
           description: An array of industries categories
           items:
-            $ref: "#/components/schemas/Category"
+            $ref: "#/components/schemas/Industry"
           type: array
       type: object
     StoryCluster:

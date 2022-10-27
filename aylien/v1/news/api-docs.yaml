@@ -608,6 +608,8 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for setting the start data point of histogram
@@ -1125,6 +1127,8 @@ paths:
       - $ref: "#/components/parameters/story_url"
       - $ref: "#/components/parameters/story_title"
       - $ref: "#/components/parameters/story_body"
+      - $ref: "#/components/parameters/aql"
+      - $ref: "#/components/parameters/aql_default_field"
       - $ref: "#/components/parameters/query"
       - description: >
           This parameter is used for boosting the result by the specified
@@ -1470,6 +1474,8 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for changing the order column of the results.
@@ -2423,6 +2429,8 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for finding stories whose published at time
@@ -2682,6 +2690,8 @@ paths:
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
         - $ref: "#/components/parameters/query"
         - description: |
             This parameter is used to specify the trend field.
@@ -2810,6 +2820,23 @@ paths:
       summary: List trends
 components:
   parameters:
+    aql:
+      description: >
+        This parameter is used to supply a query in AYLIEN Query Language.
+      in: query
+      name: aql
+      schema:
+        nullable: true
+        type: string
+    aql_default_field:
+      description: >
+        This parameter is used to supply an optional default field name used in the AQL query.
+      in: query
+      name: aql_default_field
+      schema:
+        nullable: true
+        type: string
+        default: text
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
