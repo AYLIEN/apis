@@ -100,7 +100,6 @@ All URIs are relative to *https://api.aylien.com/news*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AylienNewsApi::DefaultApi* | [**advanced_list_stories**](docs/DefaultApi.md#advanced_list_stories) | **POST** /stories | List Stories
-*AylienNewsApi::DefaultApi* | [**list_autocompletes**](docs/DefaultApi.md#list_autocompletes) | **GET** /autocompletes | List autocompletes
 *AylienNewsApi::DefaultApi* | [**list_clusters**](docs/DefaultApi.md#list_clusters) | **GET** /clusters | List Clusters
 *AylienNewsApi::DefaultApi* | [**list_histograms**](docs/DefaultApi.md#list_histograms) | **GET** /histograms | List histograms
 *AylienNewsApi::DefaultApi* | [**list_related_stories_get**](docs/DefaultApi.md#list_related_stories_get) | **GET** /related_stories | 
@@ -114,8 +113,6 @@ Class | Method | HTTP request | Description
 
  - [AylienNewsApi::AggregatedSentiment](docs/AggregatedSentiment.md)
  - [AylienNewsApi::Author](docs/Author.md)
- - [AylienNewsApi::Autocomplete](docs/Autocomplete.md)
- - [AylienNewsApi::Autocompletes](docs/Autocompletes.md)
  - [AylienNewsApi::Category](docs/Category.md)
  - [AylienNewsApi::CategoryLinks](docs/CategoryLinks.md)
  - [AylienNewsApi::CategoryTaxonomy](docs/CategoryTaxonomy.md)

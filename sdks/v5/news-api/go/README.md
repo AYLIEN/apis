@@ -35,7 +35,6 @@ All URIs are relative to *https://api.aylien.com/news*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**AdvancedListStories**](docs/DefaultApi.md#advancedliststories) | **Post** /stories | List Stories
-*DefaultApi* | [**ListAutocompletes**](docs/DefaultApi.md#listautocompletes) | **Get** /autocompletes | List autocompletes
 *DefaultApi* | [**ListClusters**](docs/DefaultApi.md#listclusters) | **Get** /clusters | List Clusters
 *DefaultApi* | [**ListHistograms**](docs/DefaultApi.md#listhistograms) | **Get** /histograms | List histograms
 *DefaultApi* | [**ListRelatedStoriesGet**](docs/DefaultApi.md#listrelatedstoriesget) | **Get** /related_stories | 
@@ -49,8 +48,6 @@ Class | Method | HTTP request | Description
 
  - [AggregatedSentiment](docs/AggregatedSentiment.md)
  - [Author](docs/Author.md)
- - [Autocomplete](docs/Autocomplete.md)
- - [Autocompletes](docs/Autocompletes.md)
  - [Category](docs/Category.md)
  - [CategoryLinks](docs/CategoryLinks.md)
  - [CategoryTaxonomy](docs/CategoryTaxonomy.md)
