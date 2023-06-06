@@ -1,0 +1,660 @@
+# don't forget to update api-docs.yaml as well
+info:
+  contact:
+    email: support@aylien.com
+    name: API support
+    url: https://newsapi.aylien.com/
+  description: >
+    The AYLIEN News API is the most powerful way of sourcing, searching and
+    syndicating analyzed and enriched news content. It is accessed by sending
+    HTTP requests to our server, which returns information to your client.
+  termsOfService: https://aylien.com/terms
+  title: AYLIEN News API
+  version: "6.0.0"
+openapi: 3.0.3
+servers:
+  - url: https://api.aylien.com/v6/news
+x-group-parameters: true
+tags:
+  - name: cluster
+  - name: histogram
+  - name: story
+  - name: time_series
+  - name: trends
+paths:
+  /clusters:
+    get:
+      tags:
+        - cluster
+      description: >
+        The clusters endpoint is used to return clusters based on parameters you
+        set in your query.
+      operationId: listClusters
+      parameters:
+        - $ref: "#/components/parameters/aql"
+        - $ref: "#/components/parameters/aql_default_field"
+        - description: |
+            This parameter is used for finding clusters by cluster id.
+          explode: true
+          in: query
+          name: id
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: |
+            This parameter is used for excluding clusters by cluster id.
+          explode: true
+          in: query
+          name: "!id"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters where the amount of stories associated with them
+            matches the query.
+          in: query
+          name: story_count
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters where the amount of stories associated with them
+            doesn't match the query.
+          in: query
+          name: "!story_count"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters with more than or equal
+            to a specific amount of stories associated with them.
+          in: query
+          name: story_count.min
+          schema:
+            exclusiveMinimum: true
+            format: int32
+            minimum: 0
+            nullable: true
+            type: integer
+        - description: >
+            This parameter is used for finding clusters with less than or equal
+            to a specific amount of stories associated with them.
+          in: query
+          name: story_count.max
+          schema:
+            exclusiveMinimum: true
+            format: int32
+            minimum: 0
+            nullable: true
+            type: integer
+        - description: >
+            This parameter is used for finding clusters whose creation time
+            matches the specified query.
+          in: query
+          name: time
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters whose creation time
+            matches the specified query.
+          in: query
+          name: "!time"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters whose creation time is
+            greater than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: time.start
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters whose creation time is
+            less than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: time.end
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its earliest story matches the query.
+          in: query
+          name: earliest_story
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its earliest story doesn't match the query.
+          in: query
+          name: "!earliest_story"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its earliest story is greater than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: earliest_story.start
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its earliest story is less than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: earliest_story.end
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its latest story matches the query.
+          in: query
+          name: latest_story
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its latest story doesn't match the query.
+          in: query
+          name: "!latest_story"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        ### TODO validate all links to docs!
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its latest story is greater than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: latest_story.start
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters whose publication date
+            of its latest story is less than the specified value.
+            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            find more information about how [to work with
+            dates](https://newsapi.aylien.com/docs/working-with-dates).
+          in: query
+          name: latest_story.end
+          schema:
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding clusters belonging to a specific
+            country. It supports [ISO 3166-1
+            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
+            codes.
+            [Here](https://newsapi.aylien.com/docs/working-with-locations) you
+            can find more information about how [to work with
+            locations](https://newsapi.aylien.com/docs/working-with-locations).
+          in: query
+          name: location.country
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: >
+            This parameter is used for excluding clusters belonging to a
+            specific country. It supports [ISO 3166-1
+            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
+            codes.
+            [Here](https://newsapi.aylien.com/docs/working-with-locations) you
+            can find more information about how [to work with
+            locations](https://newsapi.aylien.com/docs/working-with-locations).
+          in: query
+          name: "!location.country"
+          schema:
+            $ref: "#/components/schemas/AQL"
+        - description: This parameter is used for specifying return fields.
+          explode: true
+          in: query
+          name: return[]
+          schema:
+            items:
+              enum:
+                - id
+                - time
+                - summary
+                - category
+                - story_count
+                - earliest_story
+                - latest_story
+                - representative_story
+                - location_country
+              type: string
+            nullable: true
+            type: array
+          style: form
+        - description: >
+            This parameter is used for changing the order column of the results.
+            You can read about sorting results
+            [here](https://newsapi.aylien.com/docs/sorting-results).
+          in: query
+          name: sort_by
+          schema:
+            default: published_at
+            enum:
+              - time
+              - story_count
+              - earliest_story
+              - latest_story
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for changing the order direction of the
+            result. You can read about sorting results
+            [here](https://newsapi.aylien.com/docs/sorting-results).
+          in: query
+          name: sort_direction
+          schema:
+            default: desc
+            enum:
+              - asc
+              - desc
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for finding a specific page. You can read
+            more about pagination of results
+            [here](https://newsapi.aylien.com/docs/pagination-of-results).
+          in: query
+          name: cursor
+          schema:
+            default: "*"
+            nullable: true
+            type: string
+        - description: >
+            This parameter is used for specifying number of items in each page
+            You can read more about pagination of results
+            [here](https://newsapi.aylien.com/docs/pagination-of-results)
+          in: query
+          name: per_page
+          schema:
+            default: 10
+            format: int32
+            maximum: 100
+            minimum: 1
+            nullable: true
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/clusters"
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unauthorized
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Not Found
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Unprocessable Entity
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Too Many Requests
+          headers:
+            X-RateLimit-Limit:
+              description: The number of allowed requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Remaining:
+              description: The number of remaining requests in the current period.
+              schema:
+                format: int32
+                type: integer
+            X-RateLimit-Reset:
+              description: >
+                The remaining window before the rate limit resets in UTC [epoch
+                seconds](https://en.wikipedia.org/wiki/Unix_time).
+              schema:
+                format: int64
+                type: integer
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Errors"
+            text/xml:
+              schema:
+                $ref: "#/components/schemas/Errors"
+          description: Internal Server Error
+      security:
+        - app_id: []
+        - app_key: []
+      summary: List Clusters
+
+components:
+  parameters:
+    aql:
+      description: >
+        This parameter is used to supply a query in AYLIEN Query Language.
+      in: query
+      name: aql
+      schema:
+        nullable: true
+        type: string
+    aql_default_field:
+      description: >
+        This parameter is used to supply an optional default field name used in the AQL query.
+      in: query
+      name: aql_default_field
+      schema:
+        nullable: true
+        type: string
+        default: text
+  responses:
+    clusters:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Clusters"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Clusters"
+      description: An object including an array of clusters
+      headers:
+        X-RateLimit-Limit:
+          description: The number of allowed requests in the current period.
+          schema:
+            format: int32
+            type: integer
+        X-RateLimit-Remaining:
+          description: The number of remaining requests in the current period.
+          schema:
+            format: int32
+            type: integer
+        X-RateLimit-Reset:
+          description: >
+            The remaining window before the rate limit resets in UTC [epoch
+            seconds](https://en.wikipedia.org/wiki/Unix_time).
+          schema:
+            format: int64
+            type: integer
+    error401_Unauthorized:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Errors"
+      description: Unauthorized
+    error404_NotFound:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Errors"
+      description: Not Found
+    error422_UnprocessableEntity:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Errors"
+      description: Unprocessable Entity
+    error429_TooManyRequests:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Errors"
+      description: Too Many Requests
+      headers:
+        X-RateLimit-Limit:
+          description: The number of allowed requests in the current period.
+          schema:
+            format: int32
+            type: integer
+        X-RateLimit-Remaining:
+          description: The number of remaining requests in the current period.
+          schema:
+            format: int32
+            type: integer
+        X-RateLimit-Reset:
+          description: >
+            The remaining window before the rate limit resets in UTC [epoch
+            seconds](https://en.wikipedia.org/wiki/Unix_time).
+          schema:
+            format: int64
+            type: integer
+    error500_InternalServerError:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Errors"
+        text/xml:
+          schema:
+            $ref: "#/components/schemas/Errors"
+      description: Internal Server Error
+  schemas:
+    AQL:
+      description: What is AQL?
+      type: string
+      nullable: true
+    Cluster:
+      properties:
+        earliest_story:
+          description: Publication date of the earliest story in cluster
+          format: date-time
+          type: string
+        id:
+          description: ID of the cluster which is a unique identification
+          format: int64
+          type: integer
+        latest_story:
+          description: Publication date of the latest story in cluster
+          format: date-time
+          type: string
+        location:
+          $ref: "#/components/schemas/Location"
+        representative_story:
+          $ref: "#/components/schemas/RepresentativeStory"
+        story_count:
+          description: Number of stories associated with the cluster
+          format: int32
+          type: integer
+        time:
+          description: Time of the event
+          format: date-time
+          type: string
+      type: object
+    Clusters:
+      properties:
+        cluster_count:
+          description: The total number of clusters
+          format: int64
+          type: integer
+        clusters:
+          description: An array of clusters
+          items:
+            $ref: "#/components/schemas/Cluster"
+          type: array
+        next_page_cursor:
+          description: The next page cursor
+          type: string
+      type: object
+    Error:
+      properties:
+        code:
+          type: string
+        detail:
+          type: string
+        id:
+          type: string
+        links:
+          $ref: "#/components/schemas/ErrorLinks"
+        status:
+          type: number
+        title:
+          type: string
+      type: object
+    ErrorLinks:
+      properties:
+        about:
+          type: string
+        docs:
+          type: string
+      type: object
+    Errors:
+      properties:
+        errors:
+          items:
+            $ref: "#/components/schemas/Error"
+          type: array
+      type: object
+    Location:
+      properties:
+        city:
+          description: The city of the location
+          type: string
+        country:
+          description: >
+            The country code of the location. It supports [ISO 3166-1
+            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
+            codes.
+          type: string
+        state:
+          description: The state of the location
+          type: string
+      type: object
+    RepresentativeStory:
+      properties:
+        id:
+          description: ID of the story which is a unique identification
+          format: int64
+          type: integer
+        permalink:
+          description: The story permalink URL
+          type: string
+        published_at:
+          description: Published date of the story
+          format: date-time
+          type: string
+        title:
+          description: Title of the story
+          type: string
+      type: object
+    TimeSeries:
+      properties:
+        count:
+          description: The count of time series bin
+          format: int32
+          type: integer
+        published_at:
+          description: The published date of the time series bin
+          format: date-time
+          type: string
+        sentiment:
+          $ref: "#/components/schemas/AggregatedSentiment"
+      type: object
+    TimeSeriesList:
+      properties:
+        period:
+          description: >
+            The size of each date range expressed as an interval to be added to
+            the lower bound.
+          type: string
+        published_at.end:
+          description: The end published date of the time series
+          format: date-time
+          type: string
+        published_at.start:
+          description: The start published date of the time series
+          format: date-time
+          type: string
+        time_series:
+          description: An array of time series
+          items:
+            $ref: "#/components/schemas/TimeSeries"
+          type: array
+      type: object
+    AggregatedSentiment:
+      description: The aggregation of sentiments
+      type: object
+      properties:
+        positive:
+          description: Positive sentiments count
+          format: int32
+          type: integer
+        neutral:
+          description: Neutral sentiments count
+          format: int32
+          type: integer
+        negative:
+          description: Negative sentiments count
+          format: int32
+          type: integer
+    Warning:
+      properties:
+        id:
+          description: The identfier of the warning, represents its origin.
+          type: string
+        links:
+          description: Contians links to the documentation.
+          $ref: "#/components/schemas/ErrorLinks"
+        detail:
+          description: The detailed description of the warning.
+          type: string
+      type: object
+  ## TODO should we derecate app_id and app_key from the schema and make users use OAuth only?
+  securitySchemes:
+    app_id:
+      x-auth-id-alias: true
+      description: >
+        X-AYLIEN-NewsAPI-Application-ID is the identifier of your server,
+        script, or program with a specific application. This parameter is
+        required if you are accessing APIs without authenticating.
+      in: header
+      name: X-AYLIEN-NewsAPI-Application-ID
+      type: apiKey
+    app_key:
+      x-auth-id-alias: true
+      description: >
+        X-AYLIEN-NewsAPI-Application-Key is the secret key of your server,
+        script, or program with a specific application. This parameter is
+        required if you are accessing APIs without authenticating.
+      in: header
+      name: X-AYLIEN-NewsAPI-Application-Key
+      type: apiKey
