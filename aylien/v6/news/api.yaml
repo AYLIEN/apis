@@ -386,6 +386,7 @@ paths:
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
+        - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
@@ -393,6 +394,7 @@ paths:
         - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
+        - $ref: "#/components/parameters/media_images_count"
         - $ref: "#/components/parameters/media_images_width_min"
         - $ref: "#/components/parameters/media_images_width_max"
         - $ref: "#/components/parameters/media_images_height_min"
@@ -403,6 +405,7 @@ paths:
         - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
+        - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
         - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
@@ -429,8 +432,10 @@ paths:
         - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
+        - $ref: "#/components/parameters/source_links_in_count"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+        - $ref: "#/components/parameters/source_rankings_alexa_rank"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
@@ -851,6 +856,7 @@ paths:
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
+        - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
@@ -858,6 +864,7 @@ paths:
         - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
+        - $ref: "#/components/parameters/media_images_count"
         - $ref: "#/components/parameters/media_images_width_min"
         - $ref: "#/components/parameters/media_images_width_max"
         - $ref: "#/components/parameters/media_images_height_min"
@@ -868,6 +875,7 @@ paths:
         - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
+        - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
         - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
@@ -894,8 +902,10 @@ paths:
         - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
+        - $ref: "#/components/parameters/source_links_in_count"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+        - $ref: "#/components/parameters/source_rankings_alexa_rank"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/return"
@@ -1333,6 +1343,7 @@ paths:
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
+        - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
@@ -1340,6 +1351,7 @@ paths:
         - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
+        - $ref: "#/components/parameters/media_images_count"
         - $ref: "#/components/parameters/media_images_width_min"
         - $ref: "#/components/parameters/media_images_width_max"
         - $ref: "#/components/parameters/media_images_height_min"
@@ -1350,6 +1362,7 @@ paths:
         - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
+        - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
         - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
@@ -1376,8 +1389,10 @@ paths:
         - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
+        - $ref: "#/components/parameters/source_links_in_count"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+        - $ref: "#/components/parameters/source_rankings_alexa_rank"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
@@ -1543,6 +1558,7 @@ paths:
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
+        - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
@@ -1550,6 +1566,7 @@ paths:
         - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
+        - $ref: "#/components/parameters/media_images_count"
         - $ref: "#/components/parameters/media_images_width_min"
         - $ref: "#/components/parameters/media_images_width_max"
         - $ref: "#/components/parameters/media_images_height_min"
@@ -1560,6 +1577,7 @@ paths:
         - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
+        - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
         - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
@@ -1586,8 +1604,10 @@ paths:
         - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
+        - $ref: "#/components/parameters/source_links_in_count"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_min"
         - $ref: "#/components/parameters/source_rankings_alexa_rank_max"
+        - $ref: "#/components/parameters/source_rankings_alexa_rank"
         - $ref: "#/components/parameters/source_rankings_alexa_country"
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
@@ -1851,6 +1871,18 @@ components:
         nullable: true
         type: array
       style: form
+    industries:
+      description: >
+        This parameter is used for finding stories by industries. You can
+        read more about working with categories
+        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
+      explode: true
+      in: query
+      name: industries
+      schema:
+        nullable: true
+        type: string
+      style: form
     language:
       description: >
         This parameter is used for finding stories whose language is the
@@ -1921,6 +1953,16 @@ components:
         minimum: 0
         nullable: true
         type: integer
+    media_images_count:
+      description: >
+        This parameter is used for finding stories whose number of images is
+        range of the specified values.
+      in: query
+      name: media.images.count
+      schema:
+        exclusiveMinimum: true
+        nullable: true
+        type: string
     media_images_format:
       description: >
         This parameter is used for finding stories whose images format are the
@@ -2017,6 +2059,16 @@ components:
         minimum: 0
         nullable: true
         type: integer
+    media_videos_count:
+      description: >
+        This parameter is used for finding stories whose number of videos is
+        in range of the specified values.
+      in: query
+      name: media.videos.count
+      schema:
+        exclusiveMinimum: true
+        nullable: true
+        type: string
     notauthor_id:
       description: >
         This parameter is used for excluding stories whose author id is the
@@ -2442,6 +2494,18 @@ components:
         minimum: 0
         nullable: true
         type: integer
+    source_links_in_count:
+      description: >
+        This parameter is used for finding stories from sources whose Links in
+        count is in range of the specified values. You can read more
+        about working with Links in count
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-links-in-count).
+      in: query
+      name: source.links_in_count
+      schema:
+        exclusiveMinimum: true
+        nullable: true
+        type: string
     source_locations_city:
       description: >
         This parameter is used for finding stories whose source city is the
@@ -2548,6 +2612,18 @@ components:
         minimum: 0
         nullable: true
         type: integer
+    source_rankings_alexa_rank:
+      description: >
+        This parameter is used for finding stories from sources whose Alexa rank
+        is in range of the specified values. You can read more about
+        working with Alexa ranks
+        [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
+      in: query
+      name: source.rankings.alexa.rank
+      schema:
+        exclusiveMinimum: true
+        nullable: true
+        type: string
     source_scopes_city:
       description: >
         This parameter is used for finding stories whose source scopes is the
@@ -3651,10 +3727,10 @@ components:
     Warning:
       properties:
         id:
-          description: The identifier of the warning, represents its origin.
+          description: The identfier of the warning, represents its origin.
           type: string
         links:
-          description: Contains links to the documentation.
+          description: Contians links to the documentation.
           $ref: "#/components/schemas/ErrorLinks"
         detail:
           description: The detailed description of the warning.
