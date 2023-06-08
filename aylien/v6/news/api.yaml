@@ -435,7 +435,6 @@ paths:
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
         - $ref: "#/components/parameters/aql_default_field"
-        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for setting the start data point of histogram
             intervals.
@@ -902,7 +901,6 @@ paths:
         - $ref: "#/components/parameters/return"
         - $ref: "#/components/parameters/aql"
         - $ref: "#/components/parameters/aql_default_field"
-        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for changing the order column of the results.
             You can read about sorting results
@@ -1384,7 +1382,6 @@ paths:
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
         - $ref: "#/components/parameters/aql_default_field"
-        - $ref: "#/components/parameters/query"
         - description: >
             This parameter is used for finding stories whose published at time
             is less than the specified value.
@@ -1595,7 +1592,6 @@ paths:
         - $ref: "#/components/parameters/clusters"
         - $ref: "#/components/parameters/aql"
         - $ref: "#/components/parameters/aql_default_field"
-        - $ref: "#/components/parameters/query"
         - description: |
             This parameter is used to specify the trend field.
           example: keywords
@@ -2720,16 +2716,6 @@ components:
       schema:
         nullable: true
         type: string
-    query:
-      description: >
-        This parameter is used to make an advanced query using $and, $or, $not logical operators
-        and $eq for exact match, $text for a text search and $lt, $gt, $lte, $gte for range queries.
-        value must be a json string.
-      in: query
-      name: query
-      schema:
-        nullable: true
-        type: string
   responses:
     clusters:
       content:
@@ -3511,9 +3497,6 @@ components:
         permalink:
           description: The story permalink URL
           type: string
-        related_stories:
-          description: The related stories URL
-          type: string
         clusters:
           description: The clusters endpoint URL for this story
           type: string
@@ -3668,10 +3651,10 @@ components:
     Warning:
       properties:
         id:
-          description: The identfier of the warning, represents its origin.
+          description: The identifier of the warning, represents its origin.
           type: string
         links:
-          description: Contians links to the documentation.
+          description: Contains links to the documentation.
           $ref: "#/components/schemas/ErrorLinks"
         detail:
           description: The detailed description of the warning.
