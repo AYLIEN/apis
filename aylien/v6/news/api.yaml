@@ -99,9 +99,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose creation time is
             greater than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: time.start
           schema:
@@ -110,9 +110,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose creation time is
             less than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: time.end
           schema:
@@ -135,9 +135,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose publication date
             of its earliest story is greater than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: earliest_story.start
           schema:
@@ -146,9 +146,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose publication date
             of its earliest story is less than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: earliest_story.end
           schema:
@@ -172,9 +172,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose publication date
             of its latest story is greater than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: latest_story.start
           schema:
@@ -183,9 +183,9 @@ paths:
         - description: >
             This parameter is used for finding clusters whose publication date
             of its latest story is less than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: latest_story.end
           schema:
@@ -196,9 +196,9 @@ paths:
             country. It supports [ISO 3166-1
             alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
             codes.
-            [Here](https://newsapi.aylien.com/docs/working-with-locations) you
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you
             can find more information about how [to work with
-            locations](https://newsapi.aylien.com/docs/working-with-locations).
+            locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
           in: query
           name: location.country
           schema:
@@ -208,9 +208,9 @@ paths:
             specific country. It supports [ISO 3166-1
             alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
             codes.
-            [Here](https://newsapi.aylien.com/docs/working-with-locations) you
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you
             can find more information about how [to work with
-            locations](https://newsapi.aylien.com/docs/working-with-locations).
+            locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
           in: query
           name: "!location.country"
           schema:
@@ -238,7 +238,7 @@ paths:
         - description: >
             This parameter is used for changing the order column of the results.
             You can read about sorting results
-            [here](https://newsapi.aylien.com/docs/sorting-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#sorting-results).
           in: query
           name: sort_by
           schema:
@@ -253,7 +253,7 @@ paths:
         - description: >
             This parameter is used for changing the order direction of the
             result. You can read about sorting results
-            [here](https://newsapi.aylien.com/docs/sorting-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#sorting-results).
           in: query
           name: sort_direction
           schema:
@@ -266,7 +266,7 @@ paths:
         - description: >
             This parameter is used for finding a specific page. You can read
             more about pagination of results
-            [here](https://newsapi.aylien.com/docs/pagination-of-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#pagination-of-results).
           in: query
           name: cursor
           schema:
@@ -276,7 +276,7 @@ paths:
         - description: >
             This parameter is used for specifying number of items in each page
             You can read more about pagination of results
-            [here](https://newsapi.aylien.com/docs/pagination-of-results)
+            [here](https://docs.aylien.com/newsapi/common-workflows/#pagination-of-results)
           in: query
           name: per_page
           schema:
@@ -906,7 +906,7 @@ paths:
         - description: >
             This parameter is used for changing the order column of the results.
             You can read about sorting results
-            [here](https://newsapi.aylien.com/docs/sorting-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#sorting-results).
           in: query
           name: sort_by
           schema:
@@ -1174,7 +1174,7 @@ paths:
         - description: >
             This parameter is used for changing the order direction of the
             result. You can read about sorting results
-            [here](https://newsapi.aylien.com/docs/sorting-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#sorting-results).
           in: query
           name: sort_direction
           schema:
@@ -1187,7 +1187,7 @@ paths:
         - description: >
             This parameter is used for finding a specific page. You can read
             more about pagination of results
-            [here](https://newsapi.aylien.com/docs/pagination-of-results).
+            [here](https://docs.aylien.com/newsapi/common-workflows/#pagination-of-results).
           in: query
           name: cursor
           schema:
@@ -1197,7 +1197,7 @@ paths:
         - description: >
             This parameter is used for specifying number of items in each page
             You can read more about pagination of results
-            [here](https://newsapi.aylien.com/docs/pagination-of-results)
+            [here](https://docs.aylien.com/newsapi/common-workflows/#pagination-of-results)
           in: query
           name: per_page
           schema:
@@ -1312,7 +1312,7 @@ paths:
         topic or entities, sentiment about a topic, or the volume of stories
         published by a source, to name but a few. The full list of parameters is
         given below. Using the [Date Math
-        Syntax](https://newsapi.aylien.com/docs/working-with-dates), you can
+        Syntax](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates), you can
         easily set your query to return information from any time period, from
         the current point in time to when the News API started collecting
         stories. The returned information can be rounded to a time also
@@ -1388,9 +1388,9 @@ paths:
         - description: >
             This parameter is used for finding stories whose published at time
             is less than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: published_at.start
           schema:
@@ -1400,9 +1400,9 @@ paths:
         - description: >
             This parameter is used for finding stories whose published at time
             is greater than the specified value.
-            [Here](https://newsapi.aylien.com/docs/working-with-dates) you can
+            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can
             find more information about how [to work with
-            dates](https://newsapi.aylien.com/docs/working-with-dates).
+            dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
           in: query
           name: published_at.end
           schema:
@@ -1415,7 +1415,7 @@ paths:
             `+` following an integer number greater than 0 and one of the Date
             Math keywords. e.g. `+1DAY`, `+2MINUTES` and `+1MONTH`. Here are
             [Supported
-            keywords](https://newsapi.aylien.com/docs/working-with-dates#date-math).
+            keywords](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates#date-math).
           in: query
           name: period
           schema:
@@ -1759,7 +1759,7 @@ components:
       description: >
         This parameter is used for finding stories whose body contains a
         specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: body
       schema:
@@ -1769,7 +1769,7 @@ components:
       description: >
         This parameter is used for finding stories by categories. You can
         read more about working with categories
-        [here](https://newsapi.aylien.com/docs/working-with-categories).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
       explode: true
       in: query
       name: categories
@@ -1782,11 +1782,12 @@ components:
         This parameter is used for defining the type of the taxonomy for the
         rest of the categories queries. You can read more about working with
         categories
-        [here](https://newsapi.aylien.com/docs/working-with-categories).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
       in: query
       name: categories.taxonomy
       schema:
         enum:
+          - aylien
           - iab-qag
           - iptc-subjectcode
         nullable: true
@@ -1796,7 +1797,7 @@ components:
         This parameter is used for finding stories with belonging to one of
         clusters in a specific set of clusters You can read more about working
         with clustering
-        [here](https://newsapi.aylien.com/docs/working-with-clustering).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-clusters).
       explode: true
       in: query
       name: clusters[]
@@ -1833,7 +1834,7 @@ components:
     entities:
       description: >
         This parameter is used to find stories based on the specified entities. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities
@@ -2159,9 +2160,9 @@ components:
       description: >
         This parameter is used for excluding stories whose source city is the
         specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.locations.city[]"
@@ -2176,9 +2177,9 @@ components:
         This parameter is used for excluding stories whose source country is the
         specified value. It supports [ISO 3166-1
         alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.locations.country[]"
@@ -2192,9 +2193,9 @@ components:
       description: >
         This parameter is used for excluding stories whose source state/province
         is the specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.locations.state[]"
@@ -2221,9 +2222,9 @@ components:
       description: >
         This parameter is used for excluding stories whose source scopes is the
         specified city value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.scopes.city[]"
@@ -2238,9 +2239,9 @@ components:
         This parameter is used for excluding stories whose source scopes is the
         specified country value. It supports [ISO 3166-1
         alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.scopes.country[]"
@@ -2254,9 +2255,9 @@ components:
       description: >
         This parameter is used for excluding stories whose source scopes is the
         specified level value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.scopes.level[]"
@@ -2274,9 +2275,9 @@ components:
       description: >
         This parameter is used for excluding stories whose source scopes is the
         specified state/province value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: "!source.scopes.state[]"
@@ -2302,9 +2303,9 @@ components:
       description: >
         This parameter is used for finding stories whose published at time is
         less than the specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can find
         more information about how [to work with
-        dates](https://newsapi.aylien.com/docs/working-with-dates).
+        dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
       in: query
       name: published_at.end
       schema:
@@ -2314,9 +2315,9 @@ components:
       description: >
         This parameter is used for finding stories whose published at time is
         greater than the specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can find
         more information about how [to work with
-        dates](https://newsapi.aylien.com/docs/working-with-dates).
+        dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
       in: query
       name: published_at.start
       schema:
@@ -2325,9 +2326,9 @@ components:
     published_at:
       description: >
         This parameter is used for specifying a time range interval for finding stories published within the specified interval.
-        [Here](https://newsapi.aylien.com/docs/working-with-dates) you can find
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can find
         more information about how [to work with
-        dates](https://newsapi.aylien.com/docs/working-with-dates).
+        dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
       in: query
       name: published_at
       schema:
@@ -2422,7 +2423,7 @@ components:
         This parameter is used for finding stories from sources whose Links in
         count is less than or equal to the specified value. You can read more
         about working with Links in count
-        [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-links-in-count).
       in: query
       name: source.links_in_count.max
       schema:
@@ -2436,7 +2437,7 @@ components:
         This parameter is used for finding stories from sources whose Links in
         count is greater than or equal to the specified value. You can read more
         about working with Links in count
-        [here](https://newsapi.aylien.com/docs/working-with-links-in-count).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-links-in-count).
       in: query
       name: source.links_in_count.min
       schema:
@@ -2449,9 +2450,9 @@ components:
       description: >
         This parameter is used for finding stories whose source city is the
         specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.locations.city[]
@@ -2466,9 +2467,9 @@ components:
         This parameter is used for finding stories whose source country is the
         specified value. It supports [ISO 3166-1
         alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.locations.country[]
@@ -2482,9 +2483,9 @@ components:
       description: >
         This parameter is used for finding stories whose source state/province
         is the specified value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.locations.state[]
@@ -2513,7 +2514,7 @@ components:
         is in the specified country value. It supports [ISO 3166-1
         alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
         codes. You can read more about working with Alexa ranks
-        [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
       explode: true
       in: query
       name: source.rankings.alexa.country[]
@@ -2528,7 +2529,7 @@ components:
         This parameter is used for finding stories from sources whose Alexa rank
         is less than or equal to the specified value. You can read more about
         working with Alexa ranks
-        [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
       in: query
       name: source.rankings.alexa.rank.max
       schema:
@@ -2542,7 +2543,7 @@ components:
         This parameter is used for finding stories from sources whose Alexa rank
         is greater than or equal to the specified value. You can read more about
         working with Alexa ranks
-        [here](https://newsapi.aylien.com/docs/working-with-alexa-ranks).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
       in: query
       name: source.rankings.alexa.rank.min
       schema:
@@ -2555,9 +2556,9 @@ components:
       description: >
         This parameter is used for finding stories whose source scopes is the
         specified city value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.scopes.city[]
@@ -2572,9 +2573,9 @@ components:
         This parameter is used for finding stories whose source scopes is the
         specified country value. It supports [ISO 3166-1
         alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://newsapi.aylien.com/docs/working-with-locations)
+        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.scopes.country[]
@@ -2588,9 +2589,9 @@ components:
       description: >
         This parameter is used for finding stories whose source scopes is the
         specified level value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.scopes.level[]
@@ -2608,9 +2609,9 @@ components:
       description: >
         This parameter is used for finding stories whose source scopes is the
         specified state/province value.
-        [Here](https://newsapi.aylien.com/docs/working-with-locations) you can
+        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
-        locations](https://newsapi.aylien.com/docs/working-with-locations).
+        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
       name: source.scopes.state[]
@@ -2673,7 +2674,7 @@ components:
       description: >
         This parameter is used for finding stories whose title or body contains
         a specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: text
       schema:
@@ -2683,7 +2684,7 @@ components:
       description: >
         This parameter is used for finding stories whose title contains a
         specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: title
       schema:
@@ -2693,7 +2694,7 @@ components:
       description: >
         This parameter is used for finding stories whose translation body
         contains a specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: translations.en.body
       schema:
@@ -2703,7 +2704,7 @@ components:
       description: >
         This parameter is used for finding stories whose translation title or
         body contains a specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: translations.en.text
       schema:
@@ -2713,7 +2714,7 @@ components:
       description: >
         This parameter is used for finding stories whose translation title
         contains a specific keyword. It supports [boolean
-        operators](https://newsapi.aylien.com/docs/boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
       in: query
       name: translations.en.title
       schema:
@@ -3500,32 +3501,6 @@ components:
           description: An array of industries categories
           items:
             $ref: "#/components/schemas/Category"
-          type: array
-      type: object
-    StoryCluster:
-      properties:
-        id:
-          description: A unique identification for the cluster
-          format: int64
-          type: integer
-        phrases:
-          description: Suggested labels for the cluster
-          items:
-            type: string
-          type: array
-        score:
-          description: The cluster score
-          format: double
-          type: number
-        size:
-          description: Size of the cluster
-          format: int32
-          type: integer
-        stories:
-          description: Story ids which are in the cluster
-          items:
-            format: int64
-            type: integer
           type: array
       type: object
     StoryLinks:
