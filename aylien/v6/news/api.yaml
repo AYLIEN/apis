@@ -385,10 +385,7 @@ paths:
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_label"
-        - $ref: "#/components/parameters/notcategories_label"
+        - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/entities_id"
         - $ref: "#/components/parameters/notentities_id"
         - $ref: "#/components/parameters/entities_links_wikipedia"
@@ -869,10 +866,7 @@ paths:
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_label"
-        - $ref: "#/components/parameters/notcategories_label"
+        - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/entities_id"
         - $ref: "#/components/parameters/notentities_id"
         - $ref: "#/components/parameters/entities_links_wikipedia"
@@ -1370,10 +1364,7 @@ paths:
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_label"
-        - $ref: "#/components/parameters/notcategories_label"
+        - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/entities_id"
         - $ref: "#/components/parameters/notentities_id"
         - $ref: "#/components/parameters/entities_links_wikipedia"
@@ -1599,10 +1590,7 @@ paths:
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/categories_taxonomy"
-        - $ref: "#/components/parameters/categories_id"
-        - $ref: "#/components/parameters/notcategories_id"
-        - $ref: "#/components/parameters/categories_label"
-        - $ref: "#/components/parameters/notcategories_label"
+        - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/entities_id"
         - $ref: "#/components/parameters/notentities_id"
         - $ref: "#/components/parameters/entities_links_wikipedia"
@@ -1687,7 +1675,6 @@ paths:
               - entities.title.surface_forms.text
               - entities.body.surface_forms.text
               - hashtags
-              - categories.id
               - sentiment.title.polarity
               - sentiment.body.polarity
               - clusters
@@ -1839,33 +1826,17 @@ components:
       schema:
         nullable: true
         type: string
-    categories_id:
+    categories:
       description: >
-        This parameter is used for finding stories by categories id. You can
+        This parameter is used for finding stories by categories. You can
         read more about working with categories
         [here](https://newsapi.aylien.com/docs/working-with-categories).
       explode: true
       in: query
-      name: categories.id[]
+      name: categories
       schema:
-        items:
-          type: string
         nullable: true
-        type: array
-      style: form
-    categories_label:
-      description: >
-        This parameter is used for finding stories by categories label. You can
-        read more about working with categories
-        [here](https://newsapi.aylien.com/docs/working-with-categories).
-      explode: true
-      in: query
-      name: categories.label[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
+        type: string
       style: form
     categories_taxonomy:
       description: >
@@ -2232,34 +2203,6 @@ components:
       schema:
         nullable: true
         type: string
-    notcategories_id:
-      description: >
-        This parameter is used for excluding stories by categories id. You can
-        read more about working with categories
-        [here](https://newsapi.aylien.com/docs/working-with-categories).
-      explode: true
-      in: query
-      name: "!categories.id[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notcategories_label:
-      description: >
-        This parameter is used for excluding stories by categories label. You can
-        read more about working with categories
-        [here](https://newsapi.aylien.com/docs/working-with-categories).
-      explode: true
-      in: query
-      name: "!categories.label[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
     notentities_id:
       description: >
         This parameter is used to exclude stories based on the specified
