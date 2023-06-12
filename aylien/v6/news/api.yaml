@@ -3065,6 +3065,41 @@ components:
           description: The next page cursor
           type: string
       type: object
+    DeprecatedEntities:
+      properties:
+        body:
+          description: An array of extracted entities from the story body
+          items:
+            $ref: "#/components/schemas/DeprecatedEntity"
+          type: array
+        title:
+          description: An array of extracted entities from the story title
+          items:
+            $ref: "#/components/schemas/DeprecatedEntity"
+          type: array
+      type: object
+    DeprecatedEntity:
+      properties:
+        indices:
+          description: The indices of the entity text
+          items:
+            items:
+              format: int32
+              type: integer
+            type: array
+          type: array
+        links:
+          $ref: "#/components/schemas/EntityLinks"
+        text:
+          description: The entity text
+          type: string
+        types:
+          description: An array of the entity types
+          items:
+            description: An entity type
+            type: string
+          type: array
+      type: object
     Entity:
       properties:
         id:
