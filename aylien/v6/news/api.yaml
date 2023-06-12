@@ -384,7 +384,6 @@ paths:
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
-        - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
@@ -854,7 +853,6 @@ paths:
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
-        - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
@@ -1341,7 +1339,6 @@ paths:
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/language"
         - $ref: "#/components/parameters/notlanguage"
-        - $ref: "#/components/parameters/categories_taxonomy"
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
@@ -1621,18 +1618,28 @@ paths:
           schema:
             enum:
               - author.name
-              - source.name
-              - source.domain
-              - keywords
-              - entities.surface_forms.text
-              - entities.links.wikipedia
-              - entities.links.wikidata
-              - entities.title.surface_forms.text
-              - entities.body.surface_forms.text
-              - hashtags
-              - sentiment.title.polarity
-              - sentiment.body.polarity
+              - categories.id
               - clusters
+              - entities.body.sentiment
+              - entities.body.surface_forms.text
+              - entities.body.type
+              - entities.id
+              - entities.links.wikidata
+              - entities.links.wikipedia
+              - entities.sentiment
+              - entities.stock_tickers
+              - entities.surface_forms.text
+              - entities.title.sentiment
+              - entities.title.surface_forms.text
+              - entities.title.type
+              - hashtags
+              - industries.id
+              - keywords
+              - language
+              - sentiment.body.polarity
+              - sentiment.title.polarity
+              - source.domain
+              - source.name
             type: string
       responses:
         "200":
