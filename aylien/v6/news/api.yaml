@@ -3065,6 +3065,78 @@ components:
           description: The next page cursor
           type: string
       type: object
+    DeprecatedEntities:
+      properties:
+        body:
+          description: An array of extracted entities from the story body
+          items:
+            $ref: "#/components/schemas/DeprecatedEntity"
+          type: array
+        title:
+          description: An array of extracted entities from the story title
+          items:
+            $ref: "#/components/schemas/DeprecatedEntity"
+          type: array
+      type: object
+    DeprecatedEntity:
+      properties:
+        id:
+          description: The unique ID of the entity
+          type: string
+        indices:
+          description: The indices of the entity text
+          items:
+            items:
+              format: int32
+              type: integer
+            type: array
+          type: array
+        links:
+          $ref: "#/components/schemas/EntityLinks"
+        text:
+          description: The entity text
+          type: string
+        stock_ticker:
+          description: The stock_ticker of the entity (might be null)
+          type: string
+        types:
+          description: An array of the entity types
+          items:
+            description: An entity type
+            type: string
+          type: array
+        sentiment:
+          $ref: "#/components/schemas/EntitySentiment"
+        surface_forms:
+          items:
+            $ref: "#/components/schemas/DeprecatedEntitySurfaceForm"
+          type: array
+        prominence_score:
+          description: Describes how relevant an entity is to the article
+          type: number
+          format: float
+          maximum: 1
+          minimum: 0
+      type: object
+    DeprecatedEntitySurfaceForm:
+      properties:
+        text:
+          description: The entity text
+          type: string
+        indices:
+          description: The indices of the entity text
+          items:
+            items:
+              format: int32
+              type: integer
+            type: array
+          type: array
+        frequency:
+          description: Amount of entity surface form mentions in the article
+          type: integer
+          format: int32
+          minimum: 0
+      type: object
     Entity:
       properties:
         id:
