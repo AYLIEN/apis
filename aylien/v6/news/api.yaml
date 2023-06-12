@@ -387,6 +387,18 @@ paths:
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
+        - $ref: "#/components/parameters/entities_title_text"
+        - $ref: "#/components/parameters/notentities_title_text"
+        - $ref: "#/components/parameters/entities_title_type"
+        - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_text"
+        - $ref: "#/components/parameters/notentities_body_text"
+        - $ref: "#/components/parameters/entities_body_type"
+        - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -856,6 +868,18 @@ paths:
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
+        - $ref: "#/components/parameters/entities_title_text"
+        - $ref: "#/components/parameters/notentities_title_text"
+        - $ref: "#/components/parameters/entities_title_type"
+        - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_text"
+        - $ref: "#/components/parameters/notentities_body_text"
+        - $ref: "#/components/parameters/entities_body_type"
+        - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1342,6 +1366,18 @@ paths:
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
+        - $ref: "#/components/parameters/entities_title_text"
+        - $ref: "#/components/parameters/notentities_title_text"
+        - $ref: "#/components/parameters/entities_title_type"
+        - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_text"
+        - $ref: "#/components/parameters/notentities_body_text"
+        - $ref: "#/components/parameters/entities_body_type"
+        - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1557,6 +1593,18 @@ paths:
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
+        - $ref: "#/components/parameters/entities_title_text"
+        - $ref: "#/components/parameters/notentities_title_text"
+        - $ref: "#/components/parameters/entities_title_type"
+        - $ref: "#/components/parameters/notentities_title_type"
+        - $ref: "#/components/parameters/entities_title_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
+        - $ref: "#/components/parameters/entities_body_text"
+        - $ref: "#/components/parameters/notentities_body_text"
+        - $ref: "#/components/parameters/entities_body_type"
+        - $ref: "#/components/parameters/notentities_body_type"
+        - $ref: "#/components/parameters/entities_body_links_dbpedia"
+        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
         - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
@@ -1620,18 +1668,21 @@ paths:
               - author.name
               - categories.id
               - clusters
-              - entities.body.sentiment
-              - entities.body.surface_forms.text
-              - entities.body.type
-              - entities.id
-              - entities.links.wikidata
+              - entities.surface_forms.text
               - entities.links.wikipedia
+              - entities.links.wikidata
+              - entities.title.surface_forms.text
+              - entities.body.surface_forms.text
+              - entities.title.text
+              - entities.title.type
+              - entities.title.links.dbpedia
+              - entities.body.text
+              - entities.body.type
+              - entities.body.links.dbpedia
+              - entities.id
               - entities.sentiment
               - entities.stock_tickers
-              - entities.surface_forms.text
               - entities.title.sentiment
-              - entities.title.surface_forms.text
-              - entities.title.type
               - hashtags
               - industries.id
               - keywords
@@ -1864,6 +1915,178 @@ components:
       schema:
         nullable: true
         type: string
+      style: form
+    entities_title_text:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `text` in story titles. You can read more about working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.text[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_text:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `text` in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.text[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_type:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `type` in story titles. You can read more about working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.type[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_type:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `type` in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.type[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_title_links_dbpedia:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        dbpedia URL in story titles. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.title.links.dbpedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_title_links_dbpedia:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities dbpedia URL in story titles. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.title.links.dbpedia[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_text:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `text` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.text[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_text:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `text` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.text[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_type:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        `type` in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.type[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_type:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities `type` in the body of stories. You can read more about working
+        with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.type[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    entities_body_links_dbpedia:
+      description: >
+        This parameter is used to find stories based on the specified entities
+        dbpedia URL in the body of stories. You can read more about working with
+        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: entities.body.links.dbpedia[]
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
+      style: form
+    notentities_body_links_dbpedia:
+      description: >
+        This parameter is used to exclude stories based on the specified
+        entities dbpedia URL in the body of stories. You can read more about
+        working with entities
+        [here](https://newsapi.aylien.com/docs/working-with-entities).
+      explode: true
+      in: query
+      name: "!entities.body.links.dbpedia[]"
+      schema:
+        items:
+          type: string
+        nullable: true
+        type: array
       style: form
     id:
       description: |
