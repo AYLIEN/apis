@@ -1920,7 +1920,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `text` in story titles. You can read more about working with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.title.text[]
@@ -1934,7 +1934,7 @@ components:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `text` in story titles. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.title.text[]"
@@ -1948,7 +1948,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `type` in story titles. You can read more about working with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.title.type[]
@@ -1962,7 +1962,7 @@ components:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `type` in story titles. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.title.type[]"
@@ -1976,7 +1976,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         dbpedia URL in story titles. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.title.links.dbpedia[]
@@ -1991,7 +1991,7 @@ components:
         This parameter is used to exclude stories based on the specified
         entities dbpedia URL in story titles. You can read more about working
         with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.title.links.dbpedia[]"
@@ -2005,7 +2005,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `text` in the body of stories. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.body.text[]
@@ -2020,7 +2020,7 @@ components:
         This parameter is used to exclude stories based on the specified
         entities `text` in the body of stories. You can read more about working
         with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.body.text[]"
@@ -2034,7 +2034,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `type` in the body of stories. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.body.type[]
@@ -2049,7 +2049,7 @@ components:
         This parameter is used to exclude stories based on the specified
         entities `type` in the body of stories. You can read more about working
         with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.body.type[]"
@@ -2063,7 +2063,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         dbpedia URL in the body of stories. You can read more about working with
-        entities [here](https://newsapi.aylien.com/docs/working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: entities.body.links.dbpedia[]
@@ -2078,7 +2078,7 @@ components:
         This parameter is used to exclude stories based on the specified
         entities dbpedia URL in the body of stories. You can read more about
         working with entities
-        [here](https://newsapi.aylien.com/docs/working-with-entities).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
       explode: true
       in: query
       name: "!entities.body.links.dbpedia[]"
