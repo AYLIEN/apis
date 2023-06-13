@@ -1920,7 +1920,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `text` in story titles. You can read more about working with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.title.text[]
@@ -1930,11 +1930,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_title_text:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `text` in story titles. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.title.text[]"
@@ -1944,11 +1945,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     entities_title_type:
       description: >
         This parameter is used to find stories based on the specified entities
         `type` in story titles. You can read more about working with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.title.type[]
@@ -1958,11 +1960,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_title_type:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `type` in story titles. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.title.type[]"
@@ -1972,11 +1975,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     entities_title_links_dbpedia:
       description: >
         This parameter is used to find stories based on the specified entities
         dbpedia URL in story titles. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.title.links.dbpedia[]
@@ -1986,12 +1990,13 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_title_links_dbpedia:
       description: >
         This parameter is used to exclude stories based on the specified
         entities dbpedia URL in story titles. You can read more about working
         with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.title.links.dbpedia[]"
@@ -2001,11 +2006,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     entities_body_text:
       description: >
         This parameter is used to find stories based on the specified entities
         `text` in the body of stories. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.body.text[]
@@ -2015,12 +2021,13 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_body_text:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `text` in the body of stories. You can read more about working
         with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.body.text[]"
@@ -2030,11 +2037,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     entities_body_type:
       description: >
         This parameter is used to find stories based on the specified entities
         `type` in the body of stories. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.body.type[]
@@ -2044,12 +2052,13 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_body_type:
       description: >
         This parameter is used to exclude stories based on the specified
         entities `type` in the body of stories. You can read more about working
         with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.body.type[]"
@@ -2059,11 +2068,12 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     entities_body_links_dbpedia:
       description: >
         This parameter is used to find stories based on the specified entities
         dbpedia URL in the body of stories. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: entities.body.links.dbpedia[]
@@ -2073,12 +2083,13 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     notentities_body_links_dbpedia:
       description: >
         This parameter is used to exclude stories based on the specified
         entities dbpedia URL in the body of stories. You can read more about
         working with entities
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
       name: "!entities.body.links.dbpedia[]"
@@ -2088,6 +2099,7 @@ components:
         nullable: true
         type: array
       style: form
+      deprecated: true
     id:
       description: |
         This parameter is used for finding stories by story id.
