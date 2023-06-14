@@ -3527,10 +3527,6 @@ components:
           description: The start of a period in which searched stories were published
           format: date-time
           type: string
-        published_at:
-          description: The time interval for which searched stories were published
-          format: string
-          type: string
       type: object
     Location:
       properties:
@@ -3740,10 +3736,6 @@ components:
           description: The start of a period in which searched stories were published
           format: date-time
           type: string
-        published_at:
-          description: The time interval for which searched stories were published
-          format: string
-          type: string
         warnings:
           description: Notifies about possible issues that occurred when searching for stories
           items:
@@ -3940,10 +3932,6 @@ components:
           description: The start published date of the time series
           format: date-time
           type: string
-        published_at:
-          description: The time interval for which searched stories were published
-          format: string
-          type: string
         time_series:
           description: An array of time series
           items:
@@ -3995,10 +3983,6 @@ components:
         published_at.start:
           description: The start of a period in which searched stories were published
           format: date-time
-          type: string
-        published_at:
-          description: The time interval for which searched stories were published
-          format: string
           type: string
       type: object
     Warning:
