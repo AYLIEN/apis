@@ -2,4 +2,4 @@
  
 Public interface definitions of AYLIEN APIs are available in OpenAPI 3.0 YAML files:
 
-* [News API](aylien/v5/news/api.yaml)
+* [News API](aylien/v6/news/api.yaml)
