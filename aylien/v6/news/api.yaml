@@ -218,7 +218,7 @@ paths:
         - description: This parameter is used for specifying return fields.
           explode: true
           in: query
-          name: return[]
+          name: return
           schema:
             items:
               enum:
@@ -353,8 +353,8 @@ paths:
                 $ref: "#/components/schemas/Errors"
           description: Internal Server Error
       security:
-        - app_id: []
-        - app_key: []
+        - app_id: [ ]
+        - app_key: [ ]
       summary: List Clusters
   /histograms:
     get:
@@ -370,7 +370,6 @@ paths:
       operationId: listHistograms
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
         - $ref: "#/components/parameters/body"
         - $ref: "#/components/parameters/text"
@@ -378,9 +377,7 @@ paths:
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
         - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
@@ -388,21 +385,13 @@ paths:
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
         - $ref: "#/components/parameters/media_images_count"
@@ -413,34 +402,21 @@ paths:
         - $ref: "#/components/parameters/media_images_content_length_min"
         - $ref: "#/components/parameters/media_images_content_length_max"
         - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
         - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
         - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
         - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
         - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
         - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
         - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
         - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
         - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
         - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
         - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
         - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
         - $ref: "#/components/parameters/source_links_in_count"
@@ -835,8 +811,8 @@ paths:
                 $ref: "#/components/schemas/Errors"
           description: Internal Server Error
       security:
-        - app_id: []
-        - app_key: []
+        - app_id: [ ]
+        - app_key: [ ]
       summary: List histograms
   /stories:
     get:
@@ -851,7 +827,6 @@ paths:
       operationId: listStories
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
         - $ref: "#/components/parameters/body"
         - $ref: "#/components/parameters/text"
@@ -859,9 +834,7 @@ paths:
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
         - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
@@ -869,21 +842,13 @@ paths:
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
         - $ref: "#/components/parameters/media_images_count"
@@ -894,34 +859,21 @@ paths:
         - $ref: "#/components/parameters/media_images_content_length_min"
         - $ref: "#/components/parameters/media_images_content_length_max"
         - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
         - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
         - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
         - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
         - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
         - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
         - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
         - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
         - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
         - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
         - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
         - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
         - $ref: "#/components/parameters/source_links_in_count"
@@ -1329,8 +1281,8 @@ paths:
                 $ref: "#/components/schemas/Errors"
           description: Internal Server Error
       security:
-        - app_id: []
-        - app_key: []
+        - app_id: [ ]
+        - app_key: [ ]
       summary: List Stories
   /time_series:
     get:
@@ -1351,7 +1303,6 @@ paths:
       operationId: listTimeSeries
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
         - $ref: "#/components/parameters/body"
         - $ref: "#/components/parameters/text"
@@ -1362,26 +1313,17 @@ paths:
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
         - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/categories"
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
         - $ref: "#/components/parameters/media_images_count"
@@ -1392,34 +1334,21 @@ paths:
         - $ref: "#/components/parameters/media_images_content_length_min"
         - $ref: "#/components/parameters/media_images_content_length_max"
         - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
         - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
         - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
         - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
         - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
         - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
         - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
         - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
         - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
         - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
         - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
         - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
         - $ref: "#/components/parameters/source_links_in_count"
@@ -1559,8 +1488,8 @@ paths:
                 $ref: "#/components/schemas/Errors"
           description: Internal Server Error
       security:
-        - app_id: []
-        - app_key: []
+        - app_id: [ ]
+        - app_key: [ ]
       summary: List time series
   /trends:
     get:
@@ -1575,7 +1504,6 @@ paths:
       operationId: listTrends
       parameters:
         - $ref: "#/components/parameters/id"
-        - $ref: "#/components/parameters/notid"
         - $ref: "#/components/parameters/title"
         - $ref: "#/components/parameters/body"
         - $ref: "#/components/parameters/text"
@@ -1583,9 +1511,7 @@ paths:
         - $ref: "#/components/parameters/translations_en_body"
         - $ref: "#/components/parameters/translations_en_text"
         - $ref: "#/components/parameters/links_permalink"
-        - $ref: "#/components/parameters/notlinks_permalink"
         - $ref: "#/components/parameters/language"
-        - $ref: "#/components/parameters/notlanguage"
         - $ref: "#/components/parameters/published_at_start"
         - $ref: "#/components/parameters/published_at_end"
         - $ref: "#/components/parameters/published_at"
@@ -1594,21 +1520,13 @@ paths:
         - $ref: "#/components/parameters/industries"
         - $ref: "#/components/parameters/entities"
         - $ref: "#/components/parameters/entities_title_text"
-        - $ref: "#/components/parameters/notentities_title_text"
         - $ref: "#/components/parameters/entities_title_type"
-        - $ref: "#/components/parameters/notentities_title_type"
         - $ref: "#/components/parameters/entities_title_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_title_links_dbpedia"
         - $ref: "#/components/parameters/entities_body_text"
-        - $ref: "#/components/parameters/notentities_body_text"
         - $ref: "#/components/parameters/entities_body_type"
-        - $ref: "#/components/parameters/notentities_body_type"
         - $ref: "#/components/parameters/entities_body_links_dbpedia"
-        - $ref: "#/components/parameters/notentities_body_links_dbpedia"
         - $ref: "#/components/parameters/sentiment_title_polarity"
-        - $ref: "#/components/parameters/notsentiment_title_polarity"
         - $ref: "#/components/parameters/sentiment_body_polarity"
-        - $ref: "#/components/parameters/notsentiment_body_polarity"
         - $ref: "#/components/parameters/media_images_count_min"
         - $ref: "#/components/parameters/media_images_count_max"
         - $ref: "#/components/parameters/media_images_count"
@@ -1619,34 +1537,21 @@ paths:
         - $ref: "#/components/parameters/media_images_content_length_min"
         - $ref: "#/components/parameters/media_images_content_length_max"
         - $ref: "#/components/parameters/media_images_format"
-        - $ref: "#/components/parameters/notmedia_images_format"
         - $ref: "#/components/parameters/media_videos_count_min"
         - $ref: "#/components/parameters/media_videos_count_max"
         - $ref: "#/components/parameters/media_videos_count"
         - $ref: "#/components/parameters/author_id"
-        - $ref: "#/components/parameters/notauthor_id"
         - $ref: "#/components/parameters/author_name"
-        - $ref: "#/components/parameters/notauthor_name"
         - $ref: "#/components/parameters/source_id"
-        - $ref: "#/components/parameters/notsource_id"
         - $ref: "#/components/parameters/source_name"
-        - $ref: "#/components/parameters/notsource_name"
         - $ref: "#/components/parameters/source_domain"
-        - $ref: "#/components/parameters/notsource_domain"
         - $ref: "#/components/parameters/source_locations_country"
-        - $ref: "#/components/parameters/notsource_locations_country"
         - $ref: "#/components/parameters/source_locations_state"
-        - $ref: "#/components/parameters/notsource_locations_state"
         - $ref: "#/components/parameters/source_locations_city"
-        - $ref: "#/components/parameters/notsource_locations_city"
         - $ref: "#/components/parameters/source_scopes_country"
-        - $ref: "#/components/parameters/notsource_scopes_country"
         - $ref: "#/components/parameters/source_scopes_state"
-        - $ref: "#/components/parameters/notsource_scopes_state"
         - $ref: "#/components/parameters/source_scopes_city"
-        - $ref: "#/components/parameters/notsource_scopes_city"
         - $ref: "#/components/parameters/source_scopes_level"
-        - $ref: "#/components/parameters/notsource_scopes_level"
         - $ref: "#/components/parameters/source_links_in_count_min"
         - $ref: "#/components/parameters/source_links_in_count_max"
         - $ref: "#/components/parameters/source_links_in_count"
@@ -1784,8 +1689,8 @@ paths:
                 $ref: "#/components/schemas/Errors"
           description: Internal Server Error
       security:
-        - app_id: []
-        - app_key: []
+        - app_id: [ ]
+        - app_key: [ ]
       summary: List trends
 components:
   parameters:
@@ -1809,26 +1714,28 @@ components:
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
-        specified value.
+        specified value. Use !author_id parameter to exclude specified author id value from search.
       explode: true
       in: query
-      name: author.id[]
+      name: author.id
       schema:
         items:
-          format: int32
-          type: integer
+          type: string
         nullable: true
         type: array
       style: form
     author_name:
       description: >
         This parameter is used for finding stories whose author full name
-        contains the specified value.
+        contains the specified value. Use !author_name parameter to exclude specified author name value from search.
       in: query
       name: author.name
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     body:
       description: >
         This parameter is used for finding stories whose body contains a
@@ -1837,8 +1744,11 @@ components:
       in: query
       name: body
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     categories:
       description: >
         This parameter is used for finding stories by categories. You can
@@ -1874,7 +1784,7 @@ components:
         [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-clusters).
       explode: true
       in: query
-      name: clusters[]
+      name: clusters
       schema:
         items:
           type: string
@@ -1883,22 +1793,10 @@ components:
       style: form
     links_permalink:
       description: >
-        This parameter is used to find stories based on their url.
+        This parameter is used to find stories based on their url. Use !links.permalink to exclude stories based on their url
       explode: true
       in: query
-      name: links.permalink[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notlinks_permalink:
-      description: >
-        This parameter is used to exclude stories based on their url.
-      explode: true
-      in: query
-      name: "!links.permalink[]"
+      name: links.permalink
       schema:
         items:
           type: string
@@ -1913,8 +1811,10 @@ components:
       in: query
       name: entities
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     entities_title_text:
       description: >
@@ -1923,22 +1823,7 @@ components:
         [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.title.text[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_title_text:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities `text` in story titles. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.title.text[]"
+      name: entities.title.text
       schema:
         items:
           type: string
@@ -1953,22 +1838,7 @@ components:
         [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.title.type[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_title_type:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities `type` in story titles. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.title.type[]"
+      name: entities.title.type
       schema:
         items:
           type: string
@@ -1983,23 +1853,7 @@ components:
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.title.links.dbpedia[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_title_links_dbpedia:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities dbpedia URL in story titles. You can read more about working
-        with entities
-        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.title.links.dbpedia[]"
+      name: entities.title.links.dbpedia
       schema:
         items:
           type: string
@@ -2014,23 +1868,7 @@ components:
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.body.text[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_body_text:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities `text` in the body of stories. You can read more about working
-        with entities
-        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.body.text[]"
+      name: entities.body.text
       schema:
         items:
           type: string
@@ -2045,23 +1883,7 @@ components:
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.body.type[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_body_type:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities `type` in the body of stories. You can read more about working
-        with entities
-        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.body.type[]"
+      name: entities.body.type
       schema:
         items:
           type: string
@@ -2076,23 +1898,7 @@ components:
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
       explode: true
       in: query
-      name: entities.body.links.dbpedia[]
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-      deprecated: true
-    notentities_body_links_dbpedia:
-      description: >
-        This parameter is used to exclude stories based on the specified
-        entities dbpedia URL in the body of stories. You can read more about
-        working with entities
-        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
-      explode: true
-      in: query
-      name: "!entities.body.links.dbpedia[]"
+      name: entities.body.links.dbpedia
       schema:
         items:
           type: string
@@ -2102,14 +1908,13 @@ components:
       deprecated: true
     id:
       description: |
-        This parameter is used for finding stories by story id.
+        This parameter is used for finding stories by story id. Use !id parameter to exclude stories by story id.
       explode: true
       in: query
-      name: id[]
+      name: id
       schema:
         items:
-          format: int64
-          type: integer
+          type: string
         nullable: true
         type: array
       style: form
@@ -2122,8 +1927,10 @@ components:
       in: query
       name: industries
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
       style: form
     language:
       description: >
@@ -2133,7 +1940,7 @@ components:
         codes.
       explode: true
       in: query
-      name: language[]
+      name: language
       schema:
         items:
           enum:
@@ -2211,7 +2018,7 @@ components:
         specified value.
       explode: true
       in: query
-      name: media.images.format[]
+      name: media.images.format
       schema:
         items:
           enum:
@@ -2311,272 +2118,6 @@ components:
         exclusiveMinimum: true
         nullable: true
         type: string
-    notauthor_id:
-      description: >
-        This parameter is used for excluding stories whose author id is the
-        specified value.
-      explode: true
-      in: query
-      name: "!author.id[]"
-      schema:
-        items:
-          format: int32
-          type: integer
-        nullable: true
-        type: array
-      style: form
-    notauthor_name:
-      description: >
-        This parameter is used for excluding stories whose author full name
-        contains the specified value.
-      in: query
-      name: "!author.name"
-      schema:
-        nullable: true
-        type: string
-    notid:
-      description: |
-        This parameter is used for excluding stories by story id.
-      explode: true
-      in: query
-      name: "!id[]"
-      schema:
-        items:
-          format: int64
-          type: integer
-        nullable: true
-        type: array
-      style: form
-    notlanguage:
-      description: >
-        This parameter is used for excluding stories whose language is the
-        specified value. It supports [ISO
-        639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language
-        codes.
-      explode: true
-      in: query
-      name: "!language[]"
-      schema:
-        items:
-          enum:
-            - en
-            - de
-            - fr
-            - it
-            - es
-            - pt
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notmedia_images_format:
-      description: >
-        This parameter is used for excluding stories whose images format are the
-        specified value.
-      explode: true
-      in: query
-      name: "!media.images.format[]"
-      schema:
-        items:
-          enum:
-            - BMP
-            - GIF
-            - JPEG
-            - PNG
-            - TIFF
-            - PSD
-            - ICO
-            - CUR
-            - WEBP
-            - SVG
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsentiment_body_polarity:
-      description: >
-        This parameter is used for excluding stories whose body sentiment is the
-        specified value.
-      in: query
-      name: "!sentiment.body.polarity"
-      schema:
-        enum:
-          - positive
-          - neutral
-          - negative
-        nullable: true
-        type: string
-    notsentiment_title_polarity:
-      description: >
-        This parameter is used for excluding stories whose title sentiment is
-        the specified value.
-      in: query
-      name: "!sentiment.title.polarity"
-      schema:
-        enum:
-          - positive
-          - neutral
-          - negative
-        nullable: true
-        type: string
-    notsource_domain:
-      description: >
-        This parameter is used for excluding stories whose source domain is the
-        specified value.
-      explode: true
-      in: query
-      name: "!source.domain[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_id:
-      description: >
-        This parameter is used for excluding stories whose source id is the
-        specified value.
-      explode: true
-      in: query
-      name: "!source.id[]"
-      schema:
-        items:
-          format: int32
-          type: integer
-        nullable: true
-        type: array
-      style: form
-    notsource_locations_city:
-      description: >
-        This parameter is used for excluding stories whose source city is the
-        specified value.
-        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
-        find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.locations.city[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_locations_country:
-      description: >
-        This parameter is used for excluding stories whose source country is the
-        specified value. It supports [ISO 3166-1
-        alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
-        you can find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.locations.country[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_locations_state:
-      description: >
-        This parameter is used for excluding stories whose source state/province
-        is the specified value.
-        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
-        find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.locations.state[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_name:
-      description: >
-        This parameter is used for excluding stories whose source name contains
-        the specified value.
-      explode: true
-      in: query
-      name: "!source.name[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_scopes_city:
-      description: >
-        This parameter is used for excluding stories whose source scopes is the
-        specified city value.
-        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
-        find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.scopes.city[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_scopes_country:
-      description: >
-        This parameter is used for excluding stories whose source scopes is the
-        specified country value. It supports [ISO 3166-1
-        alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-        codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
-        you can find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.scopes.country[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_scopes_level:
-      description: >
-        This parameter is used for excluding stories whose source scopes is the
-        specified level value.
-        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
-        find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.scopes.level[]"
-      schema:
-        items:
-          enum:
-            - international
-            - national
-            - local
-          type: string
-        nullable: true
-        type: array
-      style: form
-    notsource_scopes_state:
-      description: >
-        This parameter is used for excluding stories whose source scopes is the
-        specified state/province value.
-        [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
-        find more information about how [to work with
-        locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-      explode: true
-      in: query
-      name: "!source.scopes.state[]"
-      schema:
-        items:
-          type: string
-        nullable: true
-        type: array
-      style: form
     per_page:
       description: |
         This parameter is used for specifying number of items in each page.
@@ -2628,7 +2169,7 @@ components:
       description: This parameter is used for specifying return fields.
       explode: true
       in: query
-      name: return[]
+      name: return
       schema:
         items:
           enum:
@@ -2662,32 +2203,37 @@ components:
       in: query
       name: sentiment.body.polarity
       schema:
-        enum:
-          - positive
-          - neutral
-          - negative
-        nullable: true
-        type: string
+        type: array
+        items:
+          type: string
+          enum:
+            - positive
+            - neutral
+            - negative
+          nullable: true
+      style: form
     sentiment_title_polarity:
       description: >
-        This parameter is used for finding stories whose title sentiment is the
-        specified value.
+        This parameter is used for finding stories whose title sentiment is the specified value.
       in: query
       name: sentiment.title.polarity
       schema:
-        enum:
-          - positive
-          - neutral
-          - negative
-        nullable: true
-        type: string
+        type: array
+        items:
+          type: string
+          enum:
+            - positive
+            - neutral
+            - negative
+          nullable: true
+      style: form
     source_domain:
       description: >
         This parameter is used for finding stories whose source domain is the
         specified value.
       explode: true
       in: query
-      name: source.domain[]
+      name: source.domain
       schema:
         items:
           type: string
@@ -2700,11 +2246,10 @@ components:
         specified value.
       explode: true
       in: query
-      name: source.id[]
+      name: source.id
       schema:
         items:
-          format: int32
-          type: integer
+          type: string
         nullable: true
         type: array
       style: form
@@ -2757,7 +2302,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.locations.city[]
+      name: source.locations.city
       schema:
         items:
           type: string
@@ -2774,7 +2319,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.locations.country[]
+      name: source.locations.country
       schema:
         items:
           type: string
@@ -2790,7 +2335,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.locations.state[]
+      name: source.locations.state
       schema:
         items:
           type: string
@@ -2803,7 +2348,7 @@ components:
         the specified value.
       explode: true
       in: query
-      name: source.name[]
+      name: source.name
       schema:
         items:
           type: string
@@ -2819,7 +2364,7 @@ components:
         [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
       explode: true
       in: query
-      name: source.rankings.alexa.country[]
+      name: source.rankings.alexa.country
       schema:
         items:
           type: string
@@ -2875,7 +2420,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.scopes.city[]
+      name: source.scopes.city
       schema:
         items:
           type: string
@@ -2892,7 +2437,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.scopes.country[]
+      name: source.scopes.country
       schema:
         items:
           type: string
@@ -2908,7 +2453,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.scopes.level[]
+      name: source.scopes.level
       schema:
         items:
           enum:
@@ -2928,7 +2473,7 @@ components:
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
       explode: true
       in: query
-      name: source.scopes.state[]
+      name: source.scopes.state
       schema:
         items:
           type: string
@@ -2992,8 +2537,11 @@ components:
       in: query
       name: text
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     title:
       description: >
         This parameter is used for finding stories whose title contains a
@@ -3002,8 +2550,11 @@ components:
       in: query
       name: title
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     translations_en_body:
       description: >
         This parameter is used for finding stories whose translation body
@@ -3012,8 +2563,11 @@ components:
       in: query
       name: translations.en.body
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     translations_en_text:
       description: >
         This parameter is used for finding stories whose translation title or
@@ -3022,8 +2576,11 @@ components:
       in: query
       name: translations.en.text
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
     translations_en_title:
       description: >
         This parameter is used for finding stories whose translation title
@@ -3032,8 +2589,11 @@ components:
       in: query
       name: translations.en.title
       schema:
+        items:
+          type: string
         nullable: true
-        type: string
+        type: array
+      style: form
   responses:
     clusters:
       content:
