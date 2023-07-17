@@ -1714,7 +1714,7 @@ components:
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
-        specified value. Use !author_id parameter to exclude specified author id value from search.
+        specified value.
       explode: true
       in: query
       name: author.id
@@ -1727,7 +1727,7 @@ components:
     author_name:
       description: >
         This parameter is used for finding stories whose author full name
-        contains the specified value. Use !author_name parameter to exclude specified author name value from search.
+        contains the specified value.
       in: query
       name: author.name
       schema:
@@ -1793,7 +1793,7 @@ components:
       style: form
     links_permalink:
       description: >
-        This parameter is used to find stories based on their url. Use !links.permalink to exclude stories based on their url
+        This parameter is used to find stories based on their url.
       explode: true
       in: query
       name: links.permalink
@@ -1908,7 +1908,7 @@ components:
       deprecated: true
     id:
       description: |
-        This parameter is used for finding stories by story id. Use !id parameter to exclude stories by story id.
+        This parameter is used for finding stories by story id.
       explode: true
       in: query
       name: id
