@@ -33,33 +33,26 @@ paths:
         - $ref: "#/components/parameters/aql"
         - $ref: "#/components/parameters/aql_default_field"
         - description: |
-            This parameter is used for finding clusters by cluster id.
+            This parameter is used for finding clusters by cluster id. Use !id parameter to exclude clusters by cluster id.
           explode: true
           in: query
           name: id
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: |
-            This parameter is used for excluding clusters by cluster id.
-          explode: true
-          in: query
-          name: "!id"
-          schema:
-            $ref: "#/components/schemas/AQL"
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: >
             This parameter is used for finding clusters where the amount of stories associated with them
+            matches the query. Use !story_count parameter to exclude clusters where the amount of stories associated with them
             matches the query.
           in: query
           name: story_count
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: >
-            This parameter is used for finding clusters where the amount of stories associated with them
-            doesn't match the query.
-          in: query
-          name: "!story_count"
-          schema:
-            $ref: "#/components/schemas/AQL"
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: >
             This parameter is used for finding clusters with more than or equal
             to a specific amount of stories associated with them.
@@ -84,18 +77,15 @@ paths:
             type: integer
         - description: >
             This parameter is used for finding clusters whose creation time
+            matches the specified query. Use !time parameter to exclude clusters whose creation time
             matches the specified query.
           in: query
           name: time
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: >
-            This parameter is used for finding clusters whose creation time
-            matches the specified query.
-          in: query
-          name: "!time"
-          schema:
-            $ref: "#/components/schemas/AQL"
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: >
             This parameter is used for finding clusters whose creation time is
             greater than the specified value.
@@ -120,18 +110,15 @@ paths:
             type: string
         - description: >
             This parameter is used for finding clusters whose publication date
+            of its earliest story matches the query. Use !earliest_story parameter to exclude clusters whose publication date
             of its earliest story matches the query.
           in: query
           name: earliest_story
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: >
-            This parameter is used for finding clusters whose publication date
-            of its earliest story doesn't match the query.
-          in: query
-          name: "!earliest_story"
-          schema:
-            $ref: "#/components/schemas/AQL"
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: >
             This parameter is used for finding clusters whose publication date
             of its earliest story is greater than the specified value.
@@ -156,19 +143,15 @@ paths:
             type: string
         - description: >
             This parameter is used for finding clusters whose publication date
+            of its latest story matches the query. Use !latest_story parameter toe exclude clusters whose publication date
             of its latest story matches the query.
           in: query
           name: latest_story
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: >
-            This parameter is used for finding clusters whose publication date
-            of its latest story doesn't match the query.
-          in: query
-          name: "!latest_story"
-          schema:
-            $ref: "#/components/schemas/AQL"
-        ### TODO validate all links to docs!
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: >
             This parameter is used for finding clusters whose publication date
             of its latest story is greater than the specified value.
@@ -199,22 +182,15 @@ paths:
             [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you
             can find more information about how [to work with
             locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+            Use !location.country parameter to exclude clusters belonging to a specific
+            country.
           in: query
           name: location.country
           schema:
-            $ref: "#/components/schemas/AQL"
-        - description: >
-            This parameter is used for excluding clusters belonging to a
-            specific country. It supports [ISO 3166-1
-            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country
-            codes.
-            [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you
-            can find more information about how [to work with
-            locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
-          in: query
-          name: "!location.country"
-          schema:
-            $ref: "#/components/schemas/AQL"
+            items:
+              type: string
+            nullable: true
+            type: array
         - description: This parameter is used for specifying return fields.
           explode: true
           in: query
