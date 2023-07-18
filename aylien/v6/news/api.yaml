@@ -1714,7 +1714,7 @@ components:
     author_id:
       description: >
         This parameter is used for finding stories whose author id is the
-        specified value.
+        specified value. Use !author.id parameter to exclude stories whose author id is the specified value.
       explode: true
       in: query
       name: author.id
@@ -1727,7 +1727,7 @@ components:
     author_name:
       description: >
         This parameter is used for finding stories whose author full name
-        contains the specified value.
+        contains the specified value. Use !author_name parameter to exclude specified author name value from search.
       in: query
       name: author.name
       schema:
@@ -1740,7 +1740,7 @@ components:
       description: >
         This parameter is used for finding stories whose body contains a
         specific keyword. It supports [boolean
-        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators). Use !body parameter for excluding stories whose body contains a specific word.
       in: query
       name: body
       schema:
@@ -1753,7 +1753,7 @@ components:
       description: >
         This parameter is used for finding stories by categories. You can
         read more about working with categories
-        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger). Use !categories parameter for excluding stories by categories specified.
       explode: true
       in: query
       name: categories
@@ -1766,7 +1766,7 @@ components:
         This parameter is used for defining the type of the taxonomy for the
         rest of the categories queries. You can read more about working with
         categories
-        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger). Use !categories.taxonomy parameter to exclude types of taxonomy for the rest of the categories queries.
       in: query
       name: categories.taxonomy
       schema:
@@ -1781,7 +1781,7 @@ components:
         This parameter is used for finding stories with belonging to one of
         clusters in a specific set of clusters You can read more about working
         with clustering
-        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-clusters).
+        [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-clusters). Use !clusters parameter to exclude stories which belong to one of the clusters in a specific set of clusters.
       explode: true
       in: query
       name: clusters
@@ -1793,7 +1793,7 @@ components:
       style: form
     links_permalink:
       description: >
-        This parameter is used to find stories based on their url.
+        This parameter is used to find stories based on their url. Use !links.permalink parameter to exclude stories based on their url
       explode: true
       in: query
       name: links.permalink
@@ -1806,7 +1806,7 @@ components:
     entities:
       description: >
         This parameter is used to find stories based on the specified entities. You can read more about working with
-        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities).
+        entities [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-entities). Use !entities parameter to exclude stories based on specified entities.
       explode: true
       in: query
       name: entities
@@ -1820,7 +1820,7 @@ components:
       description: >
         This parameter is used to find stories based on the specified entities
         `text` in story titles. You can read more about working with entities
-        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update). Use !entities.title.text parameter to exclude stories based on the specified entities 'text' in story titles.
       explode: true
       in: query
       name: entities.title.text
@@ -1836,6 +1836,7 @@ components:
         This parameter is used to find stories based on the specified entities
         `type` in story titles. You can read more about working with entities
         [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        Use !entities.title.type parameter to exclude stories based on the specified entities `type` in story titles
       explode: true
       in: query
       name: entities.title.type
@@ -1851,6 +1852,8 @@ components:
         This parameter is used to find stories based on the specified entities
         dbpedia URL in story titles. You can read more about working with
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        Use !entities.titles.links.dbpedia parameter to exclude stories based on the specified entities
+        dbpedia URL in story titles.
       explode: true
       in: query
       name: entities.title.links.dbpedia
@@ -1866,6 +1869,8 @@ components:
         This parameter is used to find stories based on the specified entities
         `text` in the body of stories. You can read more about working with
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        Use !entities.body.text parameter to exclude stories based on the specified entities
+        `text` in the body of stories.
       explode: true
       in: query
       name: entities.body.text
@@ -1881,6 +1886,8 @@ components:
         This parameter is used to find stories based on the specified entities
         `type` in the body of stories. You can read more about working with
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        Use !entities.body.type parameter to exclude stories based on the specified entities
+        `type` in the body of stories.
       explode: true
       in: query
       name: entities.body.type
@@ -1896,6 +1903,8 @@ components:
         This parameter is used to find stories based on the specified entities
         dbpedia URL in the body of stories. You can read more about working with
         entities [here](https://docs.aylien.com/newsapi/migrating-to-the-latest-entities-model-from-entities-v2/#entity-model-update).
+        Use !entities.body.links.dbpedia parameter to exclude stories based on the specified entities
+        dbpedia URL in the body of stories.
       explode: true
       in: query
       name: entities.body.links.dbpedia
@@ -1908,7 +1917,7 @@ components:
       deprecated: true
     id:
       description: |
-        This parameter is used for finding stories by story id.
+        This parameter is used for finding stories by story id. Use !id parameter to exclude stories by story id.
       explode: true
       in: query
       name: id
@@ -1923,6 +1932,7 @@ components:
         This parameter is used for finding stories by industries. You can
         read more about working with categories
         [here](https://docs.aylien.com/newsapi/common-workflows/#the-smart-tagger).
+        Use !industries parameter to exclude stories by industries.
       explode: true
       in: query
       name: industries
@@ -1937,7 +1947,8 @@ components:
         This parameter is used for finding stories whose language is the
         specified value. It supports [ISO
         639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language
-        codes.
+        codes. Use !language parameter to exclude stories whose language is the
+        specified value.
       explode: true
       in: query
       name: language
@@ -2005,6 +2016,7 @@ components:
     media_images_count:
       description: >
         This parameter is used for finding stories whose number of images is
+        range of the specified values. Use !media.images.count parameter to exclude stories whose number of images is
         range of the specified values.
       in: query
       name: media.images.count
@@ -2015,6 +2027,7 @@ components:
     media_images_format:
       description: >
         This parameter is used for finding stories whose images format are the
+        specified value. Use !media.images.format parameter to exclude stories whose images format are the
         specified value.
       explode: true
       in: query
@@ -2111,6 +2124,7 @@ components:
     media_videos_count:
       description: >
         This parameter is used for finding stories whose number of videos is
+        in range of the specified values. Use !media.videos.count parameter to exclude stories whose number of videos is
         in range of the specified values.
       in: query
       name: media.videos.count
@@ -2159,7 +2173,7 @@ components:
         This parameter is used for specifying a time range interval for finding stories published within the specified interval.
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates) you can find
         more information about how [to work with
-        dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates).
+        dates](https://docs.aylien.com/newsapi/common-workflows/#working-with-dates). Use !published_at parameter to exclude a specified time range interval for finding stories published within the specified interval.
       in: query
       name: published_at
       schema:
@@ -2199,6 +2213,7 @@ components:
     sentiment_body_polarity:
       description: >
         This parameter is used for finding stories whose body sentiment is the
+        specified value. Use !sentiment.body.polarity parameter to exclude stories whose body sentiment is the
         specified value.
       in: query
       name: sentiment.body.polarity
@@ -2214,7 +2229,7 @@ components:
       style: form
     sentiment_title_polarity:
       description: >
-        This parameter is used for finding stories whose title sentiment is the specified value.
+        This parameter is used for finding stories whose title sentiment is the specified value. Use !sentiment.title.polarity parameter to exclude stories whose title sentiment is the specified value.
       in: query
       name: sentiment.title.polarity
       schema:
@@ -2230,6 +2245,7 @@ components:
     source_domain:
       description: >
         This parameter is used for finding stories whose source domain is the
+        specified value. Use !source.domain parameter to exclude stories whose source domain is the
         specified value.
       explode: true
       in: query
@@ -2243,6 +2259,7 @@ components:
     source_id:
       description: >
         This parameter is used for finding stories whose source id is the
+        specified value. Use !source.id parameter to exclude stories whose source id is the
         specified value.
       explode: true
       in: query
@@ -2287,6 +2304,8 @@ components:
         count is in range of the specified values. You can read more
         about working with Links in count
         [here](https://docs.aylien.com/newsapi/common-workflows/#working-with-links-in-count).
+        Use !source.links_in_count parameter to exclude stories from sources whose Links in
+        count is in range of the specified values.
       in: query
       name: source.links_in_count
       schema:
@@ -2300,6 +2319,8 @@ components:
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.locations.city parameter to exclude stories whose source city is the
+        specified value.
       explode: true
       in: query
       name: source.locations.city
@@ -2317,6 +2338,8 @@ components:
         codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.locations.country parameter to exclude stories whose source country is the
+        specified value.
       explode: true
       in: query
       name: source.locations.country
@@ -2333,6 +2356,8 @@ components:
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.locations.state parameter to exclude stories whose source state/province
+        is the specified value.
       explode: true
       in: query
       name: source.locations.state
@@ -2345,6 +2370,7 @@ components:
     source_name:
       description: >
         This parameter is used for finding stories whose source name contains
+        the specified value. Use !source.name parameter to exclude stories whose source name contains
         the specified value.
       explode: true
       in: query
@@ -2405,6 +2431,8 @@ components:
         is in range of the specified values. You can read more about
         working with Alexa ranks
         [here](https://docs.aylien.com/newsapi/common-workflows/#alexa-rankings).
+        Use !source.rankings.alexa.rank parameter to exclude stories from sources whose Alexa rank
+        is in range of the specified values.
       in: query
       name: source.rankings.alexa.rank
       schema:
@@ -2418,6 +2446,8 @@ components:
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.scoopes.city parameter to exclude stories whose source scopes is the
+        specified city value.
       explode: true
       in: query
       name: source.scopes.city
@@ -2435,6 +2465,8 @@ components:
         codes. [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations)
         you can find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.scopes.country parameter to exclude stories whose source scopes is the
+        specified country value.
       explode: true
       in: query
       name: source.scopes.country
@@ -2451,6 +2483,8 @@ components:
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use !source.scopes.level parameter to exclude stories whose source scopes is the
+        specified level value.
       explode: true
       in: query
       name: source.scopes.level
@@ -2471,6 +2505,8 @@ components:
         [Here](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations) you can
         find more information about how [to work with
         locations](https://docs.aylien.com/newsapi/common-workflows/#working-with-locations).
+        Use source.scopes.state parameter to exclude stories whose source scopes is the
+        specified state/province value.
       explode: true
       in: query
       name: source.scopes.state
@@ -2534,6 +2570,8 @@ components:
         This parameter is used for finding stories whose title or body contains
         a specific keyword. It supports [boolean
         operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        Use !text parameter to exclude stories whose title or body contains
+        a specific keyword
       in: query
       name: text
       schema:
@@ -2547,6 +2585,8 @@ components:
         This parameter is used for finding stories whose title contains a
         specific keyword. It supports [boolean
         operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        Use !title parameter to exclude stories whose title contains a
+        specific keyword.
       in: query
       name: title
       schema:
@@ -2560,6 +2600,8 @@ components:
         This parameter is used for finding stories whose translation body
         contains a specific keyword. It supports [boolean
         operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        Use !translations.en.body parameter to exclude stories whose translation body
+        contains a specific keyword.
       in: query
       name: translations.en.body
       schema:
@@ -2572,7 +2614,8 @@ components:
       description: >
         This parameter is used for finding stories whose translation title or
         body contains a specific keyword. It supports [boolean
-        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators). Use !translations.en.text parameter to exclude stories whose translation title or
+        body contains a specific keyword.
       in: query
       name: translations.en.text
       schema:
@@ -2586,6 +2629,8 @@ components:
         This parameter is used for finding stories whose translation title
         contains a specific keyword. It supports [boolean
         operators](https://docs.aylien.com/newsapi/common-workflows/#boolean-operators).
+        Use !translations.en.title parameter to exclude stories whose translation title
+        contains a specific keyword.
       in: query
       name: translations.en.title
       schema:
